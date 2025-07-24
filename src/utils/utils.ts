@@ -35,7 +35,7 @@ export function geNumberofWorkingDays(date1: Date, date2: Date): number {
     if (day < 6) ret_val++
   }
 
-  console.log('Remaining working days ' + ret_val)
+  //console.log('Remaining working days ' + ret_val)
   return ret_val
 }
 
@@ -52,6 +52,6 @@ export function createDateFromText1(stringdate: string) {
       retval.setDate(parseInt(tmp[2]) - 1)
     }
   } catch {}
-  console.log('Date is ' + retval.toLocaleDateString())
+  //console.log('Date is ' + retval.toLocaleDateString())
   return retval
 }

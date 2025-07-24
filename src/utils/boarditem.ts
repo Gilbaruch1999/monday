@@ -10,15 +10,15 @@ export class boardItem {
   doneStoryPoints: number
   status: string
   subItems: boardItem[]
-  subitemPoints: number
-  subitemDonePoints: number
+  subitemsPoints: number
+  subitemsDonePoints: number
   DoneDate: Date
   constructor() {
     this.storyPoints = 0
     this.doneStoryPoints = 0
     this.subItems = []
-    this.subitemPoints = 0
-    this.subitemDonePoints = 0
+    this.subitemsPoints = 0
+    this.subitemsDonePoints = 0
   }
 
   updateFields(column_values) {
@@ -45,7 +45,7 @@ export class boardItem {
         case 'DoneDate':
         case 'SubItemDoneDate':
           this.DoneDate = createDateFromText1(column.text)
-          console.log('Done Date' + column.text)
+          //console.log('Done Date' + column.text)
 
           break
         default:
@@ -78,10 +78,10 @@ export class boardItem {
   }
 
   updateSubItemPoints() {
-    this.subitemPoints = this.subItems.reduce((accumulator, object) => {
+    this.subitemsPoints = this.subItems.reduce((accumulator, object) => {
       return accumulator + object.storyPoints
     }, 0)
-    this.subitemDonePoints = this.subItems
+    this.subitemsDonePoints = this.subItems
       .filter((x) => x.status == 'Done')
       .reduce((accumulator, object) => {
         return accumulator + object.storyPoints
@@ -90,14 +90,9 @@ export class boardItem {
     if (this.status == 'Done') {
       this.doneStoryPoints = this.storyPoints
       //console.log('Story is done')
-    } else {
-      if (this.subitemPoints > 0) {
-        var percent = this.subitemDonePoints / this.subitemPoints
-        //console.log('Percent ' + percent)
-        this.doneStoryPoints = Math.round(this.storyPoints * percent)
-      }
     }
-
-    //console.log('Done Story points ' + this.doneStoryPoints)
+    /* console.log("Story " + this.title)
+     console.log('Done Story points ' + this.doneStoryPoints)
+     console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
   }
 }
