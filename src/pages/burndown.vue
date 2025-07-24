@@ -3,9 +3,9 @@
   <v-toolbar color="primary">
 
     <v-checkbox @change="onDetaileGraphChanged()" class="ma-4" v-model="detailedgrpah" label="detailed"></v-checkbox>
-    <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline >
-      <v-radio label="BurnDonw" value="BurnDown"></v-radio>
-      <v-radio label="BurnUp Two" value="BurnUp"></v-radio>
+    <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
+      <v-radio label="BurnDown" value="BurnDown"></v-radio>
+      <v-radio label="BurnUp" value="BurnUp"></v-radio>
       <v-radio label="Delta" value="Delta"></v-radio>
     </v-radio-group>
   </v-toolbar>
@@ -24,8 +24,14 @@
     </v-row>
 
   </div>
-  <div style="width: 1500px ; height: 1000px;">
+  <div v-if="graphType == 'BurnDown'" style="width: 1500px ; height: 1000px;">
     <LineChart v-bind="lineChartProps" />
+  </div>
+  <div v-if="graphType == 'Delta'" style="width: 1500px ; height: 1000px;">
+    <LineChart :chart-data="deltaGraphData" :chart-options="chartOptions" />
+  </div>
+  <div v-if="graphType == 'BurnUp'" style="width: 1500px ; height: 1000px;">
+    <LineChart :chart-data="burnUpGraphData" :chart-options="chartOptions" />
   </div>
 
 </template>
@@ -48,10 +54,13 @@ Chart.register(...registerables, ChartDataLabels);
 const idealValues = ref([]);
 const actualValues = ref([]);
 const burnUpValues = ref([]);
+const deltaValues = ref([]);
 let dataLabels = ref(["1", '2']);
 const mondayapi = inject('monday')
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
+const deltacolor = "rgb(255,0,0)"
+const burnupcolor = "rgb(0,255,0)"
 const getFromDummy = true;
 let predictability = ref("")
 let boardId = ref("")
@@ -64,6 +73,12 @@ let graphType = ref("BurnDown")
 let dataSetsvalues = ref([
 
 ])
+
+
+const chartOptions = ref({
+  responsive: true,
+  maintainAspectRatio: false
+});
 
 let graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
@@ -100,14 +115,15 @@ let graphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-let graphData1 = computed<ChartData<"line">>(() => ({
+
+let deltaGraphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
-      label: "actual",
-      data: actualValues.value,
-      backgroundColor: actualcolor,
-      borderColor: actualcolor,
+      label: "Delta",
+      data: deltaValues.value,
+      backgroundColor: deltacolor,
+      borderColor: deltacolor,
       pointStyle: "circle",
       pointRadius: 12,
       pointHoverRadius: 14,
@@ -122,9 +138,36 @@ let graphData1 = computed<ChartData<"line">>(() => ({
         }
       }
     },
-
   ],
 }));
+
+
+let burnUpGraphData = computed<ChartData<"line">>(() => ({
+  labels: dataLabels.value,
+  datasets: [
+    {
+      label: "BurnUp",
+      data: burnUpValues.value,
+      backgroundColor: burnupcolor,
+      borderColor: burnupcolor,
+      pointStyle: "circle",
+      pointRadius: 12,
+      pointHoverRadius: 14,
+      datalabels: {
+        color: 'black',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          },
+        }
+      }
+    },
+  ],
+}));
+
+
 
 
 const options = {
@@ -145,6 +188,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
   chartData: graphData,
   options,
 });
+
 
 
 
@@ -223,11 +267,8 @@ async function getBoardItems() {
 
   }); // end board loop
   //console.log("item list !!!" + JSON.stringify(itemsList.value))
-
-
   //console.log("Total points " + totalPoints.value)
   //console.log("Total Done points " + totalDonePoints.value)
-
 
 }
 
@@ -276,7 +317,6 @@ function prepareGraph() {
     }, 0);
   }
 
-
   var step = totalPoints.value / (dataLabels.value.length - 4)
   //console.log("Step " + step)
   for (let index = 0; index < dataLabels.value.length; index++) {
@@ -291,7 +331,6 @@ function prepareGraph() {
     }
     idealValues.value[index] = Math.round(idealValues.value[index])
 
-    //console.log("ideal values " + JSON.stringify(idealValues.value[index]))
   }
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
 
@@ -335,6 +374,8 @@ function calcBurnUp() {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
     if ((index + 1) < actualValues.value.length)
       actualValues.value[index + 1] = actualValues.value[index]
+
+    deltaValues.value[index] = actualValues.value[index] - idealValues.value[index]
   }
 
 }
@@ -345,7 +386,7 @@ function onDetaileGraphChanged() {
 }
 
 function graphTypeChanged() {
-console.log("graph type " + graphType.value)
+
 
 }
 
