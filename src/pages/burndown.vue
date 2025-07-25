@@ -1,13 +1,13 @@
 <template>
 
-  <v-toolbar color="primary">
-
+ <v-toolbar color="primary">
     <v-checkbox @change="onDetaileGraphChanged()" class="ma-4" v-model="detailedgrpah" label="detailed"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
       <v-radio label="BurnDown" value="BurnDown"></v-radio>
       <v-radio label="BurnUp" value="BurnUp"></v-radio>
       <v-radio label="Delta" value="Delta"></v-radio>
     </v-radio-group>
+    <v-btn @click="createGraph()" >Get data</v-btn>
   </v-toolbar>
   <div class="ma-4" style="display: flex; justify-content: center">
     <v-row cols="2">
@@ -206,29 +206,30 @@ onMounted(() => {
 
 })
 
-async function createGraph() {
+ function createGraph() {
 
   console.log("In create graph")
 
-  await getContext()
-  await getBoardItems();
+  getContext()
+  getBoardItems();
   prepareGraph();
   calcBurnUp();
 
 }
 
-async function getBoardItems() {
+function getBoardItems() {
 
   var data;
 
   if (getFromDummy) {
     data = getDummyBoardItems(boardId.value);
-    //console.log("Dummy data " + JSON.stringify(data))
+    data = data.data
+    console.log("Dummy data " + JSON.stringify(data))
   }
   else {
     var qstr = getBoardItemsQuery("");
-    //console.log("Query " + qstr)
-    var res = await mondayapi.api(qstr);
+    console.log("Query " + qstr)
+    var res =  mondayapi.api(qstr);
     console.log("res from api" + JSON.stringify(res))
     data = res.data
   }
@@ -272,7 +273,7 @@ async function getBoardItems() {
 
 }
 
-async function getContext() {
+ function getContext() {
   let context = {};
   if (getFromDummy) {
     context = getDummyContext();
@@ -281,7 +282,7 @@ async function getContext() {
   }
   else {
     console.log("Get from API")
-    var res = await mondayapi.get('context')
+    var res = mondayapi.get('context')
     console.log("Res " + JSON.stringify(res))
     context = res.data;
     try {
