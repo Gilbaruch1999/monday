@@ -1,13 +1,13 @@
 <template>
 
- <v-toolbar color="primary">
+  <v-toolbar color="primary">
     <v-checkbox @change="onDetaileGraphChanged()" class="ma-4" v-model="detailedgrpah" label="detailed"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
       <v-radio label="BurnDown" value="BurnDown"></v-radio>
       <v-radio label="BurnUp" value="BurnUp"></v-radio>
       <v-radio label="Delta" value="Delta"></v-radio>
     </v-radio-group>
-    <v-btn @click="createGraph()" >Get data</v-btn>
+    <v-btn @click="createGraph()">Get data</v-btn>
   </v-toolbar>
   <div class="ma-4" style="display: flex; justify-content: center">
     <v-row cols="2">
@@ -24,16 +24,17 @@
     </v-row>
 
   </div>
-  <div v-if="graphType == 'BurnDown'" style="width: 1500px ; height: 1000px;">
+  <div v-if="graphType == 'BurnDown'">
     <LineChart v-bind="lineChartProps" />
   </div>
-  <div v-if="graphType == 'Delta'" style="width: 1500px ; height: 1000px;">
+  <div v-if="graphType == 'Delta'">
     <LineChart :chart-data="deltaGraphData" :chart-options="chartOptions" />
   </div>
-  <div v-if="graphType == 'BurnUp'" style="width: 1500px ; height: 1000px;">
+  <div v-if="graphType == 'BurnUp'">
     <LineChart :chart-data="burnUpGraphData" :chart-options="chartOptions" />
   </div>
 
+  <sprintTable class="ma-8" :sprint-items="itemsList"></sprintTable>
 </template>
 
 <script setup lang='ts'>
@@ -46,7 +47,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
 import { getBoardItemsQuery } from "@/utils/queries";
-import { getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
+import { createDateFromText1, getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
+import sprintTable from "../components/sprintTable.vue"
 
 
 Chart.register(...registerables, ChartDataLabels);
@@ -70,9 +72,9 @@ let totalPoints = ref(0)
 let totalDonePoints = ref(0)
 let detailedgrpah = ref(false)
 let graphType = ref("BurnDown")
-let dataSetsvalues = ref([
-
-])
+const groupid = "group_mks9stxg"
+const sprintStart = new Date(createDateFromText1("27-7-2025"))
+const sprintLength = 14;
 
 
 const chartOptions = ref({
@@ -206,18 +208,18 @@ onMounted(() => {
 
 })
 
- function createGraph() {
+function createGraph() {
 
   console.log("In create graph")
 
   getContext()
-  getBoardItems();
+  getBoardItems(sprintStart, sprintLength);
   prepareGraph();
   calcBurnUp();
 
 }
 
-function getBoardItems() {
+function getBoardItems(sprintStart: Date, sprintLength: number) {
 
   var data;
 
@@ -227,9 +229,9 @@ function getBoardItems() {
     console.log("Dummy data " + JSON.stringify(data))
   }
   else {
-    var qstr = getBoardItemsQuery("");
+    var qstr = getBoardItemsQuery(boardId.value, groupid);
     console.log("Query " + qstr)
-    var res =  mondayapi.api(qstr);
+    var res = mondayapi.api(qstr);
     console.log("res from api" + JSON.stringify(res))
     data = res.data
   }
@@ -253,7 +255,14 @@ function getBoardItems() {
             sbitem.id = subitem.id
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
-            bitem.subItems.push(sbitem)
+            if (sbitem.status != "Done")
+              bitem.subItems.push(sbitem)
+            else
+          {
+            if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
+                bitem.subItems.push(sbitem)
+          }
+
             //console.log("created sub item $$$$$$ " + JSON.stringify(sbitem))
           });
         }
@@ -273,7 +282,7 @@ function getBoardItems() {
 
 }
 
- function getContext() {
+function getContext() {
   let context = {};
   if (getFromDummy) {
     context = getDummyContext();
@@ -388,6 +397,15 @@ function onDetaileGraphChanged() {
 
 function graphTypeChanged() {
 
+
+}
+
+function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number) : boolean{
+  var diff = getDaysdiff(checkDate, startDate)
+  if (diff > 0 && diff <= sprintLen)
+    return true
+  else
+    return false;
 
 }
 

@@ -78,8 +78,8 @@ export function getDummyBoardItems(boardid) {
         "items_page": {
           "items": [
             {
-              "name": "Fix multiple item sale bugs in Idea Forge",
-              "id": "2049312535",
+              "name": "Pivoting the Growth Galaxy - dev only",
+              "id": "2066731819",
               "column_values": [
                 {
                   "column": {
@@ -91,189 +91,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "Yair Klausner"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Yair Klausner"
+                  "text": "gil elazar, Yair Klausner"
                 },
                 {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "title": "Issue Type"
-                  },
-                  "text": "Bug"
-                },
-                {
-                  "column": {
-                    "title": "Story Points"
-                  },
-                  "text": "M"
-                },
-                {
-                  "column": {
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "title": "Points"
-                  },
-                  "text": "4"
-                },
-                {
-                  "column": {
-                    "title": "Done Points"
-                  },
-                  "text": "4"
-                },
-                {
-                  "column": {
-                    "title": "Strategic Category"
-                  },
-                  "text": "Disruptions"
-                },
-                {
-                  "column": {
-                    "title": "DoneDate"
-                  },
-                  "text": "2025-07-22"
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Disable Idea Forge Upgrades Post-Truck Level",
-              "id": "2004056999",
-              "column_values": [
-                {
-                  "column": {
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Yair Klausner"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Yair Klausner"
-                },
-                {
-                  "column": {
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "title": "Issue Type"
-                  },
-                  "text": "Bug"
-                },
-                {
-                  "column": {
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "title": "Points"
-                  },
-                  "text": "1"
-                },
-                {
-                  "column": {
-                    "title": "Done Points"
-                  },
-                  "text": "1"
-                },
-                {
-                  "column": {
-                    "title": "Strategic Category"
-                  },
-                  "text": "Disruptions"
-                },
-                {
-                  "column": {
-                    "title": "DoneDate"
-                  },
-                  "text": "2025-07-21"
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Resident Buys Towel L4",
-              "id": "1973984755",
-              "column_values": [
-                {
-                  "column": {
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina, gil elazar"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar, Katerina"
-                },
-                {
-                  "column": {
-                    "title": "Status"
-                  },
-                  "text": "Ready For Code Review"
+                  "text": "Pending - ToDo"
                 },
                 {
                   "column": {
@@ -285,19 +109,19 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "M"
                 },
                 {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "Idea Forge"
+                  "text": "Growth Galaxy"
                 },
                 {
                   "column": {
                     "title": "Points"
                   },
-                  "text": "2"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -309,7 +133,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "Game Content"
+                  "text": "Not selected yet"
                 },
                 {
                   "column": {
@@ -332,44 +156,8 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "🎨Design L4 Sell Flow",
-                  "id": "1973985434",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-13"
-                    }
-                  ]
-                },
-                {
-                  "name": "🛠️Detect L4 Match",
-                  "id": "1973985509",
+                  "name": "Updated First Star Visual - dev",
+                  "id": "2066734756",
                   "column_values": [
                     {
                       "column": {
@@ -404,8 +192,80 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "🛠️Handle L4 Sale",
-                  "id": "1973985544",
+                  "name": "Personal Growth Exercise - dev",
+                  "id": "2066736577",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Reward Pop-Up: +5 Energy - dev",
+                  "id": "2066743501",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Unlocking Next Exercises - dev",
+                  "id": "2066745211",
                   "column_values": [
                     {
                       "column": {
@@ -442,8 +302,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Resident Buys 3 Towel L5",
-              "id": "1973998295",
+              "name": "Idea Forge Onboarding",
+              "id": "2000151277",
               "column_values": [
                 {
                   "column": {
@@ -455,19 +315,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "Katerina, gil elazar"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
                   "text": "gil elazar, Katerina"
                 },
                 {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -479,7 +333,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "L"
                 },
                 {
                   "column": {
@@ -491,7 +345,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Points"
                   },
-                  "text": "2"
+                  "text": "8"
                 },
                 {
                   "column": {
@@ -503,7 +357,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "Game Content"
+                  "text": "User Needs"
                 },
                 {
                   "column": {
@@ -526,14 +380,158 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "🎨Upgrade Visuals to sell 3 L5 Towels",
-                  "id": "1973998394",
+                  "name": "🎨design - Step 1 Linen locker",
+                  "id": "2004425872",
                   "column_values": [
                     {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": "Katerina"
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-16"
+                    }
+                  ]
+                },
+                {
+                  "name": "🧑‍💻 development - Step 1 Linen locker",
+                  "id": "2004426127",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨design - Step 2 Merge Mechanic",
+                  "id": "2004454093",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-15"
+                    }
+                  ]
+                },
+                {
+                  "name": "🧑‍💻 development - Step 2 Merge Mechanic",
+                  "id": "2004454809",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨design - Step 3 Selling item",
+                  "id": "2004471906",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
                     },
                     {
                       "column": {
@@ -562,116 +560,8 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "🎨Partial Order State",
-                  "id": "1974006412",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🛠️Detect L5 Match",
-                  "id": "1974003463",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🛠️Handle L5 Sale",
-                  "id": "1974005925",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🛠️Handle Partial Orders",
-                  "id": "1974121893",
+                  "name": "🧑‍💻 development - Step 3 Selling item",
+                  "id": "2004472017",
                   "column_values": [
                     {
                       "column": {
@@ -708,8 +598,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Zen Zone first Plant Acquisition - Part 1",
-              "id": "1996719895",
+              "name": "New Set of 5 Idea Items | ״The Growth Cycle״ set",
+              "id": "1978388823",
               "column_values": [
                 {
                   "column": {
@@ -721,19 +611,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "Nir Katzir, Katerina"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir, Katerina"
+                  "text": "Anastasia Kostyuk, gil elazar"
                 },
                 {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -751,7 +635,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "Zen Zone"
+                  "text": "Idea Forge"
                 },
                 {
                   "column": {
@@ -792,188 +676,8 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "🎨Zen Zone Nudge",
-                  "id": "1996739908",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-14"
-                    }
-                  ]
-                },
-                {
-                  "name": "💻Zen Zone Nudge",
-                  "id": "1996739357",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Nir Katzir"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-15"
-                    }
-                  ]
-                },
-                {
-                  "name": "🎨Zen Zone Layout",
-                  "id": "1996768548",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "xL"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-16"
-                    }
-                  ]
-                },
-                {
-                  "name": "💻Zen Zone Unlocks",
-                  "id": "1996769914",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Nir Katzir"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "xL"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-22"
-                    }
-                  ]
-                },
-                {
-                  "name": "🎨Zen Upgrade Icon",
-                  "id": "1996797033",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-16"
-                    }
-                  ]
-                },
-                {
-                  "name": "💻 Icon State Logic",
-                  "id": "1996797314",
+                  "name": "🎨Design one idea item",
+                  "id": "1978388910",
                   "column_values": [
                     {
                       "column": {
@@ -1003,19 +707,19 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2025-07-17"
+                      "text": ""
                     }
                   ]
                 },
                 {
-                  "name": "🎨Cost Pop-up Display",
-                  "id": "1996809048",
+                  "name": "🎨Design one idea item",
+                  "id": "1978422746",
                   "column_values": [
                     {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": "Katerina"
+                      "text": ""
                     },
                     {
                       "column": {
@@ -1039,13 +743,157 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2025-07-17"
+                      "text": ""
                     }
                   ]
                 },
                 {
-                  "name": "💻 Dynamic Purchase Check",
-                  "id": "1996809165",
+                  "name": "🎨Design one idea item",
+                  "id": "1978422415",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Design one idea item",
+                  "id": "1978422313",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Design one idea item",
+                  "id": "1978422117",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Design one idea item",
+                  "id": "2066919628",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🧑‍💻Development",
+                  "id": "1978388897",
                   "column_values": [
                     {
                       "column": {
@@ -1069,79 +917,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🎨  Dream Bloom Reveal",
-                  "id": "1996820953",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
                       "text": "M"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-07-20"
-                    }
-                  ]
-                },
-                {
-                  "name": "💻 Plant Growth & Sound",
-                  "id": "1996821051",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
                     },
                     {
                       "column": {
@@ -1154,8 +930,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Zen Zone first Plant Acquisition - Part 2",
-              "id": "2025913237",
+              "name": "Idea forge Quest #4",
+              "id": "2037600686",
               "column_values": [
                 {
                   "column": {
@@ -1168,12 +944,6 @@ export function getDummyBoardItems(boardid) {
                     "title": "Assigned"
                   },
                   "text": "Yair Klausner"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": ""
                 },
                 {
                   "column": {
@@ -1191,7 +961,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "L"
+                  "text": "S"
                 },
                 {
                   "column": {
@@ -1203,7 +973,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Points"
                   },
-                  "text": "8"
+                  "text": "2"
                 },
                 {
                   "column": {
@@ -1238,8 +1008,8 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "💻 Idea Box Trigger",
-                  "id": "1996875861",
+                  "name": "🎨 Design",
+                  "id": "2037600710",
                   "column_values": [
                     {
                       "column": {
@@ -1263,7 +1033,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "M"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1274,8 +1044,8 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "💻 New Idea Box to Merge",
-                  "id": "1996890121",
+                  "name": "🛠️ Dev",
+                  "id": "2037600724",
                   "column_values": [
                     {
                       "column": {
@@ -1299,7 +1069,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "M"
+                      "text": "Not selected yet"
                     },
                     {
                       "column": {
@@ -1312,8 +1082,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "סידורי אנליטיקס - חלק ב׳",
-              "id": "2048585126",
+              "name": "Idea forge Quest #5",
+              "id": "2037609519",
               "column_values": [
                 {
                   "column": {
@@ -1325,19 +1095,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Pending - ToDo"
                 },
                 {
                   "column": {
@@ -1355,7 +1119,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "General"
+                  "text": "Idea Forge"
                 },
                 {
                   "column": {
@@ -1373,7 +1137,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "Monetization"
+                  "text": "Game Content"
                 },
                 {
                   "column": {
@@ -1396,26 +1160,26 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "Daily Active User Streak 📊 - לסדר בדשבורד מסודר",
-                  "id": "2048585336",
+                  "name": "🎨 Design",
+                  "id": "2037609528",
                   "column_values": [
                     {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": ""
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Ready For Review by The PO"
+                      "text": "Pending - ToDo"
                     },
                     {
                       "column": {
                         "title": "Issue Type"
                       },
-                      "text": "Task"
+                      "text": "Story"
                     },
                     {
                       "column": {
@@ -1432,44 +1196,8 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "Retention Rates 📊 - לסדר בדשבורד מסודר",
-                  "id": "2048585468",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar"
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Working in Progress"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "עדכוני דרכי הצגה - DAU/WAU/MAU 📊",
-                  "id": "2048626035",
+                  "name": "🛠️ Dev",
+                  "id": "2037609530",
                   "column_values": [
                     {
                       "column": {
@@ -1487,79 +1215,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Issue Type"
                       },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "עדכוני דרכי הצגה - Active Streak Days 📊",
-                  "id": "2048640598",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "עדכוני דרכי הצגה - Retention 📊",
-                  "id": "2048640717",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
+                      "text": "Story"
                     },
                     {
                       "column": {
@@ -1578,8 +1234,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "להתחיל מה-idea forge במקום מהgg",
-              "id": "2038154693",
+              "name": "Idea forge Quest #6",
+              "id": "2037609438",
               "column_values": [
                 {
                   "column": {
@@ -1591,25 +1247,19 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "Nir Katzir"
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Pending - ToDo"
                 },
                 {
                   "column": {
                     "title": "Issue Type"
                   },
-                  "text": "Story"
+                  "text": "Epic"
                 },
                 {
                   "column": {
@@ -1621,7 +1271,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "General"
+                  "text": "Idea Forge"
                 },
                 {
                   "column": {
@@ -1633,19 +1283,19 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Done Points"
                   },
-                  "text": "2"
+                  "text": ""
                 },
                 {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "Vision"
+                  "text": "Game Content"
                 },
                 {
                   "column": {
                     "title": "DoneDate"
                   },
-                  "text": "2025-07-16"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -1660,11 +1310,236 @@ export function getDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "🎨 Design",
+                  "id": "2037609474",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🛠️ Dev",
+                  "id": "2037609487",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Star Progress Map Indicators",
-              "id": "1996585982",
+              "name": "Item Highlight",
+              "id": "1994923686",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "Anastasia Kostyuk, Yair Klausner"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Wait"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "title": "Points"
+                  },
+                  "text": "1"
+                },
+                {
+                  "column": {
+                    "title": "Done Points"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date 1"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "🎨Item Highlight design",
+                  "id": "1978455665",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-21"
+                    }
+                  ]
+                },
+                {
+                  "name": "💻 Dev",
+                  "id": "1994930927",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Wait"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Merge Animation",
+              "id": "2037590721",
               "column_values": [
                 {
                   "column": {
@@ -1680,15 +1555,9 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Anastasia"
-                },
-                {
-                  "column": {
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Pending - ToDo"
                 },
                 {
                   "column": {
@@ -1700,37 +1569,37 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "M"
                 },
                 {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "Growth Galaxy"
+                  "text": "Idea Forge"
                 },
                 {
                   "column": {
                     "title": "Points"
                   },
-                  "text": "2"
+                  "text": "4"
                 },
                 {
                   "column": {
                     "title": "Done Points"
                   },
-                  "text": "2"
+                  "text": ""
                 },
                 {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "User Needs"
+                  "text": "Vision"
                 },
                 {
                   "column": {
                     "title": "DoneDate"
                   },
-                  "text": "2025-07-17"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -1742,25 +1611,25 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Date 1"
                   },
-                  "text": "2025-07-22"
+                  "text": ""
                 }
               ],
               "subitems": [
                 {
-                  "name": "🎨design",
-                  "id": "1996597345",
+                  "name": "Animation",
+                  "id": "2037594136",
                   "column_values": [
                     {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Anastasia Kostyuk"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Working in Progress"
                     },
                     {
                       "column": {
@@ -1778,13 +1647,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2025-07-22"
+                      "text": ""
                     }
                   ]
                 },
                 {
-                  "name": "🧑‍💻 development",
-                  "id": "1996599657",
+                  "name": "Implement",
+                  "id": "2037594340",
                   "column_values": [
                     {
                       "column": {
@@ -1796,7 +1665,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Wait"
                     },
                     {
                       "column": {
@@ -1808,13 +1677,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "S"
+                      "text": "M"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2025-07-22"
+                      "text": ""
                     }
                   ]
                 }
@@ -1824,8 +1693,9 @@ export function getDummyBoardItems(boardid) {
         }
       }
     ]
-  },
+  }
 }
+
 
   return res
 }

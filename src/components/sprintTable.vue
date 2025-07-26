@@ -1,0 +1,46 @@
+<template>
+  <v-container fluid class="ma-0">
+
+    <v-data-table class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+      :row-props="rowProps" :items="props.sprintItems" show-expand>
+
+      <template v-slot:expanded-row="{ item }">
+        <v-data-table hide-default-footer dense item-key="id" :headers="issuesheaders" :row-props="rowProps"
+          :items="item.subItems"></v-data-table>
+      </template>
+    </v-data-table>
+
+  </v-container>
+</template>
+
+
+<script setup lang='ts'>
+import { boardItem } from '@/utils/boarditem';
+
+//const props = defineProps<boardItem[]>();
+
+const props = defineProps({
+  sprintItems: {
+    type: boardItem[0],
+    required: true
+  },
+});
+
+
+const issuesheaders: any = [
+  { title: 'Id', key: 'id' },
+  { title: 'Title', key: 'title' },
+  { title: 'Type', key: "type" },
+  { title: "Status", key: "status" },
+  { title: "Estimated Effort", key: "sizeEstimation" },
+  { title: "Owner", key: "assignedTo" },
+]
+
+
+function rowProps(data: any) {
+  //console.log("Row props xxx" + JSON.stringify(data.item))
+  if (data.item.status == "Done")
+    return { class: 'done_bg' }
+}
+
+</script>
