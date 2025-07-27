@@ -226,7 +226,7 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
   if (getFromDummy) {
     data = getDummyBoardItems(boardId.value);
     data = data.data
-    console.log("Dummy data " + JSON.stringify(data))
+    //console.log("Dummy data " + JSON.stringify(data))
   }
   else {
     var qstr = getBoardItemsQuery(boardId.value, groupid);
@@ -347,10 +347,19 @@ function prepareGraph() {
 }
 
 function calcBurnUp() {
-  const startDate = new Date(2025, 6, 13, 0, 0, 0, 0); // July 22, 2025, 7:24 PM local time
 
-  burnUpValues.value = new Array(14).fill(0)
-  actualValues.value = new Array(14).fill(0)
+
+  var tmp = createDateFromText1("27-7-2025")
+  console.log("PPPPPPP " + tmp.toLocaleDateString())
+  var tmpd = new Date(tmp)
+  console.log( "test date " + tmpd.toLocaleDateString())
+
+  //const startDate = new Date(2025, 6, 13, 0, 0, 0, 0); // July 22, 2025,
+  console.log("Sprint start " + sprintStart.toLocaleDateString())
+  var currentIndex = getDaysdiff(new Date() , sprintStart)
+  console.log("Current Index " + currentIndex)
+  burnUpValues.value = new Array(currentIndex+1).fill(0)
+  actualValues.value = new Array(currentIndex+1).fill(0)
 
   if (detailedgrpah.value) {
     var notdoneitems = itemsList.value.filter(x => x.status != "Done" && x.subItems.length > 0)
@@ -358,8 +367,8 @@ function calcBurnUp() {
       //console.log("Subitems " + JSON.stringify(element.subItems))
       element.subItems.forEach(subitem => {
         if (subitem.status == "Done") {
-          var index = getDaysdiff(subitem.DoneDate, startDate)
-          if (index >= 0) {
+          var index = getDaysdiff(subitem.DoneDate, sprintStart)
+          if ((index >= 0) && (index <=currentIndex) ){
             //console.log("Date " + subitem.DoneDate.toLocaleDateString() + "  index " + index)
             burnUpValues.value[index] = burnUpValues.value[index] + subitem.storyPoints;
           }
@@ -371,13 +380,16 @@ function calcBurnUp() {
     var doneitems = itemsList.value.filter(x => x.status == "Done")
     //console.log("Done items " + JSON.stringify(doneitems))
     doneitems.forEach(element => {
-      var index = getDaysdiff(element.DoneDate, startDate)
+      //console.log("Sprint start " + sprintStart.toLocaleDateString())
+      //  console.log("Done date " + element.DoneDate.toLocaleDateString())
+      var index = getDaysdiff(element.DoneDate, sprintStart)
       //console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
-      if (index >= 0)
+        if ((index >= 0) && (index <=currentIndex) )
         burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
     });
   }
 
+  var currentIndex = getDaysdiff(new Date() , sprintStart)
   actualValues.value[0] = totalPoints.value
   for (let index = 0; index < actualValues.value.length; index++) {
     //console.log("Actual values of index " + index + " " + actualValues.value[index])

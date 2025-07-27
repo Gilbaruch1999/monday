@@ -4,11 +4,13 @@ export class boardItem {
   id: string;
   title: string;
   domain: string;
-  type : string;
+  stratigicCategory: string;
+  type: string;
   assignedTo: string;
   sizeEstimation: string;
   storyPoints: number;
   doneStoryPoints: number;
+  percentDone : number
   status: string;
   subItems: boardItem[];
   subitemsPoints: number;
@@ -20,6 +22,7 @@ export class boardItem {
     this.subItems = [];
     this.subitemsPoints = 0;
     this.subitemsDonePoints = 0;
+    this.percentDone = 0;
   }
 
   updateFields(column_values) {
@@ -31,6 +34,9 @@ export class boardItem {
           break;
         case "Domain":
           this.domain = column.text;
+          break;
+        case "Strategic Category":
+          this.stratigicCategory = column.text;
           break;
         case "Story Points":
           this.sizeEstimation = column.text;
@@ -46,6 +52,7 @@ export class boardItem {
         case "Issue Type":
           this.type = column.text;
           break;
+
         case "DoneDate":
         case "SubItemDoneDate":
           this.DoneDate = createDateFromText1(column.text);
@@ -92,8 +99,16 @@ export class boardItem {
       }, 0);
 
     if (this.status == "Done") {
+      this.percentDone = 100
       this.doneStoryPoints = this.storyPoints;
       //console.log('Story is done')
+    }
+    else
+    {
+      if (this.subitemsPoints > 0 )
+      {
+        this.percentDone =  Math.round((100 * this.doneStoryPoints) / this.subitemsPoints)
+      }
     }
     /* console.log("Story " + this.title)
      console.log('Done Story points ' + this.doneStoryPoints)

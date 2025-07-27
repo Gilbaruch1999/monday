@@ -17,6 +17,7 @@ export function addDays(date: Date, days: number): number {
 export const MsecInOneDay = 1000 * 3600 * 24
 
 export function getDaysdiff(date1: Date, date2: Date): number {
+
   var res = -1
   try {
     res = Math.floor((date1.getTime() - date2.getTime()) / MsecInOneDay)
@@ -47,9 +48,9 @@ export function createDateFromText1(stringdate: string) {
     if (tmp.length != 3) return null
     else {
       retval = new Date()
-      retval.setFullYear(parseInt(tmp[0]))
+      retval.setFullYear(parseInt(tmp[2]))
       retval.setMonth(parseInt(tmp[1]) - 1)
-      retval.setDate(parseInt(tmp[2]) - 1)
+      retval.setDate(parseInt(tmp[0]))
     }
   } catch {}
   //console.log('Date is ' + retval.toLocaleDateString())

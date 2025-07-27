@@ -1,8 +1,15 @@
 <template>
   <v-container fluid class="ma-0">
 
-    <v-data-table class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
-      :row-props="rowProps" :items="props.sprintItems" show-expand>
+    <v-data-table class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders" show-expand
+      :row-props="rowProps" :items="props.sprintItems">
+
+      <template v-slot:item.percentDone="{ value }">
+        <v-progress-linear height="25" style="color: blue; background-color: darkcyan">
+          <span style="color:white"> {{ value }}  %</span>
+        </v-progress-linear>
+
+      </template>
 
       <template v-slot:expanded-row="{ item }">
         <v-data-table hide-default-footer dense item-key="id" :headers="issuesheaders" :row-props="rowProps"
@@ -14,7 +21,11 @@
 </template>
 
 
+
 <script setup lang='ts'>
+
+
+
 import { boardItem } from '@/utils/boarditem';
 
 //const props = defineProps<boardItem[]>();
@@ -33,7 +44,11 @@ const issuesheaders: any = [
   { title: 'Type', key: "type" },
   { title: "Status", key: "status" },
   { title: "Estimated Effort", key: "sizeEstimation" },
+  { title: "Percent Done", key: "percentDone" },
   { title: "Owner", key: "assignedTo" },
+  { title: "Domain", key: "domain" },
+  { title: "Category", key: "stratigicCategory" },
+
 ]
 
 
