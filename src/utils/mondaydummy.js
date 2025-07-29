@@ -97,7 +97,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Ready For Code Review"
                 },
                 {
                   "column": {
@@ -116,6 +116,490 @@ export function getDummyBoardItems(boardid) {
                     "title": "Domain"
                   },
                   "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "title": "Points"
+                  },
+                  "text": "4"
+                },
+                {
+                  "column": {
+                    "title": "Done Points"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date 1"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Updated First Star Visual - dev",
+                  "id": "2066734756",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Yair Klausner"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Ready For Code Review"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Personal Growth Exercise - dev",
+                  "id": "2066736577",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Yair Klausner"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Ready For Code Review"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Reward Pop-Up: +5 Energy - dev",
+                  "id": "2066743501",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Yair Klausner"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Ready For Code Review"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Unlocking Next Exercises - dev",
+                  "id": "2066745211",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Yair Klausner"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Ready For Code Review"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "סידורי אנליטיקס - חלק ב׳",
+              "id": "2048585126",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "title": "Points"
+                  },
+                  "text": "2"
+                },
+                {
+                  "column": {
+                    "title": "Done Points"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Monetization"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-07-27"
+                },
+                {
+                  "column": {
+                    "title": "Date"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date 1"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Daily Active User Streak 📊 - לסדר בדשבורד מסודר",
+                  "id": "2048585336",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-27"
+                    }
+                  ]
+                },
+                {
+                  "name": "Retention Rates 📊 - לסדר בדשבורד מסודר",
+                  "id": "2048585468",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-27"
+                    }
+                  ]
+                },
+                {
+                  "name": "עדכוני דרכי הצגה - DAU/WAU/MAU 📊",
+                  "id": "2048626035",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Working in Progress"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "עדכוני דרכי הצגה - Retention 📊",
+                  "id": "2048640717",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Working in Progress"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "עדכוני דרכי הצגה - Active Streak Days 📊",
+                  "id": "2048640598",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Working in Progress"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "Not selected yet"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "App Icon Update",
+              "id": "2071242521",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Pending - ToDo"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "Not selected yet"
                 },
                 {
                   "column": {
@@ -154,152 +638,7 @@ export function getDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": [
-                {
-                  "name": "Updated First Star Visual - dev",
-                  "id": "2066734756",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Personal Growth Exercise - dev",
-                  "id": "2066736577",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Reward Pop-Up: +5 Energy - dev",
-                  "id": "2066743501",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Unlocking Next Exercises - dev",
-                  "id": "2066745211",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
+              "subitems": []
             },
             {
               "name": "Idea Forge Onboarding",
@@ -315,7 +654,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "gil elazar, Katerina"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
@@ -617,7 +956,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Ready For Code Review"
                 },
                 {
                   "column": {
@@ -641,7 +980,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Points"
                   },
-                  "text": "16"
+                  "text": "8"
                 },
                 {
                   "column": {
@@ -869,19 +1208,19 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Ready For By Design"
                     },
                     {
                       "column": {
                         "title": "Issue Type"
                       },
-                      "text": "Not selected yet"
+                      "text": "Story"
                     },
                     {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -905,7 +1244,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -923,7 +1262,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-07-27"
                     }
                   ]
                 }
@@ -949,7 +1288,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Ready For Code Review"
                 },
                 {
                   "column": {
@@ -1069,7 +1408,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1101,7 +1440,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Ready For Code Review"
                 },
                 {
                   "column": {
@@ -1221,7 +1560,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1253,7 +1592,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Ready For Code Review"
                 },
                 {
                   "column": {
@@ -1373,7 +1712,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1538,7 +1877,7 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Merge Animation",
+              "name": "Merge Animation - only Animation",
               "id": "2037590721",
               "column_values": [
                 {
@@ -1551,7 +1890,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Assigned"
                   },
-                  "text": "Anastasia Kostyuk, Nir Katzir"
+                  "text": "Anastasia Kostyuk"
                 },
                 {
                   "column": {
@@ -1563,13 +1902,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Issue Type"
                   },
-                  "text": "Epic"
+                  "text": "Story"
                 },
                 {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "M"
+                  "text": "S"
                 },
                 {
                   "column": {
@@ -1650,10 +1989,90 @@ export function getDummyBoardItems(boardid) {
                       "text": ""
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "name": "Zen Zone first Plant Acquisition - Part 2",
+              "id": "2025913237",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
                 },
                 {
-                  "name": "Implement",
-                  "id": "2037594340",
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "Yair Klausner"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Ready For Code Review"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "title": "Story Points"
+                  },
+                  "text": "L"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "title": "Points"
+                  },
+                  "text": "8"
+                },
+                {
+                  "column": {
+                    "title": "Done Points"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Date 1"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "💻 Idea Box Trigger",
+                  "id": "1996875861",
                   "column_values": [
                     {
                       "column": {
@@ -1665,7 +2084,43 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Wait"
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "💻 New Idea Box to Merge",
+                  "id": "1996890121",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
                     },
                     {
                       "column": {
@@ -1695,7 +2150,5 @@ export function getDummyBoardItems(boardid) {
     ]
   }
 }
-
-
   return res
 }

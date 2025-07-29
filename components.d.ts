@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SprintGoals: typeof import('./src/components/sprintGoals.vue')['default']
     SprintTable: typeof import('./src/components/sprintTable.vue')['default']
   }
 }
