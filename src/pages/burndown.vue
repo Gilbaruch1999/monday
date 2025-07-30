@@ -24,7 +24,7 @@
     </v-row>
 
   </div>
-  <sprintGoals  v-if="graphType == 'Goals'" :sprint-goals="CurrentSrintGoals"></sprintGoals>
+  <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
 
   <div v-if="graphType == 'BurnDown'">
     <LineChart v-bind="lineChartProps" />
@@ -52,8 +52,6 @@ import { getBoardItemsQuery } from "@/utils/queries";
 import { createDateFromText1, getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
 import sprintTable from "../components/sprintTable.vue"
 import sprintGoals from "../components/sprintGoals.vue"
-import { sprintGoal } from "@/utils/sprintGoal";
-
 
 Chart.register(...registerables, ChartDataLabels);
 
@@ -80,8 +78,6 @@ const groupid = "group_mks9stxg"
 const sprintStart = new Date(createDateFromText1("27-7-2025"))
 const sprintLength = 14;
 let getBtnHeader = ref("get API Data")
-
-let CurrentSrintGoals: sprintGoal[] = [];
 
 
 
@@ -216,20 +212,19 @@ onMounted(() => {
 function createGraph() {
   if (getFromDummy.value) {
     getFromDummy.value = false;
-     getBtnHeader.value = "Get From DB"
+    getBtnHeader.value = "Get From DB"
   }
   else {
 
-     getFromDummy.value = true;
-     getBtnHeader.value = "Get From API"
+    getFromDummy.value = true;
+    getBtnHeader.value = "Get From API"
 
   }
-   console.log("In create graph. getfrom dummy " + getFromDummy.value)
+  console.log("In create graph. getfrom dummy " + getFromDummy.value)
   getContext()
   getBoardItems(sprintStart, sprintLength);
   prepareGraph();
   calcBurnUp();
-  getSprintGoals();
 
 }
 
@@ -256,8 +251,7 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
       console.log("No boards")
 
   }
-  catch
-  {
+  catch {
     data = {}
     console.log("Error from API " + JSON.stringify(data))
     data['boards'] = []
@@ -304,9 +298,6 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
     }); // end item loop
 
   }); // end board loop
-  //console.log("item list !!!" + JSON.stringify(itemsList.value))
-  //console.log("Total points " + totalPoints.value)
-  //console.log("Total Done points " + totalDonePoints.value)
 
 }
 
@@ -333,8 +324,7 @@ function getContext() {
   }
 }
 
-function resetData()
-{
+function resetData() {
   var currentIndex = getDaysdiff(new Date(), sprintStart)
   burnUpValues.value = new Array(currentIndex + 1).fill(0)
   actualValues.value = new Array(currentIndex + 1).fill(0)
@@ -387,21 +377,22 @@ function prepareGraph() {
 
 function calcBurnUp() {
 
-
-  var tmp = createDateFromText1("27-7-2025")
-  //const startDate = new Date(2025, 6, 13, 0, 0, 0, 0); // July 22, 2025,
-  //console.log("Sprint start " + sprintStart.toLocaleDateString())
-
-
+  var currentIndex = getDaysdiff(new Date(), sprintStart)
+  //console.log("sprint start " + JSON.stringify(sprintStart.toLocaleDateString()))
   if (detailedgrpah.value) {
-    var notdoneitems = itemsList.value.filter(x => x.status != "Done" && x.subItems.length > 0)
-    notdoneitems.forEach(element => {
-      //console.log("Subitems " + JSON.stringify(element.subItems))
+    var detailedItems = itemsList.value.filter(x=>x.subItems.length > 0)
+    //console.log("Not done items " + JSON.stringify(notdoneitems))
+    detailedItems.forEach(element => {
+    console.log("parent item " + element.title + " status " + element.status)
+
       element.subItems.forEach(subitem => {
+        console.log("Sub item " + subitem.title + " status " + subitem.status)
         if (subitem.status == "Done") {
+
           var index = getDaysdiff(subitem.DoneDate, sprintStart)
+           console.log("Date XXXXX" + subitem.DoneDate.toLocaleDateString() + "  index " + index)
           if ((index >= 0) && (index <= currentIndex)) {
-            //console.log("Date " + subitem.DoneDate.toLocaleDateString() + "  index " + index)
+
             burnUpValues.value[index] = burnUpValues.value[index] + subitem.storyPoints;
           }
         }
@@ -410,16 +401,16 @@ function calcBurnUp() {
   }
   else {
     var doneitems = itemsList.value.filter(x => x.status == "Done")
-    //console.log("Done items " + JSON.stringify(doneitems))
+    //console.log("Done ites "  + JSON.stringify(doneitems))
     doneitems.forEach(element => {
-      //console.log("Sprint start " + sprintStart.toLocaleDateString())
-      //  console.log("Done date " + element.DoneDate.toLocaleDateString())
       var index = getDaysdiff(element.DoneDate, sprintStart)
-      //console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
+       console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
+
       if ((index >= 0) && (index <= currentIndex))
         burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
     });
   }
+  console.log("Burn up" + JSON.stringify(burnUpValues.value))
 
   var currentIndex = getDaysdiff(new Date(), sprintStart)
   actualValues.value[0] = totalPoints.value
@@ -446,41 +437,15 @@ function graphTypeChanged() {
 
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
   var diff = getDaysdiff(checkDate, startDate)
-  if (diff > 0 && diff <= sprintLen)
+  //console.log("Check date " + checkDate.toLocaleDateString() + " diff " + diff)
+
+  if ((diff >= 0) && (diff <= sprintLen))
     return true
   else
     return false;
 
 }
 
-function getSprintGoals()
-{
-  var sp = new sprintGoal()
-  CurrentSrintGoals = []
-  sp.title = "test 1"
-  sp.status = "status 1"
-  sp.category = 'Minimum'
-   CurrentSrintGoals.push(sp);
-
-
-  sp = new sprintGoal()
-  sp.title = "test 2"
-  sp.status = "status 2"
-  sp.category = 'Target'
-  CurrentSrintGoals.push(sp);
-
-  sp = new sprintGoal()
-  sp.title = "test 3"
-  sp.status = "status 22"
-  sp.category = 'Target'
-  CurrentSrintGoals.push(sp);
-
-  sp = new sprintGoal()
-  sp.title = "out stnading test 3"
-  sp.status = "status 33"
-  sp.category = 'Outstanding'
-  CurrentSrintGoals.push(sp);
-}
 
 
 

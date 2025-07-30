@@ -70,7 +70,7 @@ export function getDummyContext() {
   return res
 }
 export function getDummyBoardItems(boardid) {
-  console.log('Boardid ' + boardid)
+
   const res = {
   "data": {
     "boards": [
@@ -97,7 +97,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -137,21 +137,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -333,7 +327,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "M"
                 },
                 {
                   "column": {
@@ -361,21 +355,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
                   "text": "2025-07-27"
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
                 }
               ],
               "subitems": [
@@ -387,7 +375,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
@@ -423,7 +411,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
@@ -459,7 +447,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
@@ -477,7 +465,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
@@ -495,13 +483,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Working in Progress"
+                      "text": "Pending - ToDo"
                     },
                     {
                       "column": {
@@ -513,7 +501,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
@@ -531,13 +519,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Working in Progress"
+                      "text": "Pending - ToDo"
                     },
                     {
                       "column": {
@@ -549,7 +537,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
@@ -581,13 +569,13 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Done"
                 },
                 {
                   "column": {
                     "title": "Issue Type"
                   },
-                  "text": "Story"
+                  "text": "Epic"
                 },
                 {
                   "column": {
@@ -599,7 +587,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Domain"
                   },
-                  "text": "Not selected yet"
+                  "text": "Where We At? 🕵️‍♂️"
                 },
                 {
                   "column": {
@@ -617,25 +605,19 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Strategic Category"
                   },
-                  "text": "Not selected yet"
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
                 },
                 {
                   "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": []
@@ -660,7 +642,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -700,19 +682,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
                   },
                   "text": ""
                 }
@@ -762,13 +738,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Working in Progress"
                     },
                     {
                       "column": {
@@ -780,7 +756,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -834,7 +810,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -852,7 +828,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
@@ -906,7 +882,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -924,7 +900,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -956,7 +932,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -996,21 +972,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -1202,43 +1172,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Ready For By Design"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🧑‍💻Development",
-                  "id": "1978388897",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
+                      "text": "Anastasia Kostyuk"
                     },
                     {
                       "column": {
@@ -1257,6 +1191,42 @@ export function getDummyBoardItems(boardid) {
                         "title": "Story Points"
                       },
                       "text": "M"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-07-29"
+                    }
+                  ]
+                },
+                {
+                  "name": "🧑‍💻Development",
+                  "id": "1978388897",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Yair Klausner"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Ready For Code Review"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1288,7 +1258,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1328,21 +1298,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -1360,7 +1324,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1378,7 +1342,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-07-30"
                     }
                   ]
                 },
@@ -1396,7 +1360,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1414,7 +1378,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-07-30"
                     }
                   ]
                 }
@@ -1440,7 +1404,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1480,21 +1444,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -1512,7 +1470,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1530,7 +1488,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-07-30"
                     }
                   ]
                 },
@@ -1548,7 +1506,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1566,7 +1524,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-07-30"
                     }
                   ]
                 }
@@ -1592,7 +1550,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1632,21 +1590,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -1784,19 +1736,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
                   },
                   "text": ""
                 }
@@ -1896,7 +1842,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Pending - ToDo"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -1936,19 +1882,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
                   },
                   "text": ""
                 }
@@ -2012,7 +1952,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Ready For Code Review"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -2052,21 +1992,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Date 1"
-                  },
-                  "text": ""
+                  "text": "2025-07-30"
                 }
               ],
               "subitems": [
@@ -2149,6 +2083,7 @@ export function getDummyBoardItems(boardid) {
       }
     ]
   }
+
 }
   return res
 }

@@ -42,7 +42,7 @@ export function geNumberofWorkingDays(date1: Date, date2: Date): number {
 
 export function createDateFromText1(stringdate: string) {
   var retval: Date
-  // format yyyy-mm-dd
+  // format dd-mm-yyyy
   try {
     var tmp = stringdate.split('-')
     if (tmp.length != 3) return null
@@ -51,6 +51,25 @@ export function createDateFromText1(stringdate: string) {
       retval.setFullYear(parseInt(tmp[2]))
       retval.setMonth(parseInt(tmp[1]) - 1)
       retval.setDate(parseInt(tmp[0]))
+    }
+  } catch {}
+  //console.log('Date is ' + retval.toLocaleDateString())
+  return retval
+}
+
+
+export function createDateFromText2(stringdate: string) {
+
+  var retval: Date
+  // format yyyy-mm-dd
+  try {
+    var tmp = stringdate.split('-')
+    if (tmp.length != 3) return null
+    else {
+      retval = new Date()
+      retval.setFullYear(parseInt(tmp[0]))
+      retval.setMonth(parseInt(tmp[1]) - 1)
+      retval.setDate(parseInt(tmp[2]))
     }
   } catch {}
   //console.log('Date is ' + retval.toLocaleDateString())

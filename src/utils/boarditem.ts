@@ -1,16 +1,17 @@
-import { createDateFromText1 } from "./utils";
+import { createDateFromText1, createDateFromText2 } from "./utils";
 
 export class boardItem {
   id: string;
   title: string;
   domain: string;
   stratigicCategory: string;
+  goalCategory: string;
   type: string;
   assignedTo: string;
   sizeEstimation: string;
   storyPoints: number;
   doneStoryPoints: number;
-  percentDone : number
+  percentDone: number;
   status: string;
   subItems: boardItem[];
   subitemsPoints: number;
@@ -38,6 +39,9 @@ export class boardItem {
         case "Strategic Category":
           this.stratigicCategory = column.text;
           break;
+        case "Goal Category":
+          this.goalCategory = column.text;
+          break;
         case "Story Points":
           this.sizeEstimation = column.text;
           break;
@@ -55,8 +59,11 @@ export class boardItem {
 
         case "DoneDate":
         case "SubItemDoneDate":
-          this.DoneDate = createDateFromText1(column.text);
-          //console.log('Done Date' + column.text)
+          //console.log("item  " + this.title + " done date " + column.text);
+          if (this.status == "Done") {
+            this.DoneDate = createDateFromText2(column.text);
+           // console.log("Done Date " + this.DoneDate.toLocaleDateString()) ;
+          }
 
           break;
         default:
@@ -99,15 +106,14 @@ export class boardItem {
       }, 0);
 
     if (this.status == "Done") {
-      this.percentDone = 100
+      this.percentDone = 100;
       this.doneStoryPoints = this.storyPoints;
       //console.log('Story is done')
-    }
-    else
-    {
-      if (this.subitemsPoints > 0 )
-      {
-        this.percentDone =  Math.round((100 * this.doneStoryPoints) / this.subitemsPoints)
+    } else {
+      if (this.subitemsPoints > 0) {
+        this.percentDone = Math.round(
+          (100 * this.doneStoryPoints) / this.subitemsPoints
+        );
       }
     }
     /* console.log("Story " + this.title)
