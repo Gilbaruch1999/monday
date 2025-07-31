@@ -2,6 +2,7 @@
 
   <v-toolbar color="primary">
     <v-checkbox @change="onDetaileGraphChanged()" class="ma-4" v-model="detailedgrpah" label="detailed"></v-checkbox>
+    <v-checkbox class="ma-4" v-model="detailedList" label="List"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
       <v-radio label="BurnDown" value="BurnDown"></v-radio>
       <v-radio label="BurnUp" value="BurnUp"></v-radio>
@@ -12,12 +13,12 @@
   </v-toolbar>
   <div class="ma-4" style="display: flex; justify-content: center">
     <v-row cols="2">
-      <v-card class="ma-4">
+      <v-card class="ma-4" color="primary">
         <v-card-title>Predictability </v-card-title>
         <v-card-text> {{ predictability }} </v-card-text>
       </v-card>
 
-      <v-card class="ma-4">
+      <v-card class="ma-4" color="primary">
         <v-card-title>Velocity </v-card-title>
         <v-card-text>{{ totalDonePoints }} </v-card-text>
       </v-card>
@@ -36,7 +37,7 @@
     <LineChart :chart-data="burnUpGraphData" :chart-options="chartOptions" />
   </div>
 
-  <sprintTable class="ma-8" :sprint-items="itemsList"></sprintTable>
+  <sprintTable v-if="detailedList" class="ma-8" :sprint-items="itemsList"></sprintTable>
 </template>
 
 <script setup lang='ts'>
@@ -73,6 +74,7 @@ let itemsList: Ref<boardItem[]> = ref([]);
 let totalPoints = ref(0)
 let totalDonePoints = ref(0)
 let detailedgrpah = ref(false)
+let detailedList = ref(false)
 let graphType = ref("BurnDown")
 const groupid = "group_mks9stxg"
 const sprintStart = new Date(createDateFromText1("27-7-2025"))
@@ -210,7 +212,7 @@ onMounted(() => {
 })
 
 function createGraph() {
-  if (getFromDummy.value) {
+ /* if (getFromDummy.value) {
     getFromDummy.value = false;
     getBtnHeader.value = "Get From DB"
   }
@@ -219,8 +221,9 @@ function createGraph() {
     getFromDummy.value = true;
     getBtnHeader.value = "Get From API"
 
-  }
-  console.log("In create graph. getfrom dummy " + getFromDummy.value)
+  }*/
+  getBtnHeader.value = "Update data"
+  //console.log("In create graph. getfrom dummy " + getFromDummy.value)
   getContext()
   getBoardItems(sprintStart, sprintLength);
   prepareGraph();
@@ -228,7 +231,7 @@ function createGraph() {
 
 }
 
-function getBoardItems(sprintStart: Date, sprintLength: number) {
+async function getBoardItems(sprintStart: Date, sprintLength: number) {
 
   var data;
 
@@ -241,9 +244,9 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
   }
   else {
     var qstr = getBoardItemsQuery(boardId.value, groupid);
-    console.log("Query " + qstr)
-    var res = mondayapi.api(qstr);
-    console.log("get from api" + JSON.stringify(res))
+    // console.log("Query " + qstr)
+    var res = await mondayapi.api(qstr);
+    console.log("get boards from api" + JSON.stringify(res))
     data = res.data
   }
   try {
@@ -260,9 +263,8 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
 
 
   data.boards.forEach(board => {
-    //console.log("Elemnt " + JSON.stringify(element))
     board.items_page.items.forEach(item => {
-      //console.log("item " + JSON.stringify(item))
+      console.log("item " + JSON.stringify(item))
       var bitem: boardItem = new boardItem();
       bitem.title = item.name
       bitem.id = item.id
@@ -301,7 +303,7 @@ function getBoardItems(sprintStart: Date, sprintLength: number) {
 
 }
 
-function getContext() {
+async function getContext() {
   let context = {};
   if (getFromDummy.value) {
     context = getDummyContext();
@@ -309,13 +311,14 @@ function getContext() {
     boardId.value = context['boardId']
   }
   else {
-    console.log("Get from API")
-    var res = mondayapi.get('context')
-    console.log("Res " + JSON.stringify(res))
+
+    //console.log("Get from API async ")
+    var res = await mondayapi.get('context')
+    //console.log("Res " + JSON.stringify(res))
     context = res.data;
     try {
       boardId.value = context['boardId']
-      //console.log("Board id " + boardId.value)
+      console.log("Board id " + boardId.value)
     }
     catch {
 
@@ -380,17 +383,17 @@ function calcBurnUp() {
   var currentIndex = getDaysdiff(new Date(), sprintStart)
   //console.log("sprint start " + JSON.stringify(sprintStart.toLocaleDateString()))
   if (detailedgrpah.value) {
-    var detailedItems = itemsList.value.filter(x=>x.subItems.length > 0)
+    var detailedItems = itemsList.value.filter(x => x.subItems.length > 0)
     //console.log("Not done items " + JSON.stringify(notdoneitems))
     detailedItems.forEach(element => {
-    console.log("parent item " + element.title + " status " + element.status)
+      //console.log("parent item " + element.title + " status " + element.status)
 
       element.subItems.forEach(subitem => {
-        console.log("Sub item " + subitem.title + " status " + subitem.status)
+        //console.log("Sub item " + subitem.title + " status " + subitem.status)
         if (subitem.status == "Done") {
 
           var index = getDaysdiff(subitem.DoneDate, sprintStart)
-           console.log("Date XXXXX" + subitem.DoneDate.toLocaleDateString() + "  index " + index)
+          //console.log("Date XXXXX" + subitem.DoneDate.toLocaleDateString() + "  index " + index)
           if ((index >= 0) && (index <= currentIndex)) {
 
             burnUpValues.value[index] = burnUpValues.value[index] + subitem.storyPoints;
@@ -404,13 +407,13 @@ function calcBurnUp() {
     //console.log("Done ites "  + JSON.stringify(doneitems))
     doneitems.forEach(element => {
       var index = getDaysdiff(element.DoneDate, sprintStart)
-       console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
+      console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
 
       if ((index >= 0) && (index <= currentIndex))
         burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
     });
   }
-  console.log("Burn up" + JSON.stringify(burnUpValues.value))
+  //console.log("Burn up" + JSON.stringify(burnUpValues.value))
 
   var currentIndex = getDaysdiff(new Date(), sprintStart)
   actualValues.value[0] = totalPoints.value
@@ -429,6 +432,7 @@ function onDetaileGraphChanged() {
   prepareGraph();
   calcBurnUp()
 }
+
 
 function graphTypeChanged() {
 
