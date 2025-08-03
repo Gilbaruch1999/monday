@@ -211,23 +211,15 @@ onMounted(() => {
 
 })
 
-function createGraph() {
- /* if (getFromDummy.value) {
-    getFromDummy.value = false;
-    getBtnHeader.value = "Get From DB"
-  }
-  else {
+async function createGraph() {
 
-    getFromDummy.value = true;
-    getBtnHeader.value = "Get From API"
-
-  }*/
   getBtnHeader.value = "Update data"
-  //console.log("In create graph. getfrom dummy " + getFromDummy.value)
-  getContext()
-  getBoardItems(sprintStart, sprintLength);
+  console.log("In create graph. getfrom dummy " + getFromDummy.value)
+  await getContext()
+  await getBoardItems(sprintStart, sprintLength);
   prepareGraph();
   calcBurnUp();
+  console.log(" At end of create grpah")
 
 }
 
@@ -246,7 +238,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
     var qstr = getBoardItemsQuery(boardId.value, groupid);
     // console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
-    console.log("get boards from api" + JSON.stringify(res))
+    //console.log("get boards from api" + JSON.stringify(res))
     data = res.data
   }
   try {
@@ -264,7 +256,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
 
   data.boards.forEach(board => {
     board.items_page.items.forEach(item => {
-      console.log("item " + JSON.stringify(item))
+      //console.log("item " + JSON.stringify(item))
       var bitem: boardItem = new boardItem();
       bitem.title = item.name
       bitem.id = item.id
@@ -338,7 +330,7 @@ function resetData() {
 
 function prepareGraph() {
   resetData()
-  //console.log("Total points " + totalPoints.value)
+
   if (detailedgrpah.value) {
     totalPoints.value = itemsList.value.reduce((accumulator, object) => {
       return accumulator + object.subitemsPoints;
@@ -375,6 +367,7 @@ function prepareGraph() {
 
   }
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
+ console.log("End of prepare graph. Total points " + totalPoints.value)
 
 }
 
@@ -407,7 +400,7 @@ function calcBurnUp() {
     //console.log("Done ites "  + JSON.stringify(doneitems))
     doneitems.forEach(element => {
       var index = getDaysdiff(element.DoneDate, sprintStart)
-      console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
+      //console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
 
       if ((index >= 0) && (index <= currentIndex))
         burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;

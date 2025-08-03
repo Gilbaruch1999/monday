@@ -315,7 +315,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -642,7 +642,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
