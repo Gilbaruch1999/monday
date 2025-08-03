@@ -53,6 +53,9 @@ import { getBoardItemsQuery } from "@/utils/queries";
 import { createDateFromText1, getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
 import sprintTable from "../components/sprintTable.vue"
 import sprintGoals from "../components/sprintGoals.vue"
+import { BoardToGroupMap } from "@/utils/mondayparser";
+import { ClientApi } from "monday-sdk-js/types/client-api.interface";
+import { MondayClientSdk } from "monday-sdk-js";
 
 Chart.register(...registerables, ChartDataLabels);
 
@@ -61,7 +64,7 @@ const actualValues = ref([]);
 const burnUpValues = ref([]);
 const deltaValues = ref([]);
 let dataLabels = ref(["1", '2']);
-const mondayapi = inject('monday')
+const mondayapi = inject('monday') as MondayClientSdk
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
 const deltacolor = "rgb(255,0,0)"
@@ -76,7 +79,7 @@ let totalDonePoints = ref(0)
 let detailedgrpah = ref(false)
 let detailedList = ref(false)
 let graphType = ref("BurnDown")
-const groupid = "group_mks9stxg"
+let groupid = ref("");
 const sprintStart = new Date(createDateFromText1("27-7-2025"))
 const sprintLength = 14;
 let getBtnHeader = ref("get API Data")
@@ -214,12 +217,12 @@ onMounted(() => {
 async function createGraph() {
 
   getBtnHeader.value = "Update data"
-  console.log("In create graph. getfrom dummy " + getFromDummy.value)
+  //console.log("In create graph. getfrom dummy " + getFromDummy.value)
   await getContext()
   await getBoardItems(sprintStart, sprintLength);
   prepareGraph();
   calcBurnUp();
-  console.log(" At end of create grpah")
+  //console.log(" At end of create grpah")
 
 }
 
@@ -235,7 +238,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
     //console.log("Get from Dummy " + JSON.stringify(data))
   }
   else {
-    var qstr = getBoardItemsQuery(boardId.value, groupid);
+    var qstr = getBoardItemsQuery(boardId.value, groupid.value);
     // console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
     //console.log("get boards from api" + JSON.stringify(res))
@@ -315,8 +318,16 @@ async function getContext() {
     catch {
 
     }
-    ;
   }
+  try {
+    var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
+    if (index != -1)
+      groupid.value = BoardToGroupMap[index].groupid
+  }
+  catch {
+
+  }
+  console.log("Group id = " + groupid.value)
 }
 
 function resetData() {
@@ -367,7 +378,7 @@ function prepareGraph() {
 
   }
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
- console.log("End of prepare graph. Total points " + totalPoints.value)
+  //console.log("End of prepare graph. Total points " + totalPoints.value)
 
 }
 
