@@ -71,11 +71,11 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
 import { getBoardItemsQuery } from "@/utils/queries";
-import { createDateFromText1, getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
+import { getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
 import sprintTable from "../components/sprintTable.vue"
 import sprintGoals from "../components/sprintGoals.vue"
 import { BoardToGroupMap, boardType, findCurrentSprint, Sprint } from "@/utils/mondayparser";
-import { ClientApi } from "monday-sdk-js/types/client-api.interface";
+
 import { MondayClientSdk } from "monday-sdk-js";
 
 Chart.register(...registerables, ChartDataLabels);
@@ -96,7 +96,6 @@ let throughPut = ref(0)
 let cycleTime = ref(0)
 let leadTime = ref(0)
 let boardId = ref("")
-let title = ref("Sprint Burn down");
 let itemsList: Ref<boardItem[]> = ref([]);
 let totalPoints = ref(0)
 let totalDonePoints = ref(0)
@@ -224,8 +223,29 @@ let { lineChartProps, lineChartRef } = useLineChart({
 });
 
 
-onMounted(() => {
 
+onMounted(async () => {
+
+  var res = await mondayapi.get('context')
+  console.log("Starting app version 1.6")
+  console.log("Res " + JSON.stringify(res))
+  try {
+     if ( res.hasOwnProperty('data'))
+     {
+       getFromDummy.value = false
+     }
+     else
+     {
+      console.log("No API")
+      getFromDummy.value = true
+     }
+
+  }
+  catch {
+    console.log("use dummy data ");
+    getFromDummy.value = true;
+
+  }
   let index = 0;
   for (let i = 1; i < 3; i++) {
     for (let j = 1; j < 8; j++) {
@@ -235,10 +255,10 @@ onMounted(() => {
     }
   }
   curSprint = findCurrentSprint();
-  //console.log( "!!!! " +  JSON.stringify(curSprint))
   createGraph()
-
 })
+
+
 
 async function createGraph() {
 
@@ -386,12 +406,12 @@ function calcKanbanInfo() {
     //console.log("Start date " + JSON.stringify(element.startDate.toLocaleDateString()) )
     var dif = getDaysdiff(element.DoneDate, element.startDate)
     cycleTime.value += dif;
-    dif = getDaysdiff(element.DoneDate , element.starWorktDate)
+    dif = getDaysdiff(element.DoneDate, element.starWorktDate)
     leadTime.value += dif;
   });
 
-  leadTime.value = Math.round((10 *leadTime.value) / doneitems.length) / 10
-  cycleTime.value =  Math.round((10 *cycleTime.value) / doneitems.length) / 10
+  leadTime.value = Math.round((10 * leadTime.value) / doneitems.length) / 10
+  cycleTime.value = Math.round((10 * cycleTime.value) / doneitems.length) / 10
 }
 
 function prepareGraph() {
@@ -435,7 +455,8 @@ function prepareGraph() {
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
   //console.log("End of prepare graph. Total points " + totalPoints.value)
 
-  calcKanbanInfo();
+  if (CurrentBoardType.value == 'Kanban')
+      calcKanbanInfo();
 
 }
 
