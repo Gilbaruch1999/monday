@@ -72,7 +72,7 @@ onMounted(() => {
 function updatePOStatus() {
   let index = 0;
 
-  console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
+  //console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
   if (props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
     index = 1
 

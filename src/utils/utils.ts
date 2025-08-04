@@ -21,7 +21,9 @@ export function getDaysdiff(date1: Date, date2: Date): number {
   var res = -1
   try {
     res = Math.floor((date1.getTime() - date2.getTime()) / MsecInOneDay)
-  } catch {}
+  } catch {
+    console.log("Error in dif. date1  " + date1 + " date 2 " + date2  )
+  }
 
   return res
 }
@@ -71,7 +73,9 @@ export function createDateFromText2(stringdate: string) {
       retval.setMonth(parseInt(tmp[1]) - 1)
       retval.setDate(parseInt(tmp[2]))
     }
-  } catch {}
+  } catch {
+    console.log("Error in create date from text 2")
+  }
   //console.log('Date is ' + retval.toLocaleDateString())
   return retval
 }

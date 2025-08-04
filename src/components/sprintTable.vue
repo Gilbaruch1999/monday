@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="ma-0">
 
-    <v-data-table class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders" show-expand
+    <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders" show-expand
       :row-props="rowProps" :items="props.sprintItems">
 
       <template v-slot:item.percentDone="{ value }">
@@ -11,7 +11,10 @@
 
       </template>
 
+
+
       <template v-slot:expanded-row="{ item }">
+         <!-- @vue-ignore -->
         <v-data-table hide-default-footer dense item-key="id" :headers="issuesheaders" :row-props="rowProps"
           :items="item.subItems"></v-data-table>
       </template>

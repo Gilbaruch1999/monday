@@ -1,17 +1,23 @@
 <template>
 
-  <v-toolbar color="primary">
-    <v-checkbox @change="onDetaileGraphChanged()" class="ma-4" v-model="detailedgrpah" label="detailed"></v-checkbox>
-    <v-checkbox class="ma-4" v-model="detailedList" label="List"></v-checkbox>
+  <v-toolbar title="Scrum board" v-if="CurrentBoardType == 'Scrum'" color="primary">
+
+    <v-checkbox @change="onDetaileGraphChanged()" class="mt-6" v-model="detailedgrpah" label="detailed"></v-checkbox>
+    <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
-      <v-radio label="BurnDown" value="BurnDown"></v-radio>
-      <v-radio label="BurnUp" value="BurnUp"></v-radio>
-      <v-radio label="Delta" value="Delta"></v-radio>
-      <v-radio label="Golas" value="Goals"></v-radio>
+      <v-radio class="mt-6" label="BurnDown" value="BurnDown"></v-radio>
+      <v-radio class="mt-6" label="BurnUp" value="BurnUp"></v-radio>
+      <v-radio class="mt-6" label="Delta" value="Delta"></v-radio>
+      <v-radio class="mt-6" label="Golas" value="Goals"></v-radio>
     </v-radio-group>
-    <v-btn @click="createGraph()">{{ getBtnHeader }} </v-btn>
+    <v-btn class="ma-4" @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
-  <div class="ma-4" style="display: flex; justify-content: center">
+  <v-toolbar title="Kanban board" v-if="CurrentBoardType == 'Kanban'" color="primary">
+    <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
+    <v-btn small @click="createGraph()">{{ getBtnHeader }} </v-btn>
+  </v-toolbar>
+
+  <div v-if="CurrentBoardType == 'Scrum'" class="mx-4" style="display: flex; justify-content: center">
     <v-row cols="2">
       <v-card class="ma-4" color="primary">
         <v-card-title>Predictability </v-card-title>
@@ -23,7 +29,22 @@
         <v-card-text>{{ totalDonePoints }} </v-card-text>
       </v-card>
     </v-row>
-
+  </div>
+  <div v-if="CurrentBoardType == 'Kanban'" class="mx-4" style="display: flex; justify-content: center">
+    <v-row cols="2">
+      <v-card class="ma-4" color="primary">
+        <v-card-title>Throughtput </v-card-title>
+        <v-card-text> {{ throughPut }} </v-card-text>
+      </v-card>
+      <v-card class="ma-4" color="primary">
+        <v-card-title>Cycle Time </v-card-title>
+        <v-card-text>{{ cycleTime }} </v-card-text>
+      </v-card>
+      <v-card class="ma-4" color="primary">
+        <v-card-title>Lead Time </v-card-title>
+        <v-card-text>{{ leadTime }} </v-card-text>
+      </v-card>
+    </v-row>
   </div>
   <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
 
@@ -53,7 +74,7 @@ import { getBoardItemsQuery } from "@/utils/queries";
 import { createDateFromText1, getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
 import sprintTable from "../components/sprintTable.vue"
 import sprintGoals from "../components/sprintGoals.vue"
-import { BoardToGroupMap } from "@/utils/mondayparser";
+import { BoardToGroupMap, boardType, findCurrentSprint, Sprint } from "@/utils/mondayparser";
 import { ClientApi } from "monday-sdk-js/types/client-api.interface";
 import { MondayClientSdk } from "monday-sdk-js";
 
@@ -69,8 +90,11 @@ const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
 const deltacolor = "rgb(255,0,0)"
 const burnupcolor = "rgb(0,255,0)"
-let getFromDummy = ref(false);
+let getFromDummy = ref(true);
 let predictability = ref("")
+let throughPut = ref(0)
+let cycleTime = ref(0)
+let leadTime = ref(0)
 let boardId = ref("")
 let title = ref("Sprint Burn down");
 let itemsList: Ref<boardItem[]> = ref([]);
@@ -80,9 +104,9 @@ let detailedgrpah = ref(false)
 let detailedList = ref(false)
 let graphType = ref("BurnDown")
 let groupid = ref("");
-const sprintStart = new Date(createDateFromText1("27-7-2025"))
-const sprintLength = 14;
 let getBtnHeader = ref("get API Data")
+let curSprint: Sprint;
+let CurrentBoardType = ref("");
 
 
 
@@ -210,6 +234,8 @@ onMounted(() => {
 
     }
   }
+  curSprint = findCurrentSprint();
+  //console.log( "!!!! " +  JSON.stringify(curSprint))
   createGraph()
 
 })
@@ -219,7 +245,7 @@ async function createGraph() {
   getBtnHeader.value = "Update data"
   //console.log("In create graph. getfrom dummy " + getFromDummy.value)
   await getContext()
-  await getBoardItems(sprintStart, sprintLength);
+  await getBoardItems(curSprint.startDate, curSprint.duration);
   prepareGraph();
   calcBurnUp();
   //console.log(" At end of create grpah")
@@ -323,20 +349,49 @@ async function getContext() {
     var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
     if (index != -1)
       groupid.value = BoardToGroupMap[index].groupid
+    CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
+    console.log("Board type " + CurrentBoardType.value)
+    if (CurrentBoardType.value == 'Kanban') {
+      graphType.value = "Goals";
+      detailedList.value = true
+    }
   }
   catch {
 
   }
-  console.log("Group id = " + groupid.value)
+  //console.log("Group id = " + groupid.value)
 }
 
 function resetData() {
-  var currentIndex = getDaysdiff(new Date(), sprintStart)
+  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
   burnUpValues.value = new Array(currentIndex + 1).fill(0)
   actualValues.value = new Array(currentIndex + 1).fill(0)
   totalPoints.value = 0;
   totalDonePoints.value = 0;
+  throughPut.value = 0;
+  cycleTime.value = 0;
+  leadTime.value = 0;
 
+}
+
+function calcKanbanInfo() {
+  var doneitems = itemsList.value.filter(x => x.status == "Done")
+  //console.log("Done items " + JSON.stringify(doneitems.length))
+  throughPut.value = doneitems.length
+
+  doneitems.forEach(element => {
+    //console.log("Done date " + JSON.stringify(element.DoneDate) )
+    // calculate lead time - from work start to completiong
+    // calculate cycle time from first definition to work completion
+    //console.log("Start date " + JSON.stringify(element.startDate.toLocaleDateString()) )
+    var dif = getDaysdiff(element.DoneDate, element.startDate)
+    cycleTime.value += dif;
+    dif = getDaysdiff(element.DoneDate , element.starWorktDate)
+    leadTime.value += dif;
+  });
+
+  leadTime.value = Math.round((10 *leadTime.value) / doneitems.length) / 10
+  cycleTime.value =  Math.round((10 *cycleTime.value) / doneitems.length) / 10
 }
 
 function prepareGraph() {
@@ -380,11 +435,13 @@ function prepareGraph() {
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
   //console.log("End of prepare graph. Total points " + totalPoints.value)
 
+  calcKanbanInfo();
+
 }
 
 function calcBurnUp() {
 
-  var currentIndex = getDaysdiff(new Date(), sprintStart)
+  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
   //console.log("sprint start " + JSON.stringify(sprintStart.toLocaleDateString()))
   if (detailedgrpah.value) {
     var detailedItems = itemsList.value.filter(x => x.subItems.length > 0)
@@ -396,7 +453,7 @@ function calcBurnUp() {
         //console.log("Sub item " + subitem.title + " status " + subitem.status)
         if (subitem.status == "Done") {
 
-          var index = getDaysdiff(subitem.DoneDate, sprintStart)
+          var index = getDaysdiff(subitem.DoneDate, curSprint.startDate)
           //console.log("Date XXXXX" + subitem.DoneDate.toLocaleDateString() + "  index " + index)
           if ((index >= 0) && (index <= currentIndex)) {
 
@@ -410,7 +467,7 @@ function calcBurnUp() {
     var doneitems = itemsList.value.filter(x => x.status == "Done")
     //console.log("Done ites "  + JSON.stringify(doneitems))
     doneitems.forEach(element => {
-      var index = getDaysdiff(element.DoneDate, sprintStart)
+      var index = getDaysdiff(element.DoneDate, curSprint.startDate)
       //console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
 
       if ((index >= 0) && (index <= currentIndex))
@@ -419,7 +476,7 @@ function calcBurnUp() {
   }
   //console.log("Burn up" + JSON.stringify(burnUpValues.value))
 
-  var currentIndex = getDaysdiff(new Date(), sprintStart)
+  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
   actualValues.value[0] = totalPoints.value
   for (let index = 0; index < actualValues.value.length; index++) {
     //console.log("Actual values of index " + index + " " + actualValues.value[index])

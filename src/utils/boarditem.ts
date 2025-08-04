@@ -17,6 +17,8 @@ export class boardItem {
   subitemsPoints: number;
   subitemsDonePoints: number;
   DoneDate: Date;
+  startDate: Date;
+  starWorktDate: Date;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -56,15 +58,18 @@ export class boardItem {
         case "Issue Type":
           this.type = column.text;
           break;
-
         case "DoneDate":
+        case "CompletionDate":
         case "SubItemDoneDate":
-          //console.log("item  " + this.title + " done date " + column.text);
           if (this.status == "Done") {
             this.DoneDate = createDateFromText2(column.text);
-           // console.log("Done Date " + this.DoneDate.toLocaleDateString()) ;
           }
-
+          break;
+        case "StartDate":
+          this.startDate = createDateFromText2(column.text);
+          break;
+          case "StartWorkDate":
+          this.starWorktDate = createDateFromText2(column.text);
           break;
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))
