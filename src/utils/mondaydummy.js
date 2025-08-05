@@ -74,7 +74,6 @@ export function getDummyContext() {
 export function getDummyBoardItems(boardid) {
 
   const res = {
-
   "data": {
     "boards": [
       {
@@ -128,6 +127,12 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "How bad do you want it? 😤"
+                },
+                {
+                  "column": {
                     "title": "StartDate"
                   },
                   "text": "2025-06-22"
@@ -149,6 +154,91 @@ export function getDummyBoardItems(boardid) {
                     "title": "Feature Request"
                   },
                   "text": "View Past Questions and Answers - https://snooze-org.monday.com/boards/1988649722/pulses/2004149275"
+                },
+                {
+                  "column": {
+                    "title": "Review Task"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Bug fixes",
+              "id": "2081432019",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "title": "Sub Domain"
+                  },
+                  "text": "Bug fixing"
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Not selected yet"
+                },
+                {
+                  "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "How bad do you want it? 😤"
+                },
+                {
+                  "column": {
+                    "title": "StartDate"
+                  },
+                  "text": "2025-08-04"
+                },
+                {
+                  "column": {
+                    "title": "StartWorkDate"
+                  },
+                  "text": "2025-08-04"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-08-04"
+                },
+                {
+                  "column": {
+                    "title": "Feature Request"
+                  },
+                  "text": ""
                 },
                 {
                   "column": {
@@ -185,7 +275,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Story"
                 },
                 {
                   "column": {
@@ -204,6 +294,12 @@ export function getDummyBoardItems(boardid) {
                     "title": "Strategic Category"
                   },
                   "text": "Disruptions"
+                },
+                {
+                  "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "How bad do you want it? 😤"
                 },
                 {
                   "column": {
@@ -286,9 +382,15 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "How bad do you want it? 😤"
+                },
+                {
+                  "column": {
                     "title": "StartDate"
                   },
-                  "text": ""
+                  "text": "2025-06-27"
                 },
                 {
                   "column": {
@@ -365,6 +467,12 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
                     "title": "StartDate"
                   },
                   "text": ""
@@ -377,7 +485,7 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
-                    "title": "doneDate"
+                    "title": "DoneDate"
                   },
                   "text": ""
                 },
@@ -416,7 +524,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Task Defined"
+                  "text": "UX In Progress"
                 },
                 {
                   "column": {
@@ -444,82 +552,9 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
-                    "title": "StartDate"
+                    "title": "Goal Category"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "StartWorkDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "ComplitionDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Feature Request"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "title": "Review Task"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Unlock Logic for Merge Locks",
-              "id": "2081072542",
-              "column_values": [
-                {
-                  "column": {
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "title": "Assigned"
-                  },
-                  "text": "Dan Bouzaglo"
-                },
-                {
-                  "column": {
-                    "title": "Status"
-                  },
-                  "text": "Task Definition"
-                },
-                {
-                  "column": {
-                    "title": "Issue Type"
-                  },
-                  "text": "Not selected yet"
-                },
-                {
-                  "column": {
-                    "title": "Domain"
-                  },
-                  "text": "Not selected yet"
-                },
-                {
-                  "column": {
-                    "title": "Sub Domain"
-                  },
-                  "text": "Not selected yet"
-                },
-                {
-                  "column": {
-                    "title": "Strategic Category"
-                  },
-                  "text": "Not selected yet"
+                  "text": "Outstanding"
                 },
                 {
                   "column": {
@@ -531,11 +566,11 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "StartWorkDate"
                   },
-                  "text": ""
+                  "text": "2025-08-05"
                 },
                 {
                   "column": {
-                    "title": "ComplitionDate"
+                    "title": "DoneDate"
                   },
                   "text": ""
                 },
@@ -602,6 +637,12 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
                     "title": "StartDate"
                   },
                   "text": ""
@@ -614,7 +655,92 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
-                    "title": "ComplitionDate"
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Feature Request"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Review Task"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Unlock Logic for Merge Locks",
+              "id": "2081072542",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "Dikla Yair"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Task Definition"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "title": "Sub Domain"
+                  },
+                  "text": "New Level"
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "title": "StartDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "StartWorkDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
                   },
                   "text": ""
                 },

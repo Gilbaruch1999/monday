@@ -31,7 +31,7 @@
 </template>
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref , watch } from 'vue';
 const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
   { name: "Target", color: "#43A047" },
@@ -50,11 +50,19 @@ let poImageColor = ref("")
 let poImageText = ref("")
 
 
-const props = defineProps<{
+
+const props = defineProps({
+  boardItems: {
+    type: boardItem[0],
+    required: true
+  },
+});
+
+/*const props = defineProps<{
   boardItems: boardItem[]
 
 }>()
-
+*/
 
 function getGoals(category: string) {
 
@@ -64,22 +72,21 @@ function getGoals(category: string) {
 onMounted(() => {
 
   //console.log("Mounted " + JSON.stringify(props.sprintGoals))
-  updatePOStatus()
+  updatePOStatus(props.boardItems)
 
 })
 
 
-function updatePOStatus() {
+function updatePOStatus(items : boardItem[]) {
   let index = 0;
 
   //console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
-  if (props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
+  if (items.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
     index = 1
 
-    if (props.boardItems.filter(x => x.goalCategory == "Target" && x.status != "Done").length == 0)
+    if (items.filter(x => x.goalCategory == "Target" && x.status != "Done").length == 0)
       index = 2
   }
-
   poImageSrc.value = poImage[index].src
   poImageColor.value = poImage[index].color
   poImageText.value = poImage[index].text
@@ -103,5 +110,14 @@ function getGoalColor(item: boardItem) {
   }
   return ret_val;
 }
+
+
+watch(
+  () => props.boardItems,
+  (newValue, oldValue) => {
+    console.log("Watch called " + JSON.stringify(newValue))
+    updatePOStatus(newValue)
+  }
+);
 
 </script>

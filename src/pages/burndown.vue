@@ -227,12 +227,14 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version 1.6")
-  console.log("Res " + JSON.stringify(res))
+  console.log("Starting app version 28")
+  //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))
      {
        getFromDummy.value = false
+       //mondayapi.listen("location" , mondaylocatoncallbak)
+       mondayapi.listen("events" , eventlocatoncallbak)
      }
      else
      {
@@ -371,10 +373,7 @@ async function getContext() {
       groupid.value = BoardToGroupMap[index].groupid
     CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
     console.log("Board type " + CurrentBoardType.value)
-    if (CurrentBoardType.value == 'Kanban') {
-      graphType.value = "Goals";
-      detailedList.value = true
-    }
+
   }
   catch {
 
@@ -416,6 +415,10 @@ function calcKanbanInfo() {
 
 function prepareGraph() {
   resetData()
+   if (CurrentBoardType.value == 'Kanban') {
+      graphType.value = "Goals";
+      detailedList.value = true
+    }
 
   if (detailedgrpah.value) {
     totalPoints.value = itemsList.value.reduce((accumulator, object) => {
@@ -531,6 +534,24 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
     return false;
 
 }
+
+function mondaylocatoncallbak(data )
+{
+  console.log("location Callback called ");
+  console.log("location " + JSON.stringify(data))
+
+}
+
+
+
+function eventlocatoncallbak(event )
+{
+  console.log("event Callback called ");
+  console.log("Data " + JSON.stringify(event))
+
+}
+
+
 
 
 
