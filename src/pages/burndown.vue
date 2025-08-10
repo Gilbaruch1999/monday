@@ -1,6 +1,6 @@
 <template>
 
-  <v-toolbar title="Scrum board" v-if="CurrentBoardType == 'Scrum'" color="primary">
+  <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Scrum'" color="primary">
 
     <v-checkbox @change="onDetaileGraphChanged()" class="mt-6" v-model="detailedgrpah" label="detailed"></v-checkbox>
     <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
@@ -49,7 +49,7 @@
   <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
 
   <div v-if="graphType == 'BurnDown'">
-    <LineChart v-bind="lineChartProps" />
+    <LineChart :chart-data="graphData":options="chartOptions" v-bind="lineChartProps" />
   </div>
   <div v-if="graphType == 'Delta'">
     <LineChart :chart-data="deltaGraphData" :chart-options="chartOptions" />
@@ -106,6 +106,7 @@ let groupid = ref("");
 let getBtnHeader = ref("get API Data")
 let curSprint: Sprint;
 let CurrentBoardType = ref("");
+let toolBarTitle = ref("Sprint burndown")
 
 
 
@@ -211,7 +212,7 @@ const options = {
 
     title: {
       display: true,
-      text: "Sprint BurnDown",
+      text:"BurnDown",
     },
 
   },
@@ -227,7 +228,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version 28")
+  console.log("Starting app version v30")
   //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))
@@ -256,8 +257,11 @@ onMounted(async () => {
 
     }
   }
-  curSprint = findCurrentSprint();
+
   createGraph()
+
+  toolBarTitle.value = curSprint.name + " status"
+
 })
 
 
@@ -368,10 +372,12 @@ async function getContext() {
     }
   }
   try {
+    curSprint = findCurrentSprint(boardId.value);
+    groupid.value = curSprint.groupid
+    console.log("Current sprint is " + JSON.stringify(curSprint))
     var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
     if (index != -1)
-      groupid.value = BoardToGroupMap[index].groupid
-    CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
+      CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
     console.log("Board type " + CurrentBoardType.value)
 
   }
