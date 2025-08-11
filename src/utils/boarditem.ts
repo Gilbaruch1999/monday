@@ -19,6 +19,7 @@ export class boardItem {
   DoneDate: Date;
   startDate: Date;
   starWorktDate: Date;
+  planningStatus : boolean ;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -26,6 +27,7 @@ export class boardItem {
     this.subitemsPoints = 0;
     this.subitemsDonePoints = 0;
     this.percentDone = 0;
+    this.planningStatus = true;
   }
 
   updateFields(column_values) {
@@ -124,5 +126,22 @@ export class boardItem {
     /* console.log("Story " + this.title)
      console.log('Done Story points ' + this.doneStoryPoints)
      console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
+  }
+
+  checkForPlanningIssues()
+  {
+    if (this.storyPoints == 0 )
+      this.planningStatus = false;
+    if ((this.subItems.length == 0) && (this.storyPoints >=4 ))
+      this.planningStatus = false;
+    if (this.storyPoints >=4 )
+    {
+      this.subItems.forEach(item => {
+        if (item.storyPoints == 0)
+          this.planningStatus = false;
+
+      });
+    }
+
   }
 }

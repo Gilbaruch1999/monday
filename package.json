@@ -8,11 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
-    "deploy" : "npm run build && mapps code:push --client-side -d \"dist\""
+    "deploy": "npm run build && mapps code:push --client-side -d \"dist\""
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.6",
-    "@mdi/font": "7.4.47",
+    "@mdi/font": "^7.4.47",
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.2.0",
     "monday-sdk-js": "^0.5.6",

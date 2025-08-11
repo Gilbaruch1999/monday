@@ -12,7 +12,7 @@
     </v-radio-group>
     <v-btn class="ma-4" @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
-  <v-toolbar title="Kanban board" v-if="CurrentBoardType == 'Kanban'" color="primary">
+  <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Kanban'" color="primary">
     <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
     <v-btn small @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
@@ -228,7 +228,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v30")
+  console.log("Starting app version v34")
   //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))
@@ -258,9 +258,18 @@ onMounted(async () => {
     }
   }
 
-  createGraph()
+  await createGraph()
 
-  toolBarTitle.value = curSprint.name + " status"
+  toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value +  " status"
+/*
+
+  let strres = await mondayapi.storage.instance.setItem('mykey', 'Test 1')
+  console.log("Result from sttorage " + JSON.stringify(strres) )
+  let getres = await mondayapi.storage.instance.getItem('mykey')
+  console.log("Result from sttorage " + JSON.stringify(getres) )
+*/
+
+
 
 })
 
@@ -310,6 +319,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
 
 
   data.boards.forEach(board => {
+    console.log("found " + board.items_page.items.length + " board items")
     board.items_page.items.forEach(item => {
       //console.log("item " + JSON.stringify(item))
       var bitem: boardItem = new boardItem();
@@ -327,6 +337,8 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
             sbitem.id = subitem.id
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
+            sbitem.updateStoryPoints();
+             sbitem.checkForPlanningIssues();
             if (sbitem.status != "Done")
               bitem.subItems.push(sbitem)
             else {
@@ -342,6 +354,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
 
       }
       bitem.updateSubItemPoints();
+      bitem.checkForPlanningIssues();
       itemsList.value.push(bitem)
 
     }); // end item loop
@@ -375,6 +388,7 @@ async function getContext() {
     curSprint = findCurrentSprint(boardId.value);
     groupid.value = curSprint.groupid
     console.log("Current sprint is " + JSON.stringify(curSprint))
+   console.log("group id= " + JSON.stringify(groupid.value))
     var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
     if (index != -1)
       CurrentBoardType.value = boardType[BoardToGroupMap[index].type]

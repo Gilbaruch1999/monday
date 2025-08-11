@@ -40,12 +40,12 @@ export function findCurrentSprint(boardid : string): Sprint {
 
   let boardSprintTable =  sprintTable.filter(x=>x.boardid == boardid)
 
-  for (let index = 0; index < sprintTable.length; index++) {
+  for (let index = 0; index < boardSprintTable.length; index++) {
 
-    var diff = getDaysdiff(curDate,  sprintTable[index].startDate);
-    console.log("Diff is " + diff)
-    if ( (diff >= 0) && (diff < sprintTable[index].duration)) {
-      ret_val = sprintTable[index];
+    var diff = getDaysdiff(curDate,  boardSprintTable[index].startDate);
+    //console.log("Diff is " + diff)
+    if ( (diff >= 0) && (diff < boardSprintTable[index].duration)) {
+      ret_val = boardSprintTable[index];
     }
   }
   return ret_val
