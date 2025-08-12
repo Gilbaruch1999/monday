@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="ma-0">
     <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
-      show-expand :row-props="rowProps" :items="props.sprintItems">
+      :row-props="rowProps" :items="props.sprintItems">
       <template v-slot:item.percentDone="{ value }">
         <v-progress-linear height="25" style="color: blue; background-color: darkcyan">
           <span style="color:white"> {{ value }} %</span>
@@ -41,6 +41,7 @@ const props = defineProps({
 
 
 const issuesheaders: any = [
+   { text: 'Expand', value: 'data-table-expand', align: 'start' },
   { title: 'Id', key: 'id' },
   { title: 'Title', key: 'title' },
   { title: 'Type', key: "type" },

@@ -228,7 +228,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v34")
+  console.log("Starting app version v35")
   //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))

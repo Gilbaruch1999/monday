@@ -19,7 +19,7 @@ export class boardItem {
   DoneDate: Date;
   startDate: Date;
   starWorktDate: Date;
-  planningStatus : boolean ;
+  planningStatus: boolean;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -70,7 +70,7 @@ export class boardItem {
         case "StartDate":
           this.startDate = createDateFromText2(column.text);
           break;
-          case "StartWorkDate":
+        case "StartWorkDate":
           this.starWorktDate = createDateFromText2(column.text);
           break;
         default:
@@ -128,20 +128,21 @@ export class boardItem {
      console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
   }
 
-  checkForPlanningIssues()
-  {
-    if (this.storyPoints == 0 )
+  checkForPlanningIssues() {
+    if (this.status == "Done")
+      return;
+    if (this.storyPoints == 0) this.planningStatus = false;
+    if (this.subItems.length == 0 && this.storyPoints >= 4)
       this.planningStatus = false;
-    if ((this.subItems.length == 0) && (this.storyPoints >=4 ))
-      this.planningStatus = false;
-    if (this.storyPoints >=4 )
-    {
-      this.subItems.forEach(item => {
-        if (item.storyPoints == 0)
-          this.planningStatus = false;
+    this.subItems.forEach((item) => {
+      if (item.storyPoints == 0) this.planningStatus = false;
+    });
 
-      });
-    }
+    if (this.storyPoints >= 4) {
+        if ((this.subItems.length * 2) < this.storyPoints)
+              this.planningStatus = false;
+        }
+
 
   }
 }
