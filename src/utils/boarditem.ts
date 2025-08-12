@@ -138,11 +138,12 @@ export class boardItem {
       if (item.storyPoints == 0) this.planningStatus = false;
     });
 
-    if (this.storyPoints >= 4) {
+    if (this.storyPoints > 4) {
         if ((this.subItems.length * 2) < this.storyPoints)
               this.planningStatus = false;
         }
-
-
+      /*  if (this.planningStatus == false)
+          console.log("Item false" + " " + this.title + JSON.stringify(this))*/
   }
+
 }

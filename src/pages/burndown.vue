@@ -228,7 +228,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v35")
+  console.log("Starting app version v36")
   //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))
@@ -338,12 +338,18 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
             sbitem.updateStoryPoints();
-             sbitem.checkForPlanningIssues();
-            if (sbitem.status != "Done")
-              bitem.subItems.push(sbitem)
-            else {
-              if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
+            sbitem.checkForPlanningIssues();
+            switch (sbitem.status)
+            {
+              case "Done" :
+                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength) )
                 bitem.subItems.push(sbitem)
+                break;
+              case "Removed" :
+                break;
+              default :
+               bitem.subItems.push(sbitem)
+               break;
             }
 
             //console.log("created sub item $$$$$$ " + JSON.stringify(sbitem))

@@ -81,6 +81,79 @@ export function getDummyBoardItems(boardid) {
         "items_page": {
           "items": [
             {
+              "name": "הוצאת גרסת ספרינט 22 - הגרסה הקודמת",
+              "id": "2094069078",
+              "column_values": [
+                {
+                  "column": {
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar, Nir Katzir"
+                },
+                {
+                  "column": {
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "column": {
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "column": {
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "title": "Points"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Strategic Category"
+                  },
+                  "text": "Disruptions"
+                },
+                {
+                  "column": {
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "title": "Planning State"
+                  },
+                  "text": "New"
+                }
+              ],
+              "subitems": []
+            },
+            {
               "name": "סידורי אנליטיקס - חלק ב׳",
               "id": "2048585126",
               "column_values": [
@@ -462,7 +535,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -504,7 +577,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-08-11"
                 },
                 {
                   "column": {
@@ -528,7 +601,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -540,13 +613,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-08-11"
                     }
                   ]
                 },
@@ -564,7 +637,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -576,13 +649,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-08-11"
                     }
                   ]
                 },
@@ -600,7 +673,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -612,13 +685,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-08-11"
                     }
                   ]
                 },
@@ -636,7 +709,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -648,13 +721,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-08-11"
                     }
                   ]
                 }
@@ -680,7 +753,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -740,7 +813,43 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Katerina"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-08-11"
+                    }
+                  ]
+                },
+                {
+                  "name": "🧑‍💻Onboarding Entry - Intro & Seed Narrative",
+                  "id": "2047557625",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
                     },
                     {
                       "column": {
@@ -758,43 +867,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🧑‍💻Onboarding Entry - Intro & Seed Narrative",
-                  "id": "2047557625",
-                  "column_values": [
-                    {
-                      "column": {
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -812,13 +885,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Katerina"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -836,7 +909,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-08-11"
                     }
                   ]
                 },
@@ -848,7 +921,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Nir Katzir"
                     },
                     {
                       "column": {
@@ -866,13 +939,49 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
                         "title": "SubItemDoneDate"
                       },
                       "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Popup \"Your first seed\"",
+                  "id": "2093502049",
+                  "column_values": [
+                    {
+                      "column": {
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina"
+                    },
+                    {
+                      "column": {
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-08-11"
                     }
                   ]
                 }
@@ -898,7 +1007,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -958,13 +1067,13 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Katerina"
                     },
                     {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Working in Progress"
                     },
                     {
                       "column": {
@@ -976,7 +1085,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -994,7 +1103,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Nir Katzir"
                     },
                     {
                       "column": {
@@ -1012,7 +1121,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -1030,7 +1139,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Katerina"
                     },
                     {
                       "column": {
@@ -1048,7 +1157,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1066,7 +1175,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Nir Katzir"
                     },
                     {
                       "column": {
@@ -1084,7 +1193,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "S"
                     },
                     {
                       "column": {
@@ -1194,7 +1303,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1230,7 +1339,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1408,7 +1517,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Code Review Me"
                 },
                 {
                   "column": {
@@ -1510,7 +1619,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Status"
                       },
-                      "text": "Wait"
+                      "text": "Ready For Code Review"
                     },
                     {
                       "column": {
@@ -1554,7 +1663,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Stuck"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -1566,7 +1675,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
+                  "text": "M"
                 },
                 {
                   "column": {
@@ -2215,7 +2324,7 @@ export function getDummyBoardItems(boardid) {
                       "column": {
                         "title": "Story Points"
                       },
-                      "text": "Not selected yet"
+                      "text": "M"
                     },
                     {
                       "column": {
@@ -2429,7 +2538,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Status"
                   },
-                  "text": "Code Review Me"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -2441,7 +2550,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "Story Points"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
+                  "text": "xS"
                 },
                 {
                   "column": {
@@ -2471,7 +2580,7 @@ export function getDummyBoardItems(boardid) {
                   "column": {
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-08-11"
                 },
                 {
                   "column": {
@@ -2488,7 +2597,6 @@ export function getDummyBoardItems(boardid) {
     ]
   }
 }
-
 
   return res
 }
