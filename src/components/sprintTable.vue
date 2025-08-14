@@ -2,15 +2,18 @@
   <v-container fluid class="ma-0">
     <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
       :row-props="rowProps" :items="props.sprintItems">
-      <template v-slot:item.percentDone="{ value }">
-        <v-progress-linear height="25" style="color: blue; background-color: darkcyan">
-          <span style="color:white"> {{ value }} %</span>
+      <template v-slot:item.percentDone="{ item } ">
+         <!-- @vue-ignore -->
+        <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
+           <!-- @vue-ignore -->
+          <span style="color:white"> {{item.percentDone }} % </span>
         </v-progress-linear>
+
       </template>
       <template v-slot:item.planningStatus="item">
-         <!-- @vue-ignore -->
+        <!-- @vue-ignore -->
         <v-icon v-if="item.item.planningStatus" color="green" icon="mdi-check-circle"></v-icon>
-          <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
+        <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
       </template>
       <template v-slot:expanded-row="{ item }">
         <!-- @vue-ignore -->
@@ -18,6 +21,8 @@
           :items="item.subItems"></v-data-table>
       </template>
     </v-data-table>
+
+
 
   </v-container>
 </template>
@@ -27,10 +32,7 @@
 <script setup lang='ts'>
 
 
-
 import { boardItem } from '@/utils/boarditem';
-
-//const props = defineProps<boardItem[]>();
 
 const props = defineProps({
   sprintItems: {
@@ -41,7 +43,7 @@ const props = defineProps({
 
 
 const issuesheaders: any = [
-   { text: 'Expand', value: 'data-table-expand', align: 'start' },
+  { text: 'Expand', value: 'data-table-expand', align: 'start' },
   { title: 'Id', key: 'id' },
   { title: 'Title', key: 'title' },
   { title: 'Type', key: "type" },
