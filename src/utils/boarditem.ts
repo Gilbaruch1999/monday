@@ -106,13 +106,13 @@ export class boardItem {
     this.subitemsPoints = this.subItems.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-    console.log("subitem points " + this.subitemsPoints)
+    //console.log("subitem points " + this.subitemsPoints)
     this.subitemsDonePoints = this.subItems
       .filter((x) => x.status == "Done")
       .reduce((accumulator, object) => {
         return accumulator + object.storyPoints;
       }, 0);
-      console.log("subitem done points " + this.subitemsDonePoints)
+      //console.log("subitem done points " + this.subitemsDonePoints)
 
     if (this.status == "Done") {
       this.percentDone = 100;
@@ -123,7 +123,7 @@ export class boardItem {
         this.percentDone = Math.round(
           (100 * this.subitemsDonePoints) / this.subitemsPoints
         );
-        console.log("Percent done " + this.percentDone)
+        //console.log("Percent done " + this.percentDone)
       }
     }
     /* console.log("Story " + this.title)
