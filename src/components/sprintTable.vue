@@ -1,26 +1,41 @@
 <template>
   <v-container fluid class="ma-0">
     <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
-      :row-props="rowProps" :items="props.sprintItems">
+      :row-props="rowProps"  @click:row="rowClicked" :items="props.sprintItems">
       <template v-slot:item.percentDone="{ item } ">
          <!-- @vue-ignore -->
         <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
            <!-- @vue-ignore -->
           <span style="color:white"> {{item.percentDone }} % </span>
         </v-progress-linear>
-
       </template>
       <template v-slot:item.planningStatus="item">
         <!-- @vue-ignore -->
         <v-icon v-if="item.item.planningStatus" color="green" icon="mdi-check-circle"></v-icon>
         <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
       </template>
-      <template v-slot:expanded-row="{ item }">
+    </v-data-table>
+    <br></br>
+    <div v-if="showDetails">
+      <v-toolbar color="primary">
+        <v-toolbar-title>{{ childTitle }}</v-toolbar-title>
+      </v-toolbar>
+      <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+      :row-props="rowProps"  @click:row="subItemrowClicked" :items="childItems">
+      <template v-slot:item.percentDone="{ item } ">
+         <!-- @vue-ignore -->
+        <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
+           <!-- @vue-ignore -->
+          <span style="color:white"> {{item.percentDone }} % </span>
+        </v-progress-linear>
+      </template>
+      <template v-slot:item.planningStatus="item">
         <!-- @vue-ignore -->
-        <v-data-table hide-default-footer dense item-key="id" :headers="issuesheaders" :row-props="rowProps"
-          :items="item.subItems"></v-data-table>
+        <v-icon v-if="item.item.planningStatus" color="green" icon="mdi-check-circle"></v-icon>
+        <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
       </template>
     </v-data-table>
+    </div>
 
 
 
@@ -31,8 +46,8 @@
 
 <script setup lang='ts'>
 
-
 import { boardItem } from '@/utils/boarditem';
+import { Ref, ref } from 'vue';
 
 const props = defineProps({
   sprintItems: {
@@ -41,9 +56,12 @@ const props = defineProps({
   },
 });
 
+let showDetails = ref(false)
+let childItems : Ref<boardItem[]> = ref([])
+let childTitle = ref("")
 
 const issuesheaders: any = [
-  { text: 'Expand', value: 'data-table-expand', align: 'start' },
+
   { title: 'Id', key: 'id' },
   { title: 'Title', key: 'title' },
   { title: 'Type', key: "type" },
@@ -59,9 +77,25 @@ const issuesheaders: any = [
 
 
 function rowProps(data: any) {
-  //console.log("Row props xxx" + JSON.stringify(data.item))
+
   if (data.item.status == "Done")
     return { class: 'done_bg' }
+}
+
+
+function rowClicked(event , row) {
+
+  childTitle.value = "Sub items of " + row.item.title
+  childItems.value = row.item.subItems
+  showDetails.value = true;
+}
+
+
+
+function subItemrowClicked(event , row) {
+
+ showDetails.value = false
+
 }
 
 </script>

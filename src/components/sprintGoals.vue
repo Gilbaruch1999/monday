@@ -50,18 +50,19 @@ let poImageColor = ref("")
 let poImageText = ref("")
 
 
+const props = defineProps<{
+  boardItems: boardItem[]
 
+
+}>()
+
+/*
 const props = defineProps({
   boardItems: {
     type: boardItem[0],
     required: true
   },
 });
-
-/*const props = defineProps<{
-  boardItems: boardItem[]
-
-}>()
 */
 
 function getGoals(category: string) {

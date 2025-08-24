@@ -8,6 +8,7 @@
       <v-radio class="mt-6" label="BurnDown" value="BurnDown"></v-radio>
       <v-radio class="mt-6" label="BurnUp" value="BurnUp"></v-radio>
       <v-radio class="mt-6" label="Delta" value="Delta"></v-radio>
+      <v-radio class="mt-6" label="BreakDown" value="BreakDown"></v-radio>
       <v-radio class="mt-6" label="Golas" value="Goals"></v-radio>
     </v-radio-group>
     <v-btn class="ma-4" @click="createGraph()">{{ getBtnHeader }} </v-btn>
@@ -23,8 +24,11 @@
         <v-card-title>Predictability </v-card-title>
         <v-card-text> {{ predictability }} </v-card-text>
       </v-card>
-
       <v-card class="ma-4" color="primary">
+        <v-card-title>Commited </v-card-title>
+        <v-card-text>{{ totalPoints }} </v-card-text>
+      </v-card>
+       <v-card class="ma-4" color="primary">
         <v-card-title>Velocity </v-card-title>
         <v-card-text>{{ totalDonePoints }} </v-card-text>
       </v-card>
@@ -48,6 +52,11 @@
   </div>
   <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
 
+
+  <div v-if="graphType == 'BreakDown'">
+    <PieChart :chart-data="piegraphData" :options="pieChartOptions" v-bind="pieChartProps" />
+  </div>
+
   <div v-if="graphType == 'BurnDown'">
     <LineChart :chart-data="graphData":options="chartOptions" v-bind="lineChartProps" />
   </div>
@@ -63,7 +72,7 @@
 
 <script setup lang='ts'>
 import { computed, inject, onMounted, ref, type Ref } from "vue";
-import { LineChart, useLineChart } from "vue-chart-3";
+import { LineChart, PieChart, useLineChart , usePieChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 
 
@@ -116,6 +125,24 @@ const chartOptions = ref({
   maintainAspectRatio: false
 });
 
+
+
+const pieChartOptions = ref({
+  responsive: true,
+  maintainAspectRatio: false,
+   plugins: {
+        datalabels: {
+            formatter: (value, ctx) => {
+                const datapoints = ctx.chart.data.datasets[0].data
+                const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
+                const percentage = value / total * 100
+                return percentage.toFixed(2) + "%";
+            },
+            color: '#fff',
+        }
+    }
+});
+
 let graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
@@ -149,6 +176,21 @@ let graphData = computed<ChartData<"line">>(() => ({
     },
   ],
 }));
+
+
+
+let piegraphData = computed<ChartData<"pie">>(() => ({
+labels: ['Red', 'Blue', 'Yellow'],
+      datasets: [        {
+          data: [300, 50, 100],
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+          hoverOffset: 4
+        }
+
+      ]
+}));
+
+
 
 
 
@@ -218,8 +260,29 @@ const options = {
   },
 };
 
+
+const pieOptions = {
+  scales: {
+
+  },
+  plugins: {
+
+    title: {
+      display: true,
+      text:"BurnDown",
+    },
+
+  },
+};
+
 let { lineChartProps, lineChartRef } = useLineChart({
   chartData: graphData,
+  options,
+});
+
+
+let { pieChartProps, pieChartRef } = usePieChart({
+  chartData: piegraphData,
   options,
 });
 
@@ -228,7 +291,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v39")
+  console.log("Starting app version v41")
   //console.log("Res " + JSON.stringify(res))
   try {
      if ( res.hasOwnProperty('data'))
