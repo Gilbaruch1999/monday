@@ -578,6 +578,11 @@ function prepareGraph() {
       return accumulator + object.subitemsPoints;
     }, 0);
 
+     totalPoints.value += itemsList.value.filter(x=>x.subItems.length==0).reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
+    }, 0);
+
+
     totalDonePoints.value = itemsList.value.reduce((accumulator, object) => {
       return accumulator + object.subitemsDonePoints;
     }, 0);
