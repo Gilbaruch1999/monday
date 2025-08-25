@@ -28,7 +28,7 @@
         <v-card-title>Commited </v-card-title>
         <v-card-text>{{ totalPoints }} </v-card-text>
       </v-card>
-       <v-card class="ma-4" color="primary">
+      <v-card class="ma-4" color="primary">
         <v-card-title>Velocity </v-card-title>
         <v-card-text>{{ totalDonePoints }} </v-card-text>
       </v-card>
@@ -51,14 +51,17 @@
     </v-row>
   </div>
   <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
-
-
+  <v-container fluid>
   <div v-if="graphType == 'BreakDown'">
+    <v-row>
+    <PieChart  :chart-data="piegraphData" :options="pieChartOptions" v-bind="pieChartProps" />
     <PieChart :chart-data="piegraphData" :options="pieChartOptions" v-bind="pieChartProps" />
+    </v-row>
   </div>
+  </v-container>
 
   <div v-if="graphType == 'BurnDown'">
-    <LineChart :chart-data="graphData":options="chartOptions" v-bind="lineChartProps" />
+    <LineChart :chart-data="graphData" :options="chartOptions" v-bind="lineChartProps" />
   </div>
   <div v-if="graphType == 'Delta'">
     <LineChart :chart-data="deltaGraphData" :chart-options="chartOptions" />
@@ -72,7 +75,7 @@
 
 <script setup lang='ts'>
 import { computed, inject, onMounted, ref, type Ref } from "vue";
-import { LineChart, PieChart, useLineChart , usePieChart } from "vue-chart-3";
+import { LineChart, PieChart, useLineChart, usePieChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 
 
@@ -116,6 +119,9 @@ let getBtnHeader = ref("get API Data")
 let curSprint: Sprint;
 let CurrentBoardType = ref("");
 let toolBarTitle = ref("Sprint burndown")
+let pieLabeles = ref([])
+let pieColors: Ref<string[]> = ref([])
+let pieValues: Ref<number[]> = ref([])
 
 
 
@@ -129,18 +135,18 @@ const chartOptions = ref({
 
 const pieChartOptions = ref({
   responsive: true,
-  maintainAspectRatio: false,
-   plugins: {
-        datalabels: {
-            formatter: (value, ctx) => {
-                const datapoints = ctx.chart.data.datasets[0].data
-                const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
-                const percentage = value / total * 100
-                return percentage.toFixed(2) + "%";
-            },
-            color: '#fff',
-        }
+  maintainAspectRatio: true,
+  plugins: {
+    datalabels: {
+      formatter: (value, ctx) => {
+        const datapoints = ctx.chart.data.datasets[0].data
+        const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
+        const percentage = value / total * 100
+        return percentage.toFixed(2) + "%";
+      },
+      color: '#fff',
     }
+  }
 });
 
 let graphData = computed<ChartData<"line">>(() => ({
@@ -180,18 +186,26 @@ let graphData = computed<ChartData<"line">>(() => ({
 
 
 let piegraphData = computed<ChartData<"pie">>(() => ({
-labels: ['Red', 'Blue', 'Yellow'],
-      datasets: [        {
-          data: [300, 50, 100],
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-          hoverOffset: 4
+  labels: pieLabeles.value,
+  datasets: [{
+    data: pieValues.value,
+    backgroundColor: pieColors.value,
+    hoverOffset: 4,
+     datalabels: {
+        color: 'white',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold',
+              size: 18
+            }
+          },
         }
+      }
+  }
 
-      ]
+  ]
 }));
-
-
-
 
 
 let deltaGraphData = computed<ChartData<"line">>(() => ({
@@ -254,7 +268,7 @@ const options = {
 
     title: {
       display: true,
-      text:"BurnDown",
+      text: "BurnDown",
     },
 
   },
@@ -269,7 +283,7 @@ const pieOptions = {
 
     title: {
       display: true,
-      text:"BurnDown",
+      text: "BurnDown",
     },
 
   },
@@ -294,17 +308,15 @@ onMounted(async () => {
   console.log("Starting app version v41")
   //console.log("Res " + JSON.stringify(res))
   try {
-     if ( res.hasOwnProperty('data'))
-     {
-       getFromDummy.value = false
-       //mondayapi.listen("location" , mondaylocatoncallbak)
-       mondayapi.listen("events" , eventlocatoncallbak)
-     }
-     else
-     {
+    if (res.hasOwnProperty('data')) {
+      getFromDummy.value = false
+      //mondayapi.listen("location" , mondaylocatoncallbak)
+      mondayapi.listen("events", eventlocatoncallbak)
+    }
+    else {
       console.log("No API")
       getFromDummy.value = true
-     }
+    }
 
   }
   catch {
@@ -320,23 +332,41 @@ onMounted(async () => {
 
     }
   }
-
   await createGraph()
+  createBreakDownChart()
 
-  toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value +  " status"
-/*
+  toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value + " status"
 
-  let strres = await mondayapi.storage.instance.setItem('mykey', 'Test 1')
-  console.log("Result from sttorage " + JSON.stringify(strres) )
-  let getres = await mondayapi.storage.instance.getItem('mykey')
-  console.log("Result from sttorage " + JSON.stringify(getres) )
-*/
 
 
 
 })
 
+function createBreakDownChart() {
+  const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
+  pieLabeles.value = []
+  distinctCategory.forEach(element => {
+    pieLabeles.value.push(element)
+    pieColors.value.push(generateRgbColor())
+    var totlacat = itemsList.value.filter(x=>x.stratigicCategory == element).reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
+    }, 0);
+    pieValues.value.push(totlacat)
+   // percent = Math.round((100 * percent) / totalPoints.value)
 
+  });
+
+}
+
+function generateRgbColor() {
+  // Ensure values are within the valid range (0-255)
+  var r = Math.floor((Math.random() * 255))
+  var g = Math.floor((Math.random() * 255))
+  var b = Math.floor((Math.random() * 255))
+
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
 async function createGraph() {
 
@@ -402,17 +432,16 @@ async function getBoardItems(sprintStart: Date, sprintLength: number) {
             sbitem.updateFields(subitem.column_values);
             sbitem.updateStoryPoints();
             sbitem.checkForPlanningIssues();
-            switch (sbitem.status)
-            {
-              case "Done" :
-                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength) )
+            switch (sbitem.status) {
+              case "Done":
+                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
+                  bitem.subItems.push(sbitem)
+                break;
+              case "Removed":
+                break;
+              default:
                 bitem.subItems.push(sbitem)
                 break;
-              case "Removed" :
-                break;
-              default :
-               bitem.subItems.push(sbitem)
-               break;
             }
 
             //console.log("created sub item $$$$$$ " + JSON.stringify(sbitem))
@@ -457,7 +486,7 @@ async function getContext() {
     curSprint = findCurrentSprint(boardId.value);
     groupid.value = curSprint.groupid
     console.log("Current sprint is " + JSON.stringify(curSprint))
-   console.log("group id= " + JSON.stringify(groupid.value))
+    console.log("group id= " + JSON.stringify(groupid.value))
     var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
     if (index != -1)
       CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
@@ -504,10 +533,10 @@ function calcKanbanInfo() {
 
 function prepareGraph() {
   resetData()
-   if (CurrentBoardType.value == 'Kanban') {
-      graphType.value = "Goals";
-      detailedList.value = true
-    }
+  if (CurrentBoardType.value == 'Kanban') {
+    graphType.value = "Goals";
+    detailedList.value = true
+  }
 
   if (detailedgrpah.value) {
     totalPoints.value = itemsList.value.reduce((accumulator, object) => {
@@ -548,7 +577,7 @@ function prepareGraph() {
   //console.log("End of prepare graph. Total points " + totalPoints.value)
 
   if (CurrentBoardType.value == 'Kanban')
-      calcKanbanInfo();
+    calcKanbanInfo();
 
 }
 
@@ -624,8 +653,7 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
 
 }
 
-function mondaylocatoncallbak(data )
-{
+function mondaylocatoncallbak(data) {
   console.log("location Callback called ");
   console.log("location " + JSON.stringify(data))
 
@@ -633,16 +661,11 @@ function mondaylocatoncallbak(data )
 
 
 
-function eventlocatoncallbak(event )
-{
+function eventlocatoncallbak(event) {
   console.log("event Callback called ");
   console.log("Data " + JSON.stringify(event))
 
 }
-
-
-
-
 
 
 
