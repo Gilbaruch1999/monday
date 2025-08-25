@@ -52,23 +52,23 @@
   </div>
   <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
   <v-container fluid>
-  <div v-if="graphType == 'BreakDown'">
-    <v-row>
-    <PieChart  :chart-data="piegraphData" :options="pieChartOptions" v-bind="pieChartProps" />
-    <PieChart :chart-data="piegraphData" :options="pieChartOptions" v-bind="pieChartProps" />
-    </v-row>
-  </div>
+    <div v-if="graphType == 'BreakDown'">
+      <v-row>
+        <PieChart v-bind="pieChartProps" />
+        <PieChart :chart-data="piegraphData1" :options="pieOptions1"/>
+      </v-row>
+    </div>
   </v-container>
-
-  <div v-if="graphType == 'BurnDown'">
-    <LineChart :chart-data="graphData" :options="chartOptions" v-bind="lineChartProps" />
+ <div v-if="graphType == 'BurnDown'">
+    <LineChart :chart-data="graphData" :options="lineChartOptions"  />
   </div>
   <div v-if="graphType == 'Delta'">
-    <LineChart :chart-data="deltaGraphData" :chart-options="chartOptions" />
+    <LineChart :chart-data="deltaGraphData" :chart-options="lineChartOptions" />
   </div>
   <div v-if="graphType == 'BurnUp'">
-    <LineChart :chart-data="burnUpGraphData" :chart-options="chartOptions" />
+    <LineChart :chart-data="burnUpGraphData" :chart-options="lineChartOptions" />
   </div>
+
 
   <sprintTable v-if="detailedList" class="ma-8" :sprint-items="itemsList"></sprintTable>
 </template>
@@ -122,15 +122,9 @@ let toolBarTitle = ref("Sprint burndown")
 let pieLabeles = ref([])
 let pieColors: Ref<string[]> = ref([])
 let pieValues: Ref<number[]> = ref([])
-
-
-
-
-const chartOptions = ref({
-  responsive: true,
-  maintainAspectRatio: false
-});
-
+let piePercentValues: Ref<number[]> = ref([])
+let lineChartText = ref("BurnDown")
+const rgbColors = ['#ff0000' , '#ff8000' , '#999900' , '#00ff00' , '#009999' , '#0000ff' , '#7f00ff' , '#ff33ff' , '#ff3399' , '#a0a0a0']
 
 
 const pieChartOptions = ref({
@@ -148,6 +142,7 @@ const pieChartOptions = ref({
     }
   }
 });
+
 
 let graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
@@ -184,30 +179,6 @@ let graphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-
-let piegraphData = computed<ChartData<"pie">>(() => ({
-  labels: pieLabeles.value,
-  datasets: [{
-    data: pieValues.value,
-    backgroundColor: pieColors.value,
-    hoverOffset: 4,
-     datalabels: {
-        color: 'white',
-        labels: {
-          title: {
-            font: {
-              weight: 'bold',
-              size: 18
-            }
-          },
-        }
-      }
-  }
-
-  ]
-}));
-
-
 let deltaGraphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
@@ -232,7 +203,6 @@ let deltaGraphData = computed<ChartData<"line">>(() => ({
     },
   ],
 }));
-
 
 let burnUpGraphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
@@ -260,44 +230,107 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-const options = {
-  scales: {
+let piegraphData = computed<ChartData<"pie">>(() => ({
+  labels: pieLabeles.value,
+  datasets: [{
+    data: pieValues.value,
+    backgroundColor: pieColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
 
-  },
+  ]
+}));
+
+
+
+let piegraphData1 = computed<ChartData<"pie">>(() => ({
+  labels: pieLabeles.value,
+  datasets: [{
+    data: piePercentValues.value,
+    backgroundColor: pieColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
+
+  ]
+}));
+
+
+
+let lineChartOptions = computed<ChartOptions<"line">>(() => ({
+  responsive: true,
+  maintainAspectRatio: true,
   plugins: {
-
+    legend: {
+    },
     title: {
       display: true,
-      text: "BurnDown",
+      text: lineChartText.value,
     },
-
   },
-};
+}));
+
 
 
 const pieOptions = {
-  scales: {
 
-  },
   plugins: {
 
     title: {
       display: true,
-      text: "BurnDown",
+      text: "BreakDown by category",
     },
 
   },
 };
 
+
+const pieOptions1 = {
+
+  plugins: {
+
+    title: {
+      display: true,
+      text: "Break down by category - percentage",
+    },
+
+  },
+};
+
+
+
+
 let { lineChartProps, lineChartRef } = useLineChart({
   chartData: graphData,
-  options,
+  options : lineChartOptions ,
 });
+
 
 
 let { pieChartProps, pieChartRef } = usePieChart({
   chartData: piegraphData,
-  options,
+  options : pieOptions,
 });
 
 
@@ -305,7 +338,7 @@ let { pieChartProps, pieChartRef } = usePieChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v41")
+  console.log("Starting app version v42")
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {
@@ -332,40 +365,42 @@ onMounted(async () => {
 
     }
   }
-  await createGraph()
-  createBreakDownChart()
 
+  await createGraph()
+
+  createBreakDownChart()
   toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value + " status"
 
-
-
-
 })
+
+
+
+
+
 
 function createBreakDownChart() {
   const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
   pieLabeles.value = []
+  pieValues.value = []
+  piePercentValues.value = []
+  var idx = 0;
   distinctCategory.forEach(element => {
     pieLabeles.value.push(element)
-    pieColors.value.push(generateRgbColor())
-    var totlacat = itemsList.value.filter(x=>x.stratigicCategory == element).reduce((accumulator, object) => {
+    pieColors.value.push(generateRgbColor(idx++))
+    var totlacat = itemsList.value.filter(x => x.stratigicCategory == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
     pieValues.value.push(totlacat)
-   // percent = Math.round((100 * percent) / totalPoints.value)
+    var percent = Math.round((100 * totlacat) / totalPoints.value)
+    piePercentValues.value.push(percent)
 
   });
 
 }
 
-function generateRgbColor() {
-  // Ensure values are within the valid range (0-255)
-  var r = Math.floor((Math.random() * 255))
-  var g = Math.floor((Math.random() * 255))
-  var b = Math.floor((Math.random() * 255))
+ function generateRgbColor(index) {
 
-
-  return `rgb(${r}, ${g}, ${b})`;
+  return rgbColors[index]
 }
 
 async function createGraph() {
@@ -640,6 +675,7 @@ function onDetaileGraphChanged() {
 function graphTypeChanged() {
 
 
+
 }
 
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
@@ -650,12 +686,6 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
     return true
   else
     return false;
-
-}
-
-function mondaylocatoncallbak(data) {
-  console.log("location Callback called ");
-  console.log("location " + JSON.stringify(data))
 
 }
 
