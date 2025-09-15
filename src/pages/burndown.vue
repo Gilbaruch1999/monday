@@ -55,12 +55,12 @@
     <div v-if="graphType == 'BreakDown'">
       <v-row>
         <PieChart v-bind="pieChartProps" />
-        <PieChart :chart-data="piegraphData1" :options="pieOptions1"/>
+        <PieChart :chart-data="piegraphData1" :options="pieOptions1" />
       </v-row>
     </div>
   </v-container>
- <div v-if="graphType == 'BurnDown'">
-    <LineChart :chart-data="graphData" :options="lineChartOptions"  />
+  <div v-if="graphType == 'BurnDown'">
+    <LineChart :chart-data="graphData" :options="lineChartOptions" />
   </div>
   <div v-if="graphType == 'Delta'">
     <LineChart :chart-data="deltaGraphData" :chart-options="lineChartOptions" />
@@ -83,10 +83,10 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
 import { getBoardItemsQuery } from "@/utils/queries";
-import { getDaysdiff, isIndexOnWeekEnd } from "@/utils/utils";
+import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
 import sprintTable from "../components/sprintTable.vue"
 import sprintGoals from "../components/sprintGoals.vue"
-import { BoardToGroupMap, boardType, findCurrentSprint, Sprint } from "@/utils/mondayparser";
+import { BoardToGroupMap, boardType, findCurrentSprint, Sprint, sprintDataTable, sprintInfoTable } from "@/utils/mondayparser";
 
 import { MondayClientSdk } from "monday-sdk-js";
 
@@ -124,7 +124,7 @@ let pieColors: Ref<string[]> = ref([])
 let pieValues: Ref<number[]> = ref([])
 let piePercentValues: Ref<number[]> = ref([])
 let lineChartText = ref("BurnDown")
-const rgbColors = ['#ff0000' , '#ff8000' , '#999900' , '#00ff00' , '#009999' , '#0000ff' , '#7f00ff' , '#ff33ff' , '#ff3399' , '#a0a0a0']
+const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
 
 
 const pieChartOptions = ref({
@@ -174,6 +174,19 @@ let graphData = computed<ChartData<"line">>(() => ({
       borderWidth: 2,
       borderDash: [10, 5], // 10px dash, 5px gap
       fill: false,
+        pointStyle: "circle",
+      pointRadius: 12,
+      pointHoverRadius: 14,
+      datalabels: {
+        color: 'black',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          },
+        }
+      }
     },
   ],
 }));
@@ -323,14 +336,14 @@ const pieOptions1 = {
 
 let { lineChartProps, lineChartRef } = useLineChart({
   chartData: graphData,
-  options : lineChartOptions ,
+  options: lineChartOptions,
 });
 
 
 
 let { pieChartProps, pieChartRef } = usePieChart({
   chartData: piegraphData,
-  options : pieOptions,
+  options: pieOptions,
 });
 
 
@@ -357,17 +370,8 @@ onMounted(async () => {
     getFromDummy.value = true;
 
   }
-  let index = 0;
-  for (let i = 1; i < 3; i++) {
-    for (let j = 1; j < 8; j++) {
-      dataLabels.value[index] = i + "." + j
-      index++;
-
-    }
-  }
 
   await createGraph()
-
   createBreakDownChart()
   toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value + " status"
 
@@ -376,6 +380,23 @@ onMounted(async () => {
 
 
 
+function InitSprintTable() {
+
+  for (let index = 0; index < sprintDataTable.length; index++) {
+
+    //console.log("Sprint data" + JSON.stringify(sprintDataTable[index]))
+    var idx = sprintInfoTable.findIndex(x => x.name == sprintDataTable[index].name)
+    if (idx != -1) {
+      // console.log("Sprint data info" + JSON.stringify(sprintInfoTable[idx]))
+      sprintDataTable[index].nonWorkingDays = sprintInfoTable[idx].nonWorkingDays
+      sprintDataTable[index].duration = sprintInfoTable[idx].duration
+      sprintDataTable[index].startDate = sprintInfoTable[idx].startDate
+      sprintDataTable[index].workingDays = sprintDataTable[index].duration - sprintDataTable[index].nonWorkingDays.length
+    }
+  }
+
+
+}
 
 
 function createBreakDownChart() {
@@ -398,7 +419,7 @@ function createBreakDownChart() {
 
 }
 
- function generateRgbColor(index) {
+function generateRgbColor(index) {
 
   return rgbColors[index]
 }
@@ -409,6 +430,14 @@ async function createGraph() {
   //console.log("In create graph. getfrom dummy " + getFromDummy.value)
   await getContext()
   await getBoardItems(curSprint.startDate, curSprint.duration);
+  let index = 0;
+  for (let i = 1; i < (Math.round(curSprint.duration / 7) + 1); i++) {
+    for (let j = 1; j < 8; j++) {
+      dataLabels.value[index] = i + "." + j
+      index++;
+
+    }
+  }
   prepareGraph();
   calcBurnUp();
   //console.log(" At end of create grpah")
@@ -517,6 +546,7 @@ async function getContext() {
 
     }
   }
+  InitSprintTable();
   try {
     curSprint = findCurrentSprint(boardId.value);
     groupid.value = curSprint.groupid
@@ -578,7 +608,7 @@ function prepareGraph() {
       return accumulator + object.subitemsPoints;
     }, 0);
 
-     totalPoints.value += itemsList.value.filter(x=>x.subItems.length==0).reduce((accumulator, object) => {
+    totalPoints.value += itemsList.value.filter(x => x.subItems.length == 0).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
@@ -598,19 +628,32 @@ function prepareGraph() {
     }, 0);
   }
 
-  var step = totalPoints.value / (dataLabels.value.length - 4)
-  //console.log("Step " + step)
+  var curDate = curSprint.startDate;
+  var step = totalPoints.value / ((curSprint.workingDays - 1))
+  console.log("Step is " + step)
+
   for (let index = 0; index < dataLabels.value.length; index++) {
     if (index == 0)
       idealValues.value[index] = totalPoints.value
     else {
-      if (isIndexOnWeekEnd(index)) {
+
+      if (isDateInList(curDate, curSprint.nonWorkingDays)) {
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else
-        idealValues.value[index] = idealValues.value[index - 1] - step
+      {
+         idealValues.value[index] = idealValues.value[index - 1] - step
+      }
+
     }
-    idealValues.value[index] = Math.round(idealValues.value[index])
+      curDate = new Date(addDays(curDate, 1))
+
+  }
+  for (let index = 0; index < idealValues.value.length; index++) {
+    let tmp = Math.round(idealValues.value[index] * 100) / 100
+    idealValues.value[index] = Math.round(tmp)
+
+
 
   }
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
