@@ -2,6 +2,7 @@
 
   <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Scrum'" color="primary">
 
+
     <v-checkbox @change="onDetaileGraphChanged()" class="mt-6" v-model="detailedgrpah" label="detailed"></v-checkbox>
     <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
@@ -11,7 +12,8 @@
       <v-radio class="mt-6" label="BreakDown" value="BreakDown"></v-radio>
       <v-radio class="mt-6" label="Golas" value="Goals"></v-radio>
     </v-radio-group>
-    <v-btn class="ma-4" @click="createGraph()">{{ getBtnHeader }} </v-btn>
+    <v-btn class="mt-6" @click="$router.push('/history')"> History </v-btn>
+    <v-btn class="mt-6" @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
   <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Kanban'" color="primary">
     <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
@@ -174,7 +176,7 @@ let graphData = computed<ChartData<"line">>(() => ({
       borderWidth: 2,
       borderDash: [10, 5], // 10px dash, 5px gap
       fill: false,
-        pointStyle: "circle",
+      pointStyle: "circle",
       pointRadius: 12,
       pointHoverRadius: 14,
       datalabels: {
@@ -351,7 +353,7 @@ let { pieChartProps, pieChartRef } = usePieChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v43")
+  console.log("Starting app version v44")
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {
@@ -640,13 +642,12 @@ function prepareGraph() {
       if (isDateInList(curDate, curSprint.nonWorkingDays)) {
         idealValues.value[index] = idealValues.value[index - 1]
       }
-      else
-      {
-         idealValues.value[index] = idealValues.value[index - 1] - step
+      else {
+        idealValues.value[index] = idealValues.value[index - 1] - step
       }
 
     }
-      curDate = new Date(addDays(curDate, 1))
+    curDate = new Date(addDays(curDate, 1))
 
   }
   for (let index = 0; index < idealValues.value.length; index++) {
