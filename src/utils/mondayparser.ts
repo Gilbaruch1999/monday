@@ -32,7 +32,7 @@ export let sprintInfoTable: sprintInfo[] = [
   {
     name: "Sprint 25",
     startDate: createDateFromText1("7-9-2025"),
-    duration: 28,
+    duration: 14,
     nonWorkingDays: [
       createDateFromText1("12-9-2025"),
       createDateFromText1("13-9-2025"),
