@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="ma-0">
-    <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
       :row-props="rowProps"  @click:row="rowClicked" :items="props.sprintItems">
       <template v-slot:item.percentDone="{ item } ">
          <!-- @vue-ignore -->
@@ -20,7 +20,7 @@
       <v-toolbar color="primary">
         <v-toolbar-title>{{ childTitle }}</v-toolbar-title>
       </v-toolbar>
-      <v-data-table items-per-page="20" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+      <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
       :row-props="rowProps"  @click:row="subItemrowClicked" :items="childItems">
       <template v-slot:item.percentDone="{ item } ">
          <!-- @vue-ignore -->
