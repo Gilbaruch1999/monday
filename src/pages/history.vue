@@ -7,9 +7,9 @@
 
   </v-toolbar>
 
-  <div>
+  <div class="mx-6">
     <LineChart :chart-data="graphData" :options="lineChartOptions" />
-  </div>
+  </div class="mx-6">
   <br></br>
   <div>
     <LineChart :chart-data="graphData1" :options="lineChartOptions1" />
@@ -24,11 +24,11 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.register(...registerables, ChartDataLabels);
 
-const velocity = ref([37, 33, 39]);
-const predictability = ref([70, 80, 57]);
-const predictabilityGoal = ref([80, 80, 80]);
+const velocity = ref([37, 33, 39 , 68]);
+const predictability = ref([70, 80, 57 , 55]);
+const predictabilityGoal = ref([80, 80, 80 , 80]);
 
-let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24']);
+let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25']);
 
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
@@ -117,8 +117,8 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
   maintainAspectRatio: true,
   scales: {
     y: {
-      min: 20, // Sets the minimum value of the y-axis
-      max: 60 // Sets the maximum value of the y-axis
+      min: 25, // Sets the minimum value of the y-axis
+      max: 80 // Sets the maximum value of the y-axis
     }
   },
   plugins: {

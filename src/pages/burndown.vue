@@ -13,6 +13,7 @@
       <v-radio class="mt-6" label="Golas" value="Goals"></v-radio>
     </v-radio-group>
     <v-btn class="mt-6" @click="$router.push('/history')"> History </v-btn>
+    <v-btn class="mt-6" @click="$router.push('/kanban')"> Kanban </v-btn>
     <v-btn class="mt-6" @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
   <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Kanban'" color="primary">
@@ -353,7 +354,7 @@ let { pieChartProps, pieChartRef } = usePieChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v47")
+  console.log("Starting app version v48")
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {
