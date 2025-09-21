@@ -354,7 +354,7 @@ let { pieChartProps, pieChartRef } = usePieChart({
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v48")
+  console.log("Starting app version v49")
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {

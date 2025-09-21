@@ -11,7 +11,7 @@
     <LineChart :chart-data="graphData" :options="lineChartOptions" />
   </div class="mx-6">
   <br></br>
-  <div>
+  <div class="mx-6">
     <LineChart :chart-data="graphData1" :options="lineChartOptions1" />
   </div>
 
@@ -24,9 +24,10 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.register(...registerables, ChartDataLabels);
 
-const velocity = ref([37, 33, 39 , 68]);
-const predictability = ref([70, 80, 57 , 55]);
-const predictabilityGoal = ref([80, 80, 80 , 80]);
+const velocity = ref([37, 33, 39 , 55]);
+const predictability = ref([70, 80, 57 , 68]);
+const predictabilityGoalLow = ref([80, 80, 80 , 80]);
+const predictabilityGoalHigh = ref([90, 90, 90 , 90]);
 
 let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25']);
 
@@ -97,8 +98,18 @@ let graphData1 = computed<ChartData<"line">>(() => ({
       }
     },
     {
-      label: "Predictability Goal",
-      data: predictabilityGoal.value,
+      label: "Predictability Goal Low",
+      data: predictabilityGoalLow.value,
+      backgroundColor: predgoalcolor,
+      borderColor: predgoalcolor,
+      pointStyle: "star",
+      pointRadius: 12,
+      pointHoverRadius: 14,
+
+    },
+    {
+      label: "Predictability Goal High",
+      data: predictabilityGoalHigh.value,
       backgroundColor: predgoalcolor,
       borderColor: predgoalcolor,
       pointStyle: "star",

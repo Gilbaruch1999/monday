@@ -84,7 +84,7 @@ export let sprintDataTable: Sprint[] = [
     startDate: new Date(),
     duration: 0,
     boardid: "1661635292",
-    groupid: "group_mktpsjn9",
+    groupid: "group_mkvwj9pf",
     workingDays: 0,
     nonWorkingDays: [],
   },
