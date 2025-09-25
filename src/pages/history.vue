@@ -24,8 +24,8 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.register(...registerables, ChartDataLabels);
 
-const velocity = ref([37, 33, 39 , 55]);
-const predictability = ref([70, 80, 57 , 68]);
+const velocity = ref([37, 33, 39 , 75]);
+const predictability = ref([70, 80, 57 , 92]);
 const predictabilityGoalLow = ref([80, 80, 80 , 80]);
 const predictabilityGoalHigh = ref([90, 90, 90 , 90]);
 
@@ -80,12 +80,8 @@ let graphData1 = computed<ChartData<"line">>(() => ({
       pointHoverRadius: 20,
       datalabels: {
         formatter: function (value, context) {
-          // Example: Display value as a percentage
-
             return value + '%';
 
-          // Example: Display the corresponding label from the chart's data.labels array
-          return context.chart.data.labels[context.dataIndex];
         },
         color: 'black',
         labels: {

@@ -28,7 +28,7 @@
         <v-card-text> {{ predictability }} </v-card-text>
       </v-card>
       <v-card class="ma-4" color="primary">
-        <v-card-title>Commited </v-card-title>
+        <v-card-title>Committed </v-card-title>
         <v-card-text>{{ totalPoints }} </v-card-text>
       </v-card>
       <v-card class="ma-4" color="primary">
@@ -57,9 +57,16 @@
   <v-container fluid>
     <div v-if="graphType == 'BreakDown'">
       <v-row>
-        <PieChart v-bind="pieChartProps" />
-        <PieChart :chart-data="piegraphData1" :options="pieOptions1" />
+        <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
+        <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
       </v-row>
+      <v-row>
+        <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
+        <PieChart :chart-data="goalsPercentPieData" :options="goalsPieOptions" />
+
+      </v-row>
+
+
     </div>
   </v-container>
   <div v-if="graphType == 'BurnDown'">
@@ -78,7 +85,7 @@
 
 <script setup lang='ts'>
 import { computed, inject, onMounted, ref, type Ref } from "vue";
-import { LineChart, PieChart, useLineChart, usePieChart } from "vue-chart-3";
+import { LineChart, PieChart, useLineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 
 
@@ -122,29 +129,15 @@ let getBtnHeader = ref("get API Data")
 let curSprint: Sprint;
 let CurrentBoardType = ref("");
 let toolBarTitle = ref("Sprint burndown")
-let pieLabeles = ref([])
+let categoryLabeles = ref([])
 let pieColors: Ref<string[]> = ref([])
-let pieValues: Ref<number[]> = ref([])
-let piePercentValues: Ref<number[]> = ref([])
+let goalsColors: Ref<string[]> = ref([])
+let categoryValues: Ref<number[]> = ref([])
 let lineChartText = ref("BurnDown")
+let goalsLabel = ref([])
+let goalsValues = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
 
-
-const pieChartOptions = ref({
-  responsive: true,
-  maintainAspectRatio: true,
-  plugins: {
-    datalabels: {
-      formatter: (value, ctx) => {
-        const datapoints = ctx.chart.data.datasets[0].data
-        const total = datapoints.reduce((total, datapoint) => total + datapoint, 0)
-        const percentage = value / total * 100
-        return percentage.toFixed(2) + "%";
-      },
-      color: '#fff',
-    }
-  }
-});
 
 
 let graphData = computed<ChartData<"line">>(() => ({
@@ -246,10 +239,10 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-let piegraphData = computed<ChartData<"pie">>(() => ({
-  labels: pieLabeles.value,
+let categoryPieData = computed<ChartData<"pie">>(() => ({
+  labels: categoryLabeles.value,
   datasets: [{
-    data: pieValues.value,
+    data: categoryValues.value,
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
@@ -270,13 +263,79 @@ let piegraphData = computed<ChartData<"pie">>(() => ({
 
 
 
-let piegraphData1 = computed<ChartData<"pie">>(() => ({
-  labels: pieLabeles.value,
+let catPercentpieData = computed<ChartData<"pie">>(() => ({
+  labels: categoryLabeles.value,
   datasets: [{
-    data: piePercentValues.value,
+    data: categoryValues.value,
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
+      formatter: function (value, context) {
+
+        var total = categoryValues.value.reduce((accumulator, object) => {
+          return accumulator + object;
+        }, 0);
+        const percentage = (value / total) * 100
+        return percentage.toFixed(0) + "%";
+
+      },
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
+
+  ]
+}));
+
+
+
+let goalsPieData = computed<ChartData<"pie">>(() => ({
+  labels: goalsLabel.value,
+  datasets: [{
+    data: goalsValues.value,
+    backgroundColor: goalsColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
+
+  ]
+}));
+
+
+
+let goalsPercentPieData = computed<ChartData<"pie">>(() => ({
+  labels: goalsLabel.value,
+  datasets: [{
+    data: goalsValues.value,
+    backgroundColor: goalsColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      formatter: function (value, context) {
+
+        var total = goalsValues.value.reduce((accumulator, object) => {
+          return accumulator + object;
+        }, 0);
+        const percentage = (value / total) * 100
+        return percentage.toFixed(0) + "%";
+
+      },
       color: 'white',
       labels: {
         title: {
@@ -309,7 +368,7 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 
 
 
-const pieOptions = {
+const categoryPieOptions = {
 
   plugins: {
 
@@ -322,19 +381,31 @@ const pieOptions = {
 };
 
 
-const pieOptions1 = {
+
+const goalsPieOptions = {
 
   plugins: {
 
     title: {
       display: true,
-      text: "Break down by category - percentage",
+      text: "BreakDown by golas",
     },
 
   },
 };
 
 
+const categoryPercentPieOptions = {
+
+  plugins: {
+
+    title: {
+      display: true,
+      text: "Break down by Category - percentage",
+    },
+
+  },
+};
 
 
 let { lineChartProps, lineChartRef } = useLineChart({
@@ -344,17 +415,13 @@ let { lineChartProps, lineChartRef } = useLineChart({
 
 
 
-let { pieChartProps, pieChartRef } = usePieChart({
-  chartData: piegraphData,
-  options: pieOptions,
-});
 
 
 
 onMounted(async () => {
 
   var res = await mondayapi.get('context')
-  console.log("Starting app version v49")
+  console.log("Starting app version v50")
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {
@@ -404,21 +471,37 @@ function InitSprintTable() {
 
 function createBreakDownChart() {
   const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
-  pieLabeles.value = []
-  pieValues.value = []
-  piePercentValues.value = []
+  categoryLabeles.value = []
+  categoryValues.value = []
   var idx = 0;
   distinctCategory.forEach(element => {
-    pieLabeles.value.push(element)
+    //console.log("Category " + element)
+    categoryLabeles.value.push(element)
     pieColors.value.push(generateRgbColor(idx++))
-    var totlacat = itemsList.value.filter(x => x.stratigicCategory == element).reduce((accumulator, object) => {
+    var totalcat = itemsList.value.filter(x => x.stratigicCategory == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-    pieValues.value.push(totlacat)
-    var percent = Math.round((100 * totlacat) / totalPoints.value)
-    piePercentValues.value.push(percent)
+    //console.log("Total " + totalcat)
+    categoryValues.value.push(totalcat)
 
   });
+
+  const distinctGoals = [...new Set(itemsList.value.map(x => x.goalCategory))];
+  goalsLabel.value = []
+  goalsValues.value = []
+  idx = 0;
+  distinctGoals.forEach(element => {
+    //console.log("Category " + element)
+    goalsLabel.value.push(element)
+    goalsColors.value.push(generateRgbColor(idx++))
+    var totalcat = itemsList.value.filter(x => x.goalCategory == element).reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
+    }, 0);
+
+    goalsValues.value.push(totalcat)
+
+  });
+
 
 }
 
