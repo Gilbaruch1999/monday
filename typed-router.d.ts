@@ -24,5 +24,6 @@ declare module 'vue-router/auto-routes' {
     '/history': RouteRecordInfo<'/history', '/history', Record<never, never>, Record<never, never>>,
     '/kanban': RouteRecordInfo<'/kanban', '/kanban', Record<never, never>, Record<never, never>>,
     '/sprintGoals': RouteRecordInfo<'/sprintGoals', '/sprintGoals', Record<never, never>, Record<never, never>>,
+    '/sprintTable': RouteRecordInfo<'/sprintTable', '/sprintTable', Record<never, never>, Record<never, never>>,
   }
 }

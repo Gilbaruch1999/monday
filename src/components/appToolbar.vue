@@ -1,11 +1,12 @@
 <template>
 
   <v-toolbar color="primary " :title="toolBarTitle">
-    <v-btn class="mt-6" @click="$router.push('/burndown')"> BurnDown </v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintGoals')"> Goals </v-btn>
-    <v-btn class="mt-6" @click="$router.push('/breakdown')"> BreakDown pie </v-btn>
-    <v-btn class="mt-6" @click="$router.push('/kanban')"> Kanban </v-btn>
-    <v-btn class="mt-6" @click="$router.push('/history')"> History </v-btn>
+    <v-btn class="mt-6" @click="$router.push('/burndown')">BurnDown</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintTable')">Sprint items</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintGoals')">Goals</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
   </v-toolbar>
 
 
