@@ -18,8 +18,8 @@
 import { boardItem } from "@/utils/boarditem";
 import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
-import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
-import { PieChart, useLineChart } from "vue-chart-3";
+import { Chart, ChartData,registerables } from "chart.js";
+import { PieChart } from "vue-chart-3";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, onMounted, ref, Ref } from "vue";
 Chart.register(...registerables, ChartDataLabels);
@@ -210,9 +210,6 @@ onMounted(async () => {
   itemsList.value = sprintDataStore.getsprintData()
   curSprint.value = sprintDataStore.getsprintConfig()
   createBreakDownChart()
-
-
-
 })
 
 

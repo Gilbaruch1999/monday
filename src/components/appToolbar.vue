@@ -13,7 +13,7 @@
 
 
 <script setup lang='ts'>
-import { computed, inject, onMounted, ref, type Ref } from "vue";
+import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
