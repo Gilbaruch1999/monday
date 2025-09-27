@@ -1,27 +1,14 @@
 <template>
 
-  <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Scrum'" color="primary">
-
-
+  <v-toolbar class="mt-7" :title="toolBarTitle" color="primary">
     <v-checkbox @change="onDetaileGraphChanged()" class="mt-6" v-model="detailedgrpah" label="detailed"></v-checkbox>
-    <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
     <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
       <v-radio class="mt-6" label="BurnDown" value="BurnDown"></v-radio>
       <v-radio class="mt-6" label="BurnUp" value="BurnUp"></v-radio>
       <v-radio class="mt-6" label="Delta" value="Delta"></v-radio>
-      <v-radio class="mt-6" label="BreakDown" value="BreakDown"></v-radio>
-      <v-radio class="mt-6" label="Golas" value="Goals"></v-radio>
     </v-radio-group>
-    <v-btn class="mt-6" @click="$router.push('/history')"> History </v-btn>
-    <v-btn class="mt-6" @click="$router.push('/kanban')"> Kanban </v-btn>
-    <v-btn class="mt-6" @click="createGraph()">{{ getBtnHeader }} </v-btn>
   </v-toolbar>
-  <v-toolbar :title="toolBarTitle" v-if="CurrentBoardType == 'Kanban'" color="primary">
-    <v-checkbox class="mt-6" v-model="detailedList" label="List"></v-checkbox>
-    <v-btn small @click="createGraph()">{{ getBtnHeader }} </v-btn>
-  </v-toolbar>
-
-  <div v-if="CurrentBoardType == 'Scrum'" class="mx-4" style="display: flex; justify-content: center">
+  <div class="mx-4" style="display: flex; justify-content: center">
     <v-row cols="2">
       <v-card class="ma-4" color="primary">
         <v-card-title>Predictability </v-card-title>
@@ -37,38 +24,6 @@
       </v-card>
     </v-row>
   </div>
-  <div v-if="CurrentBoardType == 'Kanban'" class="mx-4" style="display: flex; justify-content: center">
-    <v-row cols="2">
-      <v-card class="ma-4" color="primary">
-        <v-card-title>Throughtput </v-card-title>
-        <v-card-text> {{ throughPut }} </v-card-text>
-      </v-card>
-      <v-card class="ma-4" color="primary">
-        <v-card-title>Cycle Time </v-card-title>
-        <v-card-text>{{ cycleTime }} </v-card-text>
-      </v-card>
-      <v-card class="ma-4" color="primary">
-        <v-card-title>Lead Time </v-card-title>
-        <v-card-text>{{ leadTime }} </v-card-text>
-      </v-card>
-    </v-row>
-  </div>
-  <sprintGoals v-if="graphType == 'Goals'" :board-items="itemsList"></sprintGoals>
-  <v-container fluid>
-    <div v-if="graphType == 'BreakDown'">
-      <v-row>
-        <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
-        <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
-      </v-row>
-      <v-row>
-        <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
-        <PieChart :chart-data="goalsPercentPieData" :options="goalsPieOptions" />
-
-      </v-row>
-
-
-    </div>
-  </v-container>
   <div v-if="graphType == 'BurnDown'">
     <LineChart :chart-data="graphData" :options="lineChartOptions" />
   </div>
@@ -78,68 +33,47 @@
   <div v-if="graphType == 'BurnUp'">
     <LineChart :chart-data="burnUpGraphData" :chart-options="lineChartOptions" />
   </div>
-
-
-  <sprintTable v-if="detailedList" class="ma-8" :sprint-items="itemsList"></sprintTable>
 </template>
 
 <script setup lang='ts'>
-import { computed, inject, onMounted, ref, type Ref } from "vue";
-import { LineChart, PieChart, useLineChart } from "vue-chart-3";
+import { computed, onMounted, ref, type Ref } from "vue";
+import { LineChart, useLineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 
 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
-import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
-import { getBoardItemsQuery } from "@/utils/queries";
 import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
-import sprintTable from "../components/sprintTable.vue"
-import sprintGoals from "../components/sprintGoals.vue"
-import { BoardToGroupMap, boardType, findCurrentSprint, Sprint, sprintDataTable, sprintInfoTable } from "@/utils/mondayparser";
-
-import { MondayClientSdk } from "monday-sdk-js";
+import { Sprint } from "@/utils/mondayparser";
+import { useSprintData } from "../stores/sprintData";
 
 Chart.register(...registerables, ChartDataLabels);
 
+const sprintDataStore = useSprintData();
 const idealValues = ref([]);
 const actualValues = ref([]);
 const burnUpValues = ref([]);
 const deltaValues = ref([]);
 let dataLabels = ref(["1", '2']);
-const mondayapi = inject('monday') as MondayClientSdk
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
 const deltacolor = "rgb(255,0,0)"
 const burnupcolor = "rgb(0,255,0)"
-let getFromDummy = ref(false);
 let predictability = ref("")
 let throughPut = ref(0)
 let cycleTime = ref(0)
 let leadTime = ref(0)
-let boardId = ref("")
 let itemsList: Ref<boardItem[]> = ref([]);
 let totalPoints = ref(0)
 let totalDonePoints = ref(0)
 let detailedgrpah = ref(false)
 let detailedList = ref(false)
 let graphType = ref("BurnDown")
-let groupid = ref("");
 let getBtnHeader = ref("get API Data")
-let curSprint: Sprint;
+let curSprint: Ref<Sprint> = ref();
 let CurrentBoardType = ref("");
 let toolBarTitle = ref("Sprint burndown")
-let categoryLabeles = ref([])
-let pieColors: Ref<string[]> = ref([])
-let goalsColors: Ref<string[]> = ref([])
-let categoryValues: Ref<number[]> = ref([])
 let lineChartText = ref("BurnDown")
-let goalsLabel = ref([])
-let goalsValues = ref([])
-const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
-
-
-
 let graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
@@ -239,119 +173,6 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-let categoryPieData = computed<ChartData<"pie">>(() => ({
-  labels: categoryLabeles.value,
-  datasets: [{
-    data: categoryValues.value,
-    backgroundColor: pieColors.value,
-    hoverOffset: 4,
-    datalabels: {
-      color: 'white',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
-            size: 18
-          }
-        },
-      }
-    }
-  }
-
-  ]
-}));
-
-
-
-let catPercentpieData = computed<ChartData<"pie">>(() => ({
-  labels: categoryLabeles.value,
-  datasets: [{
-    data: categoryValues.value,
-    backgroundColor: pieColors.value,
-    hoverOffset: 4,
-    datalabels: {
-      formatter: function (value, context) {
-
-        var total = categoryValues.value.reduce((accumulator, object) => {
-          return accumulator + object;
-        }, 0);
-        const percentage = (value / total) * 100
-        return percentage.toFixed(0) + "%";
-
-      },
-      color: 'white',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
-            size: 18
-          }
-        },
-      }
-    }
-  }
-
-  ]
-}));
-
-
-
-let goalsPieData = computed<ChartData<"pie">>(() => ({
-  labels: goalsLabel.value,
-  datasets: [{
-    data: goalsValues.value,
-    backgroundColor: goalsColors.value,
-    hoverOffset: 4,
-    datalabels: {
-      color: 'white',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
-            size: 18
-          }
-        },
-      }
-    }
-  }
-
-  ]
-}));
-
-
-
-let goalsPercentPieData = computed<ChartData<"pie">>(() => ({
-  labels: goalsLabel.value,
-  datasets: [{
-    data: goalsValues.value,
-    backgroundColor: goalsColors.value,
-    hoverOffset: 4,
-    datalabels: {
-      formatter: function (value, context) {
-
-        var total = goalsValues.value.reduce((accumulator, object) => {
-          return accumulator + object;
-        }, 0);
-        const percentage = (value / total) * 100
-        return percentage.toFixed(0) + "%";
-
-      },
-      color: 'white',
-      labels: {
-        title: {
-          font: {
-            weight: 'bold',
-            size: 18
-          }
-        },
-      }
-    }
-  }
-
-  ]
-}));
-
-
 
 let lineChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
@@ -368,46 +189,6 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 
 
 
-const categoryPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by category",
-    },
-
-  },
-};
-
-
-
-const goalsPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by golas",
-    },
-
-  },
-};
-
-
-const categoryPercentPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "Break down by Category - percentage",
-    },
-
-  },
-};
-
-
 let { lineChartProps, lineChartRef } = useLineChart({
   chartData: graphData,
   options: lineChartOptions,
@@ -416,242 +197,36 @@ let { lineChartProps, lineChartRef } = useLineChart({
 
 
 
-
-
 onMounted(async () => {
-
-  var res = await mondayapi.get('context')
-  console.log("Starting app version v51")
-  //console.log("Res " + JSON.stringify(res))
-  try {
-    if (res.hasOwnProperty('data')) {
-      getFromDummy.value = false
-      //mondayapi.listen("location" , mondaylocatoncallbak)
-      mondayapi.listen("events", eventlocatoncallbak)
-    }
-    else {
-      console.log("No API")
-      getFromDummy.value = true
-    }
-
-  }
-  catch {
-    console.log("use dummy data ");
-    getFromDummy.value = true;
-
-  }
-
-  await createGraph()
-  createBreakDownChart()
-  toolBarTitle.value = curSprint.name + " " + CurrentBoardType.value + " status"
+  console.log("On mounted burndown ")
+  itemsList.value = sprintDataStore.getsprintData()
+  curSprint.value = sprintDataStore.getsprintConfig()
+  createGraph()
+  toolBarTitle.value = "Sprint " + curSprint.value.name + " burndown"
 
 })
 
 
 
-
-function InitSprintTable() {
-
-  for (let index = 0; index < sprintDataTable.length; index++) {
-
-    //console.log("Sprint data" + JSON.stringify(sprintDataTable[index]))
-    var idx = sprintInfoTable.findIndex(x => x.name == sprintDataTable[index].name)
-    if (idx != -1) {
-      // console.log("Sprint data info" + JSON.stringify(sprintInfoTable[idx]))
-      sprintDataTable[index].nonWorkingDays = sprintInfoTable[idx].nonWorkingDays
-      sprintDataTable[index].duration = sprintInfoTable[idx].duration
-      sprintDataTable[index].startDate = sprintInfoTable[idx].startDate
-      sprintDataTable[index].workingDays = sprintDataTable[index].duration - sprintDataTable[index].nonWorkingDays.length
-    }
-  }
-
-
-}
-
-
-function createBreakDownChart() {
-  const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
-  categoryLabeles.value = []
-  categoryValues.value = []
-  var idx = 0;
-  distinctCategory.forEach(element => {
-    //console.log("Category " + element)
-    categoryLabeles.value.push(element)
-    pieColors.value.push(generateRgbColor(idx++))
-    var totalcat = itemsList.value.filter(x => x.stratigicCategory == element).reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
-    //console.log("Total " + totalcat)
-    categoryValues.value.push(totalcat)
-
-  });
-
-  const distinctGoals = [...new Set(itemsList.value.map(x => x.goalCategory))];
-  goalsLabel.value = []
-  goalsValues.value = []
-  idx = 0;
-  distinctGoals.forEach(element => {
-    //console.log("Category " + element)
-    goalsLabel.value.push(element)
-    goalsColors.value.push(generateRgbColor(idx++))
-    var totalcat = itemsList.value.filter(x => x.goalCategory == element).reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
-
-    goalsValues.value.push(totalcat)
-
-  });
-
-
-}
-
-function generateRgbColor(index) {
-
-  return rgbColors[index]
-}
-
 async function createGraph() {
 
   getBtnHeader.value = "Update data"
-  //console.log("In create graph. getfrom dummy " + getFromDummy.value)
-  await getContext()
-  await getBoardItems(curSprint.startDate, curSprint.duration);
+
   let index = 0;
-  for (let i = 1; i < (Math.round(curSprint.duration / 7) + 1); i++) {
+  for (let i = 1; i < (Math.round(curSprint.value.duration / 7) + 1); i++) {
     for (let j = 1; j < 8; j++) {
       dataLabels.value[index] = i + "." + j
       index++;
-
     }
   }
   prepareGraph();
   calcBurnUp();
-  //console.log(" At end of create grpah")
 
 }
 
-async function getBoardItems(sprintStart: Date, sprintLength: number) {
-
-  var data;
-
-  itemsList.value = []
-
-  if (getFromDummy.value) {
-    data = getDummyBoardItems(boardId.value);
-    data = data.data
-    //console.log("Get from Dummy " + JSON.stringify(data))
-  }
-  else {
-    var qstr = getBoardItemsQuery(boardId.value, groupid.value);
-    // console.log("Query " + qstr)
-    var res = await mondayapi.api(qstr);
-    //console.log("get boards from api" + JSON.stringify(res))
-    data = res.data
-  }
-  try {
-    if (data.boards.length == 0)
-      console.log("No boards")
-
-  }
-  catch {
-    data = {}
-    console.log("Error from API " + JSON.stringify(data))
-    data['boards'] = []
-
-  }
-
-
-  data.boards.forEach(board => {
-    console.log("found " + board.items_page.items.length + " board items")
-    board.items_page.items.forEach(item => {
-      //console.log("item " + JSON.stringify(item))
-      var bitem: boardItem = new boardItem();
-      bitem.title = item.name
-      bitem.id = item.id
-      //console.log('New Item ' + bitem.title)
-      bitem.updateFields(item.column_values);
-      // get sub items
-      try {
-        if (item.subitems.length > 0) {
-          item.subitems.forEach(subitem => {
-            //console.log("Found sub item @@@@ " + JSON.stringify(subitem))
-            var sbitem: boardItem = new boardItem();
-            sbitem.title = subitem.name
-            sbitem.id = subitem.id
-            //console.log("new sub item " + sbitem.title)
-            sbitem.updateFields(subitem.column_values);
-            sbitem.updateStoryPoints();
-            sbitem.checkForPlanningIssues();
-            switch (sbitem.status) {
-              case "Done":
-                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
-                  bitem.subItems.push(sbitem)
-                break;
-              case "Removed":
-                break;
-              default:
-                bitem.subItems.push(sbitem)
-                break;
-            }
-
-            //console.log("created sub item $$$$$$ " + JSON.stringify(sbitem))
-          });
-        }
-      }
-      catch {
-
-      }
-      bitem.updateSubItemPoints();
-      bitem.checkForPlanningIssues();
-      itemsList.value.push(bitem)
-
-    }); // end item loop
-
-  }); // end board loop
-
-}
-
-async function getContext() {
-  let context = {};
-  if (getFromDummy.value) {
-    context = getDummyContext();
-    //console.log("Dummy Context " + JSON.stringify(context))
-    boardId.value = context['boardId']
-  }
-  else {
-
-    //console.log("Get from API async ")
-    var res = await mondayapi.get('context')
-    //console.log("Res " + JSON.stringify(res))
-    context = res.data;
-    try {
-      boardId.value = context['boardId']
-      console.log("Board id " + boardId.value)
-    }
-    catch {
-
-    }
-  }
-  InitSprintTable();
-  try {
-    curSprint = findCurrentSprint(boardId.value);
-    groupid.value = curSprint.groupid
-    console.log("Current sprint is " + JSON.stringify(curSprint))
-    console.log("group id= " + JSON.stringify(groupid.value))
-    var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
-    if (index != -1)
-      CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
-    console.log("Board type " + CurrentBoardType.value)
-
-  }
-  catch {
-
-  }
-  //console.log("Group id = " + groupid.value)
-}
 
 function resetData() {
-  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
+  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   burnUpValues.value = new Array(currentIndex + 1).fill(0)
   actualValues.value = new Array(currentIndex + 1).fill(0)
   totalPoints.value = 0;
@@ -662,25 +237,6 @@ function resetData() {
 
 }
 
-function calcKanbanInfo() {
-  var doneitems = itemsList.value.filter(x => x.status == "Done")
-  //console.log("Done items " + JSON.stringify(doneitems.length))
-  throughPut.value = doneitems.length
-
-  doneitems.forEach(element => {
-    //console.log("Done date " + JSON.stringify(element.DoneDate) )
-    // calculate lead time - from work start to completiong
-    // calculate cycle time from first definition to work completion
-    //console.log("Start date " + JSON.stringify(element.startDate.toLocaleDateString()) )
-    var dif = getDaysdiff(element.DoneDate, element.startDate)
-    cycleTime.value += dif;
-    dif = getDaysdiff(element.DoneDate, element.starWorktDate)
-    leadTime.value += dif;
-  });
-
-  leadTime.value = Math.round((10 * leadTime.value) / doneitems.length) / 10
-  cycleTime.value = Math.round((10 * cycleTime.value) / doneitems.length) / 10
-}
 
 function prepareGraph() {
   resetData()
@@ -714,8 +270,8 @@ function prepareGraph() {
     }, 0);
   }
 
-  var curDate = curSprint.startDate;
-  var step = totalPoints.value / ((curSprint.workingDays - 1))
+  var curDate = curSprint.value.startDate;
+  var step = totalPoints.value / ((curSprint.value.workingDays - 1))
   console.log("Step is " + step)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
@@ -723,7 +279,7 @@ function prepareGraph() {
       idealValues.value[index] = totalPoints.value
     else {
 
-      if (isDateInList(curDate, curSprint.nonWorkingDays)) {
+      if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else {
@@ -744,29 +300,19 @@ function prepareGraph() {
   predictability.value = ((100 * (totalDonePoints.value / totalPoints.value))).toFixed(0) + " %"
   //console.log("End of prepare graph. Total points " + totalPoints.value)
 
-  if (CurrentBoardType.value == 'Kanban')
-    calcKanbanInfo();
 
 }
 
 function calcBurnUp() {
 
-  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
-  //console.log("sprint start " + JSON.stringify(sprintStart.toLocaleDateString()))
+  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   if (detailedgrpah.value) {
     var detailedItems = itemsList.value.filter(x => x.subItems.length > 0)
-    //console.log("Not done items " + JSON.stringify(notdoneitems))
     detailedItems.forEach(element => {
-      //console.log("parent item " + element.title + " status " + element.status)
-
       element.subItems.forEach(subitem => {
-        //console.log("Sub item " + subitem.title + " status " + subitem.status)
         if (subitem.status == "Done") {
-
-          var index = getDaysdiff(subitem.DoneDate, curSprint.startDate)
-          //console.log("Date XXXXX" + subitem.DoneDate.toLocaleDateString() + "  index " + index)
+          var index = getDaysdiff(subitem.DoneDate, curSprint.value.startDate)
           if ((index >= 0) && (index <= currentIndex)) {
-
             burnUpValues.value[index] = burnUpValues.value[index] + subitem.storyPoints;
           }
         }
@@ -775,25 +321,18 @@ function calcBurnUp() {
   }
   else {
     var doneitems = itemsList.value.filter(x => x.status == "Done")
-    //console.log("Done ites "  + JSON.stringify(doneitems))
     doneitems.forEach(element => {
-      var index = getDaysdiff(element.DoneDate, curSprint.startDate)
-      //console.log("Date " + element.DoneDate.toLocaleDateString() + "  index " + index)
-
+      var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
       if ((index >= 0) && (index <= currentIndex))
         burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
     });
   }
-  //console.log("Burn up" + JSON.stringify(burnUpValues.value))
-
-  var currentIndex = getDaysdiff(new Date(), curSprint.startDate)
+  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   actualValues.value[0] = totalPoints.value
   for (let index = 0; index < actualValues.value.length; index++) {
-    //console.log("Actual values of index " + index + " " + actualValues.value[index])
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
     if ((index + 1) < actualValues.value.length)
       actualValues.value[index + 1] = actualValues.value[index]
-
     deltaValues.value[index] = actualValues.value[index] - idealValues.value[index]
   }
 
@@ -808,28 +347,7 @@ function onDetaileGraphChanged() {
 function graphTypeChanged() {
 
 
-
 }
-
-function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
-  var diff = getDaysdiff(checkDate, startDate)
-  //console.log("Check date " + checkDate.toLocaleDateString() + " diff " + diff)
-
-  if ((diff >= 0) && (diff <= sprintLen))
-    return true
-  else
-    return false;
-
-}
-
-
-
-function eventlocatoncallbak(event) {
-  console.log("event Callback called ");
-  console.log("Data " + JSON.stringify(event))
-
-}
-
 
 
 </script>

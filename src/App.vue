@@ -1,12 +1,15 @@
 <template>
   <v-app>
     <v-main>
-      <router-view />
+      <AppToolbar></AppToolbar>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
+import AppToolbar from './components/appToolbar.vue';
+
   //
 </script>
 <style>

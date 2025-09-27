@@ -1,12 +1,6 @@
 <template>
-
-  <v-toolbar :title="toolBarTitle" color="primary">
-    <v-btn class="mt-6" @click="$router.push('/')" icon>
-      <v-icon>mdi-home</v-icon>
-    </v-btn>
-
+  <v-toolbar class="mt-6" :title="toolBarTitle" color="primary">
   </v-toolbar>
-
   <div class="mx-6">
     <LineChart :chart-data="graphData" :options="lineChartOptions" />
   </div class="mx-6">
@@ -34,7 +28,7 @@ let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25']);
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
 const predgoalcolor = "rgb(255,0,0)"
-let toolBarTitle = ref("KPIs History")
+let toolBarTitle = ref("History KPIs")
 let lineChartText = ref("Velocity history")
 let lineChart1Text = ref("Predictability history")
 
@@ -159,19 +153,9 @@ let lineChartOptions1 = computed<ChartOptions<"line">>(() => ({
   },
 }));
 
-
-
-
-
-
 onMounted(async () => {
 
-
 })
-
-
-
-
 
 </script>
 

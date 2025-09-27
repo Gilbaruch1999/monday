@@ -281,7 +281,7 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Improve Item Connection",
+              "name": "Improve Item merge",
               "id": "5004340944",
               "column_values": [
                 {
@@ -296,14 +296,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": ""
+                  "text": "Matan Moskovich"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -317,7 +317,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
+                  "text": "M"
                 },
                 {
                   "column": {
@@ -373,14 +373,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": ""
+                  "text": "Matan Moskovich"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -394,7 +394,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
+                  "text": "S"
                 },
                 {
                   "column": {
@@ -457,7 +457,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Code Review Me"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -499,7 +499,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-09-26"
                 },
                 {
                   "column": {
@@ -893,7 +893,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "gil elazar"
+                  "text": "gil elazar, Matan Moskovich"
                 },
                 {
                   "column": {
@@ -962,7 +962,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1003,7 +1003,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1044,7 +1044,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1085,7 +1085,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1126,7 +1126,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1167,7 +1167,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1208,7 +1208,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1249,7 +1249,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "gil elazar"
+                      "text": "gil elazar, Matan Moskovich"
                     },
                     {
                       "column": {
@@ -1823,14 +1823,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "gil elazar"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Please Take Me 🥹"
                 },
                 {
                   "column": {
@@ -1900,14 +1900,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "gil elazar"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Please Take Me 🥹"
                 },
                 {
                   "column": {
@@ -3668,7 +3668,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Working in Progress"
                     },
                     {
                       "column": {
@@ -3709,7 +3709,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Working in Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -3730,7 +3730,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-09-26"
                     }
                   ]
                 },

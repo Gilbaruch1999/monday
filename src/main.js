@@ -6,6 +6,7 @@
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import { createPinia } from 'pinia'
 import mondaySdk from 'monday-sdk-js'
 
 // Components
@@ -18,7 +19,9 @@ import { createApp } from 'vue'
 import 'unfonts.css'
 
 const app = createApp(App)
+const pinia = createPinia()
 
 registerPlugins(app)
+app.use(pinia)
 app.provide('monday', mondaySdk())
 app.mount('#app')

@@ -31,7 +31,9 @@
 </template>
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, ref , watch } from 'vue';
+import { onMounted, Ref, ref , watch } from 'vue';
+import { useSprintData } from "../stores/sprintData";
+
 const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
   { name: "Target", color: "#43A047" },
@@ -48,39 +50,28 @@ const poImage = [
 let poImageSrc = ref("")
 let poImageColor = ref("")
 let poImageText = ref("")
-
-
-const props = defineProps<{
-  boardItems: boardItem[]
-
-
-}>()
-
-/*
-const props = defineProps({
-  boardItems: {
-    type: boardItem[0],
-    required: true
-  },
-});
-*/
-
-function getGoals(category: string) {
-
-  return props.boardItems.filter(x => x.goalCategory == category)
-}
+let boardItems: Ref<boardItem[]> = ref([]);
+const sprintDataStore = useSprintData();
 
 onMounted(() => {
-
   //console.log("Mounted " + JSON.stringify(props.sprintGoals))
-  updatePOStatus(props.boardItems)
+  boardItems.value = sprintDataStore.getsprintData()
+  //curSprint.value = sprintDataStore.getsprintConfig()
+  updatePOStatus(boardItems.value)
 
 })
 
 
+
+
+function getGoals(category: string) {
+
+  return boardItems.value.filter(x => x.goalCategory == category)
+}
+
+
 function updatePOStatus(items : boardItem[]) {
   let index = 0;
-
   //console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
   if (items.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
     index = 1
@@ -115,9 +106,9 @@ function getGoalColor(item: boardItem) {
 
 
 watch(
-  () => props.boardItems,
+  () => boardItems.value,
   (newValue, oldValue) => {
-    console.log("Watch called " + JSON.stringify(newValue))
+    //console.log("Watch called " + JSON.stringify(newValue))
     updatePOStatus(newValue)
   }
 );

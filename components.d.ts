@@ -8,10 +8,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppToolbar: typeof import('./src/components/appToolbar.vue')['default']
     KanbanCard: typeof import('./src/components/kanbanCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SprintGoals: typeof import('./src/components/sprintGoals.vue')['default']
     SprintTable: typeof import('./src/components/sprintTable.vue')['default']
   }
 }
