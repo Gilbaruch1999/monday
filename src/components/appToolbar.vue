@@ -39,7 +39,7 @@ const sprintDataStore = useSprintData();
 
 
 onMounted(async () => {
-  console.log("Starting app version v51")
+  console.log("Starting app version v52")
   var res = await mondayapi.get('context')
 
   //console.log("Res " + JSON.stringify(res))

@@ -12,6 +12,5 @@ declare module 'vue' {
     KanbanCard: typeof import('./src/components/kanbanCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SprintTable: typeof import('./src/pages/sprintTable.vue')['default']
   }
 }
