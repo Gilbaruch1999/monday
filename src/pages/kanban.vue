@@ -66,7 +66,7 @@ function getItems(state): boardItem[] {
 
     switch (state) {
       case "Not started":
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status.includes("Pendingnpm")))
+        ret_val=ret_val.concat(element.subItems.filter(x => x.status.includes("Pending")))
         break;
       case "Done":
         ret_val=ret_val.concat(element.subItems.filter(x => x.status == state))
