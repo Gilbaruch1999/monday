@@ -8,6 +8,7 @@ export const useSprintData = defineStore('sprintData', () => {
 
     const sprintItems: Ref<boardItem[]> = ref([]);
     const curSprint : Ref<Sprint> = ref()
+    const sprintList : Ref<Sprint[]> = ref([])
 
     function getsprintData(): boardItem[] {
 
@@ -31,8 +32,19 @@ export const useSprintData = defineStore('sprintData', () => {
     }
 
 
+      function getsprintList(): Sprint[] {
 
-    return { getsprintData, setsprintData , getsprintConfig , setsprintConfig }
+            return sprintList.value
+    }
+
+
+    function setsprintList(list : Sprint[]) {
+        sprintList.value = list;
+    }
+
+
+
+    return { getsprintData, setsprintData , getsprintConfig , setsprintConfig , getsprintList , setsprintList }
 
 })
 

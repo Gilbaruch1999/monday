@@ -99,3 +99,24 @@ export function createDateFromText2(stringdate: string) {
   //console.log('Date is ' + retval.toLocaleDateString())
   return retval;
 }
+
+
+
+export function createDateFromLocalText(stringdate: string) {
+  var retval: Date;
+  // format dd.mm.yyyy
+  try {
+    var tmp = stringdate.split(".");
+    if (tmp.length != 3) return null;
+    else {
+      retval = new Date();
+      retval.setFullYear(parseInt(tmp[2]));
+      retval.setMonth(parseInt(tmp[1]) - 1);
+      retval.setDate(parseInt(tmp[0]));
+    }
+  } catch {
+    console.log("Error in create date from text 2");
+  }
+  //console.log('Date is ' + retval.toLocaleDateString())
+  return retval;
+}

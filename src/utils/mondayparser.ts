@@ -25,22 +25,16 @@ export class Sprint implements sprintInfo {
   groupid: string;
   workingDays: number;
   nonWorkingDays: Date[];
+  constructor() {
+    this.duration = 0;
+    this.nonWorkingDays = [];
+    this.startDate = new Date();
+  }
 }
 
 
 export let sprintInfoTable: sprintInfo[] = [
-  {
-    name: "Sprint 25",
-    startDate: createDateFromText1("7-9-2025"),
-    duration: 14,
-    nonWorkingDays: [
-      createDateFromText1("12-9-2025"),
-      createDateFromText1("13-9-2025"),
-      createDateFromText1("19-9-2025"),
-      createDateFromText1("20-9-2025"),
 
-    ],
-  },
   {
     name: "Sprint 26",
     startDate: createDateFromText1("21-9-2025"),
@@ -65,20 +59,24 @@ export let sprintInfoTable: sprintInfo[] = [
       createDateFromText1("18-10-2025"),
     ],
   },
+   {
+    name: "Sprint 27",
+    startDate: createDateFromText1("19-10-2025"),
+    duration: 14,
+    nonWorkingDays: [
+      createDateFromText1("24-10-2025"),
+      createDateFromText1("25-10-2025"),
+      createDateFromText1("31-10-2025"),
+      createDateFromText1("1-11-2025"),
+
+    ],
+  },
 ];
 
 export let sprintDataTable: Sprint[] = [
   // Nexus
 
-  {
-    name: "Sprint 25",
-    startDate: new Date(),
-    duration: 0,
-    boardid: "1661635292",
-    groupid: "group_mkvd1j87",
-    workingDays: 0,
-    nonWorkingDays: [],
-  },
+
   {
     name: "Sprint 26",
     startDate: new Date(),
@@ -88,24 +86,34 @@ export let sprintDataTable: Sprint[] = [
     workingDays: 0,
     nonWorkingDays: [],
   },
-
-  // Dev
-
-  {
-    name: "Sprint 25",
+   {
+    name: "Sprint 27",
     startDate: new Date(),
     duration: 0,
-    boardid: "1647137427",
-    groupid: "group_mktrd8e1",
+    boardid: "1661635292",
+    groupid: "group_mkwn416h",
     workingDays: 0,
     nonWorkingDays: [],
   },
+
+  // Dev
+
+
   {
     name: "Sprint 26",
     startDate: new Date(),
     duration: 0,
     boardid: "1647137427",
     groupid: "group_mkvbj73t",
+    workingDays: 10,
+    nonWorkingDays: [],
+  },
+   {
+    name: "Sprint 27",
+    startDate: new Date(),
+    duration: 0,
+    boardid: "1647137427",
+    groupid: "group_mkvs6xtj",
     workingDays: 10,
     nonWorkingDays: [],
   },

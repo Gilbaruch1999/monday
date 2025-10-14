@@ -85,7 +85,7 @@ function rowProps(data: any) {
 
 
 function rowClicked(event, row) {
-  if (row.item.id == itemsList.value[0].id) {
+  if (showDetails.value == true) {
     showDetails.value = false;
     itemsList.value = sprintDataStore.getsprintData()
   }

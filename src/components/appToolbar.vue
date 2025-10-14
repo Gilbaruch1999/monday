@@ -7,6 +7,7 @@
     <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Manage Sprints</v-btn>
   </v-toolbar>
 
 
@@ -26,6 +27,7 @@ import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
+import { getDummyStorage } from "@/utils/mondaystorage";
 
 const mondayapi = inject('monday') as MondayClientSdk
 let getFromDummy = ref(false);
@@ -41,7 +43,6 @@ const sprintDataStore = useSprintData();
 onMounted(async () => {
   console.log("Starting app version v55")
   var res = await mondayapi.get('context')
-
   //console.log("Res " + JSON.stringify(res))
   try {
     if (res.hasOwnProperty('data')) {
@@ -64,6 +65,7 @@ onMounted(async () => {
   //console.log("items list " + JSON.stringify(itemsList.value))
   sprintDataStore.setsprintData(itemsList.value)
   sprintDataStore.setsprintConfig(curSprint);
+  sprintDataStore.setsprintList(sprintDataTable)
   //console.log("Sprint data " + JSON.stringify(sprintDataStore.getsprintData()))
   toolBarTitle.value = curSprint.name + " status"
   router.push({ path: '/burndown' })
