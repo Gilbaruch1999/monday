@@ -81,20 +81,14 @@ const sprintHeaders: any = [
 
 
 onMounted(async () => {
-  let key = "sprintsCfg"
-  let res1 = await writeToStore(key, "test store")
-  let res2 = await readFromStore(key)
-  console.log("Results from store " + JSON.stringify(res2))
+
   sprintsList.value = [...sprintDataStore.getsprintList()];
 })
 
-async function getSprintsFromDB() {
-
-}
 
 async function writeToStore(key, value) {
-  //return await mondayapi.storage.setItem(key , value)
-  return setDummyStorage(key, value)
+  return await mondayapi.storage.setItem(key , value)
+  //return setDummyStorage(key, value)
 
 }
 
@@ -133,7 +127,7 @@ function updateSprint() {
   selectedSprint.value.nonWorkingDays = stringToDateArray(nonWorkingDaysStirng.value)
   selectedSprint.value.startDate = createDateFromLocalText(startDateStirng.value)
   selectedSprint.value.workingDays = selectedSprint.value.duration - selectedSprint.value.nonWorkingDays.length
-  console.log("Selected Sprint " + JSON.stringify(selectedSprint.value))
+  //console.log("Selected Sprint " + JSON.stringify(selectedSprint.value))
   if (disableEditName.value == true) {
     let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name)
     if (idx == -1)
@@ -148,6 +142,7 @@ function updateSprint() {
   }
 
   showForm.value = false
+  writeToStore("sprints" , JSON.stringify(sprintsList.value))
 }
 
 
@@ -156,11 +151,6 @@ function cancelUpdateSprint() {
   showForm.value = false
 }
 
-
-async function readFromStore(key: string) {
-  //return await mondayapi.storage.getItem(key)
-  return getDummyStorage(key)
-}
 
 function dateArraytoString(array: Date[]) {
   let ret_val = ""

@@ -21,13 +21,13 @@ export const useSprintData = defineStore('sprintData', () => {
     }
 
 
-    function getsprintConfig(): Sprint {
+    function getCursprintConfig(): Sprint {
 
             return curSprint.value
     }
 
 
-    function setsprintConfig(data: Sprint) {
+    function setCursprintConfig(data: Sprint) {
         curSprint.value = data;
     }
 
@@ -44,7 +44,7 @@ export const useSprintData = defineStore('sprintData', () => {
 
 
 
-    return { getsprintData, setsprintData , getsprintConfig , setsprintConfig , getsprintList , setsprintList }
+    return { getsprintData, setsprintData , getCursprintConfig , setCursprintConfig , getsprintList , setsprintList }
 
 })
 

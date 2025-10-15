@@ -64,7 +64,7 @@ export function geNumberofWorkingDays(date1: Date, date2: Date): number {
   return ret_val;
 }
 
-export function createDateFromText1(stringdate: string) {
+export function createDateFromText11(stringdate: string) {
   var retval: Date;
   // format dd-mm-yyyy
   try {

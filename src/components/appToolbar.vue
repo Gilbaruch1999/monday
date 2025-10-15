@@ -20,7 +20,7 @@ import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
-import { BoardToGroupMap, boardType, findCurrentSprint, Sprint, sprintDataTable, sprintInfoTable } from "@/utils/mondayparser";
+import { boardType, Sprint } from "@/utils/mondayparser";
 import { getBoardItemsQuery } from "@/utils/queries";
 import { getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
@@ -28,6 +28,7 @@ import { useSprintData } from "../stores/sprintData";
 
 import router from "@/router";
 import { getDummyStorage } from "@/utils/mondaystorage";
+import { getDummySprintList } from "@/utils/dummysprints";
 
 const mondayapi = inject('monday') as MondayClientSdk
 let getFromDummy = ref(false);
@@ -41,7 +42,7 @@ const sprintDataStore = useSprintData();
 
 
 onMounted(async () => {
-  console.log("Starting app version v55")
+  console.log("Starting app version v58")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -64,8 +65,6 @@ onMounted(async () => {
   await getBoardItems(curSprint.startDate, curSprint.duration);
   //console.log("items list " + JSON.stringify(itemsList.value))
   sprintDataStore.setsprintData(itemsList.value)
-  sprintDataStore.setsprintConfig(curSprint);
-  sprintDataStore.setsprintList(sprintDataTable)
   //console.log("Sprint data " + JSON.stringify(sprintDataStore.getsprintData()))
   toolBarTitle.value = curSprint.name + " status"
   router.push({ path: '/burndown' })
@@ -94,37 +93,44 @@ async function getContext() {
 
     }
   }
-  InitSprintTable();
-  try {
-    curSprint = findCurrentSprint(boardId.value);
-    groupid.value = curSprint.groupid
-    console.log("Current sprint is " + JSON.stringify(curSprint.name))
-    console.log("group id= " + JSON.stringify(groupid.value))
-    var index = BoardToGroupMap.findIndex(x => x.boardid == boardId.value)
-    if (index != -1)
-      CurrentBoardType.value = boardType[BoardToGroupMap[index].type]
-    console.log("Board type " + CurrentBoardType.value)
-
-  }
-  catch {
-
-  }
-
+  await InitSprintTable();
+  sprintDataStore.getsprintList().filter(x => x.boardid == boardId.value );
+  curSprint = findCurrentSprint( groupid.value)
+  console.log("current sprint " + JSON.stringify(curSprint))
+  sprintDataStore.setCursprintConfig(curSprint)
 }
 
-
-function InitSprintTable() {
-
-  for (let index = 0; index < sprintDataTable.length; index++) {
-    //console.log("Sprint data" + JSON.stringify(sprintDataTable[index]))
-    var idx = sprintInfoTable.findIndex(x => x.name == sprintDataTable[index].name)
-    if (idx != -1) {
-      // console.log("Sprint data info" + JSON.stringify(sprintInfoTable[idx]))
-      sprintDataTable[index].nonWorkingDays = sprintInfoTable[idx].nonWorkingDays
-      sprintDataTable[index].duration = sprintInfoTable[idx].duration
-      sprintDataTable[index].startDate = sprintInfoTable[idx].startDate
-      sprintDataTable[index].workingDays = sprintDataTable[index].duration - sprintDataTable[index].nonWorkingDays.length
+function findCurrentSprint(boardid: string ): Sprint {
+  var ret_val = new Sprint();
+  var curDate = new Date();
+  let boardSprintTable = sprintDataStore.getsprintList().filter(x => x.boardid == boardId.value )
+  for (let index = 0; index < boardSprintTable.length; index++) {
+    var diff = getDaysdiff(curDate, boardSprintTable[index].startDate);
+    if (diff >= 0 && diff < boardSprintTable[index].duration) {
+      ret_val = boardSprintTable[index];
     }
+  }
+  return ret_val;
+}
+
+async function InitSprintTable() {
+
+
+  if (getFromDummy.value == false) {
+    let res = await mondayapi.storage.getItem("sprints")
+    try {
+      console.log("Sprints from DB results" + JSON.stringify(res))
+      let tempdata = JSON.parse(res.data.value);
+      sprintDataStore.setsprintList(tempdata)
+    }
+    catch {
+
+    }
+
+  }
+  else {
+    let tempdata: Sprint[] = getDummySprintList();
+    sprintDataStore.setsprintList(tempdata)
   }
 }
 

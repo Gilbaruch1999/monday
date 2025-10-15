@@ -1,4 +1,4 @@
-import { createDateFromText1, createDateFromText2 } from "./utils";
+import { createDateFromText2 } from "./utils";
 
 export class boardItem {
   id: string;

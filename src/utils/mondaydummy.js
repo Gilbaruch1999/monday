@@ -1,3 +1,5 @@
+import { createDateFromLocalText } from "./utils"
+
 export function getDummyContext() {
   const res = {
     themeConfig: null,
@@ -71,6 +73,8 @@ export function getDummyContext() {
   }
   return res
 }
+
+
 export function getDummyBoardItems(boardid) {
 
   const res = {
@@ -80,7 +84,7 @@ export function getDummyBoardItems(boardid) {
         "items_page": {
           "items": [
             {
-              "name": "סידורי אנליטיקס - חלק ד׳",
+              "name": "Analytics Series - Part 4",
               "id": "2151602037",
               "column_values": [
                 {
@@ -102,14 +106,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Story"
                 },
                 {
                   "column": {
@@ -171,7 +175,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "PO Review Me"
                     },
                     {
                       "column": {
@@ -212,7 +216,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Work In Progress"
                     },
                     {
                       "column": {
@@ -281,8 +285,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Improve Item merge",
-              "id": "5004340944",
+              "name": "Gems Shop 💎",
+              "id": "1993977733",
               "column_values": [
                 {
                   "column": {
@@ -296,42 +300,42 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich"
+                  "text": "Katerina sayko, Matan Moskovich"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Bug"
+                  "text": "Epic"
                 },
                 {
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "M"
+                  "text": "xL"
                 },
                 {
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Idea Forge"
+                  "text": "General"
                 },
                 {
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Big Bug"
+                  "text": "Monetization"
                 },
                 {
                   "column": {
@@ -345,21 +349,268 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-13"
                 },
                 {
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "New"
+                  "text": "Committed"
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "💻Implement Gems Currency System",
+                  "id": "1994917067",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-03"
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Design",
+                  "id": "1993981181",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-07"
+                    }
+                  ]
+                },
+                {
+                  "name": "💻Shop design implementation",
+                  "id": "1993981206",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "L"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-08"
+                    }
+                  ]
+                },
+                {
+                  "name": "Internal Testing of IAP Functionality",
+                  "id": "1962875004",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                },
+                {
+                  "name": "Securely Save Purchase Status",
+                  "id": "1962874950",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-08"
+                    }
+                  ]
+                },
+                {
+                  "name": "Handle Purchase Results",
+                  "id": "1962874871",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "באג הפתעה - פרסומת מוזרה ב-gg",
-              "id": "5004073673",
+              "name": "In-App Purchase Integration (Google Play)",
+              "id": "1962874138",
               "column_values": [
                 {
                   "column": {
@@ -373,7 +624,290 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich"
+                  "text": "gil elazar, Matan Moskovich"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "L"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Monetization"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-12"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Launch Purchase Flow in the App",
+                  "id": "1962874705",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar, Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-01"
+                    }
+                  ]
+                },
+                {
+                  "name": "Query Product Details from Google Play",
+                  "id": "1962874635",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar, Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                },
+                {
+                  "name": "Initialize Billing Client in the App",
+                  "id": "1962874591",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar, Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add Google Billing Dependencies",
+                  "id": "1962874545",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar, Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                },
+                {
+                  "name": "Set Up IAP Product in Google Play Console",
+                  "id": "1962874440",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar, Matan Moskovich"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-01"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "In-App Purchase Integration (App Store)",
+              "id": "1962875936",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Nir Katzir"
                 },
                 {
                   "column": {
@@ -387,28 +921,28 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Bug"
+                  "text": "Epic"
                 },
                 {
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "L"
                 },
                 {
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Growth Galaxy"
+                  "text": "General"
                 },
                 {
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Big Bug"
+                  "text": "Monetization"
                 },
                 {
                   "column": {
@@ -429,13 +963,538 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "New"
+                  "text": "Committed"
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Enable In-App Purchase Capabilities",
+                  "id": "1962877000",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Set Up and Test in Sandbox",
+                  "id": "1962876890",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Save Purchase Status Locally",
+                  "id": "1962876762",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Handle Purchase Transactions",
+                  "id": "1962876670",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Initiate a Purchase",
+                  "id": "1962876630",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Fetch IAP Product Data in the App",
+                  "id": "1962876505",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Configure IAP Products in App Store Connect",
+                  "id": "1962876414",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Pending - ToDo"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "First-Time ZZ Upgrade Spotlight Guidance",
+              "id": "2141148856",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Nir Katzir"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Onboarding"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "User Needs"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-13"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
                 }
               ],
               "subitems": []
             },
             {
-              "name": "קוואסטים עד שלב 22",
+              "name": "🎨Design Retrospective for Ginkgo Cadence",
+              "id": "2142226816",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Anastasia Kostyuk, Nir Katzir"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Zen Zone"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-13"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Design Retrospective for Ginkgo Cadence (art)",
+                  "id": "5039031268",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Anastasia Kostyuk"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Epic"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-11"
+                    }
+                  ]
+                },
+                {
+                  "name": "Implement Updated Ginkgo Cadence Design (dev)",
+                  "id": "5024729404",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-12"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Quests up to level 22",
               "id": "2147734282",
               "column_values": [
                 {
@@ -677,615 +1736,8 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "➕ 💎Gems shop",
-              "id": "1993977733",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko, Matan Moskovich"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Work In Progress"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "💻Implement Gems Currency System",
-                  "id": "1994917067",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Working in Progress"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "🎨Design",
-                  "id": "1993981181",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Working in Progress"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "💻Shop design implementation",
-                  "id": "1993981206",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Wait"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "L"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "In-App Purchase Integration (Google Play)",
-              "id": "1962874138",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar, Matan Moskovich"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Launch Purchase Flow in the App",
-                  "id": "1962874705",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Query Product Details from Google Play",
-                  "id": "1962874635",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Initialize Billing Client in the App",
-                  "id": "1962874591",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Add Google Billing Dependencies to the Android Project",
-                  "id": "1962874545",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Set Up IAP Product in Google Play Console",
-                  "id": "1962874440",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Internal Testing of IAP Functionality",
-                  "id": "1962875004",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Securely Save Purchase Status",
-                  "id": "1962874950",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Handle Purchase Results",
-                  "id": "1962874871",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar, Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "In-App Purchase Integration (App Store)",
-              "id": "1962875936",
+              "name": "Purchase Cycle 2 🛒 | Dev",
+              "id": "2147752246",
               "column_values": [
                 {
                   "column": {
@@ -1306,454 +1758,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Enable In-App Purchase Capabilities",
-                  "id": "1962877000",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "(Optional): Use StoreKit 2 (iOS 15+)",
-                  "id": "1962876960",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Set Up and Test in Sandbox",
-                  "id": "1962876890",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Support Restore Purchases",
-                  "id": "1962876835",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Save Purchase Status Locally",
-                  "id": "1962876762",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Handle Purchase Transactions",
-                  "id": "1962876670",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Initiate a Purchase",
-                  "id": "1962876630",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Fetch IAP Product Data in the App",
-                  "id": "1962876505",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Configure IAP Products in App Store Connect",
-                  "id": "1962876414",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "First-Time ZZ Upgrade Spotlight Guidance",
-              "id": "2141148856",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1767,21 +1772,21 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "xS"
                 },
                 {
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Onboarding"
+                  "text": "Zen Zone"
                 },
                 {
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "User Needs"
+                  "text": "Game Content"
                 },
                 {
                   "column": {
@@ -1795,7 +1800,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-13"
                 },
                 {
                   "column": {
@@ -1803,6 +1808,516 @@ export function getDummyBoardItems(boardid) {
                     "title": "Planning State"
                   },
                   "text": "Committed"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Purchase Cycle 4 🛒 | Dev and Design",
+              "id": "2147752298",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Nir Katzir, Katerina sayko, Anastasia Kostyuk"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Zen Zone"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-13"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Ginkgo seed design",
+                  "id": "2148683490",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko, Anastasia Kostyuk"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-11"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Purchase Cycle 3 🛒 | Dev",
+              "id": "2147752320",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Nir Katzir"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Zen Zone"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-13"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Purchase Cycle 1 🛒 | Dev (Repair and arrangement)",
+              "id": "2148515764",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko, Nir Katzir"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Zen Zone"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-10-13"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "עיצוב מפתח",
+                  "id": "2148654170",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-07"
+                    }
+                  ]
+                },
+                {
+                  "name": "עיצוב שתיל dreambloom",
+                  "id": "2148654679",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-10-08"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Improve Item merge",
+              "id": "5004340944",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Matan Moskovich"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Bug"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Big Bug"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-09-30"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Surprise bug - strange advertisement on gg",
+              "id": "5004073673",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Matan Moskovich"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Bug"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Big Bug"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-09-30"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
                 }
               ],
               "subitems": []
@@ -1830,7 +2345,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1872,7 +2387,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-01"
                 },
                 {
                   "column": {
@@ -1907,7 +2422,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1949,7 +2464,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-01"
                 },
                 {
                   "column": {
@@ -1960,516 +2475,6 @@ export function getDummyBoardItems(boardid) {
                 }
               ],
               "subitems": []
-            },
-            {
-              "name": "Stage 25",
-              "id": "5000188451",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Wait"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Purchase Cycle 1 🛒 | Dev (תיקון ופירוק וסידור)",
-              "id": "2148515764",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko, Nir Katzir"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Zen Zone"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "עיצוב מפתח",
-                  "id": "2148654170",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "עיצוב שתיל dreambloom",
-                  "id": "2148654679",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Purchase Cycle 2 🛒 | Dev",
-              "id": "2147752246",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Zen Zone"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Purchase Cycle 3 🛒 | Dev",
-              "id": "2147752320",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Zen Zone"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Purchase Cycle 4 🛒 | Dev and Design",
-              "id": "2147752298",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Nir Katzir, Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Zen Zone"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "עיצוב שתיל dreambloom",
-                  "id": "2148683490",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
             },
             {
               "name": "Pre-Game Loading Screen Animation Implementation",
@@ -2487,7 +2492,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Anastasia Kostyuk, Nir Katzir"
+                  "text": "Anastasia Kostyuk, Yair Klausner"
                 },
                 {
                   "column": {
@@ -2638,7 +2643,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -2679,7 +2684,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -2729,7 +2734,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Nir Katzir"
+                  "text": "Matan Moskovich"
                 },
                 {
                   "column": {
@@ -2880,7 +2885,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Matan Moskovich"
                     },
                     {
                       "column": {
@@ -2921,7 +2926,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Matan Moskovich"
                     },
                     {
                       "column": {
@@ -2962,7 +2967,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Matan Moskovich"
                     },
                     {
                       "column": {
@@ -3003,7 +3008,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Nir Katzir"
+                      "text": "Matan Moskovich"
                     },
                     {
                       "column": {
@@ -3060,7 +3065,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -3102,7 +3107,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-08"
                 },
                 {
                   "column": {
@@ -3115,7 +3120,7 @@ export function getDummyBoardItems(boardid) {
               "subitems": []
             },
             {
-              "name": "להטמיע מפת חום וסרטוני משחק - Hotjar\\Clarity",
+              "name": "להטמיע מפת חום וסרטוני משחק - Hotjar\\Clarity חלק א'",
               "id": "2147724624",
               "column_values": [
                 {
@@ -3130,21 +3135,21 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich"
+                  "text": "gil elazar"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Spike"
+                  "text": "Story"
                 },
                 {
                   "column": {
@@ -3179,7 +3184,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-13"
                 },
                 {
                   "column": {
@@ -3214,7 +3219,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -3256,7 +3261,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-12"
                 },
                 {
                   "column": {
@@ -3291,7 +3296,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Wait"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -3423,83 +3428,6 @@ export function getDummyBoardItems(boardid) {
               "subitems": []
             },
             {
-              "name": "באג לגבי המכירה של פריטים אחרי התוספת של הפאוץ",
-              "id": "2153565683",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Work In Progress"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Bug"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Disruptions"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "New"
-                }
-              ],
-              "subitems": []
-            },
-            {
               "name": "Design one idea item - Level 13/15 | Timeless Lantern Set",
               "id": "2147835635",
               "column_values": [
@@ -3599,7 +3527,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -3641,7 +3569,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-10-05"
                 },
                 {
                   "column": {
@@ -3668,7 +3596,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Working in Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -3689,7 +3617,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-09-29"
                     }
                   ]
                 },
@@ -3750,7 +3678,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Pending - ToDo"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -3771,15 +3699,15 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-10-04"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "Second Path Road Remake visually",
-              "id": "2123722512",
+              "name": "bug - after quest",
+              "id": "5041086648",
               "column_values": [
                 {
                   "column": {
@@ -3793,7 +3721,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
@@ -3807,7 +3735,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Story"
+                  "text": "Bug"
                 },
                 {
                   "column": {
@@ -3821,7 +3749,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Growth Galaxy"
+                  "text": "Idea Forge"
                 },
                 {
                   "column": {
@@ -3835,7 +3763,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Outstanding"
+                  "text": "Target"
                 },
                 {
                   "column": {
@@ -3849,52 +3777,10 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "Committed"
+                  "text": "Are You Ready?"
                 }
               ],
-              "subitems": [
-                {
-                  "name": "Dev code and basic visual",
-                  "id": "2123722530",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
+              "subitems": []
             },
             {
               "name": "Fix Residual UI State on Return to Idea Forge",
@@ -3912,7 +3798,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich"
+                  "text": "Yair Klausner"
                 },
                 {
                   "column": {
@@ -3954,7 +3840,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Outstanding"
+                  "text": "Outstanding🔥"
                 },
                 {
                   "column": {
@@ -3973,7 +3859,7 @@ export function getDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "מחקר טעינה מהירה ל-idea forge",
+                  "name": "Fast loading research for idea forge",
                   "id": "2147667371",
                   "column_values": [
                     {
@@ -3981,7 +3867,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Matan Moskovich"
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -4014,7 +3900,7 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "ביצוע המשימה",
+                  "name": "Implement",
                   "id": "2147668574",
                   "column_values": [
                     {
@@ -4022,7 +3908,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Matan Moskovich"
+                      "text": "Yair Klausner"
                     },
                     {
                       "column": {
@@ -4057,557 +3943,6 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Third Path Road Remake visually",
-              "id": "2123722480",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Matan Moskovich"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Growth Galaxy"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Dev code and basic visual",
-                  "id": "2123722491",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Introducing the Blocked Platform",
-              "id": "2123725686",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Matan Moskovich"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Onboarding"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Dev",
-                  "id": "2123726843",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Identify first time that block road happend",
-                  "id": "2150542990",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Create the handler UI and connect it to the event",
-                  "id": "2150549319",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Matan Moskovich"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Pending - ToDo"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Design one idea item - Level 14/15 | Timeless Lantern Set",
-              "id": "2147835618",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Wait"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Design one idea item - Level 15/15 | Timeless Lantern Set",
-              "id": "2147835612",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Wait"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Design one idea item - Level 12/12 | Inspiration﻿ Pouch Set",
-              "id": "2147836005",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Anastasia Kostyuk"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                }
-              ],
-              "subitems": []
-            },
-            {
               "name": "🧩Bug fixes-GG",
               "id": "2102744998",
               "column_values": [
@@ -4630,7 +3965,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Please Take Me 🥹"
                 },
                 {
                   "column": {
@@ -4665,7 +4000,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Outstanding"
+                  "text": "Outstanding🔥"
                 },
                 {
                   "column": {
@@ -4740,7 +4075,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Working in Progress"
+                      "text": "Pending - ToDo"
                     },
                     {
                       "column": {
@@ -4866,7 +4201,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Outstanding"
+                  "text": "Outstanding🔥"
                 },
                 {
                   "column": {
@@ -4943,7 +4278,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Matan Moskovich, Anastasia Kostyuk"
+                  "text": "gil elazar, Anastasia Kostyuk"
                 },
                 {
                   "column": {
@@ -4985,7 +4320,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Outstanding"
+                  "text": "Outstanding🔥"
                 },
                 {
                   "column": {
@@ -5053,7 +4388,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Matan Moskovich"
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
@@ -5135,7 +4470,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Matan Moskovich"
+                      "text": "gil elazar"
                     },
                     {
                       "column": {
@@ -5168,6 +4503,391 @@ export function getDummyBoardItems(boardid) {
                   ]
                 }
               ]
+            },
+            {
+              "name": "Design one idea item - Level 15/15 | Timeless Lantern Set",
+              "id": "2147835612",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Wait"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding🔥"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Design one idea item - Level 14/15 | Timeless Lantern Set",
+              "id": "2147835618",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Wait"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding🔥"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Design one idea item - Level 12/12 | Inspiration﻿ Pouch Set",
+              "id": "2147836005",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Anastasia Kostyuk"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Removed"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding🔥"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "באג בנסיון קנייה(משהו לא מוגדר כמו שצריך)",
+              "id": "5039188611",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Matan Moskovich, gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Bug"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Shop"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Why Though? 🤨"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding🔥"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "➕ 💎Gems shop - Imlement ₪ design",
+              "id": "5034257761",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Matan Moskovich"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Removed"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "How Many Coffees Do I need? ☕"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Shop"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Why Though? 🤨"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding🔥"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                }
+              ],
+              "subitems": []
             }
           ]
         }

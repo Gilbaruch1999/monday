@@ -200,7 +200,7 @@ let { lineChartProps, lineChartRef } = useLineChart({
 onMounted(async () => {
   console.log("On mounted burndown ")
   itemsList.value = sprintDataStore.getsprintData()
-  curSprint.value = sprintDataStore.getsprintConfig()
+  curSprint.value = sprintDataStore.getCursprintConfig()
   createGraph()
   toolBarTitle.value = "Sprint " + curSprint.value.name + " burndown"
 
