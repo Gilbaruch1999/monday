@@ -208,7 +208,7 @@ const sprintDataStore = useSprintData();
 onMounted(async () => {
   console.log("On mounted burndown ")
   itemsList.value = sprintDataStore.getsprintData()
-  curSprint.value = sprintDataStore.getsprintConfig()
+  curSprint.value = sprintDataStore.getCursprintConfig()
   createBreakDownChart()
 })
 

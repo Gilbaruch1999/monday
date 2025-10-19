@@ -59,6 +59,7 @@ const issuesheaders: any = [
   { title: 'Id', key: 'id' },
   { title: 'Title', key: 'title' },
   { title: 'Type', key: "type" },
+  { title: 'Goal Category', key: "goalCategory" },
   { title: "Status", key: "status" },
   { title: "Plan Status", key: "planningStatus" },
   { title: "Estimated Effort", key: "sizeEstimation" },

@@ -129,7 +129,7 @@ function updateSprint() {
   selectedSprint.value.workingDays = selectedSprint.value.duration - selectedSprint.value.nonWorkingDays.length
   //console.log("Selected Sprint " + JSON.stringify(selectedSprint.value))
   if (disableEditName.value == true) {
-    let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name)
+    let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name && x.boardid == selectedSprint.value.boardid)
     if (idx == -1)
       return
     sprintsList.value[idx] = { ...selectedSprint.value }

@@ -18,12 +18,12 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 Chart.register(...registerables, ChartDataLabels);
 
-const velocity = ref([37, 33, 39 , 75]);
-const predictability = ref([70, 80, 57 , 92]);
-const predictabilityGoalLow = ref([80, 80, 80 , 80]);
-const predictabilityGoalHigh = ref([90, 90, 90 , 90]);
+const velocity = ref([37, 33, 39 , 75 , 62]);
+const predictability = ref([70, 80, 57 , 92 , 49]);
+const predictabilityGoalLow = ref([80, 80, 80 , 80 , 80 ]);
+const predictabilityGoalHigh = ref([90, 90, 90 , 90 , 90]);
 
-let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25']);
+let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25', 'Sprint 26']);
 
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
