@@ -19,7 +19,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="4">
-            <v-text-field :disabled="disableEditName" v-model="selectedSprint.name" label="Sprint name"
+            <v-text-field :disabled="editMode == 'Edit'" v-model="selectedSprint.name" label="Sprint name"
               required></v-text-field>
           </v-col>
           <v-col cols="12" md="4">
@@ -62,7 +62,7 @@ let sprintsList: Ref<Sprint[]> = ref([])
 let selectedSprint: Ref<Sprint> = ref(new Sprint())
 const sprintDataStore = useSprintData();
 let showForm = ref(false)
-let disableEditName = ref(true)
+let editMode = ref("")
 let startDateStirng = ref("")
 let nonWorkingDaysStirng = ref("")
 
@@ -87,7 +87,7 @@ onMounted(async () => {
 
 
 async function writeToStore(key, value) {
-  return await mondayapi.storage.setItem(key , value)
+  return await mondayapi.storage.setItem(key, value)
   //return setDummyStorage(key, value)
 
 }
@@ -96,8 +96,9 @@ function deleteSprint(item: any) {
   //console.log("delete sprint " + JSON.stringify(item))
   let index = sprintsList.value.findIndex(x => x.name == item.name && x.boardid == item.boardid)
   if (index != -1) {
-    sprintsList.value.splice(index ,1)
+    sprintsList.value.splice(index, 1)
     sprintDataStore.setsprintList(sprintsList.value)
+    writeToStore("sprints", JSON.stringify(sprintsList.value))
   }
 
 }
@@ -107,7 +108,7 @@ function editSprint(item: Sprint) {
   //console.log("edit sprint " + JSON.stringify(item))
   startDateStirng.value = item.startDate.toLocaleDateString()
   nonWorkingDaysStirng.value = dateArraytoString(item.nonWorkingDays)
-  disableEditName.value = true
+  editMode.value = "Edit"
   selectedSprint.value = { ...item };
   showForm.value = true
 
@@ -115,9 +116,8 @@ function editSprint(item: Sprint) {
 
 
 function addSprint() {
-
   //console.log("Add Sprint")
-  disableEditName.value = false
+  editMode.value = "Add"
   selectedSprint.value = new Sprint()
   showForm.value = true
 }
@@ -128,21 +128,28 @@ function updateSprint() {
   selectedSprint.value.startDate = createDateFromLocalText(startDateStirng.value)
   selectedSprint.value.workingDays = selectedSprint.value.duration - selectedSprint.value.nonWorkingDays.length
   //console.log("Selected Sprint " + JSON.stringify(selectedSprint.value))
-  if (disableEditName.value == true) {
-    let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name && x.boardid == selectedSprint.value.boardid)
-    if (idx == -1)
-      return
-    sprintsList.value[idx] = { ...selectedSprint.value }
-    //console.log("Local date string " + startDateStirng.value)
-  }
-  else {
-    // this is a new sprint
-    sprintsList.value.push({ ...selectedSprint.value })
-    //console.log("new Sprint " + JSON.stringify(selectedSprint.value))
+
+  switch (editMode.value) {
+    case "Edit":
+      if (editMode.value == "Edit") {
+        let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name && x.boardid == selectedSprint.value.boardid)
+        if (idx == -1)
+          return
+        sprintsList.value[idx] = { ...selectedSprint.value }
+        writeToStore("sprints", JSON.stringify(sprintsList.value))
+        //console.log("Local date string " + startDateStirng.value)
+      }
+      break;
+    case "Add":
+      sprintsList.value.push({ ...selectedSprint.value })
+       writeToStore("sprints", JSON.stringify(sprintsList.value))
+      break;
+    default:
+      console.log("Unknown edit mode - " + editMode.value)
+      break;
   }
 
-  showForm.value = false
-  writeToStore("sprints" , JSON.stringify(sprintsList.value))
+
 }
 
 

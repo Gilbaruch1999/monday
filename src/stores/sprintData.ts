@@ -1,51 +1,54 @@
-import { boardItem } from '@/utils/boarditem';
-import { Sprint } from '@/utils/mondayparser';
-import { defineStore } from 'pinia'
-import { ref, type Ref } from 'vue';
+import { boardItem } from "@/utils/boarditem";
+import { Sprint } from "@/utils/mondayparser";
+import { defineStore } from "pinia";
+import { ref, type Ref } from "vue";
 
+export const useSprintData = defineStore("sprintData", () => {
+  const sprintItems: Ref<boardItem[]> = ref([]);
+  const curSprint: Ref<Sprint> = ref();
+  const sprintList: Ref<Sprint[]> = ref([]);
+  const boardid = ref("");
 
-export const useSprintData = defineStore('sprintData', () => {
+  function getsprintData(): boardItem[] {
+    return sprintItems.value;
+  }
 
-    const sprintItems: Ref<boardItem[]> = ref([]);
-    const curSprint : Ref<Sprint> = ref()
-    const sprintList : Ref<Sprint[]> = ref([])
+  function setsprintData(data: boardItem[]) {
+    sprintItems.value = data;
+  }
 
-    function getsprintData(): boardItem[] {
+  function getCursprintConfig(): Sprint {
+    return curSprint.value;
+  }
 
-            return sprintItems.value
-    }
+  function setCursprintConfig(data: Sprint) {
+    curSprint.value = data;
+  }
 
+  function getsprintList(): Sprint[] {
+    return sprintList.value;
+  }
 
-    function setsprintData(data: boardItem[]) {
-        sprintItems.value = data;
-    }
+  function setsprintList(list: Sprint[]) {
+    sprintList.value = list;
+  }
 
+   function getBoardid(): string {
+    return boardid.value;
+  }
 
-    function getCursprintConfig(): Sprint {
+  function setBoardid(id : string) {
+     boardid.value = id;
+  }
 
-            return curSprint.value
-    }
-
-
-    function setCursprintConfig(data: Sprint) {
-        curSprint.value = data;
-    }
-
-
-      function getsprintList(): Sprint[] {
-
-            return sprintList.value
-    }
-
-
-    function setsprintList(list : Sprint[]) {
-        sprintList.value = list;
-    }
-
-
-
-    return { getsprintData, setsprintData , getCursprintConfig , setCursprintConfig , getsprintList , setsprintList }
-
-})
-
-
+  return {
+    getsprintData,
+    setsprintData,
+    getCursprintConfig,
+    setCursprintConfig,
+    getsprintList,
+    setsprintList,
+    getBoardid,
+    setBoardid
+  };
+});

@@ -8,6 +8,7 @@
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Manage Sprints</v-btn>
+    <v-btn class="mt-6" @click="reloadData()">Reload Data</v-btn>
     <v-menu class="mt-6">
       <template v-slot:activator="{ props }">
         <v-btn class="mt-6" color="white" light v-bind="props">
@@ -55,7 +56,7 @@ let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v68")
+  console.log("Starting app version v82")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -85,6 +86,15 @@ onMounted(async () => {
 })
 
 
+async function reloadData() {
+
+  itemsList.value = []
+  await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
+  console.log("items list " + JSON.stringify(itemsList.value))
+  sprintDataStore.setsprintData(itemsList.value)
+
+}
+
 async function getContext() {
   let context = {};
   if (getFromDummy.value) {
@@ -106,6 +116,7 @@ async function getContext() {
 
     }
   }
+  sprintDataStore.setBoardid(boardId.value)
   await InitSprintTable();
   //console.log("board id " + boardId.value)
   curSprint = findCurrentSprint(boardId.value)
@@ -142,8 +153,8 @@ async function InitSprintTable() {
   }
   sprintNames.value = [];
   sprintDataStore.getsprintList().filter(x => x.boardid == boardId.value).forEach(element => {
-      sprintNames.value.push(element.name)
-    });
+    sprintNames.value.push(element.name)
+  });
 }
 
 async function getSprintsFromStorage() {
@@ -154,17 +165,16 @@ async function getSprintsFromStorage() {
   for (let index = 0; index < tempdata.length; index++) {
     let newSprint = new Sprint();
     let stdate = new Date(tempdata[index].startDate)
-    newSprint = {...tempdata[index]};
+    newSprint = { ...tempdata[index] };
     newSprint.nonWorkingDays = []
-    console.log("index is " + index + " tmp data " + JSON.stringify(tempdata[index]))
+    //console.log("index is " + index + " tmp data " + JSON.stringify(tempdata[index]))
     newSprint.startDate = stdate;
     tempdata[index].startDate = stdate;
     tempdata[index].nonWorkingDays.forEach(element => {
-      console.log("Non working day " + JSON.stringify(element))
+
       stdate = new Date(element)
-      //console.log("Non working day data" + JSON.stringify(stdate))
       newSprint.nonWorkingDays.push(new Date(element))
-      // console.log("after new aprint push")
+
     });
     //console.log("Sprints from DB after conversion. index : " + index + " " + JSON.stringify(newSprint))
     sprintarr.push(newSprint)

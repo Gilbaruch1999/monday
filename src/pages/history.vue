@@ -16,14 +16,31 @@ import { computed, onMounted, ref, type Ref } from "vue";
 import { LineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { useSprintData } from "../stores/sprintData";
 Chart.register(...registerables, ChartDataLabels);
+const sprintDataStore = useSprintData();
 
-const velocity = ref([37, 33, 39 , 75 , 62]);
-const predictability = ref([70, 80, 57 , 92 , 49]);
-const predictabilityGoalLow = ref([80, 80, 80 , 80 , 80 ]);
-const predictabilityGoalHigh = ref([90, 90, 90 , 90 , 90]);
+const historydata = [
+  {
+    boardid: "1647137427",
+    dataLabels: ["Sprint 22", 'Sprint 23', 'Sprint 24', 'Sprint 25', 'Sprint 26'],
+    velocity: [37, 33, 39, 75, 62],
+    predictability: [70, 80, 57, 92, 49],
+  },
+  {
+    boardid: "5048014529",
+    dataLabels: ["Sprint 27"],
+    velocity: [],
+    predictability: []
+  }
+]
+const boardid = ref("")
+const velocity = ref([]);
+const predictability = ref([]);
+const predictabilityGoalLow = ref([]);
+const predictabilityGoalHigh = ref([]);
 
-let dataLabels = ref(["Sprint 22", 'Sprint 23', 'Sprint 24' , 'Sprint 25', 'Sprint 26']);
+let dataLabels = ref([]);
 
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
@@ -74,7 +91,7 @@ let graphData1 = computed<ChartData<"line">>(() => ({
       pointHoverRadius: 20,
       datalabels: {
         formatter: function (value, context) {
-            return value + '%';
+          return value + '%';
 
         },
         color: 'black',
@@ -155,6 +172,16 @@ let lineChartOptions1 = computed<ChartOptions<"line">>(() => ({
 
 onMounted(async () => {
 
+  boardid.value = sprintDataStore.getBoardid()
+  let index = historydata.findIndex(x => x.boardid == boardid.value)
+  if (index != -1) {
+    dataLabels.value = [...historydata[index].dataLabels]
+    velocity.value = [...historydata[index].velocity]
+    predictability.value = [...historydata[index].predictability]
+    predictabilityGoalLow.value = new Array(dataLabels.value.length).fill(80);
+    predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
+
+  }
 })
 
 </script>
