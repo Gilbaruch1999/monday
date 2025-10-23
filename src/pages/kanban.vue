@@ -2,7 +2,7 @@
   <v-container fluid class="ma-1">
     <v-row>
       <v-col width="250px" :key="state" v-for="state in states">
-        <v-card elevation="5" :class="getColorClass(state)" min-height="20">
+        <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="450px">
           <v-card-title class="ma-1">{{ state }}</v-card-title>
           <v-card elevation="2" class="ma-1 " :key="card.id" v-for="card in getItems(state)">
             <kanban-card :item="card">
