@@ -271,7 +271,7 @@ function prepareGraph() {
   }
 
   var curDate = curSprint.value.startDate;
-  var step = totalPoints.value / ((curSprint.value.workingDays - 1))
+  var step = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + step)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
