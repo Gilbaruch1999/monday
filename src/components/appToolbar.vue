@@ -56,7 +56,7 @@ let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v83")
+  console.log("Starting app version v84")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -165,6 +165,7 @@ async function getSprintsFromStorage() {
   for (let index = 0; index < tempdata.length; index++) {
     let newSprint = new Sprint();
     let stdate = new Date(tempdata[index].startDate)
+    stdate.setHours(0,0,0,0)
     newSprint = { ...tempdata[index] };
     newSprint.nonWorkingDays = []
     //console.log("index is " + index + " tmp data " + JSON.stringify(tempdata[index]))
@@ -173,7 +174,8 @@ async function getSprintsFromStorage() {
     tempdata[index].nonWorkingDays.forEach(element => {
 
       stdate = new Date(element)
-      newSprint.nonWorkingDays.push(new Date(element))
+      stdate.setHours(0,0,0,0)
+      newSprint.nonWorkingDays.push(new Date(stdate))
 
     });
     //console.log("Sprints from DB after conversion. index : " + index + " " + JSON.stringify(newSprint))
@@ -235,6 +237,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
             sbitem.checkForPlanningIssues();
             switch (sbitem.status) {
               case "Done":
+                //console.log("Calling is date in sprint " + bitem.title + "  " +  JSON.stringify(sbitem.title) + " " + sbitem.DoneDate)
                 if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
                   bitem.subItems.push(sbitem)
                 break;
@@ -264,9 +267,10 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
 
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
+  //console.log("Is date in sprint start")
   var diff = getDaysdiff(checkDate, startDate)
   //console.log("Check date " + checkDate.toLocaleDateString() + " diff " + diff)
-
+  //console.log("Is date in sprint end")
   if ((diff >= 0) && (diff <= sprintLen))
     return true
   else
