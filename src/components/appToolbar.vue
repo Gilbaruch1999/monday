@@ -56,7 +56,7 @@ let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v86")
+  console.log("Starting app version v87")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {

@@ -133,7 +133,14 @@ export class boardItem {
 
   checkForPlanningIssues() {
     if (this.status == "Done")
-      return;
+    {
+      this.subItems.forEach(subitem => {
+      if (subitem.status != "Done")
+        this.planningStatus = false
+      });
+      return
+    }
+
     if (this.storyPoints == 0) this.planningStatus = false;
     if (this.subItems.length == 0 && this.storyPoints >= 4)
       this.planningStatus = false;
