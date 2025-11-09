@@ -89,6 +89,8 @@ function getGoalColor(item: boardItem) {
   switch (item.status) {
     case "Work In Progress":
     case "Code Review Me":
+    case "Design Review Me":
+    case "PO Review Me":
     case "Wait":
       ret_val = 'yellow'
       break;

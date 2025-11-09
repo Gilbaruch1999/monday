@@ -51,10 +51,10 @@ function getItems(state): boardItem[] {
       ret_val = itemsList.value.filter(x => x.status == state && x.subItems.length == 0)
       break;
     case "Wait":
-      ret_val = itemsList.value.filter(x => x.status == 'Wait' && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => x.status == 'Wait')
       break;
     case 'WIP':
-      ret_val = itemsList.value.filter(x => x.status == "Work In Progress" && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => ( (x.status == "Work In Progress") || (x.status.includes('Review')) ) && x.subItems.length == 0)
       break
     default:
       ret_val = itemsList.value.filter(x => x.status == state && x.subItems.length == 0)
@@ -66,7 +66,7 @@ function getItems(state): boardItem[] {
 
     switch (state) {
       case "Not started":
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status.includes("Pending")))
+        ret_val=ret_val.concat(element.subItems.filter(x => x.status.includes("Please")))
         break;
       case "Done":
         ret_val=ret_val.concat(element.subItems.filter(x => x.status == state))
@@ -75,7 +75,7 @@ function getItems(state): boardItem[] {
         ret_val=ret_val.concat(element.subItems.filter(x => x.status == 'Wait'))
         break;
       case 'WIP':
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status == 'Work In Progress'))
+        ret_val=ret_val.concat(element.subItems.filter(x => (x.status == 'Work In Progress') || (x.status.includes("Review")) ))
         break
       default:
         ret_val=ret_val.concat(element.subItems.filter(x => x.status == state))

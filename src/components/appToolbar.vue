@@ -56,7 +56,7 @@ let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v87")
+  console.log("Starting app version v89")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -129,8 +129,6 @@ function findCurrentSprint(boardid: string): Sprint {
   var ret_val = new Sprint();
   var curDate = new Date();
   //console.log("board id " + boardid)
-  //console.log("Sprints 1" + JSON.stringify(sprintDataStore.getsprintList()))
-  //console.log("Sprints 2" + JSON.stringify(sprintDataStore.getsprintList()[0]))
   let boardSprintTable = sprintDataStore.getsprintList().filter(x => x.boardid == boardid)
   //console.log("Sprints " + JSON.stringify(boardSprintTable))
   for (let index = 0; index < boardSprintTable.length; index++) {
@@ -233,6 +231,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
             sbitem.id = subitem.id
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
+            sbitem.goalCategory = bitem.goalCategory
             sbitem.updateStoryPoints();
             sbitem.checkForPlanningIssues();
             switch (sbitem.status) {
