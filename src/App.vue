@@ -45,4 +45,9 @@ import AppToolbar from './components/appToolbar.vue';
 }
 
 
+.error_bg {
+  background-color: red
+}
+
+
 </style>

@@ -8,11 +8,7 @@
       <template v-slot:item.nonWorkingDays="{ item }">
         {{ dateArraytoString(item.nonWorkingDays) }}
       </template>
-      <template v-slot:item.actions="{ item }">
-        <v-icon @click="editSprint(item)">mdi-pencil </v-icon>
-        <v-icon color="red" @click="deleteSprint(item)"> mdi-delete</v-icon>
-        <v-icon color="blue" @click="addSprint()"> mdi-plus-box</v-icon>
-      </template>
+
     </v-data-table>
 
     <v-form v-if="showForm">
@@ -40,8 +36,7 @@
             <v-text-field multiline v-model="nonWorkingDaysStirng" label="Non working days" required></v-text-field>
           </v-col>
         </v-row>
-        <v-btn color="primary" @click="updateSprint()" class="ma-8">Update</v-btn>
-        <v-btn color="red" @click="cancelUpdateSprint()" class="ma-8">cancel</v-btn>
+
       </v-container>
     </v-form>
   </v-container>
@@ -68,7 +63,6 @@ let nonWorkingDaysStirng = ref("")
 
 const sprintHeaders: any = [
 
-  { title: 'Actions', key: 'actions' },
   { title: 'Name', key: 'name' },
   { title: 'Start Date', key: 'startDate' },
   { title: 'Duration', key: "duration" },
@@ -86,71 +80,6 @@ onMounted(async () => {
 })
 
 
-async function writeToStore(key, value) {
-  return await mondayapi.storage.setItem(key, value)
-  //return setDummyStorage(key, value)
-
-}
-
-function deleteSprint(item: any) {
-  //console.log("delete sprint " + JSON.stringify(item))
-  let index = sprintsList.value.findIndex(x => x.name == item.name && x.boardid == item.boardid)
-  if (index != -1) {
-    sprintsList.value.splice(index, 1)
-    sprintDataStore.setsprintList(sprintsList.value)
-    writeToStore("sprints", JSON.stringify(sprintsList.value))
-  }
-
-}
-
-
-function editSprint(item: Sprint) {
-  //console.log("edit sprint " + JSON.stringify(item))
-  startDateStirng.value = item.startDate.toLocaleDateString()
-  nonWorkingDaysStirng.value = dateArraytoString(item.nonWorkingDays)
-  editMode.value = "Edit"
-  selectedSprint.value = { ...item };
-  showForm.value = true
-
-}
-
-
-function addSprint() {
-  //console.log("Add Sprint")
-  editMode.value = "Add"
-  selectedSprint.value = new Sprint()
-  showForm.value = true
-}
-
-function updateSprint() {
-
-  selectedSprint.value.nonWorkingDays = stringToDateArray(nonWorkingDaysStirng.value)
-  selectedSprint.value.startDate = createDateFromLocalText(startDateStirng.value)
-  selectedSprint.value.workingDays = selectedSprint.value.duration - selectedSprint.value.nonWorkingDays.length
-  //console.log("Selected Sprint " + JSON.stringify(selectedSprint.value))
-
-  switch (editMode.value) {
-    case "Edit":
-      if (editMode.value == "Edit") {
-        let idx = sprintsList.value.findIndex(x => x.name == selectedSprint.value.name && x.boardid == selectedSprint.value.boardid)
-        if (idx == -1)
-          return
-        sprintsList.value[idx] = { ...selectedSprint.value }
-        writeToStore("sprints", JSON.stringify(sprintsList.value))
-        //console.log("Local date string " + startDateStirng.value)
-      }
-      break;
-    case "Add":
-      sprintsList.value.push({ ...selectedSprint.value })
-       writeToStore("sprints", JSON.stringify(sprintsList.value))
-      break;
-    default:
-      console.log("Unknown edit mode - " + editMode.value)
-      break;
-  }
-
-
-}
 
 
 function cancelUpdateSprint() {

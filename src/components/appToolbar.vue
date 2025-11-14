@@ -7,7 +7,7 @@
     <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Manage Sprints</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">View Sprints</v-btn>
     <v-btn class="mt-6" @click="reloadData()">Reload Data</v-btn>
     <v-menu class="mt-6">
       <template v-slot:activator="{ props }">
@@ -16,8 +16,8 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item v-for="(item, index) in sprintNames" :key="index">
-          <v-list-item-title @click="sprintChanged(item)" class="ma-2"> {{ item }}</v-list-item-title>
+        <v-list-item v-for="(item, index) in sprintDataStore.getsprintList()" :key="index">
+          <v-list-item-title @click="sprintChanged(item)" class="ma-2"> {{ item.name }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -34,13 +34,13 @@ import { MondayClientSdk } from "monday-sdk-js";
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
 import { Sprint } from "@/utils/mondayparser";
-import { getBoardItemsQuery } from "@/utils/queries";
-import { getDaysdiff } from "@/utils/utils";
+import { getBoardItemsQuery, getDocContentQuery } from "@/utils/queries";
+import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
-import { getDummySprintList } from "@/utils/dummysprints";
+import { getDummyDocContent } from "@/utils/docsdummy";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -48,15 +48,15 @@ let getFromDummy = ref(false);
 let toolBarTitle = ref("")
 let boardId = ref("")
 let curSprint: Sprint = new Sprint();
-let CurrentBoardType = ref("");
+
 let groupid = ref("");
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
-let sprintNames: Ref<string[]> = ref([])
+//let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v89")
+  console.log("Starting app version v90")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -74,12 +74,23 @@ onMounted(async () => {
     console.log("use dummy data ");
     getFromDummy.value = true;
   }
-
   await getContext();
+  var content;
+  if (getFromDummy) {
+    content = getDummyDocContent();
+  }
+  else {
+    var docquery = getDocContentQuery('5083213836')
+    content = await mondayapi.api(docquery);
+    console.log("Doc content " + JSON.stringify(content))
+  }
+  await parseConfiguration(content, boardId.value)
+  curSprint = findCurrentSprint(boardId.value)
+  groupid.value = curSprint.groupid
+  console.log("current sprint " + JSON.stringify(curSprint))
+  sprintDataStore.setCursprintConfig(curSprint)
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
-  //console.log("items list " + JSON.stringify(itemsList.value))
   sprintDataStore.setsprintData(itemsList.value)
-  //console.log("Sprint data " + JSON.stringify(sprintDataStore.getsprintData()))
   toolBarTitle.value = curSprint.name + " status"
   router.push({ path: '/burndown' })
 
@@ -90,7 +101,6 @@ async function reloadData() {
 
   itemsList.value = []
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
-  console.log("items list " + JSON.stringify(itemsList.value))
   sprintDataStore.setsprintData(itemsList.value)
 
 }
@@ -99,7 +109,6 @@ async function getContext() {
   let context = {};
   if (getFromDummy.value) {
     context = getDummyContext();
-    //console.log("Dummy Context " + JSON.stringify(context))
     boardId.value = context['boardId']
   }
   else {
@@ -117,20 +126,13 @@ async function getContext() {
     }
   }
   sprintDataStore.setBoardid(boardId.value)
-  await InitSprintTable();
-  //console.log("board id " + boardId.value)
-  curSprint = findCurrentSprint(boardId.value)
-  groupid.value = curSprint.groupid
-  console.log("current sprint " + JSON.stringify(curSprint))
-  sprintDataStore.setCursprintConfig(curSprint)
+  console.log("board id " + boardId.value)
 }
 
 function findCurrentSprint(boardid: string): Sprint {
   var ret_val = new Sprint();
   var curDate = new Date();
-  //console.log("board id " + boardid)
   let boardSprintTable = sprintDataStore.getsprintList().filter(x => x.boardid == boardid)
-  //console.log("Sprints " + JSON.stringify(boardSprintTable))
   for (let index = 0; index < boardSprintTable.length; index++) {
     var diff = getDaysdiff(curDate, boardSprintTable[index].startDate);
     if (diff >= 0 && diff < boardSprintTable[index].duration) {
@@ -140,47 +142,24 @@ function findCurrentSprint(boardid: string): Sprint {
   return ret_val;
 }
 
-async function InitSprintTable() {
 
-  if (getFromDummy.value == false) {
-    await getSprintsFromStorage()
-  }
-  else {
-    let tempdata: Sprint[] = getDummySprintList();
-    sprintDataStore.setsprintList(tempdata);
-  }
-  sprintNames.value = [];
-  sprintDataStore.getsprintList().filter(x => x.boardid == boardId.value).forEach(element => {
-    sprintNames.value.push(element.name)
-  });
-}
 
-async function getSprintsFromStorage() {
-  let sprintarr: Sprint[] = []
-  let res = await mondayapi.storage.getItem("sprints")
-  let tempdata = JSON.parse(res.data.value);
-  console.log("temp data " + JSON.stringify(tempdata))
-  for (let index = 0; index < tempdata.length; index++) {
-    let newSprint = new Sprint();
-    let stdate = new Date(tempdata[index].startDate)
-    stdate.setHours(0,0,0,0)
-    newSprint = { ...tempdata[index] };
-    newSprint.nonWorkingDays = []
-    //console.log("index is " + index + " tmp data " + JSON.stringify(tempdata[index]))
-    newSprint.startDate = stdate;
-    tempdata[index].startDate = stdate;
-    tempdata[index].nonWorkingDays.forEach(element => {
+function createSprint(sprintdata: any): Sprint {
 
-      stdate = new Date(element)
-      stdate.setHours(0,0,0,0)
-      newSprint.nonWorkingDays.push(new Date(stdate))
+  let newSprint = new Sprint();
+  newSprint = { ...sprintdata };
+  newSprint.nonWorkingDays = []
+  newSprint.workingDays = newSprint.duration - newSprint.nonWorkingDays.length
 
-    });
-    //console.log("Sprints from DB after conversion. index : " + index + " " + JSON.stringify(newSprint))
-    sprintarr.push(newSprint)
-  }
-  //console.log("set sprint list " + JSON.stringify(sprintarr))
-  sprintDataStore.setsprintList(sprintarr)
+  newSprint.startDate = createDateFromLocalText(sprintdata.startDate);
+  newSprint.startDate.setHours(0, 0, 0, 0)
+  sprintdata.nonWorkingDays.forEach(element => {
+
+    newSprint.nonWorkingDays.push(createDateFromLocalText(element))
+  })
+  newSprint.workingDays = newSprint.duration - newSprint.nonWorkingDays.length
+
+  return newSprint
 
 }
 
@@ -199,6 +178,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     var res = await mondayapi.api(qstr);
     //console.log("get boards from api" + JSON.stringify(res))
     data = res.data
+
   }
   try {
     if (data.boards.length == 0)
@@ -266,10 +246,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
 
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
-  //console.log("Is date in sprint start")
   var diff = getDaysdiff(checkDate, startDate)
-  //console.log("Check date " + checkDate.toLocaleDateString() + " diff " + diff)
-  //console.log("Is date in sprint end")
   if ((diff >= 0) && (diff <= sprintLen))
     return true
   else
@@ -279,7 +256,8 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
 
 async function sprintChanged(item) {
   console.log("Sprint changed to " + JSON.stringify(item))
-  let index = sprintDataStore.getsprintList().findIndex(x => x.boardid == boardId.value && x.name == item)
+  console.log("sprints " + JSON.stringify(sprintDataStore.getsprintList()))
+  let index = sprintDataStore.getsprintList().findIndex(x => x.boardid == boardId.value && x.name == item.name)
   console.log("index " + index)
   if (index != -1) {
     curSprint = sprintDataStore.getsprintList()[index]
@@ -287,8 +265,39 @@ async function sprintChanged(item) {
     sprintDataStore.setCursprintConfig(curSprint)
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   }
+}
+
+function parseConfiguration(data: any, boardId: string) {
+  let sprintarr: Sprint[] = []
+  data.data.docs[0].blocks.forEach(element => {
+
+    //console.log("Block " + JSON.stringify(element.content))
+    try {
+      //console.log("parsing element " + JSON.stringify(element.content))
+      if (JSON.stringify(element.content).includes("groupid")) {
+        let tmp = JSON.parse(element.content)
+        //console.log("element data tmp  " + JSON.stringify(tmp))
+        let sprint = JSON.parse(tmp.deltaFormat[0].insert)
+        let newsprint = createSprint(sprint);
+        if (newsprint.boardid == boardId) {
+          //console.log("new Sprint is xxx" + JSON.stringify(newsprint))
+          sprintarr.push(newsprint)
+        }
+      }
+      if (JSON.stringify(element.content).includes("dataLabels")) {
+         let tmp1 = JSON.parse(element.content)
+        console.log("History data  " + JSON.stringify(tmp1))
+
+      }
+    }
 
 
+    catch (e) {
+      console.log("On catch error is " + e)
+
+    }
+  });
+  sprintDataStore.setsprintList(sprintarr)
 }
 
 </script>

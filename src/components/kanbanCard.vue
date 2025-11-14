@@ -49,6 +49,8 @@ function getPointsColor(size: string) {
 function getCardColor(item : boardItem)
 {
  let ret_val = ""
+ if (item.status == "Next Sprint")
+ return "red"
 
  if (item.status.includes("Review"))
  ret_val = "orange"

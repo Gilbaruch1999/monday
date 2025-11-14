@@ -80,8 +80,16 @@ onMounted(async () => {
 
 function rowProps(data: any) {
 
+  let ret_val = {}
+
   if (data.item.status == "Done")
-    return { class: 'done_bg' }
+    ret_val = { class: 'done_bg' }
+  else {
+    if (data.item.status == 'Next Sprint')
+      ret_val = { class: 'error_bg' }
+  }
+
+  return ret_val;
 }
 
 

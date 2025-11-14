@@ -201,8 +201,9 @@ onMounted(async () => {
   console.log("On mounted burndown ")
   itemsList.value = sprintDataStore.getsprintData()
   curSprint.value = sprintDataStore.getCursprintConfig()
+  //console.log("burndown Current sprint " + JSON.stringify(curSprint.value))
   createGraph()
-  toolBarTitle.value = "Sprint " + curSprint.value.name + " burndown"
+  toolBarTitle.value = curSprint.value.name + " burndown"
 
 })
 

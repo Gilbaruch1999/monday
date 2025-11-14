@@ -9,3 +9,12 @@ export function getBoardItemsQuery(boardid: string , groupid : string) {
 
     return tmp
 }
+
+export function getDocContentQuery(docid: string) {
+
+  var tmp: string =
+    'query getDocContentQuery { docs (object_ids:' +  docid + ') { id name blocks(limit:200) {id type content}}}'
+
+    return tmp
+}
+
