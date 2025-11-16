@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang='ts'>
-import { computed, onMounted, ref, type Ref } from "vue";
+import { computed, onMounted, ref, watch, type Ref } from "vue";
 import { LineChart, useLineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 
@@ -199,13 +199,19 @@ let { lineChartProps, lineChartRef } = useLineChart({
 
 onMounted(async () => {
   console.log("On mounted burndown ")
+  initData()
+
+
+})
+
+function initData() {
   itemsList.value = sprintDataStore.getsprintData()
   curSprint.value = sprintDataStore.getCursprintConfig()
   //console.log("burndown Current sprint " + JSON.stringify(curSprint.value))
   createGraph()
   toolBarTitle.value = curSprint.value.name + " burndown"
 
-})
+}
 
 
 
@@ -350,6 +356,15 @@ function graphTypeChanged() {
 
 }
 
+
+
+watch(
+  () => sprintDataStore.getsprintData(),
+  (newValue, oldValue) => {
+    initData();
+
+  }
+);
 
 </script>
 

@@ -1,4 +1,5 @@
 import { boardItem } from "@/utils/boarditem";
+import { historyData } from "@/utils/common";
 import { Sprint } from "@/utils/mondayparser";
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
@@ -8,6 +9,7 @@ export const useSprintData = defineStore("sprintData", () => {
   const curSprint: Ref<Sprint> = ref();
   const sprintList: Ref<Sprint[]> = ref([]);
   const boardid = ref("");
+  const history : Ref<historyData[]> = ref([])
 
   function getsprintData(): boardItem[] {
     return sprintItems.value;
@@ -41,6 +43,15 @@ export const useSprintData = defineStore("sprintData", () => {
      boardid.value = id;
   }
 
+  function getHistory(): historyData[] {
+    return history.value;
+  }
+
+  function setHistory(id : historyData[]) {
+     history.value = id;
+  }
+
+
   return {
     getsprintData,
     setsprintData,
@@ -49,6 +60,8 @@ export const useSprintData = defineStore("sprintData", () => {
     getsprintList,
     setsprintList,
     getBoardid,
-    setBoardid
+    setBoardid,
+    getHistory,
+    setHistory
   };
 });

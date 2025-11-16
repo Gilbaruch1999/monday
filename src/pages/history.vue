@@ -17,23 +17,10 @@ import { LineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useSprintData } from "../stores/sprintData";
+import { historyData } from "@/utils/common";
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
 
-const historydata = [
-  {
-    boardid: "1647137427",
-    dataLabels: ["Sprint 22", 'Sprint 23', 'Sprint 24', 'Sprint 25', 'Sprint 26', 'Sprint 27'],
-    velocity: [37, 33, 39, 75, 62, 48],
-    predictability: [70, 80, 57, 92, 49, 60],
-  },
-  {
-    boardid: "5048014529",
-    dataLabels: ["Sprint 27"],
-    velocity: [94],
-    predictability: [59]
-  }
-]
 const boardid = ref("")
 const velocity = ref([]);
 const predictability = ref([]);
@@ -177,22 +164,19 @@ let predChartOptions = computed<ChartOptions<"line">>(() => ({
 
 onMounted(async () => {
 
-  boardid.value = sprintDataStore.getBoardid()
-  let index = historydata.findIndex(x => x.boardid == boardid.value)
-  if (index != -1) {
-    dataLabels.value = [...historydata[index].dataLabels]
-    velocity.value = [...historydata[index].velocity]
-    predictability.value = [...historydata[index].predictability]
-    predictabilityGoalLow.value = new Array(dataLabels.value.length).fill(80);
-    predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
-    minPredChart.value = Math.min(...predictability.value) - 5
-    minPredChart.value = Math.min(minPredChart.value, 75)
-    maxPredChart.value = Math.max(...predictability.value) - 5
-    maxPredChart.value = Math.max(maxPredChart.value, 95)
-    minVelocitychart.value = Math.min(...velocity.value) - 5
-    maxVelocitychart.value = Math.max(...velocity.value) + 5
+  let tmp: historyData = sprintDataStore.getHistory()[0]
+  dataLabels.value = [...tmp.dataLabels]
+  velocity.value = [...tmp.velocity]
+  predictability.value = [...tmp.predictability]
+  predictabilityGoalLow.value = new Array(dataLabels.value.length).fill(80);
+  predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
+  minPredChart.value = Math.min(...predictability.value) - 5
+  minPredChart.value = Math.min(minPredChart.value, 75)
+  maxPredChart.value = Math.max(...predictability.value) - 5
+  maxPredChart.value = Math.max(maxPredChart.value, 95)
+  minVelocitychart.value = Math.min(...velocity.value) - 5
+  maxVelocitychart.value = Math.max(...velocity.value) + 5
 
-  }
 })
 
 </script>

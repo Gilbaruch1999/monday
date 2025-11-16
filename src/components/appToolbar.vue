@@ -41,6 +41,7 @@ import { useSprintData } from "../stores/sprintData";
 
 import router from "@/router";
 import { getDummyDocContent } from "@/utils/docsdummy";
+import { historyData } from "@/utils/common";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -56,7 +57,7 @@ const sprintDataStore = useSprintData();
 
 
 onMounted(async () => {
-  console.log("Starting app version v90")
+  console.log("Starting app version v94")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -76,13 +77,13 @@ onMounted(async () => {
   }
   await getContext();
   var content;
-  if (getFromDummy) {
+  if (getFromDummy.value) {
     content = getDummyDocContent();
   }
   else {
     var docquery = getDocContentQuery('5083213836')
     content = await mondayapi.api(docquery);
-    console.log("Doc content " + JSON.stringify(content))
+    //console.log("Doc content " + JSON.stringify(content))
   }
   await parseConfiguration(content, boardId.value)
   curSprint = findCurrentSprint(boardId.value)
@@ -256,7 +257,7 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
 
 async function sprintChanged(item) {
   console.log("Sprint changed to " + JSON.stringify(item))
-  console.log("sprints " + JSON.stringify(sprintDataStore.getsprintList()))
+  //console.log("sprints " + JSON.stringify(sprintDataStore.getsprintList()))
   let index = sprintDataStore.getsprintList().findIndex(x => x.boardid == boardId.value && x.name == item.name)
   console.log("index " + index)
   if (index != -1) {
@@ -264,11 +265,13 @@ async function sprintChanged(item) {
     toolBarTitle.value = curSprint.name + " status"
     sprintDataStore.setCursprintConfig(curSprint)
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
+    sprintDataStore.setsprintData(itemsList.value)
   }
 }
 
 function parseConfiguration(data: any, boardId: string) {
   let sprintarr: Sprint[] = []
+  let historyArr : historyData[] = []
   data.data.docs[0].blocks.forEach(element => {
 
     //console.log("Block " + JSON.stringify(element.content))
@@ -286,7 +289,12 @@ function parseConfiguration(data: any, boardId: string) {
       }
       if (JSON.stringify(element.content).includes("dataLabels")) {
          let tmp1 = JSON.parse(element.content)
-        console.log("History data  " + JSON.stringify(tmp1))
+         let history : historyData = JSON.parse(tmp1.deltaFormat[0].insert)
+         //console.log("History data  " + JSON.stringify(history))
+         if (history.boardid == boardId)
+         {
+          historyArr.push(history)
+         }
 
       }
     }
@@ -298,6 +306,9 @@ function parseConfiguration(data: any, boardId: string) {
     }
   });
   sprintDataStore.setsprintList(sprintarr)
+  sprintDataStore.setHistory(historyArr)
+  //console.log("History data " + JSON.stringify(sprintDataStore.getHistory()))
+
 }
 
 </script>

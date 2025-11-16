@@ -44,7 +44,7 @@
 <script setup lang='ts'>
 
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, Ref, ref } from 'vue';
+import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 
 let showDetails = ref(false)
@@ -116,5 +116,14 @@ function subItemrowClicked(event, row) {
   itemsList.value = sprintDataStore.getsprintData()
 
 }
+
+
+watch(
+  () => sprintDataStore.getsprintData(),
+  (newValue, oldValue) => {
+     itemsList.value = newValue
+
+  }
+);
 
 </script>
