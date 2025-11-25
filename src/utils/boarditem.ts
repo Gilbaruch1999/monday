@@ -20,6 +20,7 @@ export class boardItem {
   startDate: Date;
   starWorktDate: Date;
   planningStatus: boolean;
+   planningCheck: boolean;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -28,6 +29,7 @@ export class boardItem {
     this.subitemsDonePoints = 0;
     this.percentDone = 0;
     this.planningStatus = true;
+    this.planningCheck = false;
   }
 
   updateFields(column_values) {
@@ -131,29 +133,34 @@ export class boardItem {
      console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
   }
 
-  checkForPlanningIssues() {
-    if (this.status == "Done")
+checkForPlanningIssues() {
+    this.planningCheck = true;
+    // if (this.planningStatus != "Planning") return;
+    //console.log("Checking planning status " + JSON.stringify(this))
+    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort")
     {
-      this.subItems.forEach(subitem => {
-      if (subitem.status != "Done")
-        this.planningStatus = false
-      });
-      return
+      this.planningCheck = false;
+      //console.log("Planning error 1 0 estimation " + JSON.stringify(this))
     }
-
-    if (this.storyPoints == 0) this.planningStatus = false;
     if (this.subItems.length == 0 && this.storyPoints >= 4)
-      this.planningStatus = false;
+      this.planningCheck = false;
     this.subItems.forEach((item) => {
-      if (item.storyPoints == 0) this.planningStatus = false;
+      if (item.storyPoints == 0 && item.sizeEstimation != "No Effort")
+      {
+        this.planningCheck = false;
+        console.log("Planning error 2 0 estimation " + JSON.stringify(item.sizeEstimation) + " Name " + item.title + " Points " + item.storyPoints)
+      }
     });
 
-    if (this.storyPoints > 8) {
-        if ((this.subItems.length * 2) < this.storyPoints)
-              this.planningStatus = false;
-        }
-      /*  if (this.planningStatus == false)
-          console.log("Item false" + " " + this.title + JSON.stringify(this))*/
+    if (this.subItems.length > 0) {
+      let subitemstot = this.subItems.reduce((accumulator, object) => {
+        return accumulator + object.storyPoints;
+      }, 0);
+      if (subitemstot > this.storyPoints * 1.75) {
+        this.planningCheck = false;
+      }
+    }
   }
+
 
 }

@@ -21,6 +21,18 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-menu class="mt-6" v-if="getFromDummy==true">
+      <template v-slot:activator="{ props }">
+        <v-btn class="mt-6" color="white" light v-bind="props">
+          {{ boardId }}
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="(item, index) in boardids" :key="index">
+          <v-list-item-title @click="boardIdChanged(item)" class="ma-2"> {{ item }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </v-toolbar>
 
 
@@ -53,11 +65,12 @@ let curSprint: Sprint = new Sprint();
 let groupid = ref("");
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
+let boardids = ["1647137427" , "5048014529"]
 //let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v94")
+  console.log("Starting app version v98")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -76,7 +89,13 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
-  var content;
+
+  await initData();
+})
+
+async function initData()
+{
+   var content;
   if (getFromDummy.value) {
     content = getDummyDocContent();
   }
@@ -85,6 +104,7 @@ onMounted(async () => {
     content = await mondayapi.api(docquery);
     //console.log("Doc content " + JSON.stringify(content))
   }
+
   await parseConfiguration(content, boardId.value)
   curSprint = findCurrentSprint(boardId.value)
   groupid.value = curSprint.groupid
@@ -95,7 +115,7 @@ onMounted(async () => {
   toolBarTitle.value = curSprint.name + " status"
   router.push({ path: '/burndown' })
 
-})
+}
 
 
 async function reloadData() {
@@ -267,6 +287,14 @@ async function sprintChanged(item) {
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
     sprintDataStore.setsprintData(itemsList.value)
   }
+}
+
+function boardIdChanged(item)
+{
+  //console.log("VVVV" +  JSON.stringify(item))
+  boardId.value = item
+  initData();
+
 }
 
 function parseConfiguration(data: any, boardId: string) {

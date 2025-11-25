@@ -11,7 +11,7 @@
       </template>
       <template v-slot:item.planningStatus="item">
         <!-- @vue-ignore -->
-        <v-icon v-if="item.item.planningStatus" color="green" icon="mdi-check-circle"></v-icon>
+        <v-icon v-if="item.item.planningCheck" color="green" icon="mdi-check-circle"></v-icon>
         <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
       </template>
     </v-data-table>

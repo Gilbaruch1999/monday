@@ -8,6 +8,10 @@
         <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
         <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
       </v-row>
+       <v-row>
+        <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
+        <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
+      </v-row>
       <v-row>
       </v-row>
     </div>
@@ -26,9 +30,11 @@ Chart.register(...registerables, ChartDataLabels);
 
 
 let categoryLabeles = ref([])
+let domainLables = ref([])
 let pieColors: Ref<string[]> = ref([])
 let goalsColors: Ref<string[]> = ref([])
 let categoryValues: Ref<number[]> = ref([])
+let domainValues: Ref<number[]> = ref([])
 let goalsLabel = ref([])
 let goalsValues = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
@@ -59,6 +65,30 @@ let categoryPieData = computed<ChartData<"pie">>(() => ({
 
 
 
+let domainPieData = computed<ChartData<"pie">>(() => ({
+  labels: domainLables.value,
+  datasets: [{
+    data: domainValues.value,
+    backgroundColor: pieColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
+
+  ]
+}));
+
+
+
 let catPercentpieData = computed<ChartData<"pie">>(() => ({
   labels: categoryLabeles.value,
   datasets: [{
@@ -69,6 +99,38 @@ let catPercentpieData = computed<ChartData<"pie">>(() => ({
       formatter: function (value, context) {
 
         var total = categoryValues.value.reduce((accumulator, object) => {
+          return accumulator + object;
+        }, 0);
+        const percentage = (value / total) * 100
+        return percentage.toFixed(0) + "%";
+
+      },
+      color: 'white',
+      labels: {
+        title: {
+          font: {
+            weight: 'bold',
+            size: 18
+          }
+        },
+      }
+    }
+  }
+
+  ]
+}));
+
+
+let domainPercentpieData = computed<ChartData<"pie">>(() => ({
+  labels: domainLables.value,
+  datasets: [{
+    data: domainValues.value,
+    backgroundColor: pieColors.value,
+    hoverOffset: 4,
+    datalabels: {
+      formatter: function (value, context) {
+
+        var total = domainValues.value.reduce((accumulator, object) => {
           return accumulator + object;
         }, 0);
         const percentage = (value / total) * 100
@@ -161,6 +223,20 @@ const categoryPercentPieOptions = {
   },
 };
 
+
+
+const domainPercentPieOptions = {
+
+  plugins: {
+
+    title: {
+      display: true,
+      text: "Break down by Domain - percentage",
+    },
+
+  },
+};
+
 const categoryPieOptions = {
 
   plugins: {
@@ -168,6 +244,19 @@ const categoryPieOptions = {
     title: {
       display: true,
       text: "BreakDown by category",
+    },
+
+  },
+};
+
+
+const domainPieOptions = {
+
+  plugins: {
+
+    title: {
+      display: true,
+      text: "BreakDown by Domain",
     },
 
   },
@@ -216,6 +305,7 @@ onMounted(async () => {
 
 function createBreakDownChart() {
   const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
+  const distinctDomain = [...new Set(itemsList.value.map(x => x.domain))];
   categoryLabeles.value = []
   categoryValues.value = []
   var idx = 0;
@@ -228,6 +318,18 @@ function createBreakDownChart() {
     }, 0);
     //console.log("Total " + totalcat)
     categoryValues.value.push(totalcat)
+
+  });
+
+   distinctDomain.forEach(element => {
+    //console.log("Category " + element)
+    domainLables.value.push(element)
+    //pieColors.value.push(generateRgbColor(idx++))
+    var totaldomain = itemsList.value.filter(x => x.domain == element).reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
+    }, 0);
+    //console.log("Total " + totalcat)
+    domainValues.value.push(totaldomain)
 
   });
 
