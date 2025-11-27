@@ -310,31 +310,42 @@ function prepareGraph() {
 
 }
 
+function addBurnUpValues(itemsList: boardItem[], curindex: number) {
+  itemsList.forEach(element => {
+    if (element.status == "Done") {
+      var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
+      if ((index >= 0) && (index <= curindex)) {
+        burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
+      }
+    }
+  });
+}
+
+
 function calcBurnUp() {
 
+
   var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
+  // get all items without subitems
+
   if (detailedgrpah.value) {
-    var detailedItems = itemsList.value.filter(x => x.subItems.length > 0)
-    detailedItems.forEach(element => {
-      element.subItems.forEach(subitem => {
-        if (subitem.status == "Done") {
-          var index = getDaysdiff(subitem.DoneDate, curSprint.value.startDate)
-          if ((index >= 0) && (index <= currentIndex)) {
-            burnUpValues.value[index] = burnUpValues.value[index] + subitem.storyPoints;
-          }
-        }
-      });
+    var withSubitems = itemsList.value.filter(x => x.subItems.length > 0 || (x.subItems.length == 0 && x.status == "Done"))
+    var itemlist = []
+    withSubitems.forEach(element => {
+      itemlist.push(...element.subItems)
     });
+    addBurnUpValues(itemlist, currentIndex)
+    var noSubitems = itemsList.value.filter(x => x.subItems.length == 0 )
+    addBurnUpValues(noSubitems, currentIndex)
+    console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
   else {
-    var doneitems = itemsList.value.filter(x => x.status == "Done")
-    doneitems.forEach(element => {
-      var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
-      if ((index >= 0) && (index <= currentIndex))
-        burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
-    });
+    var noSubitems = itemsList.value.filter(x => ((x.subItems.length == 0) && x.status != "Done") || ((x.status == "Done")) )
+    console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
+    addBurnUpValues(noSubitems, currentIndex)
+
   }
-  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
+
   actualValues.value[0] = totalPoints.value
   for (let index = 0; index < actualValues.value.length; index++) {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
@@ -345,14 +356,13 @@ function calcBurnUp() {
 
 }
 
+
 function onDetaileGraphChanged() {
   prepareGraph();
   calcBurnUp()
 }
 
-
 function graphTypeChanged() {
-
 
 }
 

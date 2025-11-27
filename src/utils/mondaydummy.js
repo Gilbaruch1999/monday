@@ -76,7 +76,8 @@ export function getDummyContext() {
 
 export function getDummyBoardItems(boardid) {
   const res = {
-    "data": {
+
+  "data": {
     "boards": [
       {
         "items_page": {
@@ -104,7 +105,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -153,7 +154,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-11-27"
                 }
               ],
               "subitems": [
@@ -460,7 +461,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "PO Review Me"
                     },
                     {
                       "column": {
@@ -527,8 +528,8 @@ export function getDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "Make visual map of early flow (Onboarding levels)",
-                  "id": "2514866436",
+                  "name": "Make Onboarding Levels",
+                  "id": "2540361231",
                   "column_values": [
                     {
                       "column": {
@@ -542,110 +543,28 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "Task"
+                      "text": "What Flavor Is This? 🍦"
                     },
                     {
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
                       },
-                      "text": "S"
+                      "text": "How Many Coffees Do I need? ☕"
                     },
                     {
                       "column": {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Write short pitch summary for PO",
-                  "id": "2514860331",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Evyatar Schorr"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Create stage-by-stage doc for Idea Forge",
-                  "id": "2514864536",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Evyatar Schorr"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
+                      "text": "2025-11-27"
                     }
                   ]
                 }
@@ -751,7 +670,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -800,10 +719,52 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-11-27"
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "First levels",
+                  "id": "2536498620",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": ""
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-11-27"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "name": "Core Growth Visualization 🧘 🎮",
@@ -979,7 +940,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "PO Review Me"
                     },
                     {
                       "column": {
@@ -1938,7 +1899,7 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Open Sub Reddit - r/Snooze",
+              "name": "Open Facebook",
               "id": "5059295316",
               "column_values": [
                 {
@@ -2029,14 +1990,14 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2050,7 +2011,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-11-25"
                     }
                   ]
                 },
@@ -2070,14 +2031,14 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2091,12 +2052,53 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
+                      "text": "2025-11-26"
+                    }
+                  ]
+                },
+                {
+                  "name": "FB Technical Setup",
+                  "id": "2531625506",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Oded Orly"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
                       "text": ""
                     }
                   ]
                 },
                 {
-                  "name": "Define Subreddit Structure",
+                  "name": "Define Facebook Structure",
                   "id": "5088013754",
                   "column_values": [
                     {
@@ -2118,48 +2120,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Technical Setup",
-                  "id": "2531625506",
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Oded Orly"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2200,7 +2161,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2243,7 +2204,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -2292,7 +2253,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-11-26"
                 }
               ],
               "subitems": [
@@ -2305,21 +2266,21 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Oded Orly"
                     },
                     {
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2333,7 +2294,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-11-26"
                     }
                   ]
                 },
@@ -2346,21 +2307,21 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Oded Orly"
                     },
                     {
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2374,7 +2335,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-11-26"
                     }
                   ]
                 },
@@ -2387,21 +2348,21 @@ export function getDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": ""
+                      "text": "Oded Orly"
                     },
                     {
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "What Flavor Is This? 🍦"
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -2415,7 +2376,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-11-26"
                     }
                   ]
                 }
@@ -2444,7 +2405,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -2493,7 +2454,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-11-26"
                 }
               ],
               "subitems": [
@@ -2595,7 +2556,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -2616,7 +2577,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-11-26"
                     }
                   ]
                 }
@@ -2645,7 +2606,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -2764,6 +2725,83 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-11-27"
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "GG1 | Exercise No.7 - UX 🧠",
+              "id": "5047649753",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Dikla Yair"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
                   "text": "Work In Progress"
                 },
                 {
@@ -2816,84 +2854,131 @@ export function getDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": []
-            },
-            {
-              "name": "GG1 | Exercise No.7 - UX 🧠",
-              "id": "5047649753",
-              "column_values": [
+              "subitems": [
                 {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
+                  "name": "מחקר שחור ופתור קצר",
+                  "id": "2539321580",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Dikla Yair"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "What Flavor Is This? 🍦"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
                 },
                 {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Dikla Yair"
+                  "name": "מוקאפים",
+                  "id": "2539323181",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Dikla Yair"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "What Flavor Is This? 🍦"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
                 },
                 {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Growth Galaxy"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Game Content"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
+                  "name": "כתיבת משימה לצוות הפיתוח",
+                  "id": "2539323360",
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Dikla Yair"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "What Flavor Is This? 🍦"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
                 }
-              ],
-              "subitems": []
+              ]
             },
             {
               "name": "GG Exercises - Level Design Mapping 🎮",
@@ -2918,7 +3003,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Stuck"
                 },
                 {
                   "column": {
@@ -3132,6 +3217,7 @@ export function getDummyBoardItems(boardid) {
     ]
   }
 }
+
 
 
   return res;

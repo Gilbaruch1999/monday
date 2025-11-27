@@ -70,7 +70,7 @@ let boardids = ["1647137427" , "5048014529"]
 
 
 onMounted(async () => {
-  console.log("Starting app version v98")
+  console.log("Starting app version v99")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
