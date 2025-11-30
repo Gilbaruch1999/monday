@@ -17,10 +17,7 @@
         <v-row>
           <v-card class="my-8 mx-4" :key="category.name" :color="getGoalColor(item)"
             v-for="item in getGoals(category.name)">
-            <div class="text-h6 font-weight-bold ma-2">
-              {{ item.title }}
-            </div>
-            <p class="text-body-2 mx-2">status : {{ item.status }}</p>
+           <goals-card :item="item"></goals-card>
           </v-card>
         </v-row>
       </v-card>

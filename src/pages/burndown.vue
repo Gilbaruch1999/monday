@@ -337,11 +337,11 @@ function calcBurnUp() {
     addBurnUpValues(itemlist, currentIndex)
     var noSubitems = itemsList.value.filter(x => x.subItems.length == 0 )
     addBurnUpValues(noSubitems, currentIndex)
-    console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
+    //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
   else {
     var noSubitems = itemsList.value.filter(x => ((x.subItems.length == 0) && x.status != "Done") || ((x.status == "Done")) )
-    console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
+    //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
     addBurnUpValues(noSubitems, currentIndex)
 
   }

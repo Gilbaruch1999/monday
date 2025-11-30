@@ -160,6 +160,14 @@ checkForPlanningIssues() {
         this.planningCheck = false;
       }
     }
+    if (this.status == "Done")
+    {
+      this.subItems.forEach(element => {
+        if (element.status != "Done")
+          this.planningCheck = false
+
+      });
+    }
   }
 
 

@@ -70,7 +70,7 @@ let boardids = ["1647137427" , "5048014529"]
 
 
 onMounted(async () => {
-  console.log("Starting app version v99")
+  console.log("Starting app version v100")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -214,7 +214,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   }
 
   data.boards.forEach(board => {
-    console.log("found " + board.items_page.items.length + " board items")
+    //console.log("found " + board.items_page.items.length + " board items")
     board.items_page.items.forEach(item => {
       //console.log("item " + JSON.stringify(item))
       var bitem: boardItem = new boardItem();
