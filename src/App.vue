@@ -45,9 +45,16 @@ import AppToolbar from './components/appToolbar.vue';
 }
 
 
+.warn_bg {
+  background-color: yellow
+}
+
 .error_bg {
   background-color: red
 }
 
+.PushedOut_bg {
+  background-color: black
+}
 
 </style>

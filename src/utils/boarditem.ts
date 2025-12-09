@@ -20,7 +20,8 @@ export class boardItem {
   startDate: Date;
   starWorktDate: Date;
   planningStatus: boolean;
-   planningCheck: boolean;
+  planningCheck: boolean;
+  parent : string;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -30,6 +31,7 @@ export class boardItem {
     this.percentDone = 0;
     this.planningStatus = true;
     this.planningCheck = false;
+    this.parent = ""
   }
 
   updateFields(column_values) {

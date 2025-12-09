@@ -28,10 +28,10 @@
     <LineChart :chart-data="graphData" :options="lineChartOptions" />
   </div>
   <div v-if="graphType == 'Delta'">
-    <LineChart :chart-data="deltaGraphData" :chart-options="lineChartOptions" />
+    <LineChart :chart-data="deltaGraphData" :options="lineChartOptions" />
   </div>
   <div v-if="graphType == 'BurnUp'">
-    <LineChart :chart-data="burnUpGraphData" :chart-options="lineChartOptions" />
+    <LineChart :chart-data="burnUpGraphData" :options="BurnUpChartOptions" />
   </div>
 </template>
 
@@ -66,12 +66,11 @@ let leadTime = ref(0)
 let itemsList: Ref<boardItem[]> = ref([]);
 let totalPoints = ref(0)
 let totalDonePoints = ref(0)
-let detailedgrpah = ref(false)
-let detailedList = ref(false)
+let detailedgrpah = ref(true)
 let graphType = ref("BurnDown")
 let getBtnHeader = ref("get API Data")
 let curSprint: Ref<Sprint> = ref();
-let CurrentBoardType = ref("");
+
 let toolBarTitle = ref("Sprint burndown")
 let lineChartText = ref("BurnDown")
 let graphData = computed<ChartData<"line">>(() => ({
@@ -174,10 +173,41 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 
 
 
-let lineChartOptions = computed<ChartOptions<"line">>(() => ({
+function getCompletedOnDate(index: number): boardItem[] {
+  let compdate = new Date(addDays(curSprint.value.startDate, index))
+  compdate.setHours(0, 0, 0, 0)
+  //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
+  if (detailedgrpah.value) {
+    let arr1 = []
+    itemsList.value.filter(x=> x.subItems.length > 0).forEach(element => {
+    let arr2 = element.subItems.filter(x=> x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
+    if (arr2.length > 0)
+      arr1.push(...arr2)
+    });
+    return arr1;
+  }
+else
+  return (itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.parent == ""))
+}
+
+
+let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
   maintainAspectRatio: true,
   plugins: {
+    tooltip: {
+      callbacks: {
+        label: function (context) {
+          //console.log("Tool tip " + JSON.stringify(context.dataIndex))
+          let labels = []
+          let arr = getCompletedOnDate(context.dataIndex)
+          arr.forEach(element => {
+            labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo))
+          });
+          return labels;
+        }
+      }
+    },
     legend: {
     },
     title: {
@@ -188,12 +218,19 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 }));
 
 
+let lineChartOptions = computed<ChartOptions<"line">>(() => ({
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: {
 
-let { lineChartProps, lineChartRef } = useLineChart({
-  chartData: graphData,
-  options: lineChartOptions,
-});
-
+    legend: {
+    },
+    title: {
+      display: true,
+      text: lineChartText.value,
+    },
+  },
+}));
 
 
 
@@ -247,10 +284,6 @@ function resetData() {
 
 function prepareGraph() {
   resetData()
-  if (CurrentBoardType.value == 'Kanban') {
-    graphType.value = "Goals";
-    detailedList.value = true
-  }
 
   if (detailedgrpah.value) {
     totalPoints.value = itemsList.value.reduce((accumulator, object) => {
@@ -335,12 +368,12 @@ function calcBurnUp() {
       itemlist.push(...element.subItems)
     });
     addBurnUpValues(itemlist, currentIndex)
-    var noSubitems = itemsList.value.filter(x => x.subItems.length == 0 )
+    var noSubitems = itemsList.value.filter(x => x.subItems.length == 0)
     addBurnUpValues(noSubitems, currentIndex)
     //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
   else {
-    var noSubitems = itemsList.value.filter(x => ((x.subItems.length == 0) && x.status != "Done") || ((x.status == "Done")) )
+    var noSubitems = itemsList.value.filter(x => ((x.subItems.length == 0) && x.status != "Done") || ((x.status == "Done")))
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
     addBurnUpValues(noSubitems, currentIndex)
 

@@ -1,6 +1,6 @@
 <template>
 
-  <v-toolbar class="mt-6" color="primary " :title="toolBarTitle">
+  <v-toolbar color="primary " :title="toolBarTitle">
     <v-btn class="mt-6" @click="$router.push('/burndown')">BurnDown</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintTable')">Sprint items</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintGoals')">Goals</v-btn>
@@ -70,7 +70,7 @@ let boardids = ["1647137427" , "5048014529"]
 
 
 onMounted(async () => {
-  console.log("Starting app version v100")
+  console.log("Starting app version v102")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -220,6 +220,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
       var bitem: boardItem = new boardItem();
       bitem.title = item.name
       bitem.id = item.id
+      bitem.parent = ""
       //console.log('New Item ' + bitem.title)
       bitem.updateFields(item.column_values);
       // get sub items
@@ -230,6 +231,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
             var sbitem: boardItem = new boardItem();
             sbitem.title = subitem.name
             sbitem.id = subitem.id
+            sbitem.parent = bitem.title
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
             sbitem.goalCategory = bitem.goalCategory

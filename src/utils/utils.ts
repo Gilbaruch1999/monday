@@ -92,10 +92,12 @@ export function createDateFromText2(stringdate: string) {
       retval.setFullYear(parseInt(tmp[0]));
       retval.setMonth(parseInt(tmp[1]) - 1);
       retval.setDate(parseInt(tmp[2]));
+      retval.setHours(0,0,0,0)
     }
   } catch {
     console.log("Error in create date from text 2");
   }
+
   //console.log('Date is ' + retval.toLocaleDateString())
   return retval;
 }
