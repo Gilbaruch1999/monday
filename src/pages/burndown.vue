@@ -404,6 +404,7 @@ function calcBurnUp() {
 
   actualValues.value[0] = totalPoints.value
   var curDate = curSprint.value.startDate;
+  curDate = new Date(addDays(curDate, 1))
   for (let index = 0; index < actualValues.value.length; index++) {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
     if ((index + 1) < actualValues.value.length)
@@ -415,6 +416,7 @@ function calcBurnUp() {
     else
       burnUpGoals.value[index] = burndownStep.value
     curDate = new Date(addDays(curDate, 1))
+
   }
 
 
