@@ -53,6 +53,7 @@ const sprintDataStore = useSprintData();
 const idealValues = ref([]);
 const actualValues = ref([]);
 const burnUpValues = ref([]);
+const burnUpGoals = ref([]);
 const deltaValues = ref([]);
 let dataLabels = ref(["1", '2']);
 const idealcolor = "rgb(0,255,0)"
@@ -70,6 +71,7 @@ let detailedgrpah = ref(true)
 let graphType = ref("BurnDown")
 let getBtnHeader = ref("get API Data")
 let curSprint: Ref<Sprint> = ref();
+let burndownStep = ref(0)
 
 let toolBarTitle = ref("Sprint burndown")
 let lineChartText = ref("BurnDown")
@@ -168,6 +170,26 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
         }
       }
     },
+    {
+      label: "Daily Goal",
+      data: burnUpGoals.value,
+      backgroundColor: deltacolor,
+      borderColor: deltacolor,
+      borderDash: [5, 5],
+      pointStyle: "circle",
+      pointRadius: 12,
+      pointHoverRadius: 14,
+      datalabels: {
+        color: 'white',
+        labels: {
+          title: {
+            font: {
+              weight: 'bold'
+            }
+          },
+        }
+      }
+    },
   ],
 }));
 
@@ -179,15 +201,15 @@ function getCompletedOnDate(index: number): boardItem[] {
   //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
   if (detailedgrpah.value) {
     let arr1 = []
-    itemsList.value.filter(x=> x.subItems.length > 0).forEach(element => {
-    let arr2 = element.subItems.filter(x=> x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
-    if (arr2.length > 0)
-      arr1.push(...arr2)
+    itemsList.value.filter(x => x.subItems.length > 0).forEach(element => {
+      let arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
+      if (arr2.length > 0)
+        arr1.push(...arr2)
     });
     return arr1;
   }
-else
-  return (itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.parent == ""))
+  else
+    return (itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.parent == ""))
 }
 
 
@@ -272,6 +294,7 @@ async function createGraph() {
 function resetData() {
   var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   burnUpValues.value = new Array(currentIndex + 1).fill(0)
+  burnUpGoals.value = new Array(currentIndex + 1).fill(0)
   actualValues.value = new Array(currentIndex + 1).fill(0)
   totalPoints.value = 0;
   totalDonePoints.value = 0;
@@ -311,8 +334,8 @@ function prepareGraph() {
   }
 
   var curDate = curSprint.value.startDate;
-  var step = totalPoints.value / ((curSprint.value.workingDays))
-  console.log("Step is " + step)
+  burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
+  console.log("Step is " + burndownStep.value)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
     if (index == 0)
@@ -323,7 +346,7 @@ function prepareGraph() {
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else {
-        idealValues.value[index] = idealValues.value[index - 1] - step
+        idealValues.value[index] = idealValues.value[index - 1] - burndownStep.value
       }
 
     }
@@ -380,12 +403,20 @@ function calcBurnUp() {
   }
 
   actualValues.value[0] = totalPoints.value
+  var curDate = curSprint.value.startDate;
   for (let index = 0; index < actualValues.value.length; index++) {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
     if ((index + 1) < actualValues.value.length)
       actualValues.value[index + 1] = actualValues.value[index]
     deltaValues.value[index] = actualValues.value[index] - idealValues.value[index]
+    if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
+      burnUpGoals.value[index] = 0
+    }
+    else
+      burnUpGoals.value[index] = burndownStep.value
+    curDate = new Date(addDays(curDate, 1))
   }
+
 
 }
 

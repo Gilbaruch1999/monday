@@ -53,8 +53,8 @@ import AppToolbar from './components/appToolbar.vue';
   background-color: red
 }
 
-.PushedOut_bg {
-  background-color: black
+.pushedOut_bg {
+  background-color: gray
 }
 
 </style>
