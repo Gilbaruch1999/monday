@@ -171,9 +171,7 @@ onMounted(async () => {
   predictabilityGoalLow.value = new Array(dataLabels.value.length).fill(80);
   predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
   minPredChart.value = Math.min(...predictability.value) - 5
-  minPredChart.value = Math.min(minPredChart.value, 75)
-  maxPredChart.value = Math.max(...predictability.value) - 5
-  maxPredChart.value = Math.max(maxPredChart.value, 95)
+  maxPredChart.value = Math.max(...predictability.value) + 5
   minVelocitychart.value = Math.min(...velocity.value) - 5
   maxVelocitychart.value = Math.max(...velocity.value) + 5
 

@@ -197,7 +197,7 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 
 function getCompletedOnDate(index: number): boardItem[] {
   let compdate = new Date(addDays(curSprint.value.startDate, index))
-  compdate.setHours(0, 0, 0, 0)
+  compdate.setHours(0, 0, 0, 0);
   //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
   if (detailedgrpah.value) {
     let arr1 = []
@@ -206,6 +206,8 @@ function getCompletedOnDate(index: number): boardItem[] {
       if (arr2.length > 0)
         arr1.push(...arr2)
     });
+    let arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0)
+    arr1.push(...arr)
     return arr1;
   }
   else
@@ -309,18 +311,29 @@ function prepareGraph() {
   resetData()
 
   if (detailedgrpah.value) {
-    totalPoints.value = itemsList.value.reduce((accumulator, object) => {
+
+    var arr = itemsList.value.filter(x=>x.status != 'Removed')
+
+    totalPoints.value = arr.reduce((accumulator, object) => {
       return accumulator + object.subitemsPoints;
     }, 0);
 
-    totalPoints.value += itemsList.value.filter(x => x.subItems.length == 0).reduce((accumulator, object) => {
+     totalDonePoints.value = arr.reduce((accumulator, object) => {
+      return accumulator + object.subitemsDonePoints;
+    }, 0);
+
+
+    totalPoints.value += arr.filter(x => x.subItems.length == 0).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
 
-    totalDonePoints.value = itemsList.value.reduce((accumulator, object) => {
-      return accumulator + object.subitemsDonePoints;
+    totalDonePoints.value += arr.filter(x => x.subItems.length == 0 && x.status=='Done').reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
     }, 0);
+
+
+
 
   }
   else {
@@ -333,6 +346,7 @@ function prepareGraph() {
     }, 0);
   }
 
+  console.log("Total " + totalPoints.value + " Done " + totalDonePoints.value )
   var curDate = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)

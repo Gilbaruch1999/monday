@@ -69,13 +69,14 @@ function getGoals(category: string) {
 
 function updatePOStatus(items : boardItem[]) {
   let index = 0;
+  let arr = items.filter(X=>X.status != "Removed");
   //console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
-  if (items.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
-    index = 1
-
-    if (items.filter(x => x.goalCategory == "Target" && x.status != "Done").length == 0)
+  if (arr.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
+    index = 1;
+    if (arr.filter(x => x.goalCategory == "Target" && x.status != "Done").length == 0)
       index = 2
   }
+
   poImageSrc.value = poImage[index].src
   poImageColor.value = poImage[index].color
   poImageText.value = poImage[index].text
