@@ -295,6 +295,7 @@ function boardIdChanged(item)
 {
   //console.log("VVVV" +  JSON.stringify(item))
   boardId.value = item
+  useSprintData().setBoardid(boardId.value)
   initData();
 
 }

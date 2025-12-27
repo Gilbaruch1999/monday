@@ -1,20 +1,21 @@
 <template>
 
-  <v-container fluid>
-    <div>
-      <v-row>
+  <v-container >
+
+      <v-row class="mb-12 mt-4">
         <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
         <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
+      </v-row>
+
+      <v-row w class="mb-12">
         <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
         <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
       </v-row>
-       <v-row>
+      <v-row w class="mb-12">
         <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
         <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
       </v-row>
-      <v-row>
-      </v-row>
-    </div>
+
   </v-container>
 </template>
 
@@ -22,7 +23,7 @@
 import { boardItem } from "@/utils/boarditem";
 import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
-import { Chart, ChartData,registerables } from "chart.js";
+import { Chart, ChartData, registerables } from "chart.js";
 import { PieChart } from "vue-chart-3";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, onMounted, ref, Ref } from "vue";
@@ -321,7 +322,7 @@ function createBreakDownChart() {
 
   });
 
-   distinctDomain.forEach(element => {
+  distinctDomain.forEach(element => {
     //console.log("Category " + element)
     domainLables.value.push(element)
     //pieColors.value.push(generateRgbColor(idx++))

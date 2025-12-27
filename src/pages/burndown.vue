@@ -271,6 +271,7 @@ function initData() {
   //console.log("burndown Current sprint " + JSON.stringify(curSprint.value))
   createGraph()
   toolBarTitle.value = curSprint.value.name + " burndown"
+  lineChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name + " " + graphType.value + " chart"
 
 }
 
@@ -312,13 +313,13 @@ function prepareGraph() {
 
   if (detailedgrpah.value) {
 
-    var arr = itemsList.value.filter(x=>x.status != 'Removed')
+    var arr = itemsList.value.filter(x => x.status != 'Removed')
 
     totalPoints.value = arr.reduce((accumulator, object) => {
       return accumulator + object.subitemsPoints;
     }, 0);
 
-     totalDonePoints.value = arr.reduce((accumulator, object) => {
+    totalDonePoints.value = arr.reduce((accumulator, object) => {
       return accumulator + object.subitemsDonePoints;
     }, 0);
 
@@ -328,7 +329,7 @@ function prepareGraph() {
     }, 0);
 
 
-    totalDonePoints.value += arr.filter(x => x.subItems.length == 0 && x.status=='Done').reduce((accumulator, object) => {
+    totalDonePoints.value += arr.filter(x => x.subItems.length == 0 && x.status == 'Done').reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
@@ -346,7 +347,7 @@ function prepareGraph() {
     }, 0);
   }
 
-  console.log("Total " + totalPoints.value + " Done " + totalDonePoints.value )
+  console.log("Total " + totalPoints.value + " Done " + totalDonePoints.value)
   var curDate = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
@@ -443,6 +444,9 @@ function onDetaileGraphChanged() {
 }
 
 function graphTypeChanged() {
+
+
+  lineChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name + " " + graphType.value + " chart"
 
 }
 
