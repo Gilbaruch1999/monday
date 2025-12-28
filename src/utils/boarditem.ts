@@ -21,7 +21,7 @@ export class boardItem {
   starWorktDate: Date;
   planningStatus: boolean;
   planningCheck: boolean;
-  parent : string;
+  parent: string;
   constructor() {
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
@@ -31,7 +31,7 @@ export class boardItem {
     this.percentDone = 0;
     this.planningStatus = true;
     this.planningCheck = false;
-    this.parent = ""
+    this.parent = "";
   }
 
   updateFields(column_values) {
@@ -116,7 +116,7 @@ export class boardItem {
       .reduce((accumulator, object) => {
         return accumulator + object.storyPoints;
       }, 0);
-      //console.log("subitem done points " + this.subitemsDonePoints)
+    //console.log("subitem done points " + this.subitemsDonePoints)
 
     if (this.status == "Done") {
       this.percentDone = 100;
@@ -135,23 +135,33 @@ export class boardItem {
      console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
   }
 
-checkForPlanningIssues() {
+  checkForPlanningIssues() {
+    //console.log("Check for planning issues " + this.id)
     this.planningCheck = true;
     // if (this.planningStatus != "Planning") return;
     //console.log("Checking planning status " + JSON.stringify(this))
-    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort")
-    {
+    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
       this.planningCheck = false;
       //console.log("Planning error 1 0 estimation " + JSON.stringify(this))
     }
     if (this.subItems.length == 0 && this.storyPoints >= 4)
+    {
       this.planningCheck = false;
+    }
     this.subItems.forEach((item) => {
-      if (item.storyPoints == 0 && item.sizeEstimation != "No Effort")
-      {
+      if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
         this.planningCheck = false;
-        console.log("Planning error 2 0 estimation " + JSON.stringify(item.sizeEstimation) + " Name " + item.title + " Points " + item.storyPoints)
+      /*  console.log(
+          "Planning error 2 0 estimation " +
+            JSON.stringify(item.sizeEstimation) +
+            " Name " +
+            item.title +
+            " Points " +
+            item.storyPoints
+        );*/
       }
+      if (item.planningCheck == false)
+        this.planningCheck = false
     });
 
     if (this.subItems.length > 0) {
@@ -162,15 +172,10 @@ checkForPlanningIssues() {
         this.planningCheck = false;
       }
     }
-    if (this.status == "Done")
-    {
-      this.subItems.forEach(element => {
-        if (element.status != "Done")
-          this.planningCheck = false
-
+    if (this.status == "Done") {
+      this.subItems.forEach((element) => {
+        if (element.status != "Done") this.planningCheck = false;
       });
     }
   }
-
-
 }
