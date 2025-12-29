@@ -168,7 +168,7 @@ export class boardItem {
       let subitemstot = this.subItems.reduce((accumulator, object) => {
         return accumulator + object.storyPoints;
       }, 0);
-      if (subitemstot > this.storyPoints * 1.75) {
+      if ( (subitemstot > this.storyPoints * 1.75) || (subitemstot < this.storyPoints * 0.75) ) {
         this.planningCheck = false;
       }
     }

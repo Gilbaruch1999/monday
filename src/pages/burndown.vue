@@ -73,7 +73,7 @@ let getBtnHeader = ref("get API Data")
 let curSprint: Ref<Sprint> = ref();
 let burndownStep = ref(0)
 
-let toolBarTitle = ref("Sprint burndown")
+let toolBarTitle = ref("")
 let lineChartText = ref("BurnDown")
 let graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
@@ -270,17 +270,12 @@ function initData() {
   curSprint.value = sprintDataStore.getCursprintConfig()
   //console.log("burndown Current sprint " + JSON.stringify(curSprint.value))
   createGraph()
-  toolBarTitle.value = curSprint.value.name + " burndown"
+  toolBarTitle.value =sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name + " burnDown chart"
   lineChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name + " " + graphType.value + " chart"
-
 }
 
-
-
 async function createGraph() {
-
   getBtnHeader.value = "Update data"
-
   let index = 0;
   for (let i = 1; i < (Math.round(curSprint.value.duration / 7) + 1); i++) {
     for (let j = 1; j < 8; j++) {
@@ -290,7 +285,6 @@ async function createGraph() {
   }
   prepareGraph();
   calcBurnUp();
-
 }
 
 

@@ -1,32 +1,34 @@
 <template>
 
-  <v-container >
+  <v-container>
+    <v-row class="mb-12 mt-4">
+      <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
+      <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
+    </v-row>
 
-      <v-row class="mb-12 mt-4">
-        <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
-        <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
-      </v-row>
+    <v-row class="mb-12 mt-4">
+      <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
+      <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
+    </v-row>
 
-      <v-row w class="mb-12">
-        <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
-        <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
-      </v-row>
-      <v-row w class="mb-12">
-        <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
-        <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
-      </v-row>
+    <v-row class="mb-12 mt-4">
+      <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
+      <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
+    </v-row>
+
 
   </v-container>
 </template>
 
 <script setup lang='ts'>
+
 import { boardItem } from "@/utils/boarditem";
 import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
 import { Chart, ChartData, registerables } from "chart.js";
 import { PieChart } from "vue-chart-3";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { computed, onMounted, ref, Ref } from "vue";
+import { computed, onMounted, ref, Ref, watch } from "vue";
 Chart.register(...registerables, ChartDataLabels);
 
 
@@ -39,6 +41,7 @@ let domainValues: Ref<number[]> = ref([])
 let goalsLabel = ref([])
 let goalsValues = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
+let statusHeader = ref("fff")
 
 
 
@@ -206,88 +209,16 @@ let goalsPercentPieData = computed<ChartData<"pie">>(() => ({
       }
     }
   }
-
   ]
 }));
 
-
-
-const categoryPercentPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "Break down by Category - percentage",
-    },
-
-  },
-};
-
-
-
-const domainPercentPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "Break down by Domain - percentage",
-    },
-
-  },
-};
-
-const categoryPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by category",
-    },
-
-  },
-};
-
-
-const domainPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by Domain",
-    },
-
-  },
-};
-
-
-const goalsPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by golas",
-    },
-
-  },
-};
-
-
-const goalsPercentPieOptions = {
-
-  plugins: {
-
-    title: {
-      display: true,
-      text: "BreakDown by golas - percentage",
-    },
-
-  },
-};
+let categoryPercentPieOptions = {}
+let domainPercentPieOptions = {};
+let categoryPieOptions = {};
+let domainPieOptions = {};
+let goalsPieOptions = {};
+let goalsPieOptions1 = {};
+let goalsPercentPieOptions = {}
 
 let itemsList: Ref<boardItem[]> = ref([]);
 let curSprint: Ref<Sprint> = ref();
@@ -297,11 +228,90 @@ const sprintDataStore = useSprintData();
 
 onMounted(async () => {
   console.log("On mounted breakdown ")
+  initData();
+
+})
+
+function initData() {
   itemsList.value = sprintDataStore.getsprintData()
   curSprint.value = sprintDataStore.getCursprintConfig()
-  //console.log("breakdown current sprint " + JSON.stringify(curSprint))
   createBreakDownChart()
-})
+  statusHeader.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name;
+  console.log("status header " + statusHeader.value)
+  updateOptions();
+
+}
+
+function updateOptions() {
+
+  domainPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " BreakDown by Domain",
+      },
+    },
+  };
+
+  goalsPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " BreakDown by golas",
+      },
+    },
+  };
+
+
+  goalsPieOptions1 = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " BreakDown by golas",
+      },
+    },
+  };
+
+
+  categoryPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " BreakDown by category",
+      },
+    },
+  };
+
+  categoryPercentPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " Break down by Category - percentage",
+      },
+    },
+  };
+
+  goalsPercentPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " BreakDown by golas - percentage",
+      },
+    },
+  };
+
+  domainPercentPieOptions = {
+    plugins: {
+      title: {
+        display: true,
+        text: statusHeader.value + " Break down by Domain - percentage",
+      },
+    },
+  };
+
+
+
+}
 
 
 function createBreakDownChart() {
@@ -322,6 +332,8 @@ function createBreakDownChart() {
 
   });
 
+  domainLables.value = []
+  domainValues.value = []
   distinctDomain.forEach(element => {
     //console.log("Category " + element)
     domainLables.value.push(element)
@@ -350,13 +362,21 @@ function createBreakDownChart() {
 
   });
 
-
 }
 
 function generateRgbColor(index) {
 
   return rgbColors[index]
 }
+
+
+watch(
+  () => sprintDataStore.getCursprintConfig().name,
+  (newValue, oldValue) => {
+    initData()
+  }
+);
+
 
 
 </script>

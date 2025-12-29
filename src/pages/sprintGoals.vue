@@ -1,16 +1,13 @@
 <template>
   <v-container fluid>
     <div class="d-flex justify-space-around align-center bg-grey-lighten-4">
-
       <div class="ma-4">
         <div class="text-subtitle-2"> {{ poImageText }} </div>
         <v-img :aspect-ratio="1" :color="poImageColor" :src="poImageSrc" width="300"></v-img>
       </div>
-
-
     </div>
     <div>
-      <v-toolbar color="primary" title="Sprint Goals">
+      <v-toolbar color="primary" :title="pagetitle">
       </v-toolbar>
       <v-card min-height="150" :color="category.color" class="my-2" v-for="category in goalsCategory">
         <v-card-title class=""> {{ category.name }}</v-card-title>
@@ -49,14 +46,21 @@ let poImageColor = ref("")
 let poImageText = ref("")
 let boardItems: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
+let pagetitle = ref("")
 
 onMounted(() => {
-  //console.log("Mounted " + JSON.stringify(props.sprintGoals))
-  boardItems.value = sprintDataStore.getsprintData()
-  //curSprint.value = sprintDataStore.getsprintConfig()
-  updatePOStatus(boardItems.value)
+
+  initData()
 
 })
+
+function initData()
+{
+  boardItems.value = sprintDataStore.getsprintData();
+  updatePOStatus(boardItems.value);
+  pagetitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
+
+}
 
 
 
@@ -106,10 +110,11 @@ function getGoalColor(item: boardItem) {
 
 
 watch(
-  () => boardItems.value,
+  () => sprintDataStore.getCursprintConfig().name,
   (newValue, oldValue) => {
-    //console.log("Watch called " + JSON.stringify(newValue))
-    updatePOStatus(newValue)
+    console.log("Sprint goals sprint changed " + JSON.stringify(newValue))
+    initData()
+    //updatePOStatus(newValue)
   }
 );
 
