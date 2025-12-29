@@ -21,7 +21,7 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-menu class="mt-6" v-if="getFromDummy==true">
+    <v-menu class="mt-6" v-if="getFromDummy == true">
       <template v-slot:activator="{ props }">
         <v-btn class="mt-6" color="white" light v-bind="props">
           {{ boardId }}
@@ -65,12 +65,12 @@ let curSprint: Sprint = new Sprint();
 let groupid = ref("");
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
-let boardids = ["1647137427" , "5048014529"]
+let boardids = ["1647137427", "5048014529"]
 //let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v107")
+  console.log("Starting app version v108")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -93,9 +93,8 @@ onMounted(async () => {
   await initData();
 })
 
-async function initData()
-{
-   var content;
+async function initData() {
+  var content;
   if (getFromDummy.value) {
     content = getDummyDocContent();
   }
@@ -109,10 +108,10 @@ async function initData()
   curSprint = findCurrentSprint(boardId.value)
   groupid.value = curSprint.groupid
   console.log("current sprint " + JSON.stringify(curSprint))
-  sprintDataStore.setCursprintConfig(curSprint)
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
   toolBarTitle.value = curSprint.name + " status"
+  sprintDataStore.setCursprintConfig(curSprint)
   router.push({ path: '/burndown' })
 
 }
@@ -285,14 +284,13 @@ async function sprintChanged(item) {
   if (index != -1) {
     curSprint = sprintDataStore.getsprintList()[index]
     toolBarTitle.value = curSprint.name + " status"
-    sprintDataStore.setCursprintConfig(curSprint)
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
     sprintDataStore.setsprintData(itemsList.value)
+    sprintDataStore.setCursprintConfig(curSprint)
   }
 }
 
-function boardIdChanged(item)
-{
+function boardIdChanged(item) {
   //console.log("VVVV" +  JSON.stringify(item))
   boardId.value = item
   useSprintData().setBoardid(boardId.value)
@@ -302,7 +300,7 @@ function boardIdChanged(item)
 
 function parseConfiguration(data: any, boardId: string) {
   let sprintarr: Sprint[] = []
-  let historyArr : historyData[] = []
+  let historyArr: historyData[] = []
   data.data.docs[0].blocks.forEach(element => {
 
     //console.log("Block " + JSON.stringify(element.content))
@@ -319,13 +317,12 @@ function parseConfiguration(data: any, boardId: string) {
         }
       }
       if (JSON.stringify(element.content).includes("dataLabels")) {
-         let tmp1 = JSON.parse(element.content)
-         let history : historyData = JSON.parse(tmp1.deltaFormat[0].insert)
-         //console.log("History data  " + JSON.stringify(history))
-         if (history.boardid == boardId)
-         {
+        let tmp1 = JSON.parse(element.content)
+        let history: historyData = JSON.parse(tmp1.deltaFormat[0].insert)
+        //console.log("History data  " + JSON.stringify(history))
+        if (history.boardid == boardId) {
           historyArr.push(history)
-         }
+        }
 
       }
     }
