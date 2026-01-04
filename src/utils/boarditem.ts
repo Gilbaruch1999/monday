@@ -138,6 +138,8 @@ export class boardItem {
   checkForPlanningIssues() {
     //console.log("Check for planning issues " + this.id)
     this.planningCheck = true;
+    if (this.status == "Done")
+      return;
     // if (this.planningStatus != "Planning") return;
     //console.log("Checking planning status " + JSON.stringify(this))
     if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
