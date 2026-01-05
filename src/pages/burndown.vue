@@ -408,8 +408,9 @@ function calcBurnUp() {
   }
   else {
 
+    var highlevelItemss = itemsList.value.filter(x => x.status == "Done" )
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
-    addBurnUpValues(noSubitems, currentIndex)
+    addBurnUpValues(highlevelItemss, currentIndex)
 
   }
 
