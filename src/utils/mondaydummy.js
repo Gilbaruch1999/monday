@@ -76,533 +76,12 @@ export function getDummyContext() {
 
 export function getDummyBoardItems(boardid) {
   const res = {
-    "data": {
+
+  "data": {
     "boards": [
       {
         "items_page": {
           "items": [
-            {
-              "name": "Snooze App Overhaul",
-              "id": "2583257280",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Work In Progress"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Technical Debt"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Build System"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Technical debt"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Git repo relocation",
-                  "id": "2583266640",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-12-27"
-                    }
-                  ]
-                },
-                {
-                  "name": "Asset Import",
-                  "id": "2583249943",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-12-27"
-                    }
-                  ]
-                },
-                {
-                  "name": "Introduce BootScene",
-                  "id": "2583267491",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2025-12-27"
-                    }
-                  ]
-                },
-                {
-                  "name": "Replace existing sound manager and logger",
-                  "id": "2583249924",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Work In Progress"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Rebuild Idea Forge",
-              "id": "2592349222",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Work In Progress"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Technical Debt"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Technical debt"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Create tile template",
-                  "id": "2592338029",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Create idea forge manager",
-                  "id": "2592349231",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Add events (hover,click,drag...)",
-                  "id": "2592330678",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Add animations & sounds",
-                  "id": "2592338385",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Not selected yet"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "name": "Passive Merge Hint Animation (Dev)",
               "id": "2037595299",
@@ -626,7 +105,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -665,6 +144,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "FTUE, Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
@@ -675,7 +161,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-04"
                 },
                 {
                   "column": {
@@ -749,7 +235,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -770,7 +256,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-02"
                     }
                   ]
                 },
@@ -814,7 +300,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-02"
                     }
                   ]
                 },
@@ -837,7 +323,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -858,7 +344,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-04"
                     }
                   ]
                 },
@@ -881,7 +367,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Removed"
                     },
                     {
                       "column": {
@@ -925,7 +411,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -933,6 +419,1213 @@ export function getDummyBoardItems(boardid) {
                         "title": "Issue Type"
                       },
                       "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-03"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Convert Buttons and Text Containers in the Exercises into 9-piece elements",
+              "id": "2560427762",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Technical Debt"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Technical debt"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-12-30"
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "explore on 9-slice UI in unity",
+                  "id": "2564218567",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-30"
+                    }
+                  ]
+                },
+                {
+                  "name": "test that i didnt break anything",
+                  "id": "2564218553",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Removed"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "🎨Figma Cleanup",
+              "id": "2581787735",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Removed"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Team Development"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Team Development"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Snooze App Overhaul",
+              "id": "2583257280",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Technical Debt"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "L"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Build System"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Technical debt"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2025-12-29"
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Git repo relocation",
+                  "id": "2583266640",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-27"
+                    }
+                  ]
+                },
+                {
+                  "name": "Asset Import",
+                  "id": "2583249943",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-27"
+                    }
+                  ]
+                },
+                {
+                  "name": "Introduce BootScene",
+                  "id": "2583267491",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-27"
+                    }
+                  ]
+                },
+                {
+                  "name": "Replace existing sound manager and logger",
+                  "id": "2583249924",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Removed"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Opening task | Asaf - continue",
+              "id": "2590563570",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Team Development"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "New Member Task Orientation & Platforms",
+                  "id": "2568854130",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-30"
+                    }
+                  ]
+                },
+                {
+                  "name": "Role-Specific Technical & Workflow Onboarding",
+                  "id": "2568894952",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "No Effort"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-30"
+                    }
+                  ]
+                },
+                {
+                  "name": "Product & Organizational Strategy",
+                  "id": "2568894806",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "No Effort"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-30"
+                    }
+                  ]
+                },
+                {
+                  "name": "An onboarding summary meeting was scheduled with Dan",
+                  "id": "2568852328",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Wait"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "No Effort"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Rebuild Idea Forge",
+              "id": "2592349222",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Technical Debt"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xL"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Idea Forge"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Technical debt"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Create tile template",
+                  "id": "2592338029",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2025-12-29"
+                    }
+                  ]
+                },
+                {
+                  "name": "Build Crafting System",
+                  "id": "2593134510",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-01"
+                    }
+                  ]
+                },
+                {
+                  "name": "Create idea forge manager",
+                  "id": "2592349231",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Add events (hover,click,drag...)",
+                  "id": "2592330678",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-04"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add info on item click",
+                  "id": "2604089572",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-04"
+                    }
+                  ]
+                },
+                {
+                  "name": "Add Residents scrollable section",
+                  "id": "2604161667",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Add animations & sounds",
+                  "id": "2592338385",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
                     },
                     {
                       "column": {
@@ -975,7 +1668,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Design Review Me"
                 },
                 {
                   "column": {
@@ -1014,6 +1707,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "FTUE"
+                },
+                {
+                  "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
@@ -1024,7 +1724,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2025-12-30"
                 },
                 {
                   "column": {
@@ -1054,7 +1754,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1075,7 +1775,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-12-30"
                     }
                   ]
                 },
@@ -1098,7 +1798,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Design Review Me"
                     },
                     {
                       "column": {
@@ -1119,224 +1819,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Convert Buttons and Text Containers in the Exercises into 9-piece elements",
-              "id": "2560427762",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Technical Debt"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "M"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Technical debt"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "explore on 9-slice UI in unity",
-                  "id": "2564218567",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Technical Debt"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "implement 9-slice UI in our code",
-                  "id": "2564215942",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Technical Debt"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "test that i didnt break anything",
-                  "id": "2564218553",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "gil elazar"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Technical Debt"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
+                      "text": "2025-12-30"
                     }
                   ]
                 }
@@ -1404,6 +1887,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "FTUE, Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
@@ -1444,7 +1934,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1465,7 +1955,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-12-28"
                     }
                   ]
                 },
@@ -1488,7 +1978,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1509,7 +1999,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-12-28"
                     }
                   ]
                 },
@@ -1532,7 +2022,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1553,7 +2043,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2025-12-29"
                     }
                   ]
                 },
@@ -1576,7 +2066,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1597,7 +2087,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-04"
                     }
                   ]
                 },
@@ -1620,7 +2110,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1641,7 +2131,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-04"
                     }
                   ]
                 },
@@ -1664,7 +2154,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1685,7 +2175,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-05"
                     }
                   ]
                 },
@@ -1708,7 +2198,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Work In Progress"
                     },
                     {
                       "column": {
@@ -1758,7 +2248,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -1794,6 +2284,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Minimum"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback, FTUE"
                 },
                 {
                   "column": {
@@ -1865,90 +2362,6 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "🎨Figma Cleanup",
-              "id": "2581787735",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Team Development"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Team Development"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
               "name": "Implement the New Loading Screen  [Pre-Game Loading Screen Redesign]",
               "id": "2553787498",
               "column_values": [
@@ -1971,7 +2384,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -2010,6 +2423,13 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
@@ -2031,6 +2451,142 @@ export function getDummyBoardItems(boardid) {
                 }
               ],
               "subitems": []
+            },
+            {
+              "name": "🎨Growth Galaxy - Forest Progression",
+              "id": "2581847398",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "🎨Forest Part 2 [Growth Galaxy - Forest Progression]",
+                  "id": "2581847824",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "M"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "name": "Dev-Trigger & Handle Basic Sell Tutorial [Stuck Board Onboarding]",
@@ -2055,7 +2611,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Work In Progress"
                 },
                 {
                   "column": {
@@ -2091,6 +2647,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "FTUE, Player Enjoyment Feedback"
                 },
                 {
                   "column": {
@@ -2134,7 +2697,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Work In Progress"
                     },
                     {
                       "column": {
@@ -2178,7 +2741,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Work In Progress"
                     },
                     {
                       "column": {
@@ -2264,6 +2827,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Total Play Time, User-Reported Impact"
                 },
                 {
                   "column": {
@@ -2489,7 +3059,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Wait"
                 },
                 {
                   "column": {
@@ -2525,6 +3095,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Total Play Time, User-Reported Impact"
                 },
                 {
                   "column": {
@@ -2728,135 +3305,6 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "🎨Growth Galaxy - Forest Progression",
-              "id": "2581847398",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "M"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Growth Galaxy"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "🎨Forest Part 2 [Growth Galaxy - Forest Progression]",
-                  "id": "2581847824",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "name": "Idea Item Extraction Animation",
               "id": "5024667750",
               "column_values": [
@@ -2879,7 +3327,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Removed"
                 },
                 {
                   "column": {
@@ -2915,6 +3363,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Target"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "FTUE"
                 },
                 {
                   "column": {
@@ -3030,6 +3485,774 @@ export function getDummyBoardItems(boardid) {
               ]
             },
             {
+              "name": "implement 9-slice UI in our code",
+              "id": "2564215942",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Technical Debt"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Technical debt"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Dev [Growth Galaxy - Forest Progression]",
+              "id": "2581812626",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Wait"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Dev [Growth Galaxy - Ambient Life & Motion]",
+              "id": "2581848592",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Wait"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Growth Galaxy"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Vision"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback"
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Replace old code style with new standard",
+              "id": "2595733007",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Technical Debt"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Technical debt"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Debug.Log => Log.LogMessage",
+                  "id": "2595772829",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "singletons should use GenericSingleton",
+                  "id": "2595733012",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Update old SoundManager references to new SoundManager",
+                  "id": "2595757548",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Technical Debt"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Remove the Christmas logo and revert to the original logo <3",
+              "id": "2604817770",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar, Nir Katzir"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "No Effort"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Disruptions"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "Android",
+                  "id": "2608152283",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Spike"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-05"
+                    }
+                  ]
+                },
+                {
+                  "name": "IOS",
+                  "id": "2608159953",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Nir Katzir"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Spike"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Set regular logo instead of cristmass logo",
+              "id": "2605509650",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "gil elazar"
+                },
+                {
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Removed"
+                },
+                {
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Spike"
+                },
+                {
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "No Effort"
+                },
+                {
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Disruptions"
+                },
+                {
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
               "name": "Dev - Add Entry Animation Into Exercise [Growth Galaxy Architecture Upgrade]",
               "id": "5084323662",
               "column_values": [
@@ -3088,6 +4311,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Player Enjoyment Feedback"
                 },
                 {
                   "column": {
@@ -3175,171 +4405,10 @@ export function getDummyBoardItems(boardid) {
                 },
                 {
                   "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
                   },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Dev [Growth Galaxy - Forest Progression]",
-              "id": "2581812626",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Growth Galaxy"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Dev [Growth Galaxy - Ambient Life & Motion]",
-              "id": "2581848592",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "gil elazar"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Growth Galaxy"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
+                  "text": "Player Enjoyment Feedback"
                 },
                 {
                   "column": {
@@ -3424,6 +4493,13 @@ export function getDummyBoardItems(boardid) {
                     "title": "Goal Category"
                   },
                   "text": "Outstanding"
+                },
+                {
+                  "column": {
+                    "id": "dropdown_mkz3hsc3",
+                    "title": "Improved KPIs"
+                  },
+                  "text": "Annualized Revenue"
                 },
                 {
                   "column": {
@@ -3537,267 +4613,6 @@ export function getDummyBoardItems(boardid) {
                   ]
                 }
               ]
-            },
-            {
-              "name": "Opening task | Asaf - continue",
-              "id": "2590563570",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Story"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Team Development"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "New Member Task Orientation & Platforms",
-                  "id": "2568854130",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Role-Specific Technical & Workflow Onboarding",
-                  "id": "2568894952",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Spike"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Product & Organizational Strategy",
-                  "id": "2568894806",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Spike"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "An onboarding summary meeting was scheduled with Dan",
-                  "id": "2568852328",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Please Take Me 🥹"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Spike"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
             }
           ]
         }
@@ -3805,9 +4620,5 @@ export function getDummyBoardItems(boardid) {
     ]
   }
 }
-
-
-
-
   return res;
 }

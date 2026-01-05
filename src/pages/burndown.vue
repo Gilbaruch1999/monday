@@ -226,7 +226,7 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
           let labels = []
           let arr = getCompletedOnDate(context.dataIndex)
           arr.forEach(element => {
-            labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo))
+            labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title)
           });
           return labels;
         }
@@ -341,7 +341,7 @@ function prepareGraph() {
     }, 0);
   }
 
-  console.log("Total " + totalPoints.value + " Done " + totalDonePoints.value)
+  //console.log("Total " + totalPoints.value + " Done " + totalDonePoints.value)
   var curDate = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
@@ -393,19 +393,21 @@ function calcBurnUp() {
   var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   // get all items without subitems
 
+  var noSubitems = itemsList.value.filter(x => (x.subItems.length == 0) && (x.status == "Done") )
+  //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-    var withSubitems = itemsList.value.filter(x => x.subItems.length > 0 || (x.subItems.length == 0 && x.status == "Done"))
-    var itemlist = []
+    var withSubitems = itemsList.value.filter(x => x.subItems.length > 0 )
+    var subitemlist : boardItem[] = []
     withSubitems.forEach(element => {
-      itemlist.push(...element.subItems)
+      subitemlist.push(...(element.subItems))
     });
-    addBurnUpValues(itemlist, currentIndex)
-    var noSubitems = itemsList.value.filter(x => x.subItems.length == 0)
+    addBurnUpValues(subitemlist, currentIndex)
+
     addBurnUpValues(noSubitems, currentIndex)
     //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
   else {
-    var noSubitems = itemsList.value.filter(x => ((x.subItems.length == 0) && x.status != "Done") || ((x.status == "Done")))
+
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
     addBurnUpValues(noSubitems, currentIndex)
 

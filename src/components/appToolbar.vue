@@ -70,7 +70,7 @@ let boardids = ["1647137427", "5048014529"]
 
 
 onMounted(async () => {
-  console.log("Starting app version v109")
+  console.log("Starting app version v110")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -89,7 +89,6 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
-
   await initData();
 })
 
@@ -110,7 +109,7 @@ async function initData() {
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
-  toolBarTitle.value = curSprint.name + " status"
+  toolBarTitle.value =sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
   router.push({ path: '/burndown' })
 
@@ -120,8 +119,7 @@ async function initData() {
 async function reloadData() {
 
   itemsList.value = []
-  await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
-  sprintDataStore.setsprintData(itemsList.value)
+  await initData()
 
 }
 
@@ -288,6 +286,7 @@ async function sprintChanged(item) {
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }
+    toolBarTitle.value =sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
 }
 
 function boardIdChanged(item) {
