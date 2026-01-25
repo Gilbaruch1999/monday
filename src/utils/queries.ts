@@ -18,3 +18,9 @@ export function getDocContentQuery(docid: string) {
     return tmp
 }
 
+
+
+export function getAllUsersQuery() : string
+{
+  return 'query AllUsers {users { id name email is_admin photo_tiny } }'
+}

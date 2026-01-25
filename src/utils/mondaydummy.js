@@ -361,7 +361,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -410,7 +410,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-20"
                 },
                 {
                   "column": {
@@ -484,7 +484,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -505,7 +505,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-20"
                     }
                   ]
                 }
@@ -534,7 +534,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -583,7 +583,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-21"
                 },
                 {
                   "column": {
@@ -657,7 +657,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -678,7 +678,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-21"
                     }
                   ]
                 }
@@ -707,7 +707,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -721,7 +721,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "M"
+                  "text": "L"
                 },
                 {
                   "column": {
@@ -756,7 +756,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-21"
                 },
                 {
                   "column": {
@@ -830,7 +830,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -851,7 +851,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-21"
                     }
                   ]
                 },
@@ -874,7 +874,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Removed"
                     },
                     {
                       "column": {
@@ -924,7 +924,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -938,7 +938,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "L"
+                  "text": "S"
                 },
                 {
                   "column": {
@@ -973,7 +973,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-22"
                 },
                 {
                   "column": {
@@ -1003,7 +1003,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1024,7 +1024,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-22"
                     }
                   ]
                 },
@@ -1047,7 +1047,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1068,7 +1068,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-22"
                     }
                   ]
                 }
@@ -1097,7 +1097,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1146,7 +1146,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-22"
                 },
                 {
                   "column": {
@@ -1220,7 +1220,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Please Take Me 🥹"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1241,7 +1241,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-21"
                     }
                   ]
                 }
@@ -1332,8 +1332,8 @@ export function getDummyBoardItems(boardid) {
               "subitems": []
             },
             {
-              "name": "Interage New Idea Forge With Zen Zone",
-              "id": "2616912856",
+              "name": "prepering the Zen Zone to the connection with the new idea forage",
+              "id": "2651038392",
               "column_values": [
                 {
                   "column": {
@@ -1347,14 +1347,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Asaf Bashari, gil elazar"
+                  "text": "gil elazar"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1375,7 +1375,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Idea Forge"
+                  "text": "Zen Zone"
                 },
                 {
                   "column": {
@@ -1396,14 +1396,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "Committed"
+                  "text": "Are You Ready?"
                 },
                 {
                   "column": {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-22"
                 },
                 {
                   "column": {
@@ -1413,7 +1413,96 @@ export function getDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "move all of the asset to one folder to preper the new zen zone",
+                  "id": "2655028942",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-22"
+                    }
+                  ]
+                },
+                {
+                  "name": "change the sence that it will have only the relevent object",
+                  "id": "2651038608",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "gil elazar"
+                    },
+                    {
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-01-22"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "name": "Lobby Base Scene",
@@ -1438,7 +1527,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -1487,7 +1576,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
+                  "text": "2026-01-22"
                 },
                 {
                   "column": {
@@ -1693,7 +1782,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Work In Progress"
+                      "text": "Done"
                     },
                     {
                       "column": {
@@ -1714,7 +1803,7 @@ export function getDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": ""
+                      "text": "2026-01-22"
                     }
                   ]
                 },
@@ -1763,90 +1852,6 @@ export function getDummyBoardItems(boardid) {
                   ]
                 }
               ]
-            },
-            {
-              "name": "Coin Animation Redesign",
-              "id": "2595073779",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Work In Progress"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Idea Forge"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Disruptions"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
             },
             {
               "name": "New sound to the game",
@@ -2775,14 +2780,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "gil elazar"
+                  "text": "Asaf Bashari"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Work In Progress"
+                  "text": "Stuck"
                 },
                 {
                   "column": {
@@ -2859,14 +2864,14 @@ export function getDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": ""
+                  "text": "Asaf Bashari"
                 },
                 {
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Please Take Me 🥹"
+                  "text": "Done"
                 },
                 {
                   "column": {
@@ -2915,91 +2920,7 @@ export function getDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Fix Ui sprite sizes",
-              "id": "2638400327",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Please Take Me 🥹"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Technical Debt"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Technical debt"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Are You Ready?"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
+                  "text": "2026-01-22"
                 },
                 {
                   "column": {

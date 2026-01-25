@@ -33,6 +33,23 @@
         </v-list-item>
       </v-list>
     </v-menu>
+     <v-menu class="mt-6" v-if="getFromDummy == true || currentUser.is_admin">
+      <template v-slot:activator="{ props }">
+        <v-btn class="mt-6" color="white" light v-bind="props">
+          {{ currentUser.name }}
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="(item, index) in userStore.getUsers()" :key="index">
+          <v-list-item-title @click="userChanged(item)" class="ma-2"> {{ item.name }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+    <v-avatar class="mt-6" size="36px">
+      <v-img alt="Avatar"
+        :src="currentUser.image_link"></v-img>
+
+    </v-avatar>
   </v-toolbar>
 
 
@@ -46,7 +63,7 @@ import { MondayClientSdk } from "monday-sdk-js";
 import { boardItem } from "@/utils/boarditem";
 import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
 import { Sprint } from "@/utils/mondayparser";
-import { getBoardItemsQuery, getDocContentQuery } from "@/utils/queries";
+import { getAllUsersQuery, getBoardItemsQuery, getDocContentQuery } from "@/utils/queries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
@@ -54,9 +71,13 @@ import { useSprintData } from "../stores/sprintData";
 import router from "@/router";
 import { getDummyDocContent } from "@/utils/docsdummy";
 import { historyData } from "@/utils/common";
+import { getDummyUsers } from "@/utils/dummyusers";
+import { createUserList, userData } from "@/utils/users";
+import { useUsersData } from "@/stores/usersData";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
+const userStore = useUsersData();
 let getFromDummy = ref(false);
 let toolBarTitle = ref("")
 let boardId = ref("")
@@ -66,6 +87,8 @@ let groupid = ref("");
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
 let boardids = ["1647137427", "5048014529"]
+let usersList: Ref<userData[]> = ref([])
+let currentUser : Ref<userData> = ref(new userData())
 //let sprintNames: Ref<string[]> = ref([])
 
 
@@ -89,6 +112,7 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
+  await getUserList();
   await initData();
 })
 
@@ -143,6 +167,7 @@ async function getContext() {
 
     }
   }
+  currentUser.value.id = context['user'].id
   sprintDataStore.setBoardid(boardId.value)
   console.log("board id " + boardId.value)
 }
@@ -295,6 +320,36 @@ function boardIdChanged(item) {
   useSprintData().setBoardid(boardId.value)
   initData();
 
+}
+
+
+
+async function getUserList() {
+  var userinfo;
+  if (getFromDummy.value) {
+    userinfo = getDummyUsers();
+
+  }
+  else {
+    let query = getAllUsersQuery()
+    userinfo = await mondayapi.api(query)
+
+  }
+  usersList.value = createUserList(userinfo);
+  userStore.setUsers(usersList.value)
+  let index = usersList.value.findIndex(x => x.id == currentUser.value.id)
+  if (index != -1) {
+    currentUser.value = { ...usersList.value[index] }
+    userStore.setCurrentUser(usersList.value[index])
+  }
+  //console.log("Users " + JSON.stringify( usersList.value))
+}
+
+
+function userChanged(item) {
+
+  userStore.setCurrentUser(item)
+  currentUser.value = item;
 }
 
 function parseConfiguration(data: any, boardId: string) {
