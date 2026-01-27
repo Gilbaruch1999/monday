@@ -33,7 +33,7 @@
         </v-list-item>
       </v-list>
     </v-menu>
-     <v-menu class="mt-6" v-if="getFromDummy == true || currentUser.is_admin">
+     <v-menu class="mt-6" v-if="userStore.getOrgUser().is_admin">
       <template v-slot:activator="{ props }">
         <v-btn class="mt-6" color="white" light v-bind="props">
           {{ currentUser.name }}
@@ -93,7 +93,7 @@ let currentUser : Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v113")
+  console.log("Starting app version v115")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -341,6 +341,8 @@ async function getUserList() {
   if (index != -1) {
     currentUser.value = { ...usersList.value[index] }
     userStore.setCurrentUser(usersList.value[index])
+    userStore.setOrgUser(usersList.value[index]);
+
   }
   //console.log("Users " + JSON.stringify( usersList.value))
 }

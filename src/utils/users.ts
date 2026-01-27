@@ -1,9 +1,9 @@
 export class userData {
-  id: string;
-  name: string;
-  email: string;
-  is_admin: boolean;
-  image_link : string
+  id: string = "";
+  name: string ="";
+  email: string = "";
+  is_admin: boolean = false;
+  image_link : string = ""
 }
 
 export function createUserList(data: any): userData[] {

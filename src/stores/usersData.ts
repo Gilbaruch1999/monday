@@ -7,6 +7,7 @@ export const useUsersData = defineStore("usersStore", () => {
 
   const usersList: Ref<userData[]> = ref([]);
   const currentUser : Ref<userData> = ref()
+  const orgUser : Ref<userData> = ref(new userData())
 
   function getUsers() : userData[]
   {
@@ -23,11 +24,23 @@ export const useUsersData = defineStore("usersStore", () => {
     currentUser.value = data;
   }
 
-
   function getCurrentUser() : userData
   {
     return (currentUser.value)
   }
+
+
+  function getOrgUser() : userData
+  {
+    return (orgUser.value)
+  }
+
+
+  function setOrgUser(data : userData)
+  {
+    orgUser.value = data;
+  }
+
 
 
 
@@ -35,6 +48,8 @@ export const useUsersData = defineStore("usersStore", () => {
     getUsers,
     setUsers,
     setCurrentUser,
-    getCurrentUser
+    getCurrentUser,
+    getOrgUser,
+    setOrgUser
   };
 });
