@@ -30,7 +30,7 @@
         <v-card-title>Predictability For target </v-card-title>
         <v-card-text>{{ targetPredictability }} </v-card-text>
       </v-card>
-    <v-card class="ma-4" color="primary">
+      <v-card class="ma-4" color="primary">
         <v-card-title>Predictability For Outstanding </v-card-title>
         <v-card-text>{{ outstandingPredictability }} </v-card-text>
       </v-card>
@@ -58,10 +58,14 @@ import { boardItem } from "@/utils/boarditem";
 import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
 import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
+import { useUsersData } from "@/stores/usersData";
+import { FlatESLint } from "eslint/use-at-your-own-risk";
+import { includes } from "vuetify/lib/util/helpers.mjs";
 
 Chart.register(...registerables, ChartDataLabels);
 
 const sprintDataStore = useSprintData();
+const userStore = useUsersData();
 const idealValues = ref([]);
 const actualValues = ref([]);
 const burnUpValues = ref([]);
@@ -87,6 +91,7 @@ let graphType = ref("BurnDown")
 let getBtnHeader = ref("get API Data")
 let curSprint: Ref<Sprint> = ref();
 let burndownStep = ref(0)
+let filterByName = ref(false)
 
 let toolBarTitle = ref("")
 let lineChartText = ref("BurnDown")
@@ -216,12 +221,23 @@ function getCompletedOnDate(index: number): boardItem[] {
   //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
   if (detailedgrpah.value) {
     let arr1 = []
-    itemsList.value.filter(x => x.subItems.length > 0).forEach(element => {
-      let arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
+    let items = itemsList.value.filter(x => x.subItems.length > 0)
+    items.forEach(element => {
+      var arr2
+      if (filterByName.value)
+        arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.assignedTo == userStore.getCurrentUser().name)
+      else
+        arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
       if (arr2.length > 0)
         arr1.push(...arr2)
     });
-    let arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0)
+    var arr;
+    if (filterByName.value)
+      arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0 && x.assignedTo == userStore.getCurrentUser().name)
+
+    else
+      arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0)
+
     arr1.push(...arr)
     return arr1;
   }
@@ -241,7 +257,7 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
           let labels = []
           let arr = getCompletedOnDate(context.dataIndex)
           arr.forEach(element => {
-            labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title)
+            labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title + " Parent: " + element.parent)
           });
           return labels;
         }
@@ -275,6 +291,7 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 
 onMounted(async () => {
   console.log("On mounted burndown ")
+  filterByName.value = false
   initData()
 
 
@@ -417,8 +434,17 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
   itemsList.forEach(element => {
     if (element.status == "Done") {
       var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
-      if ((index >= 0) && (index <= curindex)) {
-        burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
+      if (filterByName.value) {
+
+        if ((index >= 0) && (index <= curindex) && (element.assignedTo.includes(userStore.getCurrentUser().name))) {
+          burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
+        }
+
+      }
+      else {
+        if ((index >= 0) && (index <= curindex)) {
+          burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
+        }
       }
     }
   });
@@ -435,12 +461,15 @@ function calcBurnUp() {
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
     var withSubitems = itemsList.value.filter(x => x.subItems.length > 0)
+    if (filterByName.value) {
+      noSubitems = noSubitems.filter(x => x.assignedTo.includes(userStore.getCurrentUser().name))
+
+    }
     var subitemlist: boardItem[] = []
     withSubitems.forEach(element => {
       subitemlist.push(...(element.subItems))
     });
     addBurnUpValues(subitemlist, currentIndex)
-
     addBurnUpValues(noSubitems, currentIndex)
     //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
@@ -486,7 +515,6 @@ function graphTypeChanged() {
 }
 
 
-
 watch(
   () => sprintDataStore.getsprintData(),
   (newValue, oldValue) => {
@@ -494,6 +522,17 @@ watch(
     initData();
 
   }, { deep: true }
+);
+
+
+
+watch(
+  () => userStore.getCurrentUser(),
+  (newValue, oldValue) => {
+    filterByName.value = true
+    initData();
+
+  }
 );
 
 </script>

@@ -46,12 +46,15 @@
 import { boardItem } from '@/utils/boarditem';
 import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
+import { useUsersData } from '@/stores/usersData';
 
 let showDetails = ref(false)
+const userStore = useUsersData();
 let childItems: Ref<boardItem[]> = ref([])
 let childTitle = ref("")
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
+let filterByName = ref(false)
 
 
 const issuesheaders: any = [
@@ -113,7 +116,6 @@ function rowClicked(event, row) {
 }
 
 
-
 function subItemrowClicked(event, row) {
 
   showDetails.value = false
@@ -126,6 +128,16 @@ watch(
   () => sprintDataStore.getsprintData(),
   (newValue, oldValue) => {
      itemsList.value = newValue
+
+  }
+);
+
+
+
+watch(
+  () => userStore.getCurrentUser(),
+  (newValue, oldValue) => {
+     itemsList.value = sprintDataStore.getsprintData().filter(x=>x.assignedTo.includes(newValue.name))
 
   }
 );

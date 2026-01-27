@@ -138,10 +138,12 @@ export class boardItem {
   checkForPlanningIssues() {
     //console.log("Check for planning issues " + this.id)
     this.planningCheck = true;
-    if (this.status == "Done")
-      return;
-    // if (this.planningStatus != "Planning") return;
-    //console.log("Checking planning status " + JSON.stringify(this))
+      if (this.parent != "" && this.assignedTo.includes(','))
+    this.planningCheck = false
+  //  if (this.status == "Done")
+  //    return;
+
+
     if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
       this.planningCheck = false;
       //console.log("Planning error 1 0 estimation " + JSON.stringify(this))
@@ -153,14 +155,7 @@ export class boardItem {
     this.subItems.forEach((item) => {
       if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
         this.planningCheck = false;
-      /*  console.log(
-          "Planning error 2 0 estimation " +
-            JSON.stringify(item.sizeEstimation) +
-            " Name " +
-            item.title +
-            " Points " +
-            item.storyPoints
-        );*/
+
       }
       if (item.planningCheck == false)
         this.planningCheck = false
