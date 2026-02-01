@@ -481,6 +481,10 @@ function calcBurnUp() {
 
   }
 
+  if (filterByName.value) {
+    burndownStep.value = calcEmpTotal(userStore.getCurrentUser().name) / curSprint.value.workingDays
+  }
+
   actualValues.value[0] = totalPoints.value
   var curDate = curSprint.value.startDate;
   curDate = new Date(addDays(curDate, 1))
@@ -498,6 +502,25 @@ function calcBurnUp() {
 
   }
 
+
+}
+
+function calcEmpTotal(name: string): number {
+  var tot = 0;
+  itemsList.value.forEach(element => {
+    if (element.subItems.length == 0) {
+      if ((element.assignedTo == name) && (element.status != "Removed"))
+        tot += element.storyPoints
+    }
+    else {
+      element.subItems.forEach(subitem => {
+        if ((subitem.assignedTo == name) && (element.status != "Removed"))
+          tot += subitem.storyPoints
+      });
+    }
+  });
+
+  return tot
 
 }
 
