@@ -1,22 +1,24 @@
 <template>
-
-  <v-container>
+  <v-container v-if="!retroMode">
     <v-row class="mb-12 mt-4">
       <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
       <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
     </v-row>
-
     <v-row class="mb-12 mt-4">
       <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
       <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
     </v-row>
-
     <v-row class="mb-12 mt-4">
       <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
       <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
     </v-row>
-
-
+  </v-container>
+  <v-container fluid v-else>
+    <v-row >
+      <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
+      <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
+      <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
+    </v-row>
   </v-container>
 </template>
 
@@ -31,7 +33,12 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, onMounted, ref, Ref, watch } from "vue";
 Chart.register(...registerables, ChartDataLabels);
 
-
+const props = defineProps({
+  retroMode: {
+    type: Boolean,
+    default: false
+  }
+});
 let categoryLabeles = ref([])
 let domainLables = ref([])
 let pieColors: Ref<string[]> = ref([])
@@ -41,7 +48,8 @@ let domainValues: Ref<number[]> = ref([])
 let goalsLabel = ref([])
 let goalsValues = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
-let statusHeader = ref("fff")
+let statusHeader = ref("")
+
 
 
 

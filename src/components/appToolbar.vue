@@ -8,6 +8,7 @@
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">View Sprints</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
     <v-btn class="mt-6" @click="reloadData()">Reload Data</v-btn>
     <v-menu class="mt-6">
       <template v-slot:activator="{ props }">
@@ -33,7 +34,7 @@
         </v-list-item>
       </v-list>
     </v-menu>
-     <v-menu class="mt-6" v-if="userStore.getOrgUser().is_admin">
+    <v-menu class="mt-6" v-if="userStore.getOrgUser().is_admin">
       <template v-slot:activator="{ props }">
         <v-btn class="mt-6" color="white" light v-bind="props">
           {{ currentUser.name }}
@@ -46,8 +47,7 @@
       </v-list>
     </v-menu>
     <v-avatar class="mt-6" size="36px">
-      <v-img alt="Avatar"
-        :src="currentUser.image_link"></v-img>
+      <v-img alt="Avatar" :src="currentUser.image_link"></v-img>
 
     </v-avatar>
   </v-toolbar>
@@ -88,12 +88,12 @@ let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
 let boardids = ["1647137427", "5048014529"]
 let usersList: Ref<userData[]> = ref([])
-let currentUser : Ref<userData> = ref(new userData())
+let currentUser: Ref<userData> = ref(new userData())
 //let sprintNames: Ref<string[]> = ref([])
 
 
 onMounted(async () => {
-  console.log("Starting app version v116")
+  console.log("Starting app version v117")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -133,7 +133,7 @@ async function initData() {
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
-  toolBarTitle.value =sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
+  toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
   router.push({ path: '/burndown' })
 
@@ -311,7 +311,7 @@ async function sprintChanged(item) {
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }
-    toolBarTitle.value =sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
+  toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
 }
 
 function boardIdChanged(item) {

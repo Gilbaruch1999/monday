@@ -59,8 +59,19 @@ import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
 import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from "@/stores/usersData";
-import { FlatESLint } from "eslint/use-at-your-own-risk";
-import { includes } from "vuetify/lib/util/helpers.mjs";
+
+
+
+const props = defineProps({
+  graphTypeProp: {
+    type: String,
+    default: 'BurnDown'
+  },
+   graphDetailedProp: {
+    type: Boolean,
+    default: true
+  }
+});
 
 Chart.register(...registerables, ChartDataLabels);
 
@@ -291,6 +302,8 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 
 onMounted(async () => {
   console.log("On mounted burndown ")
+  graphType.value = props.graphTypeProp
+  detailedgrpah.value = props.graphDetailedProp
   filterByName.value = false
   initData()
 
