@@ -93,7 +93,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v117")
+  console.log("Starting app version v118")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -236,9 +236,10 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   }
 
   data.boards.forEach(board => {
-    //console.log("found " + board.items_page.items.length + " board items")
+    console.log("found " + board.items_page.items.length + " board items")
     board.items_page.items.forEach(item => {
-      //console.log("item " + JSON.stringify(item))
+      //console.log("item " + JSON.stringify(item.name))
+      // console.log("sub items XXX " + JSON.stringify(item.subitems))
       var bitem: boardItem = new boardItem();
       bitem.title = item.name
       bitem.id = item.id
@@ -248,20 +249,23 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
       // get sub items
       try {
         if (item.subitems.length > 0) {
+          //  console.log("num of subitems " + JSON.stringify(item.subitems.length))
           item.subitems.forEach(subitem => {
-            //console.log("Found sub item @@@@ " + JSON.stringify(subitem))
+          //  console.log("Found sub item @@@@ " + JSON.stringify(subitem.name))
             var sbitem: boardItem = new boardItem();
             sbitem.title = subitem.name
             sbitem.id = subitem.id
             sbitem.parent = bitem.title
             //console.log("new sub item " + sbitem.title)
             sbitem.updateFields(subitem.column_values);
+
             sbitem.goalCategory = bitem.goalCategory
-            sbitem.updateStoryPoints();
+            sbitem.updateStoryPoints()
             sbitem.checkForPlanningIssues();
+
             switch (sbitem.status) {
               case "Done":
-                //console.log("Calling is date in sprint " + bitem.title + "  " +  JSON.stringify(sbitem.title) + " " + sbitem.DoneDate)
+               // console.log("Calling is date in sprint " + bitem.title + "  " +  JSON.stringify(sbitem.title) + " " + sbitem.DoneDate)
                 if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
                   bitem.subItems.push(sbitem)
                 break;
@@ -277,6 +281,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
         }
       }
       catch {
+        console.log("Error in subitem")
 
       }
       bitem.updateSubItemPoints();

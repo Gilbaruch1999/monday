@@ -2,11 +2,11 @@
   <v-toolbar class="mt-6" :title="toolBarTitle" color="primary">
   </v-toolbar>
   <div class="mx-6">
-    <LineChart :chart-data="graphData" :options="velocityChartOptions" />
+    <LineChart :chart-data="velocityData" :options="velocityChartOptions" />
   </div class="mx-6">
   <br></br>
   <div class="mx-6">
-    <LineChart :chart-data="graphData1" :options="predChartOptions" />
+    <LineChart :chart-data="predData" :options="predChartOptions" />
   </div>
 
 </template>
@@ -20,8 +20,6 @@ import { useSprintData } from "../stores/sprintData";
 import { historyData } from "@/utils/common";
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
-
-const boardid = ref("")
 const velocity = ref([]);
 const predictability = ref([]);
 const predictabilityGoalLow = ref([]);
@@ -30,6 +28,8 @@ const minPredChart = ref(0);
 const maxPredChart = ref(200)
 const minVelocitychart = ref(0);
 const maxVelocitychart = ref(0);
+const velocityLable = ref("")
+const predLable = ref("")
 
 
 let dataLabels = ref([]);
@@ -38,15 +38,15 @@ const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
 const predgoalcolor = "rgb(255,0,0)"
 let toolBarTitle = ref("History KPIs")
-let lineChartText = ref("Velocity history")
-let lineChart1Text = ref("Predictability history")
+let velocityChartText = ref("Velocity history")
+let predChartText = ref("Predictability history")
 
 
-let graphData = computed<ChartData<"line">>(() => ({
+let velocityData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
-      label: "velocity",
+      label: velocityLable.value,
       data: velocity.value,
       backgroundColor: vellcolor,
       borderColor: vellcolor,
@@ -70,11 +70,11 @@ let graphData = computed<ChartData<"line">>(() => ({
 
 
 
-let graphData1 = computed<ChartData<"line">>(() => ({
+let predData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
-      label: "Predictability",
+      label: predLable.value,
       data: predictability.value,
       backgroundColor: predcolor,
       borderColor: predcolor,
@@ -136,7 +136,7 @@ let velocityChartOptions = computed<ChartOptions<"line">>(() => ({
     },
     title: {
       display: true,
-      text: lineChartText.value,
+      text: velocityChartText.value,
     },
   },
 }));
@@ -157,7 +157,7 @@ let predChartOptions = computed<ChartOptions<"line">>(() => ({
     },
     title: {
       display: true,
-      text: lineChart1Text.value,
+      text: predChartText.value,
     },
   },
 }));
@@ -165,6 +165,12 @@ let predChartOptions = computed<ChartOptions<"line">>(() => ({
 onMounted(async () => {
 
   let tmp: historyData = sprintDataStore.getHistory()[0]
+  velocityLable.value = "Velocity"
+  velocityChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid())  + " Team " + "Velocity History"
+  predChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid())  + " Team " + "Predictability History"
+  predLable.value = "Predictability"
+
+
   dataLabels.value = [...tmp.dataLabels]
   velocity.value = [...tmp.velocity]
   predictability.value = [...tmp.predictability]

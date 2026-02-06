@@ -7,7 +7,7 @@ export class boardItem {
   stratigicCategory: string;
   goalCategory: string;
   type: string;
-  assignedTo: string;
+  assignedTo: string = "";
   sizeEstimation: string;
   storyPoints: number;
   doneStoryPoints: number;
@@ -137,12 +137,11 @@ export class boardItem {
 
   checkForPlanningIssues() {
     //console.log("Check for planning issues " + this.id)
+    try
+    {
     this.planningCheck = true;
       if (this.parent != "" && this.assignedTo.includes(','))
     this.planningCheck = false
-  //  if (this.status == "Done")
-  //    return;
-
 
     if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
       this.planningCheck = false;
@@ -152,10 +151,10 @@ export class boardItem {
     {
       this.planningCheck = false;
     }
+
     this.subItems.forEach((item) => {
       if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
         this.planningCheck = false;
-
       }
       if (item.planningCheck == false)
         this.planningCheck = false
@@ -169,10 +168,18 @@ export class boardItem {
         this.planningCheck = false;
       }
     }
+
     if (this.status == "Done") {
       this.subItems.forEach((element) => {
         if (element.status != "Done") this.planningCheck = false;
       });
     }
+
+  }
+
+catch
+{
+  console.log("Error in plan check for " + JSON.stringify(this))
+}
   }
 }
