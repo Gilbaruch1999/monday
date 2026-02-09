@@ -104,6 +104,11 @@ export class boardItem {
       default:
         this.storyPoints = 0;
     }
+    if(this.status == "Not Planned")
+    {
+      this.storyPoints = 0;
+
+    }
   }
 
   updateSubItemPoints() {
