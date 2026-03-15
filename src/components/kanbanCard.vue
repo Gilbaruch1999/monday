@@ -1,11 +1,12 @@
 <template>
   <v-card :color="getCardColor(item)">
-    <v-card-title>{{ item.title }}</v-card-title>
+    <v-card-title v-if="item.parent.length > 1 ">Parent : {{ item.parent }}</v-card-title>
+    <v-card-text> {{ item.title }}
     <v-chip size="x-small" variant="flat" :color="getPointsColor(item.sizeEstimation)">{{ item.sizeEstimation
     }}</v-chip>
     <span class="ma-1">{{ item.assignedTo }}</span> <span class="ma-1">{{ item.goalCategory }} </span><span
       class="ma-1">{{ item.status }} </span>
-
+      </v-card-text>
   </v-card>
 
 </template>
