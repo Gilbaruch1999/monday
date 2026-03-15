@@ -93,7 +93,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v120")
+  console.log("Starting app version v121")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {

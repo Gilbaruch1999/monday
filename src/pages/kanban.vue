@@ -2,7 +2,7 @@
   <v-container fluid class="ma-1">
     <v-row>
       <v-col width="250px" :key="state" v-for="state in states">
-        <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="450px">
+        <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="400px">
           <v-card-title class="ma-1">{{ state }}</v-card-title>
           <v-card elevation="2" class="ma-1 " :key="card.id" v-for="card in getItems(state)">
             <kanban-card :item="card">
@@ -19,24 +19,55 @@
 <script setup lang='ts'>
 
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, Ref, ref } from 'vue';
+import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
+
 import colors from 'vuetify/util/colors'
+import { useUsersData } from '@/stores/usersData';
 
 let itemsList: Ref<boardItem[]> = ref([]);
+let filterByName = ref(false)
 const sprintDataStore = useSprintData();
-
+const userStore = useUsersData();
 let states = ref(['Not started', 'WIP', 'Wait', 'Done'])
-/*
-  <v-card v-for="n in states" :key="n" class="text-center" width="18%" height="50px">
-        <v-card-title>{{ n }}</v-card-title>
-      </v-card>*/
+
 onMounted(async () => {
 
   //console.log("On mounted sprint plan")
-  itemsList.value = sprintDataStore.getsprintData()
+  filterByName.value = false;
+  InitData();
 
 })
+
+function InitData() {
+  if (filterByName.value) {
+    let user = userStore.getCurrentUser().name
+    itemsList.value = []
+    let tmp = sprintDataStore.getsprintData().filter(X => (X.assignedTo.includes(user)))
+
+    console.log("items size " + JSON.stringify(tmp.length))
+    tmp.forEach(element => {
+      if (element.subItems.length == 0) {
+        itemsList.value.push(element)
+
+      }
+      else {
+        element.subItems.forEach(subitem => {
+          if (subitem.assignedTo == user)
+           itemsList.value.push(subitem)
+        });
+
+      }
+
+    });
+
+  }
+  else {
+    itemsList.value = sprintDataStore.getsprintData()
+
+  }
+
+}
 
 function getItems(state): boardItem[] {
   let ret_val: boardItem[] = []
@@ -54,7 +85,7 @@ function getItems(state): boardItem[] {
       ret_val = itemsList.value.filter(x => x.status == 'Wait')
       break;
     case 'WIP':
-      ret_val = itemsList.value.filter(x => ( (x.status == "Work In Progress") || (x.status.includes('Review')) ) && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => ((x.status == "Work In Progress") || (x.status.includes('Review'))) && x.subItems.length == 0)
       break
     default:
       ret_val = itemsList.value.filter(x => x.status == state && x.subItems.length == 0)
@@ -66,19 +97,19 @@ function getItems(state): boardItem[] {
 
     switch (state) {
       case "Not started":
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status.includes("Please")))
+        ret_val = ret_val.concat(element.subItems.filter(x => x.status.includes("Please")))
         break;
       case "Done":
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status == state))
+        ret_val = ret_val.concat(element.subItems.filter(x => x.status == state))
         break;
       case "Wait":
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status == 'Wait'))
+        ret_val = ret_val.concat(element.subItems.filter(x => x.status == 'Wait'))
         break;
       case 'WIP':
-        ret_val=ret_val.concat(element.subItems.filter(x => (x.status == 'Work In Progress') || (x.status.includes("Review")) ))
+        ret_val = ret_val.concat(element.subItems.filter(x => (x.status == 'Work In Progress') || (x.status.includes("Review"))))
         break
       default:
-        ret_val=ret_val.concat(element.subItems.filter(x => x.status == state))
+        ret_val = ret_val.concat(element.subItems.filter(x => x.status == state))
         break;
     }
 
@@ -114,6 +145,14 @@ function getColorClass(state: string) {
 }
 
 
+watch(
+  () => userStore.getCurrentUser(),
+  (newValue, oldValue) => {
+    filterByName.value = true
+    InitData()
+
+  }
+);
 
 
 </script>
