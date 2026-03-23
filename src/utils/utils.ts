@@ -6,7 +6,7 @@ const DAY_TO_MSEC = 24 * 3600 * 1000;
 
 export function isDateInList(curDate: Date, list: Date[]): boolean {
    //console.log("date " + curDate.toLocaleDateString())
-   //console.log("list " + JSON.stringify(list))
+
 
   let ret_val = false;
   for (let index = 0; index < list.length; index++) {
@@ -14,8 +14,8 @@ export function isDateInList(curDate: Date, list: Date[]): boolean {
     testTime.setHours(0, 0, 0, 0);
     //console.log("test time " + testTime.toLocaleString())
     let dif = curDate.getTime() - testTime.getTime();
-    //console.log("Dif is " + dif)
-    if (dif > 0 && dif <= DAY_TO_MSEC) {
+    //console.log("Time Dif is " + dif)
+    if (dif >= 0 && dif <= DAY_TO_MSEC) {
       ret_val = true;
       break;
     }
@@ -120,6 +120,6 @@ export function createDateFromLocalText(stringdate: string) {
   } catch {
     console.log("Error in create date from text 2");
   }
-  //console.log('Date is ' + retval.toLocaleDateString())
+  //console.log('Created date is ' + retval.toLocaleDateString())
   return retval;
 }
