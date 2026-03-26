@@ -364,10 +364,11 @@ function prepareGraph() {
   var curDate = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
+   console.log("working days " + curSprint.value.workingDays)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
     if (index == 0)
-      idealValues.value[index] = totalPoints.value
+      idealValues.value[index] = totalPoints.value - burndownStep.value
     else {
 
       if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
