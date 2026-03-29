@@ -372,6 +372,7 @@ function prepareGraph() {
     else {
 
       if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
+        console.log("Date in list " + curDate.toLocaleDateString())
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else {

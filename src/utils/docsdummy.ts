@@ -105,7 +105,17 @@ export function getDummyDocContent() {
           {
             "id": "978999db-f8e8-43b8-b060-7f36ef0df290",
             "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 38\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm05qk55\\\", \\\"startDate\\\" : \\\"22.3.2026\\\" ,\\\"duration\\\" : \\\"21\\\" , \\\"nonWorkingDays\\\" : [\\\"27.3.2026\\\" , \\\"28.3.2026\\\" , \\\"1.4.2026\\\" ,\\\"2.4.2026\\\",\\\"3.4.2026\\\",\\\"4.4.2026\\\",\\\"7.4.2026\\\",\\\"8.4.2026\\\",\\\"10.4.2026\\\",\\\"11.4.2026\\\"]}\"}]}"
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 38\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm05qk55\\\", \\\"startDate\\\" : \\\"22.3.2026\\\" ,\\\"duration\\\" : \\\"7\\\" , \\\"nonWorkingDays\\\" : [\\\"27.3.2026\\\" , \\\"28.3.2026\\\"]}\"}]}"
+          },
+          {
+            "id": "44002b37-9773-4bbc-a551-d8475779694a",
+            "type": "normal text",
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 38b\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm15cx5d\\\", \\\"startDate\\\" : \\\"29.3.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"1.4.2026\\\" ,\\\"2.4.2026\\\",\\\"3.4.2026\\\",\\\"4.4.2026\\\",\\\"7.4.2026\\\",\\\"8.4.2026\\\",\\\"10.4.2026\\\",\\\"11.4.2026\\\"]}\"}]}"
+          },
+          {
+            "id": "2343ab18-9f24-41cb-ac35-b5761c46f52f",
+            "type": "normal text",
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
           },
           {
             "id": "d74799c4-b6df-401c-b75b-f675c96bad2b",
@@ -172,6 +182,7 @@ export function getDummyDocContent() {
     ]
   }
 }
+
 
 
   return res;

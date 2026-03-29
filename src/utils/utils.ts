@@ -15,7 +15,7 @@ export function isDateInList(curDate: Date, list: Date[]): boolean {
     //console.log("test time " + testTime.toLocaleString())
     let dif = curDate.getTime() - testTime.getTime();
     //console.log("Time Dif is " + dif)
-    if (dif >= 0 && dif <= DAY_TO_MSEC) {
+    if (dif == 0) {
       ret_val = true;
       break;
     }
