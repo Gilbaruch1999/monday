@@ -364,7 +364,7 @@ function prepareGraph() {
   var curDate = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
-   console.log("working days " + curSprint.value.workingDays)
+  //console.log("working days " + curSprint.value.workingDays)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
     if (index == 0)
@@ -372,7 +372,7 @@ function prepareGraph() {
     else {
 
       if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
-        console.log("Date in list " + curDate.toLocaleDateString())
+       // console.log("Date in list " + curDate.toLocaleDateString())
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else {
@@ -512,7 +512,7 @@ function calcBurnUp() {
       burnUpGoals.value[index] = 0
     }
     else
-      burnUpGoals.value[index] = burndownStep.value
+      burnUpGoals.value[index] = Math.round(burndownStep.value)
     curDate = new Date(addDays(curDate, 1))
 
   }
