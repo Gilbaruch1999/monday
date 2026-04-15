@@ -2,12 +2,11 @@
   "compilerOptions": {
     "allowJs": true,
     "target": "es2024",
-    "module": "esnext",
-    "baseUrl": "./",
+    "module": "esnext",    
     "moduleResolution": "bundler",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "lib": [

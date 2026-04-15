@@ -1,24 +1,24 @@
 import { createDateFromText2 } from "./utils";
 
 export class boardItem {
-  id: string;
-  title: string;
-  domain: string;
-  stratigicCategory: string;
-  goalCategory: string;
-  type: string;
+  id: string = "";
+  title: string = "";
+  domain: string ="";
+  strategicCategory: string ="";
+  goalCategory: string ="";
+  type: string ="";
   assignedTo: string = "";
-  sizeEstimation: string;
+  sizeEstimation: string ="";
   storyPoints: number;
   doneStoryPoints: number;
   percentDone: number;
-  status: string;
+  status: string = "";
   subItems: boardItem[];
   subitemsPoints: number;
   subitemsDonePoints: number;
-  DoneDate: Date;
-  startDate: Date;
-  starWorktDate: Date;
+  DoneDate: Date = new Date();
+  startDate: Date = new Date();
+  starWorkDate: Date = new Date();
   planningStatus: boolean;
   planningCheck: boolean;
   parent: string;
@@ -34,9 +34,9 @@ export class boardItem {
     this.parent = "";
   }
 
-  updateFields(column_values) {
+  updateFields(column_values : any) {
     //console.log('Columns ' + JSON.stringify(column_values))
-    column_values.forEach((column) => {
+    column_values.forEach((column : any) => {
       switch (column.column.title) {
         case "Status":
           this.status = column.text;
@@ -45,7 +45,7 @@ export class boardItem {
           this.domain = column.text;
           break;
         case "Strategic Category":
-          this.stratigicCategory = column.text;
+          this.strategicCategory = column.text;
           break;
         case "Goal Category":
           this.goalCategory = column.text;
@@ -75,7 +75,7 @@ export class boardItem {
           this.startDate = createDateFromText2(column.text);
           break;
         case "StartWorkDate":
-          this.starWorktDate = createDateFromText2(column.text);
+          this.starWorkDate = createDateFromText2(column.text);
           break;
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))

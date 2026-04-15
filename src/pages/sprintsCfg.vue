@@ -1,3 +1,4 @@
+/* cspell:disable */
 <template>
   <v-container fluid>
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
@@ -98,7 +99,7 @@ function dateArraytoString(array: Date[]) {
   return ret_val
 }
 
-function stringToDateArray(str: string) {
+/*function stringToDateArray(str: string) {
   let ret_val = []
 
   try {
@@ -119,5 +120,5 @@ function stringToDateArray(str: string) {
 
 
   return ret_val
-}
+}*/
 </script>

@@ -8,7 +8,7 @@ export class userData {
 
 export function createUserList(data: any): userData[] {
   let ret_val: userData[] = [];
-  data.data.users.forEach((user) => {
+  data.data.users.forEach((user: { name: string; email: string; id: string; is_admin: boolean; photo_tiny: string; }) => {
     let newUser = new userData();
     newUser.name = user.name;
     newUser.email = user.email;
@@ -28,6 +28,6 @@ export function findUser(list : userData[] , name : string) : userData
   if (index != -1)
   return list[index]
   else
-    return null;
+    return new userData;
 
 }

@@ -1,8 +1,9 @@
+/* cspell:disable */
 import { getDaysdiff } from "./utils";
 
 export class groupMap {
-  boardid: string;
-  type: boardType;
+  boardid: string = "";
+  type: boardType = boardType.Scrum;
 }
 
 export enum boardType {
@@ -18,12 +19,12 @@ export interface sprintInfo {
 }
 
 export class Sprint implements sprintInfo {
-  name: string;
+  name: string = "";
   startDate: Date;
   duration: number;
-  boardid: string;
-  groupid: string;
-  workingDays: number;
+  boardid: string = "";
+  groupid: string ="";
+  workingDays: number = 0;
   nonWorkingDays: Date[];
   constructor() {
     this.duration = 0;

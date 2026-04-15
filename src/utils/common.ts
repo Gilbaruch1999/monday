@@ -1,5 +1,5 @@
 export class historyData {
-    boardid: string
+    boardid: string = ""
     dataLabels: string[] = [];
     velocity: number[] =  [];
     predictability: number[] =  [];

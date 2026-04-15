@@ -50,7 +50,7 @@ export function getDaysdiff(date1: Date, date2: Date): number {
   return res;
 }
 
-export function geNumberofWorkingDays(date1: Date, date2: Date): number {
+export function geNumberOfWorkingDays(date1: Date, date2: Date): number {
   //console.log("VVV " + JSON.stringify(date1))
   var ret_val = 0;
   var index = getDaysdiff(date2, date1);
@@ -65,7 +65,7 @@ export function geNumberofWorkingDays(date1: Date, date2: Date): number {
 }
 
 export function createDateFromText11(stringdate: string) {
-  var retval: Date;
+  var retval: Date = new Date();
   // format dd-mm-yyyy
   try {
     var tmp = stringdate.split("-");
@@ -81,12 +81,12 @@ export function createDateFromText11(stringdate: string) {
   return retval;
 }
 
-export function createDateFromText2(stringdate: string) {
-  var retval: Date;
+export function createDateFromText2(stringdate: string) : Date {
+  var retval: Date = new Date();
   // format yyyy-mm-dd
   try {
     var tmp = stringdate.split("-");
-    if (tmp.length != 3) return null;
+    if (tmp.length != 3) return new Date(0);
     else {
       retval = new Date();
       retval.setFullYear(parseInt(tmp[0]));
@@ -104,12 +104,12 @@ export function createDateFromText2(stringdate: string) {
 
 
 
-export function createDateFromLocalText(stringdate: string) {
-  var retval: Date;
+export function createDateFromLocalText(stringdate: string) : Date {
+  var retval: Date = new Date();
   // format dd.mm.yyyy
   try {
     var tmp = stringdate.split(".");
-    if (tmp.length != 3) return null;
+    if (tmp.length != 3) return new Date(0);
     else {
       retval = new Date();
       retval.setFullYear(parseInt(tmp[2]));

@@ -69,7 +69,7 @@ function InitData() {
 
 }
 
-function getItems(state): boardItem[] {
+function getItems(state : any): boardItem[] {
   let ret_val: boardItem[] = []
   let list: boardItem[]
 

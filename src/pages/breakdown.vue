@@ -1,3 +1,4 @@
+/* cspell:disable */
 <template>
   <v-container v-if="!retroMode">
     <v-row class="mb-12 mt-4">
@@ -39,14 +40,14 @@ const props = defineProps({
     default: false
   }
 });
-let categoryLabeles = ref([])
-let domainLables = ref([])
+let categoryLabeles : Ref<string[]> = ref([])
+let domainLables : Ref<string[]> = ref([])
 let pieColors: Ref<string[]> = ref([])
 let goalsColors: Ref<string[]> = ref([])
 let categoryValues: Ref<number[]> = ref([])
 let domainValues: Ref<number[]> = ref([])
-let goalsLabel = ref([])
-let goalsValues = ref([])
+let goalsLabel : Ref<string[]> = ref([])
+let goalsValues : Ref<number[]> = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
 let statusHeader = ref("")
 
@@ -229,7 +230,7 @@ let goalsPieOptions1 = {};
 let goalsPercentPieOptions = {}
 
 let itemsList: Ref<boardItem[]> = ref([]);
-let curSprint: Ref<Sprint> = ref();
+let curSprint: Ref<Sprint> = ref(new Sprint());
 const sprintDataStore = useSprintData();
 
 
@@ -323,7 +324,7 @@ function updateOptions() {
 
 
 function createBreakDownChart() {
-  const distinctCategory = [...new Set(itemsList.value.map(x => x.stratigicCategory))];
+  const distinctCategory = [...new Set(itemsList.value.map(x => x.strategicCategory))];
   const distinctDomain = [...new Set(itemsList.value.map(x => x.domain))];
   categoryLabeles.value = []
   categoryValues.value = []
@@ -332,7 +333,7 @@ function createBreakDownChart() {
     //console.log("Category " + element)
     categoryLabeles.value.push(element)
     pieColors.value.push(generateRgbColor(idx++))
-    var totalcat = itemsList.value.filter(x => x.stratigicCategory == element).reduce((accumulator, object) => {
+    var totalcat = itemsList.value.filter(x => x.strategicCategory == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
     //console.log("Total " + totalcat)
@@ -372,7 +373,7 @@ function createBreakDownChart() {
 
 }
 
-function generateRgbColor(index) {
+function generateRgbColor(index : number) {
 
   return rgbColors[index]
 }

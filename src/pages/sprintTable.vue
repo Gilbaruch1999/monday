@@ -1,3 +1,4 @@
+/* cspell:disable */
 <template>
   <v-container fluid class="ma-0">
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
@@ -100,7 +101,7 @@ function rowProps(data: any) {
 }
 
 
-function rowClicked(event, row) {
+function rowClicked(event : any, row : any) {
   if (showDetails.value == true) {
     showDetails.value = false;
     itemsList.value = sprintDataStore.getsprintData()
@@ -116,7 +117,7 @@ function rowClicked(event, row) {
 }
 
 
-function subItemrowClicked(event, row) {
+function subItemrowClicked(event : any, row : any) {
 
   showDetails.value = false
   itemsList.value = sprintDataStore.getsprintData()

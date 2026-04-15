@@ -1,3 +1,4 @@
+/* cspell:disable */
 export function getDummyUsers() {
   const res = {
     "data": {

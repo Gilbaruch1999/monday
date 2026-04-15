@@ -1,3 +1,4 @@
+/* cspell:disable */
 export function getDummyDocContent() {
   const res = {
 
@@ -25,12 +26,12 @@ export function getDummyDocContent() {
           {
             "id": "f1ef12f7-b3ce-43c2-9960-a71d5a7fb4ba",
             "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 30\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mkxhrsws\\\", \\\"startDate\\\" : \\\"30.11.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"5.12.2025\\\" , \\\"6.12.2025\\\" , \\\"12.12.2025\\\" ,\\\"13.12.2025\\\"]}\"}]}"
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
           },
           {
             "id": "f37106a7-672a-42b2-a9ad-28c7892c4035",
             "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 30\\\" ,\\\"boardid\\\" : \\\"5048014529\\\", \\\"groupid\\\" : \\\"group_mkxhk8wf\\\", \\\"startDate\\\" : \\\"30.11.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"5.12.2025\\\" , \\\"6.12.2025\\\" , \\\"12.12.2025\\\" ,\\\"13.12.2025\\\"]}\"}]}"
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
           },
           {
             "id": "be513660-14c8-44fb-9128-dfe053065fa8",
@@ -113,6 +114,11 @@ export function getDummyDocContent() {
             "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 38b\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm15cx5d\\\", \\\"startDate\\\" : \\\"29.3.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"1.4.2026\\\" ,\\\"2.4.2026\\\",\\\"3.4.2026\\\",\\\"4.4.2026\\\",\\\"7.4.2026\\\",\\\"8.4.2026\\\",\\\"10.4.2026\\\",\\\"11.4.2026\\\"]}\"}]}"
           },
           {
+            "id": "be013f10-a5b3-48f7-b9de-3a1735072673",
+            "type": "normal text",
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 39\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm1sv64v\\\", \\\"startDate\\\" : \\\"12.4.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"17.4.2026\\\" ,\\\"18.4.2026\\\",\\\"21.4.2026\\\",\\\"22.4.2026\\\",\\\"24.4.2026\\\",\\\"25.4.2026\\\"]}\"}]}"
+          },
+          {
             "id": "2343ab18-9f24-41cb-ac35-b5761c46f52f",
             "type": "normal text",
             "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
@@ -130,7 +136,7 @@ export function getDummyDocContent() {
           {
             "id": "dcfb6e35-7e57-478c-bc6f-5f2a4c022e65",
             "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"boardid\\\":\\\"1647137427\\\",\\\"dataLabels\\\":[\\\"Sprint 22\\\", \\\"Sprint 23\\\", \\\"Sprint 24\\\", \\\"Sprint 25\\\", \\\"Sprint 26\\\", \\\"Sprint 27\\\",\\\"Sprint 28\\\",\\\"Sprint 29\\\",\\\"Sprint 30\\\",\\\"Sprint 31\\\",\\\"Sprint 32\\\", \\\"Sprint 33\\\",\\\"Sprint 34\\\" ,\\\"Sprint 35\\\",\\\"Sprint 36\\\",\\\"Sprint 37\\\"],\\\"velocity\\\":[\\\"37\\\", \\\"33\\\", \\\"39\\\", \\\"75\\\", \\\"62\\\", \\\"48\\\",\\\"71\\\",\\\"28\\\",\\\"47\\\",\\\"52\\\",\\\"57\\\",\\\"65\\\",\\\"53\\\",\\\"37\\\",\\\"55\\\",\\\"48\\\"],\\\"predictability\\\": [\\\"70\\\", \\\"80\\\", \\\"57\\\", \\\"92\\\", \\\"49\\\", \\\"60\\\",\\\"72\\\",\\\"48\\\",\\\"65\\\",\\\"100\\\",\\\"58\\\",\\\"90\\\",\\\"93\\\",\\\"61\\\",\\\"77\\\",\\\"70\\\"]}\"}]}"
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"boardid\\\":\\\"1647137427\\\",\\\"dataLabels\\\":[\\\"Sprint 22\\\", \\\"Sprint 23\\\", \\\"Sprint 24\\\", \\\"Sprint 25\\\", \\\"Sprint 26\\\", \\\"Sprint 27\\\",\\\"Sprint 28\\\",\\\"Sprint 29\\\",\\\"Sprint 30\\\",\\\"Sprint 31\\\",\\\"Sprint 32\\\", \\\"Sprint 33\\\",\\\"Sprint 34\\\" ,\\\"Sprint 35\\\",\\\"Sprint 36\\\",\\\"Sprint 37\\\",\\\"Sprint 38b\\\"],\\\"velocity\\\":[\\\"37\\\", \\\"33\\\", \\\"39\\\", \\\"75\\\", \\\"62\\\", \\\"48\\\",\\\"71\\\",\\\"28\\\",\\\"47\\\",\\\"52\\\",\\\"57\\\",\\\"65\\\",\\\"53\\\",\\\"37\\\",\\\"55\\\",\\\"48\\\",\\\"30\\\"],\\\"predictability\\\": [\\\"70\\\", \\\"80\\\", \\\"57\\\", \\\"92\\\", \\\"49\\\", \\\"60\\\",\\\"72\\\",\\\"48\\\",\\\"65\\\",\\\"100\\\",\\\"58\\\",\\\"90\\\",\\\"93\\\",\\\"61\\\",\\\"77\\\",\\\"70\\\",\\\"64\\\"]}\"}]}"
           },
           {
             "id": "e54a4552-639c-47a4-99fc-72489c82950a",
@@ -182,6 +188,7 @@ export function getDummyDocContent() {
     ]
   }
 }
+
 
 
 

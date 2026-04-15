@@ -1,3 +1,4 @@
+/* cspell:disable */
 <template>
   <v-toolbar class="mt-6" :title="toolBarTitle" color="primary">
   </v-toolbar>
@@ -20,10 +21,10 @@ import { useSprintData } from "../stores/sprintData";
 import { historyData } from "@/utils/common";
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
-const velocity = ref([]);
-const predictability = ref([]);
-const predictabilityGoalLow = ref([]);
-const predictabilityGoalHigh = ref([]);
+const velocity  : Ref<number[]>= ref([]);
+const predictability : Ref<number[]> = ref([]);
+const predictabilityGoalLow : Ref<number[]> = ref([]);
+const predictabilityGoalHigh : Ref<number[]> = ref([]);
 const minPredChart = ref(0);
 const maxPredChart = ref(200)
 const minVelocitychart = ref(0);
@@ -32,7 +33,7 @@ const velocityLable = ref("")
 const predLable = ref("")
 
 
-let dataLabels = ref([]);
+let dataLabels : Ref<string[]> = ref([]);
 
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"

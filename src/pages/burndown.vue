@@ -1,3 +1,4 @@
+/* cspell:disable */
 <template>
 
   <v-toolbar class="mt-7" :title="toolBarTitle" color="primary">
@@ -77,11 +78,11 @@ Chart.register(...registerables, ChartDataLabels);
 
 const sprintDataStore = useSprintData();
 const userStore = useUsersData();
-const idealValues = ref([]);
-const actualValues = ref([]);
-const burnUpValues = ref([]);
-const burnUpGoals = ref([]);
-const deltaValues = ref([]);
+const idealValues  : Ref<number[]> = ref([]);
+const actualValues : Ref<number[]> = ref([]);
+const burnUpValues : Ref<number[]> = ref([]);
+const burnUpGoals : Ref<number[]>= ref([]);
+const deltaValues : Ref<number[]>= ref([]);
 let dataLabels = ref(["1", '2']);
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
@@ -100,7 +101,7 @@ let totalDonePoints = ref(0)
 let detailedgrpah = ref(true)
 let graphType = ref("BurnDown")
 let getBtnHeader = ref("get API Data")
-let curSprint: Ref<Sprint> = ref();
+let curSprint: Ref<Sprint> = ref(new Sprint());
 let burndownStep = ref(0)
 let filterByName = ref(false)
 
@@ -265,7 +266,7 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
       callbacks: {
         label: function (context) {
           //console.log("Tool tip " + JSON.stringify(context.dataIndex))
-          let labels = []
+          let labels : string[] = []
           let arr = getCompletedOnDate(context.dataIndex)
           arr.forEach(element => {
             labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title + " Parent: " + element.parent)
