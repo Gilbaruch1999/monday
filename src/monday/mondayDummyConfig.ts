@@ -1,5 +1,5 @@
 /* cspell:disable */
-export function getDummyDocContent() {
+export function getMondayDummyConfig() {
   const res = {
 
   "data": {

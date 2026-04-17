@@ -15,6 +15,10 @@
         <v-icon v-if="item.item.planningCheck" color="green" icon="mdi-check-circle"></v-icon>
         <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
       </template>
+       <template v-slot:item.planningCheckErrors="item">
+         <!-- @vue-ignore -->
+       <span> {{ getErrorString(item.item.planningCheckErrors)  }}</span>
+      </template>
     </v-data-table>
     <br></br>
     <div v-if="showDetails">
@@ -35,6 +39,10 @@
           <v-icon v-if="item.item.planningCheck" color="green" icon="mdi-check-circle"></v-icon>
           <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
         </template>
+        <template v-slot:item.planningCheckErrors="item">
+         <!-- @vue-ignore -->
+       <span> {{ getErrorString(item.item.planningCheckErrors)  }}</span>
+      </template>
       </v-data-table>
     </div>
   </v-container>
@@ -44,7 +52,7 @@
 
 <script setup lang='ts'>
 
-import { boardItem } from '@/utils/boarditem';
+import { boardItem, PlanningErrorsIndex } from '@/utils/boarditem';
 import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
@@ -66,6 +74,7 @@ const issuesheaders: any = [
   { title: 'Goal Category', key: "goalCategory" },
   { title: "Status", key: "status" },
   { title: "Plan Status", key: "planningStatus" },
+  { title: "Plan Errors", key: "planningCheckErrors" },
   { title: "Estimated Effort", key: "sizeEstimation" },
   { title: "Percent Done", key: "percentDone" },
   { title: "Owner", key: "assignedTo" },
@@ -116,6 +125,20 @@ function rowClicked(event : any, row : any) {
 
 }
 
+function getErrorString(erros : boolean[]) : string
+{
+  let ret_val : string = "";
+  for (let index = 0; index < erros.length; index++) {
+
+  if (erros[index])
+  {
+    ret_val = ret_val + PlanningErrorsIndex[index].toString() +  " "
+  }
+
+  }
+  return ret_val
+
+}
 
 function subItemrowClicked(event : any, row : any) {
 

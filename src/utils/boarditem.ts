@@ -1,14 +1,24 @@
 import { createDateFromText2 } from "./utils";
 
+export enum PlanningErrorsIndex {
+  noEstimationError = 0,
+  tooManyOwners = 1,
+  subItemError = 2,
+  itemNotBroken = 3,
+  parentSizeError = 4,
+  noCompletionDate = 5,
+  subitemNotDone = 6,
+}
+
 export class boardItem {
   id: string = "";
   title: string = "";
-  domain: string ="";
-  strategicCategory: string ="";
-  goalCategory: string ="";
-  type: string ="";
+  domain: string = "";
+  strategicCategory: string = "";
+  goalCategory: string = "";
+  type: string = "";
   assignedTo: string = "";
-  sizeEstimation: string ="";
+  sizeEstimation: string = "";
   storyPoints: number;
   doneStoryPoints: number;
   percentDone: number;
@@ -16,11 +26,12 @@ export class boardItem {
   subItems: boardItem[];
   subitemsPoints: number;
   subitemsDonePoints: number;
-  DoneDate: Date = new Date();
+  DoneDate: Date = new Date(0);
   startDate: Date = new Date();
   starWorkDate: Date = new Date();
   planningStatus: boolean;
   planningCheck: boolean;
+  planningCheckErrors: boolean[];
   parent: string;
   constructor() {
     this.storyPoints = 0;
@@ -32,11 +43,17 @@ export class boardItem {
     this.planningStatus = true;
     this.planningCheck = false;
     this.parent = "";
+    this.planningCheckErrors = new Array(
+      Object.keys(PlanningErrorsIndex).filter((key) => isNaN(Number(key)))
+        .length,
+    ).fill(false);
+
+
   }
 
-  updateFields(column_values : any) {
+  updateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
-    column_values.forEach((column : any) => {
+    column_values.forEach((column: any) => {
       switch (column.column.title) {
         case "Status":
           this.status = column.text;
@@ -104,10 +121,8 @@ export class boardItem {
       default:
         this.storyPoints = 0;
     }
-    if(this.status == "Not Planned")
-    {
+    if (this.status == "Not Planned") {
       this.storyPoints = 0;
-
     }
   }
 
@@ -115,76 +130,83 @@ export class boardItem {
     this.subitemsPoints = this.subItems.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-    //console.log("subitem points " + this.subitemsPoints)
     this.subitemsDonePoints = this.subItems
       .filter((x) => x.status == "Done")
       .reduce((accumulator, object) => {
         return accumulator + object.storyPoints;
       }, 0);
-    //console.log("subitem done points " + this.subitemsDonePoints)
 
     if (this.status == "Done") {
       this.percentDone = 100;
       this.doneStoryPoints = this.storyPoints;
-      //console.log('Story is done')
     } else {
       if (this.subitemsPoints > 0) {
         this.percentDone = Math.round(
-          (100 * this.subitemsDonePoints) / this.subitemsPoints
+          (100 * this.subitemsDonePoints) / this.subitemsPoints,
         );
-        //console.log("Percent done " + this.percentDone)
       }
     }
-    /* console.log("Story " + this.title)
-     console.log('Done Story points ' + this.doneStoryPoints)
-     console.log('Done subitems Story points ' + this.subitemsDonePoints)*/
   }
 
   checkForPlanningIssues() {
-    //console.log("Check for planning issues " + this.id)
-    try
-    {
-    this.planningCheck = true;
-      if (this.parent != "" && this.assignedTo.includes(','))
-    this.planningCheck = false
 
-    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
-      this.planningCheck = false;
-      //console.log("Planning error 1 0 estimation " + JSON.stringify(this))
-    }
-    if (this.subItems.length == 0 && this.storyPoints >= 4)
-    {
-      this.planningCheck = false;
-    }
-
-    this.subItems.forEach((item) => {
-      if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
+    try {
+      this.planningCheck = true;
+      if (this.parent != "" && this.assignedTo.includes(",")) {
+        this.planningCheckErrors[PlanningErrorsIndex.tooManyOwners] = true;
         this.planningCheck = false;
       }
-      if (item.planningCheck == false)
-        this.planningCheck = false
-    });
 
-    if (this.subItems.length > 0) {
-      let subitemstot = this.subItems.reduce((accumulator, object) => {
-        return accumulator + object.storyPoints;
-      }, 0);
-      if ( (subitemstot > this.storyPoints * 1.75) || (subitemstot < this.storyPoints * 0.75) ) {
+      if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
         this.planningCheck = false;
+        this.planningCheckErrors[PlanningErrorsIndex.noEstimationError] = true;
       }
-    }
+      if (this.subItems.length == 0 && this.storyPoints >= 4) {
+        this.planningCheck = false;
+        this.planningCheckErrors[PlanningErrorsIndex.itemNotBroken] = true;
+      }
 
-    if (this.status == "Done") {
-      this.subItems.forEach((element) => {
-        if (element.status != "Done") this.planningCheck = false;
+      this.subItems.forEach((item) => {
+        if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
+          this.planningCheck = false;
+          this.planningCheckErrors[PlanningErrorsIndex.noEstimationError] =
+            true;
+        }
+        if (item.planningCheck == false) {
+          this.planningCheck = false;
+          this.planningCheckErrors[PlanningErrorsIndex.subItemError] = true;
+        }
       });
+
+      if (this.subItems.length > 0) {
+        let subitemstot = this.subItems.reduce((accumulator, object) => {
+          return accumulator + object.storyPoints;
+        }, 0);
+        if (
+          subitemstot > this.storyPoints * 1.75 ||
+          subitemstot < this.storyPoints * 0.75
+        ) {
+          this.planningCheck = false;
+          this.planningCheckErrors[PlanningErrorsIndex.parentSizeError] = true;
+        }
+      }
+
+      if (this.status == "Done") {
+        if (this.DoneDate.getTime() == 0) {
+          this.planningCheck = false;
+          this.planningCheckErrors[PlanningErrorsIndex.noCompletionDate] = true;
+          //console.log(this.title +  "  No done date !!!!!!!!!")
+        }
+
+        this.subItems.forEach((element) => {
+          if (element.status != "Done") {
+            this.planningCheck = false;
+            this.planningCheckErrors[PlanningErrorsIndex.subitemNotDone] = true;
+          }
+        });
+      }
+    } catch {
+      console.log("Error in plan check for " + JSON.stringify(this));
     }
-
-  }
-
-catch
-{
-  console.log("Error in plan check for " + JSON.stringify(this))
-}
   }
 }

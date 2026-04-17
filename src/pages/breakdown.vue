@@ -26,12 +26,12 @@
 <script setup lang='ts'>
 
 import { boardItem } from "@/utils/boarditem";
-import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
 import { Chart, ChartData, registerables } from "chart.js";
 import { PieChart } from "vue-chart-3";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, onMounted, ref, Ref, watch } from "vue";
+import { Sprint } from "@/utils/sprintInfo";
 Chart.register(...registerables, ChartDataLabels);
 
 const props = defineProps({

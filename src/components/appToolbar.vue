@@ -62,19 +62,19 @@ import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
-import { getDummyBoardItems, getDummyContext } from "@/utils/mondaydummy";
-import { Sprint } from "@/utils/mondayparser";
-import { getAllUsersQuery, getBoardItemsQuery, getDocContentQuery } from "@/utils/queries";
+import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
+import { getAllUsersQuery, getBoardItemsQuery, getDocContentQuery } from "@/monday/mondayQueries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
-import { getDummyDocContent } from "@/utils/docsdummy";
+import { getMondayDummyConfig } from "@/monday/mondayDummyConfig";
 import { historyData } from "@/utils/common";
 import { getDummyUsers } from "@/utils/dummyusers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
+import { Sprint } from "@/utils/sprintInfo";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -94,7 +94,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v126")
+  console.log("Starting app version v127")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -120,7 +120,7 @@ onMounted(async () => {
 async function initData() {
   var content;
   if (getFromDummy.value) {
-    content = getDummyDocContent();
+    content = getMondayDummyConfig();
   }
   else {
     var docquery = getDocContentQuery('5083213836')
@@ -145,7 +145,7 @@ async function initData() {
 async function getContext() {
   let context : any = {};
   if (getFromDummy.value) {
-    context = getDummyContext();
+    context = getMondayDummyContext();
     boardId.value = context['boardId']
   }
   else {
@@ -206,7 +206,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   var data : any;
   itemsList.value = []
   if (getFromDummy.value) {
-    data = getDummyBoardItems(boardId.value);
+    data = getMondayDummyBoardItems(boardId.value);
     data = data.data
     //console.log("Get from Dummy " + JSON.stringify(data))
   }
@@ -261,7 +261,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
             switch (sbitem.status) {
               case "Done":
                // console.log("Calling is date in sprint " + bitem.title + "  " +  JSON.stringify(sbitem.title) + " " + sbitem.DoneDate)
-                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength))
+                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength) || sbitem.DoneDate.getTime() == 0)
                   bitem.subItems.push(sbitem)
                 break;
               case "Removed":

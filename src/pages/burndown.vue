@@ -57,9 +57,9 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
 import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
-import { Sprint } from "@/utils/mondayparser";
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from "@/stores/usersData";
+import { Sprint } from "@/utils/sprintInfo";
 
 
 

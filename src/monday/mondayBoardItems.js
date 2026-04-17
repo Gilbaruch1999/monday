@@ -1,7 +1,7 @@
 /* cspell:disable */
-import { createDateFromLocalText } from "./utils";
+import { createDateFromLocalText } from "../utils/utils";
 
-export function getDummyContext() {
+export function getMondayDummyContext() {
   const res = {
     themeConfig: null,
     theme: "light",
@@ -75,7 +75,7 @@ export function getDummyContext() {
   return res;
 }
 
-export function getDummyBoardItems(boardid) {
+export function getMondayDummyBoardItems(boardid) {
   const res = {
 
   "data": {

@@ -46,12 +46,10 @@
 <script setup lang='ts'>
 
 
-import { Sprint } from "@/utils/mondayparser";
-import { getDummyStorage, setDummyStorage } from "@/utils/mondaystorage";
 import { MondayClientSdk } from "monday-sdk-js";
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
-import { createDateFromLocalText } from "@/utils/utils";
+import { Sprint } from "@/utils/sprintInfo";
 
 const mondayapi = inject('monday') as MondayClientSdk
 let sprintsList: Ref<Sprint[]> = ref([])
