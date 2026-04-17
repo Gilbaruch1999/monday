@@ -71,7 +71,7 @@ import { useSprintData } from "../stores/sprintData";
 import router from "@/router";
 import { getMondayDummyConfig } from "@/monday/mondayDummyConfig";
 import { historyData } from "@/utils/common";
-import { getDummyUsers } from "@/utils/dummyusers";
+import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
@@ -327,7 +327,7 @@ function boardIdChanged(item : any) {
 async function getUserList() {
   var userinfo;
   if (getFromDummy.value) {
-    userinfo = getDummyUsers();
+    userinfo = getMondayDummyUsers();
 
   }
   else {
