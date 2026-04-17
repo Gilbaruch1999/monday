@@ -70,7 +70,7 @@ import { useSprintData } from "../stores/sprintData";
 
 import router from "@/router";
 import { getMondayDummyConfig } from "@/monday/mondayDummyConfig";
-import { historyData } from "@/utils/common";
+import { historyData } from "@/utils/historyData";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";

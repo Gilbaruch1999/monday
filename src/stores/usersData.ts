@@ -6,7 +6,7 @@ import { ref, type Ref } from "vue";
 export const useUsersData = defineStore("usersStore", () => {
 
   const usersList: Ref<userData[]> = ref([]);
-  const currentUser : Ref<userData> = ref()
+  const currentUser : Ref<userData> = ref(new userData())
   const orgUser : Ref<userData> = ref(new userData())
 
   function getUsers() : userData[]

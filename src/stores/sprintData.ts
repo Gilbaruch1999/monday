@@ -1,6 +1,6 @@
 import { boardItem } from "@/utils/boarditem";
-import { historyData } from "@/utils/common";
-import { Sprint } from "@/utils/mondayparser";
+import { historyData } from "@/utils/historyData";
+import { Sprint } from "@/utils/sprintInfo";
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
 
@@ -8,7 +8,7 @@ class boardCfg {
   id: string;
   team: string;
 
-  constructor(_id, _team) {
+  constructor(_id : string , _team : string) {
     this.id = _id;
     this.team = _team;
   }
@@ -16,7 +16,7 @@ class boardCfg {
 
 export const useSprintData = defineStore("sprintData", () => {
   const sprintItems: Ref<boardItem[]> = ref([]);
-  const curSprint: Ref<Sprint> = ref();
+  const curSprint: Ref<Sprint> = ref(new Sprint());
   const sprintList: Ref<Sprint[]> = ref([]);
   const boardid = ref("");
   const history: Ref<historyData[]> = ref([]);

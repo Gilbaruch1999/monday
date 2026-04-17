@@ -18,7 +18,7 @@ import { LineChart } from "vue-chart-3";
 import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useSprintData } from "../stores/sprintData";
-import { historyData } from "@/utils/common";
+import { historyData } from "@/utils/historyData";
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
 const velocity  : Ref<number[]>= ref([]);
