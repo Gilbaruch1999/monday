@@ -11,6 +11,7 @@ declare module 'vue' {
     AppToolbar: typeof import('./src/components/appToolbar.vue')['default']
     GoalsCard: typeof import('./src/components/goalsCard.vue')['default']
     KanbanCard: typeof import('./src/components/kanbanCard.vue')['default']
+    RetroItem: typeof import('./src/components/retroItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

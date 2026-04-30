@@ -14,12 +14,23 @@ class boardCfg {
   }
 }
 
+export class retroData
+{
+  velocity : number = 0;
+  predictability : string = "";
+  minPredictability : string = "";
+  targetPredictability : string = "";
+  outstandingPredictability : string = "";
+
+}
+
 export const useSprintData = defineStore("sprintData", () => {
   const sprintItems: Ref<boardItem[]> = ref([]);
   const curSprint: Ref<Sprint> = ref(new Sprint());
   const sprintList: Ref<Sprint[]> = ref([]);
   const boardid = ref("");
   const history: Ref<historyData[]> = ref([]);
+  const retroInfo : Ref<retroData> = ref(new retroData())
   let boards: boardCfg[] = [
     new boardCfg("1647137427", "Dev"),
     new boardCfg("5048014529", "Nexus"),
@@ -74,6 +85,18 @@ export const useSprintData = defineStore("sprintData", () => {
     return ret_val;
   }
 
+  function setRetroInfo( data : retroData)
+  {
+    retroInfo.value = data
+
+  }
+
+  function getRetroInfo() : retroData
+  {
+
+    return retroInfo.value
+  }
+
 
 
   return {
@@ -87,6 +110,8 @@ export const useSprintData = defineStore("sprintData", () => {
     setBoardid,
     getHistory,
     setHistory,
-    getTeamName
+    getTeamName,
+    setRetroInfo,
+    getRetroInfo
   };
 });

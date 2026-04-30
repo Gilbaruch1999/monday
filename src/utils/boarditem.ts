@@ -51,7 +51,7 @@ export class boardItem {
 
   }
 
-  updateFields(column_values: any) {
+  mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
     column_values.forEach((column: any) => {
       switch (column.column.title) {
@@ -99,6 +99,12 @@ export class boardItem {
       }
     });
     this.updateStoryPoints();
+  }
+
+
+  updateFields(column_values: any) {
+    // todo add other apps here
+   this.mondayUpdateFields(column_values);
   }
 
   updateStoryPoints() {
@@ -210,3 +216,10 @@ export class boardItem {
     }
   }
 }
+
+
+
+  const fieldsMap = new Map ([
+["name" , "mapped"]
+  ]
+  )

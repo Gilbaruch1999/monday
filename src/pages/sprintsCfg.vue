@@ -46,12 +46,12 @@
 <script setup lang='ts'>
 
 
-import { MondayClientSdk } from "monday-sdk-js";
-import { inject, onMounted, ref, type Ref } from "vue";
+//import { MondayClientSdk } from "monday-sdk-js";
+import { onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
 import { Sprint } from "@/utils/sprintInfo";
 
-const mondayapi = inject('monday') as MondayClientSdk
+//const mondayapi = inject('monday') as MondayClientSdk
 let sprintsList: Ref<Sprint[]> = ref([])
 let selectedSprint: Ref<Sprint> = ref(new Sprint())
 const sprintDataStore = useSprintData();

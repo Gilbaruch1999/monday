@@ -57,7 +57,7 @@ import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { boardItem } from "@/utils/boarditem";
 import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
-import { useSprintData } from "../stores/sprintData";
+import { retroData, useSprintData } from "../stores/sprintData";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
 
@@ -68,7 +68,7 @@ const props = defineProps({
     type: String,
     default: 'BurnDown'
   },
-   graphDetailedProp: {
+  graphDetailedProp: {
     type: Boolean,
     default: true
   }
@@ -78,11 +78,11 @@ Chart.register(...registerables, ChartDataLabels);
 
 const sprintDataStore = useSprintData();
 const userStore = useUsersData();
-const idealValues  : Ref<number[]> = ref([]);
-const actualValues : Ref<number[]> = ref([]);
-const burnUpValues : Ref<number[]> = ref([]);
-const burnUpGoals : Ref<number[]>= ref([]);
-const deltaValues : Ref<number[]>= ref([]);
+const idealValues: Ref<number[]> = ref([]);
+const actualValues: Ref<number[]> = ref([]);
+const burnUpValues: Ref<number[]> = ref([]);
+const burnUpGoals: Ref<number[]> = ref([]);
+const deltaValues: Ref<number[]> = ref([]);
 let dataLabels = ref(["1", '2']);
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
@@ -266,7 +266,7 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
       callbacks: {
         label: function (context) {
           //console.log("Tool tip " + JSON.stringify(context.dataIndex))
-          let labels : string[] = []
+          let labels: string[] = []
           let arr = getCompletedOnDate(context.dataIndex)
           arr.forEach(element => {
             labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title + " Parent: " + element.parent)
@@ -360,6 +360,15 @@ function prepareGraph() {
   targetPredictability.value = targetPred
   const [outtot, outdone, outPred] = calcPredicatbility("Outstanding")
   outstandingPredictability.value = outPred
+  var retro: retroData = new retroData()
+
+  retro.velocity = totalDonePoints.value
+  retro.predictability = pred
+  retro.minPredictability = minPred
+  retro.targetPredictability = targetPred
+  retro.outstandingPredictability = outPred
+  //console.log("REtro info is " + JSON.stringify(retro))
+  sprintDataStore.setRetroInfo(retro)
 
 
   var curDate = curSprint.value.startDate;
@@ -373,7 +382,7 @@ function prepareGraph() {
     else {
 
       if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
-       // console.log("Date in list " + curDate.toLocaleDateString())
+        // console.log("Date in list " + curDate.toLocaleDateString())
         idealValues.value[index] = idealValues.value[index - 1]
       }
       else {

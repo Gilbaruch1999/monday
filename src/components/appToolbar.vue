@@ -10,6 +10,7 @@
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">View Sprints</v-btn>
     <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/retroOnLine')">On Line retro</v-btn>
 
     <v-menu class="mt-6">
       <template v-slot:activator="{ props }">
@@ -63,7 +64,7 @@ import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getDocContentQuery } from "@/monday/mondayQueries";
+import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery } from "@/monday/mondayQueries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
@@ -123,7 +124,7 @@ async function initData() {
     content = getMondayDummyConfig();
   }
   else {
-    var docquery = getDocContentQuery('5083213836')
+    var docquery = getAppConfigQuery('5083213836')
     content = await mondayapi.api(docquery);
     //console.log("Doc content " + JSON.stringify(content))
   }
