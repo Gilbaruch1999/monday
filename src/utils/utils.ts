@@ -123,3 +123,17 @@ export function createDateFromLocalText(stringdate: string) : Date {
   //console.log('Created date is ' + retval.toLocaleDateString())
   return retval;
 }
+
+export function convertDateFormat1(date : Date) : string
+{
+
+  // format yyyy-mm-dd
+
+
+const yyyy = date.getFullYear();
+// getMonth() returns 0-11, so add 1. padStart adds a leading zero if needed.
+const mm = String(date.getMonth() + 1).padStart(2, '0');
+const dd = String(date.getDate()).padStart(2, '0');
+const formattedDate = `${yyyy}-${mm}-${dd}`;
+return formattedDate
+}

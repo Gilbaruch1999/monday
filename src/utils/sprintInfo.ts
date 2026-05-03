@@ -8,6 +8,7 @@ export interface sprintInfo {
 
 export class Sprint implements sprintInfo {
   name: string = "";
+  orgName  : string = "";
   startDate: Date;
   duration: number;
   boardid: string = "";
