@@ -116,7 +116,6 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
-  await readStorage();
   await getUserList();
   await initData();
 })
@@ -150,32 +149,50 @@ async function initData() {
 }
 
 async function getBoardConfig(bid: string) {
-  var data: any;
+  var sprintscfgMonday: any;
+  var sprintscfgStorage : Sprint[] = []
+  var mondaySprints : Sprint[] = []
 
-  var sprintscfg : any
   if (getFromDummy.value) {
-    data = getMondayDummyBoardConfig();
-    data = data.data
-    sprintscfg = JSON.parse(dummyReadItem("boardInfo"))
-    //console.log("Get board config from Dummy monday" + JSON.stringify(data))
-    console.log("Get board config from Dummy storage " + JSON.stringify(sprintscfg))
+    sprintscfgMonday = getMondayDummyBoardConfig();
+    sprintscfgMonday = sprintscfgMonday.data
+    sprintscfgStorage = JSON.parse(dummyReadItem("boardInfo"))
+
   }
   else {
     var qstr = getBoardConfigQuery(bid);
-    console.log("Query " + qstr)
+    //console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
-    console.log("get board config from api" + JSON.stringify(res))
-    data = res.data;
+    //console.log("get board config from api" + JSON.stringify(res))
+    sprintscfgMonday = res.data;
+
+    var res1 = await mondayapi.storage.instance.getItem("boardInfo")
+    console.log("Result from storage key " + JSON.stringify(res1))
+    sprintscfgStorage = JSON.parse(res1.data.value);
   }
 
-  data.boards.forEach((board: any) => {
+  sprintscfgMonday.boards.forEach((board: any) => {
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
-    // console.log("Found sprint !!!!" + JSON.stringify(sprintx))
+      mondaySprints.push(sprintx)
+    });
+  });
+
+    console.log("Get board config from monday" + JSON.stringify(mondaySprints))
+    console.log("Get board config from storage " + JSON.stringify(sprintscfgStorage))
+
+    sprintscfgStorage = sprintscfgStorage.filter(x=>x.boardid == bid)
+    mondaySprints.forEach(sprint => {
+    let index = sprintscfgStorage.findIndex(x=>x.groupid == sprint.groupid)
+    if (index == -1)
+    {
+      sprintscfgStorage.push(sprint)
+      console.log("Found unstored sprint " + sprint.orgName)
+    }
+
     });
 
 
-  });
 
 
 }
@@ -449,19 +466,6 @@ function parseConfiguration(data: any, boardId: string) {
 
 }
 
-
-async function readStorage() {
-
-  if (getFromDummy.value) {
-    console.log("Dummy storage")
-
-  }
-  else {
-    const res = await mondayapi.storage.instance.getItem("boardInfo")
-    console.log("Result from storage key " + JSON.stringify(res))
-
-  }
-}
 
 
 </script>
