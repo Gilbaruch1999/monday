@@ -24,18 +24,6 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-menu class="mt-6" v-if="getFromDummy == true">
-      <template v-slot:activator="{ props }">
-        <v-btn class="mt-6" color="white" light v-bind="props">
-          {{ boardId }}
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item v-for="(item, index) in boardids" :key="index">
-          <v-list-item-title @click="boardIdChanged(item)" class="ma-2"> {{ item }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
     <v-menu class="mt-6" v-if="userStore.getOrgUser().is_admin">
       <template v-slot:activator="{ props }">
         <v-btn class="mt-6" color="white" light v-bind="props">
@@ -97,7 +85,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v130")
+  console.log("Starting app version v136")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -150,8 +138,9 @@ async function initData() {
 
 async function getBoardConfig(bid: string) {
   var sprintscfgMonday: any;
-  var sprintscfgStorage : Sprint[] = []
-  var mondaySprints : Sprint[] = []
+  var sprintscfgStorage : any
+  var currentSprints : Sprint[] = []
+  console.log("Started get board config")
 
   if (getFromDummy.value) {
     sprintscfgMonday = getMondayDummyBoardConfig();
@@ -171,30 +160,41 @@ async function getBoardConfig(bid: string) {
     sprintscfgStorage = JSON.parse(res1.data.value);
   }
 
-  sprintscfgMonday.boards.forEach((board: any) => {
+
+  sprintscfgStorage.forEach((sprint: any) => {
+      var sprintx = createSprint(sprint)
+      console.log("Start Date YYYY " + sprintx.startDate)
+      currentSprints.push(sprintx)
+
+  });
+
+ sprintscfgMonday.boards.forEach((board: any) => {
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
-      mondaySprints.push(sprintx)
+      let index = currentSprints.findIndex(x=>x.groupid == sprintx.groupid)
+      if (index == -1)
+        currentSprints.push(sprintx)
     });
   });
 
-    console.log("Get board config from monday" + JSON.stringify(mondaySprints))
-    console.log("Get board config from storage " + JSON.stringify(sprintscfgStorage))
+    //console.log("Get board config from monday" + JSON.stringify(mondaySprints))
+    //console.log("Get board config from storage " + JSON.stringify(sprintscfgStorage))
 
-    sprintscfgStorage = sprintscfgStorage.filter(x=>x.boardid == bid)
-    mondaySprints.forEach(sprint => {
-    let index = sprintscfgStorage.findIndex(x=>x.groupid == sprint.groupid)
+  /*  sprintscfgStorage = sprintscfgStorage.filter((x: { boardid: string; })=>x.boardid == bid)
+    currentSprints.forEach(sprint => {
+    let index = sprintscfgStorage.findIndex((x: { groupid: string; })=>x.groupid == sprint.groupid)
     if (index == -1)
     {
-      sprintscfgStorage.push(sprint)
+      sprint.startDate = new Date()
+      sprint.duration = 1
+     // sprintscfgStorage.push(sprint)
       console.log("Found unstored sprint " + sprint.orgName)
     }
 
     });
-
-
-
-
+*/
+     console.log("Sprints list xxx " + JSON.stringify(currentSprints))
+     sprintDataStore.setsprintList(currentSprints)
 }
 
 
@@ -228,6 +228,7 @@ function findCurrentSprint(boardid: string): Sprint {
   var curDate = new Date();
   let boardSprintTable = sprintDataStore.getsprintList().filter(x => x.boardid == boardid)
   for (let index = 0; index < boardSprintTable.length; index++) {
+    console.log("Start date " +boardSprintTable[index].name + " " +  boardSprintTable[index].startDate.toLocaleDateString())
     var diff = getDaysdiff(curDate, boardSprintTable[index].startDate);
     if (diff >= 0 && diff < boardSprintTable[index].duration) {
       ret_val = boardSprintTable[index];
@@ -264,6 +265,7 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
   let newSprint = new Sprint();
 
   newSprint.orgName = groupdata.title
+   newSprint.name = groupdata.title
   newSprint.nonWorkingDays = []
   newSprint.boardid = bid
   newSprint.groupid = groupdata.id
@@ -385,13 +387,6 @@ async function sprintChanged(item: Sprint) {
   toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
 }
 
-function boardIdChanged(item: any) {
-  //console.log("VVVV" +  JSON.stringify(item))
-  boardId.value = item
-  useSprintData().setBoardid(boardId.value)
-  initData();
-
-}
 
 
 
@@ -460,7 +455,7 @@ function parseConfiguration(data: any, boardId: string) {
 
     }
   });
-  sprintDataStore.setsprintList(sprintarr)
+  //sprintDataStore.setsprintList(sprintarr)
   sprintDataStore.setHistory(historyArr)
   //console.log("History data " + JSON.stringify(sprintDataStore.getHistory()))
 

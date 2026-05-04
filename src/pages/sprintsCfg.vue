@@ -17,9 +17,6 @@
           mdi-delete
         </v-icon>
       </template>
-      <template v-slot:item.index="{ index }">
-        {{ index + 1 }}
-      </template>
 
     </v-data-table>
     <div align="center">
@@ -60,7 +57,7 @@
 //import { MondayClientSdk } from "monday-sdk-js";
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
-import { Sprint} from "@/utils/sprintInfo";
+import { convertSprintToString, Sprint, sprintInfoStore} from "@/utils/sprintInfo";
 import { convertDateFormat1, createDateFromLocalText, createDateFromText2 } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
 
@@ -78,9 +75,8 @@ let updateRequired = ref(false)
 const sprintHeaders: any = [
 
   { title: 'Actions', key: 'actions', sortable: false }, // Action Column
-  { title: 'index', key: 'index' },
-  { title: 'Display Name', key: 'orgName' },
-  { title: 'Original Name', key: 'name' },
+  { title: 'Display Name', key: 'name' },
+  { title: 'Original Name', key: 'orgName' },
   { title: 'Start Date', key: 'startDate' },
   { title: 'Duration', key: "duration" },
   { title: "Board id", key: "boardid" },
@@ -123,8 +119,12 @@ function cancelUpdate() {
 
 
 async function updateSprints() {
+  var tmp : sprintInfoStore[] = []
   sprintDataStore.setsprintList(sprintsList.value)
-    const res = await mondayapi.storage.instance.setItem("boardInfo" , JSON.stringify(sprintsList.value))
+  sprintsList.value.forEach(element => {
+    tmp.push(convertSprintToString(element))
+  });
+    const res = await mondayapi.storage.instance.setItem("boardInfo" , JSON.stringify(tmp))
     console.log("save to store results " + JSON.stringify(res))
 
   updateRequired.value = false;
@@ -137,6 +137,7 @@ function UpdateSprintItem() {
     console.log("Start date " + startDateStirng.value)
     editedSprint.value.nonWorkingDays = stringToDateArray(nonWorkingDaysStirng.value)
     editedSprint.value.startDate = createDateFromText2(startDateStirng.value)
+    editedSprint.value.workingDays = editedSprint.value.duration -   editedSprint.value.nonWorkingDays.length
     sprintsList.value[index] = { ...editedSprint.value }
     sprintDataStore.setsprintList(sprintsList.value)
     updateRequired.value = true

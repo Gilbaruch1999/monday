@@ -4,21 +4,21 @@ import { createDateFromLocalText } from "@/utils/utils";
 
 var boardinfoString : string = ""
 
-var dummySprints : Sprint[] = [
-  {name : 'Sprint 39' , duration : 14 , startDate : createDateFromLocalText("12.4.2026") , orgName : "Sprint 39 org",
+var dummySprints : any [] = [
+  {name : 'Sprint 39' , duration : 14 , startDate : "12.4.2026" , orgName : "Sprint 39 org",
    boardid : "1647137427" , groupid : "group_mm1sv64v" , workingDays : 8  ,
-  nonWorkingDays : [ createDateFromLocalText("17.4.2026") , createDateFromLocalText("16.4.2026") , createDateFromLocalText("21.4.2026") , createDateFromLocalText("22.4.2026") ,
-    createDateFromLocalText("24.4.2026") , createDateFromLocalText("25.4.2026")]
+  nonWorkingDays : [ "16.4.2026" , "17.4.2026" , "21.4.2026" ,"22.4.2026" ,
+    "24.4.2026" , "25.4.2026"]
   },
-   {name : 'Sprint 40' , duration : 14 , startDate : createDateFromLocalText("26.4.2026") , orgName : "Sprint 40 org",
+   {name : 'Sprint 40' , duration : 14 , startDate : "26.4.2026" , orgName : "Sprint 40 org",
    boardid : "1647137427" , groupid : "group_mm1rp91q" , workingDays : 10  ,
-  nonWorkingDays : [ createDateFromLocalText("1.5.2026") , createDateFromLocalText("2.5.2026"),
-    createDateFromLocalText("8.5.2026") , createDateFromLocalText("9.5.2026")]
+  nonWorkingDays : [ "1.5.2026" , "2.5.2026",
+    "8.5.2026" , "9.5.2026"]
   },
-  {name : 'Sprint 41' , duration : 14 , startDate : createDateFromLocalText("10.5.2026") , orgName : "Sprint 41 org",
+  {name : 'Sprint 41' , duration : 14 , startDate : "10.5.2026" , orgName : "Sprint 41 org",
    boardid : "1647137427" , groupid : "group_mm25gkjt" , workingDays : 9  ,
-  nonWorkingDays : [ createDateFromLocalText("15.5.2026") , createDateFromLocalText("16.5.2026"),
-    createDateFromLocalText("21.5.2026") , createDateFromLocalText("22.5.2026") ,createDateFromLocalText("23.5.2026") ]
+  nonWorkingDays : [ "15.5.2026" , "16.5.2026",
+    "21.5.2026" , "22.5.2026" ,"23.5.2026" ]
   }
 ]
 
