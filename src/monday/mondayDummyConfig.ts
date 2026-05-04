@@ -2,6 +2,7 @@
 export function getMondayDummyConfig() {
   const res = {
 
+
   "data": {
     "docs": [
       {
@@ -12,46 +13,6 @@ export function getMondayDummyConfig() {
             "id": "1dfab382-39d3-4214-881d-e5d4755a144c",
             "type": "large title",
             "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"Sprints Configuration\"}]}"
-          },
-          {
-            "id": "2f36a4d4-d2d0-4afa-a728-41868e39befb",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
-          },
-          {
-            "id": "16685600-336b-4c77-8ab1-56d637282115",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"yjsUpdate\":{\"0\":1,\"1\":1,\"2\":248,\"3\":212,\"4\":207,\"5\":190,\"6\":3,\"7\":231,\"8\":1,\"9\":196,\"10\":248,\"11\":212,\"12\":207,\"13\":190,\"14\":3,\"15\":193,\"16\":1,\"17\":248,\"18\":212,\"19\":207,\"20\":190,\"21\":3,\"22\":194,\"23\":1,\"24\":1,\"25\":57,\"26\":0},\"deltaFormat\":[]}"
-          },
-          {
-            "id": "f1ef12f7-b3ce-43c2-9960-a71d5a7fb4ba",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
-          },
-          {
-            "id": "f37106a7-672a-42b2-a9ad-28c7892c4035",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
-          },
-          {
-            "id": "be513660-14c8-44fb-9128-dfe053065fa8",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 31\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mkxvt9cq\\\", \\\"startDate\\\" : \\\"14.12.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"19.12.2025\\\" , \\\"20.12.2025\\\" , \\\"26.12.2025\\\" ,\\\"27.12.2025\\\"]}\"}]}"
-          },
-          {
-            "id": "3c69f115-a08b-44a1-b8fd-7947503cf402",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 31\\\" ,\\\"boardid\\\" : \\\"5048014529\\\", \\\"groupid\\\" : \\\"group_mky038fa\\\", \\\"startDate\\\" : \\\"14.12.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"19.12.2025\\\" , \\\"20.12.2025\\\" , \\\"26.12.2025\\\" ,\\\"27.12.2025\\\"]}\"}]}"
-          },
-          {
-            "id": "3ee51c1d-cae0-4b77-86e6-f28bbe3b9c25",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 32\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mkyabmv5\\\", \\\"startDate\\\" : \\\"28.12.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"2.1.2026\\\" , \\\"3.1.2026\\\" , \\\"9.1.2026\\\" ,\\\"10.1.2026\\\"]}\"}]}"
-          },
-          {
-            "id": "3392af0f-b182-48dd-8775-2f73fd40b397",
-            "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 32\\\" ,\\\"boardid\\\" : \\\"5048014529\\\", \\\"groupid\\\" : \\\"group_mkyac51k\\\", \\\"startDate\\\" : \\\"28.12.2025\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"2.1.2026\\\" , \\\"3.1.2026\\\" , \\\"9.1.2026\\\" ,\\\"10.1.2026\\\"]}\"}]}"
           },
           {
             "id": "30c6829c-d0bc-4b54-bbef-031f86e07b43",
@@ -119,6 +80,16 @@ export function getMondayDummyConfig() {
             "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 39\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm1sv64v\\\", \\\"startDate\\\" : \\\"12.4.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"17.4.2026\\\" ,\\\"18.4.2026\\\",\\\"21.4.2026\\\",\\\"22.4.2026\\\",\\\"24.4.2026\\\",\\\"25.4.2026\\\"]}\"}]}"
           },
           {
+            "id": "b4c2da30-ee8d-46b6-808a-59fe9f19dcf8",
+            "type": "normal text",
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 40\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm1rp91q\\\", \\\"startDate\\\" : \\\"26.4.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"1.5.2026\\\" ,\\\"2.5.2026\\\",\\\"8.5.2026\\\",\\\"9.5.2026\\\"]}\"}]}"
+          },
+          {
+            "id": "e6e7135b-9b66-4183-b907-6cf081ef6cac",
+            "type": "normal text",
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"name\\\" : \\\"Sprint 41\\\" ,\\\"boardid\\\" : \\\"1647137427\\\", \\\"groupid\\\" : \\\"group_mm25gkjt\\\", \\\"startDate\\\" : \\\"10.5.2026\\\" ,\\\"duration\\\" : \\\"14\\\" , \\\"nonWorkingDays\\\" : [\\\"15.5.2026\\\" ,\\\"16.5.2026\\\",\\\"21.5.2026\\\",\\\"22.5.2026\\\",\\\"23.5.2026\\\"]}\"}]}"
+          },
+          {
             "id": "2343ab18-9f24-41cb-ac35-b5761c46f52f",
             "type": "normal text",
             "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[]}"
@@ -136,7 +107,7 @@ export function getMondayDummyConfig() {
           {
             "id": "dcfb6e35-7e57-478c-bc6f-5f2a4c022e65",
             "type": "normal text",
-            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"boardid\\\":\\\"1647137427\\\",\\\"dataLabels\\\":[\\\"Sprint 22\\\", \\\"Sprint 23\\\", \\\"Sprint 24\\\", \\\"Sprint 25\\\", \\\"Sprint 26\\\", \\\"Sprint 27\\\",\\\"Sprint 28\\\",\\\"Sprint 29\\\",\\\"Sprint 30\\\",\\\"Sprint 31\\\",\\\"Sprint 32\\\", \\\"Sprint 33\\\",\\\"Sprint 34\\\" ,\\\"Sprint 35\\\",\\\"Sprint 36\\\",\\\"Sprint 37\\\",\\\"Sprint 38b\\\"],\\\"velocity\\\":[\\\"37\\\", \\\"33\\\", \\\"39\\\", \\\"75\\\", \\\"62\\\", \\\"48\\\",\\\"71\\\",\\\"28\\\",\\\"47\\\",\\\"52\\\",\\\"57\\\",\\\"65\\\",\\\"53\\\",\\\"37\\\",\\\"55\\\",\\\"48\\\",\\\"30\\\"],\\\"predictability\\\": [\\\"70\\\", \\\"80\\\", \\\"57\\\", \\\"92\\\", \\\"49\\\", \\\"60\\\",\\\"72\\\",\\\"48\\\",\\\"65\\\",\\\"100\\\",\\\"58\\\",\\\"90\\\",\\\"93\\\",\\\"61\\\",\\\"77\\\",\\\"70\\\",\\\"64\\\"]}\"}]}"
+            "content": "{\"alignment\":\"left\",\"direction\":\"ltr\",\"deltaFormat\":[{\"insert\":\"{\\\"boardid\\\":\\\"1647137427\\\",\\\"dataLabels\\\":[\\\"Sprint 22\\\", \\\"Sprint 23\\\", \\\"Sprint 24\\\", \\\"Sprint 25\\\", \\\"Sprint 26\\\", \\\"Sprint 27\\\",\\\"Sprint 28\\\",\\\"Sprint 29\\\",\\\"Sprint 30\\\",\\\"Sprint 31\\\",\\\"Sprint 32\\\", \\\"Sprint 33\\\",\\\"Sprint 34\\\" ,\\\"Sprint 35\\\",\\\"Sprint 36\\\",\\\"Sprint 37\\\",\\\"Sprint 38b\\\",\\\"Sprint 39\\\"],\\\"velocity\\\":[\\\"37\\\", \\\"33\\\", \\\"39\\\", \\\"75\\\", \\\"62\\\", \\\"48\\\",\\\"71\\\",\\\"28\\\",\\\"47\\\",\\\"52\\\",\\\"57\\\",\\\"65\\\",\\\"53\\\",\\\"37\\\",\\\"55\\\",\\\"48\\\",\\\"30\\\",\\\"44\\\"],\\\"predictability\\\": [\\\"70\\\", \\\"80\\\", \\\"57\\\", \\\"92\\\", \\\"49\\\", \\\"60\\\",\\\"72\\\",\\\"48\\\",\\\"65\\\",\\\"100\\\",\\\"58\\\",\\\"90\\\",\\\"93\\\",\\\"61\\\",\\\"77\\\",\\\"70\\\",\\\"64\\\",\\\"86\\\"]}\"}]}"
           },
           {
             "id": "e54a4552-639c-47a4-99fc-72489c82950a",
@@ -189,9 +160,80 @@ export function getMondayDummyConfig() {
   }
 }
 
+  return res;
+}
 
-
+export function getMondayDummyBoardConfig() {
+  const res = {
+  "data": {
+    "boards": [
+      {
+        "id": "1647137427",
+        "name": "Sprint Backlog | Dev Team 1",
+        "type": "board",
+        "groups": [
+          {
+            "id": "group_mm30xrkd",
+            "title": "Sprint 43 - 18.6.26 - 7.6.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm25gkjt",
+            "title": "Sprint 42 - 4.6.26 - 24.5.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm288bn5",
+            "title": "Sprint 41 - 21.5.26 - 10.5.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm1rp91q",
+            "title": "Sprint 40 - 7.5.26 - 26.4.26 | Version 2.0.2",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm1sv64v",
+            "title": "Sprint 39 - 25.4.26 - 12.4.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm15cx5d",
+            "title": "Sprint 38b - 9.4.26 - 29.3.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm05qk55",
+            "title": "Sprint 38a - 26.3.26 - 22.3.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mm10js33",
+            "title": "Sprint 37 - 19.3.26 - 8.3.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mkzm6w4a",
+            "title": "Sprint 36 - 5.3.26 - 22.2.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mkzdm6gy",
+            "title": "Sprint 35 - 19.2.26 - 8.2.26",
+            "__typename": "Group"
+          },
+          {
+            "id": "group_mkzrrkjw",
+            "title": "old items",
+            "__typename": "Group"
+          }
+        ]
+      }
+    ]
+  }
+}
 
   return res;
 }
+
 

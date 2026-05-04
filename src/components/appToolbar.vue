@@ -65,18 +65,19 @@ import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery } from "@/monday/mondayQueries";
+import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery } from "@/monday/mondayQueries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
-import { getMondayDummyConfig } from "@/monday/mondayDummyConfig";
+import { getMondayDummyBoardConfig, getMondayDummyConfig } from "@/monday/mondayDummyConfig";
 import { historyData } from "@/utils/historyData";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
+import { dummyReadItem } from "@/monday/mondayDummyStorage";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -115,7 +116,6 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
-  await initStorage();
   await readStorage();
   await getUserList();
   await initData();
@@ -133,17 +133,52 @@ async function initData() {
   }
 
   await parseConfiguration(content, boardId.value)
+  await getBoardConfig(boardId.value)
+
   curSprint = findCurrentSprint(boardId.value)
   groupid.value = curSprint.groupid
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
+
   toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
-  router.push({ path: '/burndown' })
+
+   router.push({ path: '/burndown' })
+
 
 }
 
+async function getBoardConfig(bid: string) {
+  var data: any;
+
+  var sprintscfg : any
+  if (getFromDummy.value) {
+    data = getMondayDummyBoardConfig();
+    data = data.data
+    sprintscfg = JSON.parse(dummyReadItem("boardInfo"))
+    //console.log("Get board config from Dummy monday" + JSON.stringify(data))
+    console.log("Get board config from Dummy storage " + JSON.stringify(sprintscfg))
+  }
+  else {
+    var qstr = getBoardConfigQuery(bid);
+    console.log("Query " + qstr)
+    var res = await mondayapi.api(qstr);
+    console.log("get board config from api" + JSON.stringify(res))
+    data = res.data;
+  }
+
+  data.boards.forEach((board: any) => {
+    board.groups.forEach((group: any) => {
+      let sprintx = createSprintFromBoardConfig(group, bid)
+    // console.log("Found sprint !!!!" + JSON.stringify(sprintx))
+    });
+
+
+  });
+
+
+}
 
 
 async function getContext() {
@@ -201,6 +236,20 @@ function createSprint(sprintdata: any): Sprint {
     newSprint.nonWorkingDays.push(createDateFromLocalText(element))
   })
   newSprint.workingDays = newSprint.duration - newSprint.nonWorkingDays.length
+
+  return newSprint
+
+}
+
+
+function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
+
+  let newSprint = new Sprint();
+
+  newSprint.orgName = groupdata.title
+  newSprint.nonWorkingDays = []
+  newSprint.boardid = bid
+  newSprint.groupid = groupdata.id
 
   return newSprint
 
@@ -400,16 +449,6 @@ function parseConfiguration(data: any, boardId: string) {
 
 }
 
-async function initStorage() {
-  if (getFromDummy.value) {
-    console.log("Dummy storage")
-  }
-  else {
-    await mondayapi.storage.instance.setItem("sprints", JSON.stringify(['Sprint 1', 'Sprint2']))
-  }
-
-}
-
 
 async function readStorage() {
 
@@ -418,7 +457,7 @@ async function readStorage() {
 
   }
   else {
-    const res = await mondayapi.storage.instance.getItem("sprints")
+    const res = await mondayapi.storage.instance.getItem("boardInfo")
     console.log("Result from storage key " + JSON.stringify(res))
 
   }

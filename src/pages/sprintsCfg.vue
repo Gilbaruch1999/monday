@@ -122,8 +122,11 @@ function cancelUpdate() {
 }
 
 
-function updateSprints() {
+async function updateSprints() {
   sprintDataStore.setsprintList(sprintsList.value)
+    const res = await mondayapi.storage.instance.setItem("boardInfo" , JSON.stringify(sprintsList.value))
+    console.log("save to store results " + JSON.stringify(res))
+
   updateRequired.value = false;
 }
 
@@ -173,7 +176,7 @@ function stringToDateArray(str: string) {
 
 async function readStorage() {
 
-    const res = await mondayapi.storage.instance.getItem("sprints")
+    const res = await mondayapi.storage.instance.getItem("boardInfo")
     console.log("in sprint cfg Result from storage key " + JSON.stringify(res))
 
 

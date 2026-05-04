@@ -22,3 +22,13 @@ export function getAllUsersQuery() : string
 {
   return 'query AllUsers {users { id name email is_admin photo_tiny } }'
 }
+
+
+export function getBoardConfigQuery( boardid : string) : string
+{
+
+var tmp : string = 'query Allboards { boards(ids: ['
+tmp = tmp + boardid + ']) { id name type groups { id title __typename } } }'
+
+return tmp
+}
