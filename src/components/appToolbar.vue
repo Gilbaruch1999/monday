@@ -78,14 +78,13 @@ let curSprint: Sprint = new Sprint();
 let groupid = ref("");
 let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
-let boardids = ["1647137427", "5048014529"]
 let usersList: Ref<userData[]> = ref([])
 let currentUser: Ref<userData> = ref(new userData())
-//let sprintNames: Ref<string[]> = ref([])
+
 
 
 onMounted(async () => {
-  console.log("Starting app version v140")
+  console.log("Starting app version v143")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -149,7 +148,7 @@ async function getHistoryData(bid: string) {
   else {
     var res1 = await mondayapi.storage.instance.getItem("historyInfo");
     history = JSON.parse(res1.data.value)
-   console.log("History from storage  " + JSON.stringify(history))
+    console.log("History from storage  " + JSON.stringify(history))
   }
 
   sprintDataStore.setHistory(history)
@@ -162,7 +161,7 @@ async function getBoardConfig(bid: string) {
   var sprintscfgMonday: any;
   var sprintscfgStorage: any
   var currentSprints: Sprint[] = []
-  // console.log("Started get board config")
+  console.log("Started get board config")
 
   if (getFromDummy.value) {
     sprintscfgMonday = getMondayDummyBoardConfig();
@@ -174,12 +173,22 @@ async function getBoardConfig(bid: string) {
     var qstr = getBoardConfigQuery(bid);
     //console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
-    //console.log("get board config from api" + JSON.stringify(res))
+    console.log("get board config from api" + JSON.stringify(res))
     sprintscfgMonday = res.data;
 
-    var res1 = await mondayapi.storage.instance.getItem("boardInfo")
-    //console.log("Result from storage key " + JSON.stringify(res1))
-    sprintscfgStorage = JSON.parse(res1.data.value);
+    var res1 = await mondayapi.storage.instance.getItem("boardInfo");
+    console.log("res1 " + JSON.stringify(res1))
+    if ((res1.data.value === null)) {
+      console.log("Board configuration is empty")
+      var tmp: never[] = []
+      await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
+      sprintscfgStorage = []
+
+    }
+    else {
+      //console.log("Result from storage key " + JSON.stringify(res1))
+      sprintscfgStorage = JSON.parse(res1.data.value);
+    }
   }
   sprintscfgStorage.forEach((sprint: any) => {
     var sprintx = createSprint(sprint)
