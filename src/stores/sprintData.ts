@@ -1,5 +1,5 @@
 import { boardItem } from "@/utils/boarditem";
-import { historyData } from "@/utils/historyData";
+import { historyGraphData, sprintHistory } from "@/utils/historyData";
 import { Sprint } from "@/utils/sprintInfo";
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
@@ -29,7 +29,7 @@ export const useSprintData = defineStore("sprintData", () => {
   const curSprint: Ref<Sprint> = ref(new Sprint());
   const sprintList: Ref<Sprint[]> = ref([]);
   const boardid = ref("");
-  const history: Ref<historyData[]> = ref([]);
+  const history: Ref<sprintHistory[]> = ref([]);
   const retroInfo : Ref<retroData> = ref(new retroData())
   let boards: boardCfg[] = [
     new boardCfg("1647137427", "Dev"),
@@ -68,12 +68,12 @@ export const useSprintData = defineStore("sprintData", () => {
     boardid.value = id;
   }
 
-  function getHistory(): historyData[] {
+  function getHistory(): sprintHistory[] {
     return history.value;
   }
 
-  function setHistory(id: historyData[]) {
-    history.value = id;
+  function setHistory(_history : sprintHistory[]) {
+    history.value = _history;
   }
 
   function getTeamName(id: string): string {

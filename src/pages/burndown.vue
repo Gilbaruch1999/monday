@@ -302,7 +302,7 @@ let lineChartOptions = computed<ChartOptions<"line">>(() => ({
 
 
 onMounted(async () => {
-  console.log("On mounted burndown ")
+  //console.log("On mounted burndown ")
   graphType.value = props.graphTypeProp
   detailedgrpah.value = props.graphDetailedProp
   filterByName.value = false

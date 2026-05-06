@@ -54,7 +54,7 @@
 <script setup lang='ts'>
 
 
-//import { MondayClientSdk } from "monday-sdk-js";
+
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
 import { convertSprintToString, Sprint, sprintInfoStore} from "@/utils/sprintInfo";
