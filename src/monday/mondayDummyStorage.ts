@@ -14,8 +14,8 @@ var dummySprints: any[] = [
     groupid: "group_mm1sv64v",
     workingDays: 8,
     nonWorkingDays: [
-      "16.4.2026",
       "17.4.2026",
+      "18.4.2026",
       "21.4.2026",
       "22.4.2026",
       "24.4.2026",
