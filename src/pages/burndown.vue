@@ -458,6 +458,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
 function addBurnUpValues(itemsList: boardItem[], curindex: number) {
   itemsList.forEach(element => {
     if (element.status == "Done") {
+      //console.log("Done item " + JSON.stringify(element.title ) + " date " + element.DoneDate.toLocaleDateString() + " Points " + element.storyPoints)
       var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
       if (filterByName.value) {
 
@@ -471,6 +472,7 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
           burnUpValues.value[index] = burnUpValues.value[index] + element.storyPoints;
         }
       }
+      //console.log("Burn up values " + JSON.stringify(burnUpValues.value))
     }
   });
 }
@@ -503,7 +505,6 @@ function calcBurnUp() {
     var highlevelItemss = itemsList.value.filter(x => x.status == "Done")
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
     addBurnUpValues(highlevelItemss, currentIndex)
-
   }
 
   if (filterByName.value) {
@@ -512,7 +513,7 @@ function calcBurnUp() {
 
   actualValues.value[0] = totalPoints.value
   var curDate = curSprint.value.startDate;
-  curDate = new Date(addDays(curDate, 1))
+  curDate.setHours(0, 0, 0, 0)
   for (let index = 0; index < actualValues.value.length; index++) {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
     if ((index + 1) < actualValues.value.length)
@@ -523,10 +524,9 @@ function calcBurnUp() {
     }
     else
       burnUpGoals.value[index] = Math.round(burndownStep.value)
+    //console.log("Burnup goals " + JSON.stringify(burnUpGoals.value))
     curDate = new Date(addDays(curDate, 1))
-
   }
-
 
 }
 

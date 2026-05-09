@@ -5,14 +5,12 @@ const DAY_TO_MSEC = 24 * 3600 * 1000;
 }*/
 
 export function isDateInList(curDate: Date, list: Date[]): boolean {
-   //console.log("date " + curDate.toLocaleDateString())
-
-
+  // console.log("Compare date " + curDate.toLocaleDateString())
   let ret_val = false;
   for (let index = 0; index < list.length; index++) {
     let testTime = list[index];
     testTime.setHours(0, 0, 0, 0);
-    //console.log("test time " + testTime.toLocaleString())
+    //console.log("In list date " + testTime.toLocaleString())
     let dif = curDate.getTime() - testTime.getTime();
     //console.log("Time Dif is " + dif)
     if (dif == 0) {
@@ -21,7 +19,7 @@ export function isDateInList(curDate: Date, list: Date[]): boolean {
     }
     if (dif < 0) break;
   }
-  //console.log("Ret value is " + ret_val)
+ // console.log("Ret value is " + ret_val)
 
   return ret_val;
 }
