@@ -8,7 +8,7 @@
     <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">View Sprints</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Sprints</v-btn>
     <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
 
 
@@ -84,7 +84,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v143")
+  console.log("Starting app version v144")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {

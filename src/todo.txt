@@ -1,9 +1,5 @@
 
-- create and test storage infrastructure - Done
-- get boardid from context
-- create sprint configuration page + save to storage
-- Read sprints from monday 
-- add dummy storage  
+- Remove old infrastructure 
 - move history to storage
 - create columns mapping
 - create status mapping
