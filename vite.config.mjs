@@ -61,6 +61,7 @@ export default defineConfig({
     ],
   },
   server: {
+    allowedHosts: ['my-app.local', '10484160-66a1fffb9138.apps-tunnel.monday.app'],
     port: 3000,
   },
   css: {

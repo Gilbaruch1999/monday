@@ -36,14 +36,16 @@
     </v-card>
     <v-card class="text-center">
       <v-card-title>Burn down and burn up</v-card-title>
+
     </v-card>
+
     <v-card class="text-center">
       <v-card-title>Practices scoring</v-card-title>
-      <retro-item v-for="(item,index) in retroItems" :itemtext="item.name" v-model="retroItems[index]"></retro-item>
-      <v-btn @click="testValue()">test</v-btn>
+      <retro-item v-for="(item, index) in retroItems" :itemtext="item.name" v-model="retroItems[index]"></retro-item>
     </v-card>
     <v-card>
       <v-card-title class="text-center">Historic KPI trends</v-card-title>
+      <history :edit-history="false"></history>
     </v-card>
 
   </v-container>
@@ -54,6 +56,7 @@
 import { retroData, useSprintData } from '@/stores/sprintData';
 import { retroItemInfo } from '@/utils/retroItem';
 import { onMounted, ref, type Ref } from 'vue';
+import History from './history.vue';
 
 const sprintDataStore = useSprintData();
 const poImages = [
@@ -63,10 +66,10 @@ const poImages = [
 ]
 const retroInfo: Ref<retroData> = ref(new retroData())
 const POFeedback: Ref<number> = ref(-1);
-const retroItems : retroItemInfo[] = [
-  { name : "Relative Estimations" ,status : "" , comment : ""},
-  { name : "Sprint pre-planning" ,status : "" , comment : ""},
-  { name : "Sprint planning" ,status : "" , comment : ""}
+const retroItems: retroItemInfo[] = [
+  { name: "Relative Estimations", status: "", comment: "" },
+  { name: "Sprint pre-planning", status: "", comment: "" },
+  { name: "Sprint planning", status: "", comment: "" }
 ]
 
 onMounted(async () => {
@@ -75,19 +78,10 @@ onMounted(async () => {
 })
 
 
-function testValue()
-{
-
-  retroItems.forEach(element => {
-     console.log("retro item " + JSON.stringify(element))
-  });
-}
-
 </script>
 <style lang="css" scoped>
-
 .preditem {
   font-size: clamp(0.5rem, 2.5vw, 1rem);
-  font-weight : bold
-  }
+  font-weight: bold
+}
 </style>

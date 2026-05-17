@@ -12,7 +12,7 @@ import SprintGoals from './sprintGoals.vue';
 <Burndown graph-type-prop='BurnDown'></Burndown>
 <Burndown graph-type-prop='BurnUp'></Burndown>
 
-<History></History>
+<History :edit-history="false"></History>
 <br></br><br></br>
 <Breakdown :retro-mode="true"></Breakdown>
 </template>

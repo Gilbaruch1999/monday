@@ -38,7 +38,7 @@ var dummySprints: any[] = [
     startDate: "10.5.2026",
     orgName: "Sprint 41 org",
     boardid: "1647137427",
-    groupid: "group_mm25gkjt",
+    groupid: "group_mm288bn5",
     workingDays: 9,
     nonWorkingDays: [
       "15.5.2026",

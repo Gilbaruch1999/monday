@@ -10,6 +10,7 @@
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Sprints</v-btn>
     <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
+    <v-btn v-if="true" class="mt-6" @click="$router.push('/retroOnLine')">Online Retrospective</v-btn>
 
 
     <v-menu class="mt-6">
@@ -66,6 +67,7 @@ import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
 import { dummyReadItem } from "@/monday/mondayDummyStorage";
+import { addLineOfTextToDoc } from "@/monday/mondayWriteDoc";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -107,6 +109,12 @@ onMounted(async () => {
   await initData();
 })
 
+function writeTestDoc()
+{
+  addLineOfTextToDoc(mondayapi , "00c8f923-16a1-4052-8ba9-7701a4d7199c")
+
+}
+
 async function initData() {
   var content;
   if (getFromDummy.value) {
@@ -123,6 +131,11 @@ async function initData() {
   await getHistoryData(boardId.value)
 
   curSprint = findCurrentSprint(boardId.value)
+  if (curSprint.duration == -1) {
+    console.log("No current sprint");
+    router.push({ path: '/sprintsCfg' })
+    return;
+  }
   groupid.value = curSprint.groupid
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
@@ -148,7 +161,7 @@ async function getHistoryData(bid: string) {
   else {
     var res1 = await mondayapi.storage.instance.getItem("historyInfo");
     history = JSON.parse(res1.data.value)
-    console.log("History from storage  " + JSON.stringify(history))
+    //console.log("History from storage  " + JSON.stringify(history))
   }
 
   sprintDataStore.setHistory(history)
@@ -173,11 +186,11 @@ async function getBoardConfig(bid: string) {
     var qstr = getBoardConfigQuery(bid);
     //console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
-    console.log("get board config from api" + JSON.stringify(res))
+    //console.log("get board config from api" + JSON.stringify(res))
     sprintscfgMonday = res.data;
 
     var res1 = await mondayapi.storage.instance.getItem("boardInfo");
-    console.log("res1 " + JSON.stringify(res1))
+    //console.log("res1 " + JSON.stringify(res1))
     if ((res1.data.value === null)) {
       console.log("Board configuration is empty")
       var tmp: never[] = []
@@ -189,6 +202,12 @@ async function getBoardConfig(bid: string) {
       //console.log("Result from storage key " + JSON.stringify(res1))
       sprintscfgStorage = JSON.parse(res1.data.value);
     }
+  }
+  // remove after debug
+  if (sprintscfgStorage.length == 0) {
+    sprintscfgMonday = getMondayDummyBoardConfig();
+    sprintscfgMonday = sprintscfgMonday.data
+    sprintscfgStorage = JSON.parse(dummyReadItem("boardInfo"))
   }
   sprintscfgStorage.forEach((sprint: any) => {
     var sprintx = createSprint(sprint)

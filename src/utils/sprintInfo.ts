@@ -28,7 +28,7 @@ export class Sprint implements sprintInfo {
   workingDays: number = 0;
   nonWorkingDays: Date[];
   constructor() {
-    this.duration = 0;
+    this.duration = -1;
     this.nonWorkingDays = [];
     this.startDate = new Date();
   }

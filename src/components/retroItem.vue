@@ -33,13 +33,13 @@ function selectionChanged(item : string) {
       </v-col>
        <v-menu>
       <template v-slot:activator="{ props }">
-        <v-btn
+        <v-btn class="mt-4"
           color="primary"
           v-bind="props"
         >{{ selectedValue }}
         </v-btn>
       </template>
-      <v-list>
+      <v-list >
         <v-list-item
           v-for="(item, index) in retroStatuses"
           :key="index"
@@ -48,7 +48,7 @@ function selectionChanged(item : string) {
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-text-field class="ml-4" label="Comment"> </v-text-field>
+    <v-text-field class="ml-6" label="Comment"> </v-text-field>
 
     </v-row>
   </v-container>

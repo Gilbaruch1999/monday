@@ -9,14 +9,13 @@
   <div class="mx-6">
     <LineChart :chart-data="predData" :options="predChartOptions" />
   </div>
-  <div align="center">
+  <div align="center" v-if="props.editHistory">
     <v-btn class="ma-4" @click="updateToStore()" color="orange">Save to store</v-btn>
     <v-btn class="ma-4" color="orange" @click="AddHistoryItem()">Add </v-btn>
   </div>
-  <v-container fluid>
+  <v-container fluid v-if="props.editHistory">
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
       :headers="sprintHeaders" :items="historyList">
-
       <template v-slot:item.actions="{ item }">
         <v-icon small color="blue" class="mr-2" @click="editHistory(item)">
           mdi-pencil
@@ -25,9 +24,7 @@
           mdi-delete
         </v-icon>
       </template>
-
     </v-data-table>
-
   </v-container>
   <v-dialog v-model="dialog" width="50%">
     <v-card :title="'Edit Sprint ' + selectedHistory.sprint">
@@ -36,7 +33,6 @@
           <v-text-field label='Velocity' v-model="selectedHistory.velocity"> </v-text-field>
           <v-text-field label='Predictability' v-model="selectedHistory.predictability"> </v-text-field>
         </v-row>
-
       </v-form>
       <template v-slot:actions>
         <v-btn color="orange" class="ms-auto" text="Update" @click="UpdateSprintHistory()"></v-btn>
@@ -55,6 +51,15 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useSprintData } from "../stores/sprintData";
 import { sprintHistory } from "@/utils/historyData";
 import { MondayClientSdk } from "monday-sdk-js";
+
+
+const props = defineProps({
+  editHistory: {
+    type: Boolean,
+    default: true
+  }
+});
+
 
 const mondayapi = inject('monday') as MondayClientSdk
 
