@@ -32,3 +32,35 @@ tmp = tmp + boardid + ']) { id name type groups { id title __typename } } }'
 
 return tmp
 }
+
+export function getWriteLineQuery() : string
+{
+  var tmp = 'mutation writetext {create_doc_block(type: normal_text doc_id: 8701695 content:\
+     "{\\"deltaFormat\\":[{\\"insert\\":\\"Code using api 123\\"}]}" )\
+     { id } } '
+
+  return tmp;
+}
+
+
+
+export function getWriteLineQuery1(textstring : string) : string
+{
+  var tmp = 'mutation writetext {create_doc_block(type: normal_text doc_id: 8701695 content:\
+     "{\\"deltaFormat\\":[{\\"insert\\":\\"' +  textstring +   '\\"}]}" )\
+     { id } } '
+
+  return tmp;
+}
+
+
+
+
+export function getWriteLineQuery2(textstring : string , type : string) : string
+{
+  var tmp = 'mutation writetext {create_doc_block(type: ' +  type + ' doc_id: 8701695 content:\
+     "{\\"deltaFormat\\":[{\\"insert\\":\\"' +  textstring +   '\\"}]}" )\
+     { id } } '
+
+  return tmp;
+}

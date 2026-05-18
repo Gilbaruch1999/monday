@@ -158,8 +158,9 @@ async function updateSprints() {
   sprintsList.value.forEach(element => {
     tmp.push(convertSprintToString(element))
   });
+  tmp = tmp.sort((a, b) => createDateFromLocalText(b.startDate).getTime() - createDateFromLocalText(a.startDate).getTime())
   const res = await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
-  console.log("save to store results " + JSON.stringify(res))
+  //console.log("save to store results " + JSON.stringify(res))
 
   updateRequired.value = false;
 }

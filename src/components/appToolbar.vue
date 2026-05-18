@@ -10,7 +10,7 @@
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
     <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Sprints</v-btn>
     <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
-    <v-btn v-if="true" class="mt-6" @click="$router.push('/retroOnLine')">Online Retrospective</v-btn>
+    <v-btn v-if="false" class="mt-6" @click="$router.push('/retroOnLine')">Online Retrospective</v-btn>
 
 
     <v-menu class="mt-6">
@@ -54,7 +54,7 @@ import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery } from "@/monday/mondayQueries";
+import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery, getWriteLineQuery1, getWriteLineQuery2 } from "@/monday/mondayQueries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
@@ -86,7 +86,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v144")
+  console.log("Starting app version v145")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -105,13 +105,41 @@ onMounted(async () => {
     getFromDummy.value = true;
   }
   await getContext();
+  //await writeTestDoc();
   await getUserList();
   await initData();
+
 })
 
-function writeTestDoc()
+async function writeTestDoc()
 {
-  addLineOfTextToDoc(mondayapi , "00c8f923-16a1-4052-8ba9-7701a4d7199c")
+
+console.log("Writing to document !!!")
+var tmp = getWriteLineQuery2("test 1 large title" , "large_title")
+console.log("query " + tmp)
+var res = await mondayapi.api(tmp);
+console.log("Return from write doc " + JSON.stringify(res))
+
+
+
+/*  let afterBlockId = "00c8f923-16a1-4052-8ba9-7701a4d7199c"
+ const data = {
+    type: "normal text", // or "large title", "quote", etc.
+    content: {
+      deltaFormat: [
+        {
+          insert: "New block content from SDK"
+        }
+      ]
+    },
+    afterBlockId
+  };
+
+ let res =  await mondayapi.execute("addDocBlock", data);
+ console.log("Results from add line api " + JSON.stringify(res))
+*/
+
+  //await addLineOfTextToDoc(mondayapi , "00c8f923-16a1-4052-8ba9-7701a4d7199c")
 
 }
 
@@ -221,7 +249,7 @@ async function getBoardConfig(bid: string) {
       let sprintx = createSprintFromBoardConfig(group, bid)
       let index = currentSprints.findIndex(x => x.groupid == sprintx.groupid)
       if (index == -1)
-        currentSprints.push(sprintx)
+        currentSprints.unshift(sprintx)
       else {
         currentSprints[index].orgName = group.title
       }
