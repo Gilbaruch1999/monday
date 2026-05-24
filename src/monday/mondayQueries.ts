@@ -54,8 +54,6 @@ export function getWriteLineQuery1(textstring : string) : string
 }
 
 
-
-
 export function getWriteLineQuery2(textstring : string , type : string) : string
 {
   var tmp = 'mutation writetext {create_doc_block(type: ' +  type + ' doc_id: 8701695 content:\
@@ -64,3 +62,23 @@ export function getWriteLineQuery2(textstring : string , type : string) : string
 
   return tmp;
 }
+
+
+
+export function getStatusUpdateDate(ids : string ) : string
+{
+
+  var tmp = 'query getStatusDateChange{ \
+  items(ids: ' + ids + ') { \
+    name \
+    column_values(ids: ["status"]) { \
+      ... on StatusValue { \
+        id \
+        label \
+        updated_at } } } }';
+
+
+  return tmp;
+}
+
+

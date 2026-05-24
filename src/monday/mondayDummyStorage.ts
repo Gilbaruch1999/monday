@@ -5,23 +5,7 @@ import { sprintHistory } from "@/utils/historyData";
 var boardinfoString: string = "";
 
 var dummySprints: any[] = [
-  {
-    name: "Sprint 39",
-    duration: 14,
-    startDate: "12.4.2026",
-    orgName: "Sprint 39 org",
-    boardid: "1647137427",
-    groupid: "group_mm1sv64v",
-    workingDays: 8,
-    nonWorkingDays: [
-      "17.4.2026",
-      "18.4.2026",
-      "21.4.2026",
-      "22.4.2026",
-      "24.4.2026",
-      "25.4.2026",
-    ],
-  },
+
   {
     name: "Sprint 40",
     duration: 14,
@@ -46,6 +30,21 @@ var dummySprints: any[] = [
       "21.5.2026",
       "22.5.2026",
       "23.5.2026",
+    ],
+  },
+  {
+    name: "Sprint 42",
+    duration: 14,
+    startDate: "24.5.2026",
+    orgName: "Sprint 42 org",
+    boardid: "1647137427",
+    groupid: "group_mm25gkjt",
+    workingDays: 10,
+    nonWorkingDays: [
+      "29.5.2026",
+      "30.5.2026",
+      "5.6.2026",
+      "6.6.2026",
     ],
   },
 ];

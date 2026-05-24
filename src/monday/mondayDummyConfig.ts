@@ -217,16 +217,6 @@ export function getMondayDummyBoardConfig() {
             "title": "Sprint 36 - 5.3.26 - 22.2.26",
             "__typename": "Group"
           },
-          {
-            "id": "group_mkzdm6gy",
-            "title": "Sprint 35 - 19.2.26 - 8.2.26",
-            "__typename": "Group"
-          },
-          {
-            "id": "group_mkzrrkjw",
-            "title": "old items",
-            "__typename": "Group"
-          }
         ]
       }
     ]

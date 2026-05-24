@@ -2,7 +2,7 @@
 <template>
   <v-container fluid>
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
-      :headers="sprintHeaders" :items="sprintsList">
+      :headers="sprintHeaders" :items="sprintsList" :row-props="getRowProps">
       <template v-slot:item.startDate="{ item }">
         {{ item.startDate.toLocaleDateString() }}
       </template>
@@ -138,6 +138,17 @@ function cancelUpdateSprintItem() {
 
 }
 
+
+function getRowProps(sprintitem: any) {
+  let ret_val = {}
+  console.log("Sprint item group " + sprintitem.groupid)
+
+  if (sprintitem.item.groupid == sprintDataStore.getCursprintConfig().groupid) {
+    ret_val = { class: 'done_bg' }
+  }
+
+  return ret_val
+}
 
 function manageSprintsClicked() {
 

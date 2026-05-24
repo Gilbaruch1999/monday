@@ -54,7 +54,7 @@ import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery, getWriteLineQuery1, getWriteLineQuery2 } from "@/monday/mondayQueries";
+import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery, getWriteLineQuery1, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
 import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
@@ -86,7 +86,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v145")
+  console.log("Starting app version v146")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -171,12 +171,38 @@ async function initData() {
 
   toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
-
+  await getCompletionDates()
   router.push({ path: '/burndown' })
-
-
 }
 
+
+async function getCompletionDates()
+{
+   var updatedDate ;
+   if (getFromDummy.value) {
+    updatedDate = getMondayDummyUsers();
+
+  }
+  else {
+    let ids = "[";
+    let count=0;
+    sprintDataStore.getsprintData().forEach(item => {
+    ids = ids+item.id
+    if (count < sprintDataStore.getsprintData().length)
+    {
+      ids= ids+","
+      count++
+    }
+    });
+    ids = ids + ']'
+    console.log(" IDS " + ids)
+    let query = getStatusUpdateDate(ids)
+    updatedDate = await mondayapi.api(query)
+    console.log(" Return from get status updated date " + JSON.stringify(updatedDate))
+
+  }
+
+}
 
 
 async function getHistoryData(bid: string) {
