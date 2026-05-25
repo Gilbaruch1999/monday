@@ -48,26 +48,26 @@
 
 
 <script setup lang='ts'>
-// <v-btn class="mt-6" @click="$router.push('/retroOnLine')">On Line retro</v-btn>
+
 import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery, getWriteLineQuery1, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
-import { createDateFromLocalText, createDateFromText2, getDaysdiff } from "@/utils/utils";
+import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
+import { createDateFromLocalText, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
 import { getMondayDummyBoardConfig, getMondayDummyConfig } from "@/monday/mondayDummyConfig";
-import { historyGraphData, sprintHistory } from "@/utils/historyData";
+import { sprintHistory } from "@/utils/historyData";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
 import { dummyReadItem } from "@/monday/mondayDummyStorage";
-import { addLineOfTextToDoc } from "@/monday/mondayWriteDoc";
+
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -111,33 +111,32 @@ onMounted(async () => {
 
 })
 
-async function writeTestDoc()
-{
+async function writeTestDoc() {
 
-console.log("Writing to document !!!")
-var tmp = getWriteLineQuery2("test 1 large title" , "large_title")
-console.log("query " + tmp)
-var res = await mondayapi.api(tmp);
-console.log("Return from write doc " + JSON.stringify(res))
-
+  console.log("Writing to document !!!")
+  var tmp = getWriteLineQuery2("test 1 large title", "large_title")
+  console.log("query " + tmp)
+  var res = await mondayapi.api(tmp);
+  console.log("Return from write doc " + JSON.stringify(res))
 
 
-/*  let afterBlockId = "00c8f923-16a1-4052-8ba9-7701a4d7199c"
- const data = {
-    type: "normal text", // or "large title", "quote", etc.
-    content: {
-      deltaFormat: [
-        {
-          insert: "New block content from SDK"
-        }
-      ]
-    },
-    afterBlockId
-  };
 
- let res =  await mondayapi.execute("addDocBlock", data);
- console.log("Results from add line api " + JSON.stringify(res))
-*/
+  /*  let afterBlockId = "00c8f923-16a1-4052-8ba9-7701a4d7199c"
+   const data = {
+      type: "normal text", // or "large title", "quote", etc.
+      content: {
+        deltaFormat: [
+          {
+            insert: "New block content from SDK"
+          }
+        ]
+      },
+      afterBlockId
+    };
+
+   let res =  await mondayapi.execute("addDocBlock", data);
+   console.log("Results from add line api " + JSON.stringify(res))
+  */
 
   //await addLineOfTextToDoc(mondayapi , "00c8f923-16a1-4052-8ba9-7701a4d7199c")
 
@@ -167,42 +166,59 @@ async function initData() {
   groupid.value = curSprint.groupid
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
+  await getCompletionDates()
   sprintDataStore.setsprintData(itemsList.value)
 
   toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
-  await getCompletionDates()
+
   router.push({ path: '/burndown' })
 }
 
 
-async function getCompletionDates()
-{
-   var updatedDate ;
-   if (getFromDummy.value) {
-    updatedDate = getMondayDummyUsers();
-
-  }
-  else {
-    let ids = "[";
-    let count=0;
-    sprintDataStore.getsprintData().forEach(item => {
-    ids = ids+item.id
-    if (count < sprintDataStore.getsprintData().length)
-    {
-      ids= ids+","
+async function getCompletionDates() {
+  var updatedDate;
+  let ids = "[";
+  let count = 0;
+  itemsList.value.forEach(item => {
+    ids = ids + item.id
+    if (item.subItems.length > 0) {
+      ids = ids + ","
+      item.subItems.forEach(subitem => {
+        ids = ids + subitem.id + ','
+      });
+    }
+    if (count < sprintDataStore.getsprintData().length - 1) {
+      ids = ids + ","
       count++
     }
-    });
-    ids = ids + ']'
-    console.log(" IDS " + ids)
-    let query = getStatusUpdateDate(ids)
-    updatedDate = await mondayapi.api(query)
-    console.log(" Return from get status updated date " + JSON.stringify(updatedDate))
+  });
+  ids = ids + ']'
+  let query = getStatusUpdateDate(ids)
+  updatedDate = await mondayapi.api(query)
+  updatedDate.data.items.forEach((element: any) => {
+    if (element.column_values.length > 0) {
+      var idx1 : number;
+      if (element.column_values[0].label == "Done") {
+        //console.log("Done element xxx " + JSON.stringify(element))
 
-  }
-
+        let doneDate = new Date(element.column_values[0].updated_at)
+        if (element.parent_item == null) {
+            idx1 = itemsList.value.findIndex(x => x.id == element.id)
+           itemsList.value[idx1].DoneDate = doneDate;
+        }
+        else
+        {
+           idx1 = itemsList.value.findIndex(x => x.id == element.parent_item.id)
+          // find subitem index
+          let idx2 = itemsList.value[idx1].subItems.findIndex(x=>x.id == element.id)
+           itemsList.value[idx1].subItems[idx2].DoneDate = doneDate;        }
+      }
+    }
+  });
 }
+
+
 
 
 async function getHistoryData(bid: string) {
@@ -470,6 +486,7 @@ async function sprintChanged(item: Sprint) {
     curSprint = sprintDataStore.getsprintList()[index]
     toolBarTitle.value = curSprint.name + " status"
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
+    await await getCompletionDates()
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }

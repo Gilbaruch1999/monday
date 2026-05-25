@@ -70,8 +70,11 @@ export function getStatusUpdateDate(ids : string ) : string
 
   var tmp = 'query getStatusDateChange{ \
   items(ids: ' + ids + ') { \
-    name \
-    column_values(ids: ["status"]) { \
+    id \
+     parent_item { \
+      id \
+    } \
+    column_values(ids: ["status" , "status4__1"]) { \
       ... on StatusValue { \
         id \
         label \

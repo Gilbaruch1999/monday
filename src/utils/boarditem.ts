@@ -27,8 +27,8 @@ export class boardItem {
   subitemsPoints: number;
   subitemsDonePoints: number;
   DoneDate: Date = new Date(0);
-  startDate: Date = new Date();
-  starWorkDate: Date = new Date();
+  //startDate: Date = new Date();
+  //starWorkDate: Date = new Date();
   planningStatus: boolean;
   planningCheck: boolean;
   planningCheckErrors: boolean[];
@@ -81,19 +81,19 @@ export class boardItem {
         case "Issue Type":
           this.type = column.text;
           break;
-        case "DoneDate":
+       /* case "DoneDate":
         case "CompletionDate":
         case "SubItemDoneDate":
           if (this.status == "Done") {
             this.DoneDate = createDateFromText2(column.text);
-          }
+          }*/
           break;
-        case "StartDate":
+      /*  case "StartDate":
           this.startDate = createDateFromText2(column.text);
           break;
         case "StartWorkDate":
           this.starWorkDate = createDateFromText2(column.text);
-          break;
+          break;*/
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))
       }
