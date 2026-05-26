@@ -144,16 +144,7 @@ async function writeTestDoc() {
 
 async function initData() {
   var content;
-  if (getFromDummy.value) {
-    content = getMondayDummyConfig();
-  }
-  else {
-    var docquery = getAppConfigQuery('5083213836')
-    content = await mondayapi.api(docquery);
-    //console.log("Doc content " + JSON.stringify(content))
-  }
 
-  //await parseConfiguration(content, boardId.value)
   await getBoardConfig(boardId.value)
   await getHistoryData(boardId.value)
 
@@ -166,7 +157,6 @@ async function initData() {
   groupid.value = curSprint.groupid
   console.log("current sprint " + JSON.stringify(curSprint))
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
-  await getCompletionDates()
   sprintDataStore.setsprintData(itemsList.value)
 
   toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
@@ -175,7 +165,7 @@ async function initData() {
   router.push({ path: '/burndown' })
 }
 
-
+/*
 async function getCompletionDates() {
   var updatedDate;
   let ids = "[";
@@ -200,12 +190,16 @@ async function getCompletionDates() {
     if (element.column_values.length > 0) {
       var idx1 : number;
       if (element.column_values[0].label == "Done") {
-        //console.log("Done element xxx " + JSON.stringify(element))
+        console.log("Done element xxx " + JSON.stringify(element))
 
         let doneDate = new Date(element.column_values[0].updated_at)
+        doneDate.setHours(0,0,0,0)
         if (element.parent_item == null) {
+           console.log("Null parent item " + element.id )
             idx1 = itemsList.value.findIndex(x => x.id == element.id)
+            console.log("idx 1 is " + idx1)
            itemsList.value[idx1].DoneDate = doneDate;
+           console.log("New item update " +  itemsList.value[idx1].title + " donedate " + itemsList.value[idx1].DoneDate)
         }
         else
         {
@@ -217,9 +211,7 @@ async function getCompletionDates() {
     }
   });
 }
-
-
-
+*/
 
 async function getHistoryData(bid: string) {
   var tmp: any;
@@ -486,7 +478,6 @@ async function sprintChanged(item: Sprint) {
     curSprint = sprintDataStore.getsprintList()[index]
     toolBarTitle.value = curSprint.name + " status"
     await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
-    await await getCompletionDates()
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }

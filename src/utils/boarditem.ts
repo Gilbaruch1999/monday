@@ -57,6 +57,12 @@ export class boardItem {
       switch (column.column.title) {
         case "Status":
           this.status = column.text;
+          if (this.status == "Done")          {
+
+             let donedate = new Date (column.updated_at)
+             donedate.setHours(0,0,0,0);
+             this.DoneDate = donedate
+          }
           break;
         case "Domain":
           this.domain = column.text;

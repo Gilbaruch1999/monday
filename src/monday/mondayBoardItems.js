@@ -84,8 +84,8 @@ export function getMondayDummyBoardItems(boardid) {
         "items_page": {
           "items": [
             {
-              "name": "Freeze Booster Charge & Usage btn  - implementation",
-              "id": "2835570535",
+              "name": "First Match Guided Onboarding (MVP FTUE)",
+              "id": "2917006546",
               "column_values": [
                 {
                   "column": {
@@ -102,6 +102,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Asaf Bashari"
                 },
                 {
+                  "id": "status",
+                  "label": "Done",
+                  "updated_at": "2026-05-25T17:45:56+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
@@ -109,6 +112,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Done"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Epic",
+                  "updated_at": "2026-05-17T09:08:14+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
@@ -116,27 +122,39 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Epic"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "M",
+                  "updated_at": "2026-05-20T08:02:16+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "xS"
+                  "text": "M"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Onboarding",
+                  "updated_at": "2026-05-17T16:50:13+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Brain Storm"
+                  "text": "Onboarding"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "User Needs",
+                  "updated_at": "2026-05-17T16:50:10+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Vision"
+                  "text": "User Needs"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Minimum",
+                  "updated_at": "2026-05-17T16:50:09+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
@@ -144,6 +162,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Minimum"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:04:51+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
@@ -155,7 +176,7 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-04-27"
+                  "text": "2026-05-25"
                 },
                 {
                   "column": {
@@ -167,8 +188,8 @@ export function getMondayDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "Dev",
-                  "id": "2835568057",
+                  "name": "Dev - Implement",
+                  "id": "2921403212",
                   "board": {
                     "id": "1647137428"
                   },
@@ -181,6 +202,9 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Asaf Bashari"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Done",
+                      "updated_at": "2026-05-25T06:19:58+00:00",
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
@@ -188,6 +212,9 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Done"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-17T09:08:12+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
@@ -195,6 +222,62 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Story"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-24T07:43:20+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-05-25"
+                    }
+                  ]
+                },
+                {
+                  "name": "Dev - Add FTUE Analytics Flags",
+                  "id": "2921422029",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Done",
+                      "updated_at": "2026-05-25T17:45:53+00:00",
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-17T09:08:10+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-24T07:43:22+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
@@ -206,144 +289,15 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-04-27"
+                      "text": "2026-05-25"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "Implement - Freeze Booster In-Game Animation",
-              "id": "2835572937",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "M"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Brain Storm"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Minimum"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-04-28"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Dev",
-                  "id": "2835573114",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-28"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "🎨Show Optional / Mandatory Update Popup",
-              "id": "2852640709",
+              "name": "🎨Highlight Active Booster Button",
+              "id": "2909743297",
               "column_values": [
                 {
                   "column": {
@@ -360,6 +314,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Asaf Bashari, Katerina sayko"
                 },
                 {
+                  "id": "status",
+                  "label": "Done",
+                  "updated_at": "2026-05-25T12:35:34+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
@@ -367,20 +324,29 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Done"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Epic",
+                  "updated_at": "2026-05-12T08:59:01+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Epic"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "xS",
+                  "updated_at": "2026-05-20T08:05:18+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "M"
+                  "text": "xS"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-12T08:47:56+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
@@ -388,13 +354,19 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Brain Storm"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "User Needs",
+                  "updated_at": "2026-05-12T08:48:00+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Disruptions"
+                  "text": "User Needs"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Minimum",
+                  "updated_at": "2026-05-17T16:53:09+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
@@ -402,6 +374,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Minimum"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:07:57+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
@@ -413,7 +388,7 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-04-27"
+                  "text": "2026-05-25"
                 },
                 {
                   "column": {
@@ -425,8 +400,61 @@ export function getMondayDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "Popup Ui Design",
-                  "id": "2852585763",
+                  "name": "Development",
+                  "id": "2909757454",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Done",
+                      "updated_at": "2026-05-25T12:35:38+00:00",
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-12T08:49:09+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-20T08:02:07+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-05-25"
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Animation",
+                  "id": "2909757935",
                   "board": {
                     "id": "1647137428"
                   },
@@ -439,13 +467,19 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Wait",
+                      "updated_at": "2026-05-18T08:27:44+00:00",
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Wait"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-12T08:49:09+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
@@ -453,158 +487,29 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Story"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "How Many Coffees Do I need? ☕",
+                      "updated_at": null,
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
                       },
-                      "text": "xS"
+                      "text": "How Many Coffees Do I need? ☕"
                     },
                     {
                       "column": {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-04-22"
-                    }
-                  ]
-                },
-                {
-                  "name": "Implement Ui",
-                  "id": "2852639824",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-27"
-                    }
-                  ]
-                },
-                {
-                  "name": "Create Firebase verion entry",
-                  "id": "2852639827",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-20"
-                    }
-                  ]
-                },
-                {
-                  "name": "Connect logic to display popup",
-                  "id": "2852641252",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-20"
+                      "text": ""
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "🎨Design Marketing Game Screens to app store (9:16)",
-              "id": "2855332145",
+              "name": "🎨Account Connection & Settings Menu",
+              "id": "2926520348",
               "column_values": [
                 {
                   "column": {
@@ -618,23 +523,32 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Katerina sayko"
+                  "text": "Asaf Bashari, Katerina sayko"
                 },
                 {
+                  "id": "status",
+                  "label": "Work In Progress",
+                  "updated_at": "2026-05-25T12:15:57+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Work In Progress"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Story",
+                  "updated_at": "2026-05-20T10:45:03+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Story"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "M",
+                  "updated_at": "2026-05-24T08:04:37+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
@@ -642,20 +556,29 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "M"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-20T08:15:14+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "General"
+                  "text": "Lobby"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "Vision",
+                  "updated_at": "2026-05-20T08:15:13+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Monetization"
+                  "text": "Vision"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Minimum",
+                  "updated_at": "2026-05-25T07:44:14+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
@@ -663,18 +586,21 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Minimum"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Are You Ready?",
+                  "updated_at": "2026-05-26T08:06:43+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "Committed"
+                  "text": "Are You Ready?"
                 },
                 {
                   "column": {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-04-30"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -684,11 +610,171 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "Design - Hamburger Menu Button",
+                  "id": "2929813270",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Done",
+                      "updated_at": "2026-05-25T21:24:29+00:00",
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Done"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:35:59+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-25T21:24:39+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": "2026-05-26"
+                    }
+                  ]
+                },
+                {
+                  "name": "Design - Let's connect popup",
+                  "id": "2929819254",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Work In Progress",
+                      "updated_at": "2026-05-25T21:24:33+00:00",
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Work In Progress"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:35:59+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-20T11:49:46+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Design - Settings popup",
+                  "id": "2929818529",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:35:59+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-20T11:50:31+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Dev - Implement Pics to the app store",
-              "id": "2863096746",
+              "name": "Account Connection & Settings Menu",
+              "id": "2939268879",
               "column_values": [
                 {
                   "column": {
@@ -705,41 +791,59 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Asaf Bashari"
                 },
                 {
+                  "id": "status",
+                  "label": "Wait",
+                  "updated_at": "2026-05-25T06:24:10+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Wait"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Story",
+                  "updated_at": "2026-05-25T12:36:09+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Story"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "M",
+                  "updated_at": "2026-05-25T08:03:27+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "xS"
+                  "text": "M"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-26T08:06:22+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "General"
+                  "text": "Lobby"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "Vision",
+                  "updated_at": "2026-05-26T08:06:29+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Monetization"
+                  "text": "Vision"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Minimum",
+                  "updated_at": "2026-05-25T07:44:09+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
@@ -747,18 +851,21 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Minimum"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Are You Ready?",
+                  "updated_at": null,
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
                   },
-                  "text": "Committed"
+                  "text": "Are You Ready?"
                 },
                 {
                   "column": {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-05-05"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -768,11 +875,224 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": []
+              "subitems": [
+                {
+                  "name": "Build UI",
+                  "id": "2939249968",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:36:13+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "How Many Coffees Do I need? ☕",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "How Many Coffees Do I need? ☕"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Import account connected code",
+                  "id": "2939268736",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:36:13+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "How Many Coffees Do I need? ☕",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "How Many Coffees Do I need? ☕"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Test account connectinon",
+                  "id": "2939259694",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:36:13+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "How Many Coffees Do I need? ☕",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "How Many Coffees Do I need? ☕"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Test audio controls",
+                  "id": "2939247478",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T12:36:13+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Task"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "How Many Coffees Do I need? ☕",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "How Many Coffees Do I need? ☕"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Release version to apple store",
-              "id": "2875382504",
+              "name": "Exclude Internal Team Accounts from Analytics",
+              "id": "2929546680",
               "column_values": [
                 {
                   "column": {
@@ -786,9 +1106,12 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Dan Bouzaglo, Asaf Bashari"
+                  "text": "Asaf Bashari, Dan Bouzaglo"
                 },
                 {
+                  "id": "status",
+                  "label": "Wait",
+                  "updated_at": "2026-05-25T06:20:38+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
@@ -796,6 +1119,9 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Wait"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-20T10:49:17+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
@@ -803,13 +1129,19 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Task"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "xS",
+                  "updated_at": "2026-05-24T08:09:11+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "M"
+                  "text": "xS"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "General",
+                  "updated_at": "2026-05-20T10:49:21+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
@@ -817,20 +1149,134 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "General"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "Vision",
+                  "updated_at": "2026-05-20T10:49:28+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Disruptions"
+                  "text": "Vision"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-20T10:49:30+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Minimum"
+                  "text": "Target"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Are You Ready?",
+                  "updated_at": null,
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Are You Ready?"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "🎨Create a new file hierarchy in Figma and Google Drive",
+              "id": "2906550983",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Work In Progress",
+                  "updated_at": "2026-05-24T07:44:45+00:00",
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-12T08:52:20+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "M",
+                  "updated_at": "2026-05-19T08:26:28+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "M"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Team Development",
+                  "updated_at": "2026-05-12T08:52:25+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Team Development"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Team Development",
+                  "updated_at": "2026-05-12T08:52:26+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Team Development"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-12T08:52:31+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
@@ -854,8 +1300,8 @@ export function getMondayDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "Internal Build Release",
-                  "id": "2881468929",
+                  "name": "🎨New hierarchy in Figma",
+                  "id": "2925909791",
                   "board": {
                     "id": "1647137428"
                   },
@@ -865,9 +1311,12 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Dan Bouzaglo, Asaf Bashari"
+                      "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Done",
+                      "updated_at": "2026-05-25T12:15:54+00:00",
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
@@ -875,6 +1324,9 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Done"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T13:00:46+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
@@ -882,24 +1334,27 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Task"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-19T08:26:52+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
                       },
-                      "text": "M"
+                      "text": "S"
                     },
                     {
                       "column": {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-04-30"
+                      "text": "2026-05-25"
                     }
                   ]
                 },
                 {
-                  "name": "TestFlight Approval",
-                  "id": "2881468305",
+                  "name": "🎨New hierarchy in Google Drive",
+                  "id": "2925900054",
                   "board": {
                     "id": "1647137428"
                   },
@@ -909,16 +1364,22 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Dan Bouzaglo, Asaf Bashari"
+                      "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Please Take Me 🥹"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Task",
+                      "updated_at": "2026-05-25T13:00:48+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
@@ -926,6 +1387,851 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Task"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-19T08:27:08+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "🎨Design - Migraine Booster Card | Earthquake Booster (Migraine) - New Booster",
+              "id": "2916265734",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-18T08:21:23+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-18T16:51:06+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-18T08:23:32+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Brain Storm"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Game Content",
+                  "updated_at": "2026-05-18T08:23:29+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-18T08:23:33+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "🎨Design - In-Game Animation | Migraine Booster - New Booster",
+              "id": "2916276201",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-18T08:21:23+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-18T16:51:16+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-18T08:23:32+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Brain Storm"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Game Content",
+                  "updated_at": "2026-05-18T08:23:29+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-18T08:23:33+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "🎨Design - Like MindedBooster Card | Like Minded Booster - New Booster",
+              "id": "2916284135",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-18T08:21:23+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-18T16:51:18+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-18T08:23:32+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Brain Storm"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Game Content",
+                  "updated_at": "2026-05-18T08:23:29+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-18T08:23:33+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "🎨Design - In-Game Like Minded Animation | Like Minded Booster - New Booster",
+              "id": "2916284105",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-18T08:21:23+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-18T16:51:20+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-18T08:23:32+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Brain Storm"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Game Content",
+                  "updated_at": "2026-05-18T08:23:29+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Game Content"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Target",
+                  "updated_at": "2026-05-18T08:23:33+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Target"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Add Match Found Countdown During Matchmaking",
+              "id": "2910121414",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "id": "status",
+                  "label": "Work In Progress",
+                  "updated_at": "2026-05-25T06:21:06+00:00",
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Work In Progress"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Task",
+                  "updated_at": "2026-05-12T09:25:30+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Task"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-20T08:02:23+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Brain Storm",
+                  "updated_at": "2026-05-12T09:25:41+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Brain Storm"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "User Needs",
+                  "updated_at": "2026-05-12T09:25:47+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "User Needs"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-18T07:39:46+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "Implement | Carousel “How to Play” Screen",
+              "id": "2898220392",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari"
+                },
+                {
+                  "id": "status",
+                  "label": "Done",
+                  "updated_at": "2026-05-25T06:20:17+00:00",
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Done"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Story",
+                  "updated_at": "2026-05-14T12:20:58+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-20T08:02:28+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-14T12:20:26+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Lobby"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Cosmetics",
+                  "updated_at": "2026-05-14T12:20:29+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Cosmetics"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-14T12:20:31+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": "2026-05-25"
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": []
+            },
+            {
+              "name": "🎨Lobby Passive Animation for Mio",
+              "id": "2909871255",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
+                },
+                {
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari, Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Epic",
+                  "updated_at": "2026-05-12T08:59:00+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Epic"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-20T08:06:51+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "S"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-12T08:59:48+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "Lobby"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Cosmetics",
+                  "updated_at": "2026-05-12T08:59:08+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Cosmetics"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-17T16:42:40+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "🎨Design",
+                  "id": "2909872262",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-12T08:59:07+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-18T16:51:33+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Development",
+                  "id": "2909881715",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-12T08:59:05+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-20T08:02:36+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
@@ -937,13 +2243,119 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-04-30"
+                      "text": ""
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "name": "🎨Company Name Splash Screen",
+              "id": "2905803600",
+              "column_values": [
+                {
+                  "column": {
+                    "id": "subitems__1",
+                    "title": "Subitems"
+                  },
+                  "text": null
                 },
                 {
-                  "name": "Production Release",
-                  "id": "2881468399",
+                  "column": {
+                    "id": "multiple_person_mkr4pbc8",
+                    "title": "Assigned"
+                  },
+                  "text": "Asaf Bashari, Katerina sayko"
+                },
+                {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
+                  "column": {
+                    "id": "status",
+                    "title": "Status"
+                  },
+                  "text": "Please Take Me 🥹"
+                },
+                {
+                  "id": "status_13__1",
+                  "label": "Story",
+                  "updated_at": "2026-05-11T08:28:37+00:00",
+                  "column": {
+                    "id": "status_13__1",
+                    "title": "Issue Type"
+                  },
+                  "text": "Story"
+                },
+                {
+                  "id": "status_19__1",
+                  "label": "xS",
+                  "updated_at": "2026-05-18T16:51:53+00:00",
+                  "column": {
+                    "id": "status_19__1",
+                    "title": "Story Points"
+                  },
+                  "text": "xS"
+                },
+                {
+                  "id": "color_mkperz3j",
+                  "label": "General",
+                  "updated_at": "2026-05-12T08:56:24+00:00",
+                  "column": {
+                    "id": "color_mkperz3j",
+                    "title": "Domain"
+                  },
+                  "text": "General"
+                },
+                {
+                  "id": "color_mkr3bggc",
+                  "label": "Cosmetics",
+                  "updated_at": "2026-05-12T08:56:20+00:00",
+                  "column": {
+                    "id": "color_mkr3bggc",
+                    "title": "Strategic Category"
+                  },
+                  "text": "Cosmetics"
+                },
+                {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-12T08:56:29+00:00",
+                  "column": {
+                    "id": "color_mktax0mb",
+                    "title": "Goal Category"
+                  },
+                  "text": "Outstanding"
+                },
+                {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
+                  "column": {
+                    "id": "color_mktjp2gz",
+                    "title": "Planning State"
+                  },
+                  "text": "Committed"
+                },
+                {
+                  "column": {
+                    "id": "date_mkt3a60q",
+                    "title": "DoneDate"
+                  },
+                  "text": ""
+                },
+                {
+                  "column": {
+                    "id": "numeric_mkyvj8qw",
+                    "title": "Value Score"
+                  },
+                  "text": ""
+                }
+              ],
+              "subitems": [
+                {
+                  "name": "🎨Design",
+                  "id": "2905789462",
                   "board": {
                     "id": "1647137428"
                   },
@@ -953,23 +2365,85 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Dan Bouzaglo"
+                      "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Wait"
+                      "text": "Please Take Me 🥹"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-11T08:28:42+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "Task"
+                      "text": "Story"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-18T16:51:51+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Development",
+                  "id": "2905976808",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": "2026-05-18T08:32:08+00:00",
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-18T08:32:21+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "No Effort",
+                      "updated_at": "2026-05-18T07:59:03+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
@@ -988,8 +2462,8 @@ export function getMondayDummyBoardItems(boardid) {
               ]
             },
             {
-              "name": "Booster Mechanic Logic Tasks",
-              "id": "2877616100",
+              "name": "Add Subtle Screen Transition Fade (Dissolve)",
+              "id": "2910085276",
               "column_values": [
                 {
                   "column": {
@@ -1006,48 +2480,69 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Asaf Bashari"
                 },
                 {
+                  "id": "status",
+                  "label": "Work In Progress",
+                  "updated_at": "2026-05-25T18:22:02+00:00",
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Work In Progress"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Story",
+                  "updated_at": "2026-05-12T09:42:08+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
                   },
-                  "text": "Task"
+                  "text": "Story"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "S",
+                  "updated_at": "2026-05-20T08:24:29+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "L"
+                  "text": "S"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-12T09:27:52+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Brain Storm"
+                  "text": "Lobby"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "Cosmetics",
+                  "updated_at": "2026-05-12T09:27:54+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Game Content"
+                  "text": "Cosmetics"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-17T16:44:37+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Minimum"
+                  "text": "Outstanding"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-26T08:07:10+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
@@ -1059,7 +2554,7 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-05-04"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -1069,276 +2564,11 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": ""
                 }
               ],
-              "subitems": [
-                {
-                  "name": "Create booster system manager",
-                  "id": "2877614372",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-28"
-                    }
-                  ]
-                },
-                {
-                  "name": "Create first booster (freeze)",
-                  "id": "2877617630",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-28"
-                    }
-                  ]
-                },
-                {
-                  "name": "Charge booster with merge operations",
-                  "id": "2877617574",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                },
-                {
-                  "name": "[PVP] sync booster charge values between players",
-                  "id": "2877614518",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                },
-                {
-                  "name": "Activate booster animate on click",
-                  "id": "2877617947",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                },
-                {
-                  "name": "[PVP] Sync booster animation between players",
-                  "id": "2877616607",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                }
-              ]
+              "subitems": []
             },
             {
-              "name": "🎨Trophy Gain & Loss End Match Animation - desgin",
-              "id": "2803009799",
+              "name": "🎨Booster Naming & Popup UI Update",
+              "id": "2916123406",
               "column_values": [
                 {
                   "column": {
@@ -1352,16 +2582,22 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "multiple_person_mkr4pbc8",
                     "title": "Assigned"
                   },
-                  "text": "Katerina sayko"
+                  "text": "Katerina sayko, Asaf Bashari"
                 },
                 {
+                  "id": "status",
+                  "label": "Please Take Me 🥹",
+                  "updated_at": null,
                   "column": {
                     "id": "status",
                     "title": "Status"
                   },
-                  "text": "Done"
+                  "text": "Please Take Me 🥹"
                 },
                 {
+                  "id": "status_13__1",
+                  "label": "Epic",
+                  "updated_at": "2026-05-14T12:19:24+00:00",
                   "column": {
                     "id": "status_13__1",
                     "title": "Issue Type"
@@ -1369,34 +2605,49 @@ export function getMondayDummyBoardItems(boardid) {
                   "text": "Epic"
                 },
                 {
+                  "id": "status_19__1",
+                  "label": "M",
+                  "updated_at": "2026-05-20T08:01:41+00:00",
                   "column": {
                     "id": "status_19__1",
                     "title": "Story Points"
                   },
-                  "text": "S"
+                  "text": "M"
                 },
                 {
+                  "id": "color_mkperz3j",
+                  "label": "Lobby",
+                  "updated_at": "2026-05-14T12:19:29+00:00",
                   "column": {
                     "id": "color_mkperz3j",
                     "title": "Domain"
                   },
-                  "text": "Brain Storm"
+                  "text": "Lobby"
                 },
                 {
+                  "id": "color_mkr3bggc",
+                  "label": "Cosmetics",
+                  "updated_at": "2026-05-14T12:19:31+00:00",
                   "column": {
                     "id": "color_mkr3bggc",
                     "title": "Strategic Category"
                   },
-                  "text": "Vision"
+                  "text": "Cosmetics"
                 },
                 {
+                  "id": "color_mktax0mb",
+                  "label": "Outstanding",
+                  "updated_at": "2026-05-17T16:45:29+00:00",
                   "column": {
                     "id": "color_mktax0mb",
                     "title": "Goal Category"
                   },
-                  "text": "Target"
+                  "text": "Outstanding"
                 },
                 {
+                  "id": "color_mktjp2gz",
+                  "label": "Committed",
+                  "updated_at": "2026-05-20T08:08:07+00:00",
                   "column": {
                     "id": "color_mktjp2gz",
                     "title": "Planning State"
@@ -1408,7 +2659,7 @@ export function getMondayDummyBoardItems(boardid) {
                     "id": "date_mkt3a60q",
                     "title": "DoneDate"
                   },
-                  "text": "2026-05-04"
+                  "text": ""
                 },
                 {
                   "column": {
@@ -1420,8 +2671,8 @@ export function getMondayDummyBoardItems(boardid) {
               ],
               "subitems": [
                 {
-                  "name": "🎨Design (End Match Animation)",
-                  "id": "2809629932",
+                  "name": "🎨Earthquake Booster (Name) - Design",
+                  "id": "2916142861",
                   "board": {
                     "id": "1647137428"
                   },
@@ -1434,186 +2685,19 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Please Take Me 🥹"
                     },
                     {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                },
-                {
-                  "name": "🎨Design (Lobby Transition Animation)",
-                  "id": "2809667616",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Katerina sayko"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-04"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Booster Unlock Celebration (100 Trophies)",
-              "id": "2835576925",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Brain Storm"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-04-28"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Development",
-                  "id": "2835577146",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-14T12:19:22+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
@@ -1621,313 +2705,14 @@ export function getMondayDummyBoardItems(boardid) {
                       "text": "Story"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-18T16:52:18+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
                       },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-28"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Implement Trophy Gain & Loss End Match Animation",
-              "id": "2835577647",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Brain Storm"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-05-06"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Development",
-                  "id": "2835597295",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-06"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "First-Time Player Guidance & Lightweight Onboarding - implementation",
-              "id": "2845486011",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Epic"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "L"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Onboarding"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "User Needs"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-05-05"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Development",
-                  "id": "2845478728",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-20"
-                    }
-                  ]
-                },
-                {
-                  "name": "Show popup after \"GO!\" message for 2.5s",
-                  "id": "2854070278",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Removed"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "M"
+                      "text": "xS"
                     },
                     {
                       "column": {
@@ -1939,8 +2724,8 @@ export function getMondayDummyBoardItems(boardid) {
                   ]
                 },
                 {
-                  "name": "Show \"?\" button in the top bar",
-                  "id": "2854049409",
+                  "name": "🎨Ice Booster (Name) - Design",
+                  "id": "2916142864",
                   "board": {
                     "id": "1647137428"
                   },
@@ -1950,23 +2735,32 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Asaf Bashari"
+                      "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Please Take Me 🥹"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-14T12:19:22+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "Task"
+                      "text": "Story"
                     },
                     {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-18T16:52:20+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
@@ -1978,13 +2772,13 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-05-05"
+                      "text": ""
                     }
                   ]
                 },
                 {
-                  "name": "Display popup with 0.3s auto close delay - made changes",
-                  "id": "2854051249",
+                  "name": "🎨Board Swap Booster (Name) - Design",
+                  "id": "2916129455",
                   "board": {
                     "id": "1647137428"
                   },
@@ -1994,155 +2788,32 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "multiple_person_mkt7ggz9",
                         "title": "Assigned"
                       },
-                      "text": "Asaf Bashari"
+                      "text": "Katerina sayko"
                     },
                     {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
                       "column": {
                         "id": "status4__1",
                         "title": "Status"
                       },
-                      "text": "Done"
+                      "text": "Please Take Me 🥹"
                     },
                     {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-14T12:19:22+00:00",
                       "column": {
                         "id": "status__1",
                         "title": "Issue Type"
                       },
-                      "text": "Task"
+                      "text": "Story"
                     },
                     {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-05-05"
-                    }
-                  ]
-                },
-                {
-                  "name": "The first match is always against a bot",
-                  "id": "2854085644",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-20"
-                    }
-                  ]
-                },
-                {
-                  "name": "Apply different bot stats for the first match",
-                  "id": "2854089287",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "column": {
-                        "id": "status_17__1",
-                        "title": "Story Points"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "column": {
-                        "id": "date_mkt3mnnt",
-                        "title": "SubItemDoneDate"
-                      },
-                      "text": "2026-04-20"
-                    }
-                  ]
-                },
-                {
-                  "name": "Mixpanel events",
-                  "id": "2854098553",
-                  "board": {
-                    "id": "1647137428"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "multiple_person_mkt7ggz9",
-                        "title": "Assigned"
-                      },
-                      "text": "Asaf Bashari"
-                    },
-                    {
-                      "column": {
-                        "id": "status4__1",
-                        "title": "Status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "status__1",
-                        "title": "Issue Type"
-                      },
-                      "text": "Task"
-                    },
-                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-18T16:52:22+00:00",
                       "column": {
                         "id": "status_17__1",
                         "title": "Story Points"
@@ -2154,515 +2825,117 @@ export function getMondayDummyBoardItems(boardid) {
                         "id": "date_mkt3mnnt",
                         "title": "SubItemDoneDate"
                       },
-                      "text": "2026-04-20"
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "🎨Steal Booster (Name) - Design",
+                  "id": "2916189041",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Katerina sayko"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-14T12:19:22+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "xS",
+                      "updated_at": "2026-05-18T16:52:28+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "xS"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "name": "Implement",
+                  "id": "2916152567",
+                  "board": {
+                    "id": "1647137428"
+                  },
+                  "column_values": [
+                    {
+                      "column": {
+                        "id": "multiple_person_mkt7ggz9",
+                        "title": "Assigned"
+                      },
+                      "text": "Asaf Bashari"
+                    },
+                    {
+                      "id": "status4__1",
+                      "label": "Please Take Me 🥹",
+                      "updated_at": null,
+                      "column": {
+                        "id": "status4__1",
+                        "title": "Status"
+                      },
+                      "text": "Please Take Me 🥹"
+                    },
+                    {
+                      "id": "status__1",
+                      "label": "Story",
+                      "updated_at": "2026-05-14T12:19:22+00:00",
+                      "column": {
+                        "id": "status__1",
+                        "title": "Issue Type"
+                      },
+                      "text": "Story"
+                    },
+                    {
+                      "id": "status_17__1",
+                      "label": "S",
+                      "updated_at": "2026-05-20T08:03:11+00:00",
+                      "column": {
+                        "id": "status_17__1",
+                        "title": "Story Points"
+                      },
+                      "text": "S"
+                    },
+                    {
+                      "column": {
+                        "id": "date_mkt3mnnt",
+                        "title": "SubItemDoneDate"
+                      },
+                      "text": ""
                     }
                   ]
                 }
               ]
-            },
-            {
-              "name": "🎨Design New Game Icon",
-              "id": "2855309304",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-05-05"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Dev - New Game Icon",
-              "id": "2863102727",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-05-05"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Allow Trophy Drop Below 10 (Min 0)",
-              "id": "2881686380",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Done"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Technical Debt"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "How Many Coffees Do I need? ☕"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Brain Storm"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Disruptions"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Are You Ready?"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-05-04"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Implement Merge Musical Sound Sequence",
-              "id": "2835547166",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Removed"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "Brain Storm"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": "2026-04-20"
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "🎨Design Marketing Game Screens to app store (9:16) | +3 more",
-              "id": "2863131448",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Katerina sayko"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Removed"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "S"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Dev - Implement Pics to the app store | +3 more",
-              "id": "2863157149",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "subitems__1",
-                    "title": "Subitems"
-                  },
-                  "text": null
-                },
-                {
-                  "column": {
-                    "id": "multiple_person_mkr4pbc8",
-                    "title": "Assigned"
-                  },
-                  "text": "Asaf Bashari"
-                },
-                {
-                  "column": {
-                    "id": "status",
-                    "title": "Status"
-                  },
-                  "text": "Removed"
-                },
-                {
-                  "column": {
-                    "id": "status_13__1",
-                    "title": "Issue Type"
-                  },
-                  "text": "Task"
-                },
-                {
-                  "column": {
-                    "id": "status_19__1",
-                    "title": "Story Points"
-                  },
-                  "text": "xS"
-                },
-                {
-                  "column": {
-                    "id": "color_mkperz3j",
-                    "title": "Domain"
-                  },
-                  "text": "General"
-                },
-                {
-                  "column": {
-                    "id": "color_mkr3bggc",
-                    "title": "Strategic Category"
-                  },
-                  "text": "Monetization"
-                },
-                {
-                  "column": {
-                    "id": "color_mktax0mb",
-                    "title": "Goal Category"
-                  },
-                  "text": "Outstanding"
-                },
-                {
-                  "column": {
-                    "id": "color_mktjp2gz",
-                    "title": "Planning State"
-                  },
-                  "text": "Committed"
-                },
-                {
-                  "column": {
-                    "id": "date_mkt3a60q",
-                    "title": "DoneDate"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
-                    "id": "numeric_mkyvj8qw",
-                    "title": "Value Score"
-                  },
-                  "text": ""
-                }
-              ],
-              "subitems": []
             }
           ]
         }
