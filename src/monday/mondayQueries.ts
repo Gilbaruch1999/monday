@@ -13,6 +13,7 @@ export function getBoardItemsQuery(boardid: string, groupid: string): string {
   var tmp: string =
     ' query getBoardItemsByGroup { \
   boards(ids: [ ' + boardid + ' ]) { \
+  name \
     items_page(limit : 100,query_params: {rules: [{column_id: "group", compare_value: ["' + groupid  + '"], operator: any_of}]}) { \
       items { \
         name \
@@ -26,6 +27,8 @@ export function getBoardItemsQuery(boardid: string, groupid: string): string {
       column { \
         id \
         title \
+        type \
+        settings \
       } \
       text \
     }\
@@ -44,6 +47,8 @@ export function getBoardItemsQuery(boardid: string, groupid: string): string {
       column { \
         id \
         title \
+        type \
+        settings \
       }         \
       text \
     } \

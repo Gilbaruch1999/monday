@@ -79,15 +79,14 @@ const issuesheaders: any = [
   { title: "Percent Done", key: "percentDone" },
   { title: "Owner", key: "assignedTo" },
   { title: "Domain", key: "domain" },
-  { title: "Category", key: "stratigicCategory" },
+  { title: "Category", key: "strategicCategory" },
 
 ]
 
 
 onMounted(async () => {
-  console.log("On mounted burndown ")
+  //console.log("On mounted burndown ")
   itemsList.value = sprintDataStore.getsprintData()
-  //curSprint.value = sprintDataStore.getsprintConfig()
 
 })
 

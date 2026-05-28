@@ -234,8 +234,8 @@ function initData() {
   velocity.value = []
   historyList.value = sprintDataStore.getHistory()
   velocityLable.value = "Velocity"
-  velocityChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + "Velocity History"
-  predChartText.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + "Predictability History"
+  velocityChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Velocity History"
+  predChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Predictability History"
   predLable.value = "Predictability"
   historyList.value.forEach((element: any) => {
     dataLabels.value.push(element.sprint)

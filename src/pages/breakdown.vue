@@ -245,7 +245,7 @@ function initData() {
   itemsList.value = sprintDataStore.getsprintData()
   curSprint.value = sprintDataStore.getCursprintConfig()
   createBreakDownChart()
-  statusHeader.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.value.name;
+  statusHeader.value = sprintDataStore.getBoardCfg().displayName + " Team " + curSprint.value.name;
   console.log("status header " + statusHeader.value)
   updateOptions();
 

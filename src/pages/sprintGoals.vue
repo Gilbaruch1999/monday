@@ -58,7 +58,7 @@ function initData()
 {
   boardItems.value = sprintDataStore.getsprintData();
   updatePOStatus(boardItems.value);
-  pagetitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
+  pagetitle.value = sprintDataStore.getBoardCfg().displayName + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
 
 }
 

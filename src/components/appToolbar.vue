@@ -52,7 +52,7 @@
 import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
-import { boardItem } from "@/utils/boarditem";
+import { boardItem, initColumnMap } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
 import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
 import { createDateFromLocalText, getDaysdiff } from "@/utils/utils";
@@ -67,6 +67,7 @@ import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
 import { dummyReadItem } from "@/monday/mondayDummyStorage";
+import { boardConfig } from "@/utils/boardCfg";
 
 
 
@@ -145,6 +146,8 @@ async function writeTestDoc() {
 async function initData() {
   var content;
 
+  initColumnMap();
+
   await getBoardConfig(boardId.value)
   await getHistoryData(boardId.value)
 
@@ -159,7 +162,7 @@ async function initData() {
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
 
-  toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
+  toolBarTitle.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
 
   router.push({ path: '/burndown' })
@@ -236,6 +239,7 @@ async function getBoardConfig(bid: string) {
   var sprintscfgMonday: any;
   var sprintscfgStorage: any
   var currentSprints: Sprint[] = []
+  var bconfig : boardConfig = new boardConfig();
   console.log("Started get board config")
 
   if (getFromDummy.value) {
@@ -265,12 +269,14 @@ async function getBoardConfig(bid: string) {
       sprintscfgStorage = JSON.parse(res1.data.value);
     }
   }
-  // remove after debug
+
   if (sprintscfgStorage.length == 0) {
     sprintscfgMonday = getMondayDummyBoardConfig();
     sprintscfgMonday = sprintscfgMonday.data
     sprintscfgStorage = JSON.parse(dummyReadItem("boardInfo"))
   }
+
+
   sprintscfgStorage.forEach((sprint: any) => {
     var sprintx = createSprint(sprint)
     //console.log("Start Date YYYY " + sprintx.startDate)
@@ -279,6 +285,8 @@ async function getBoardConfig(bid: string) {
   });
 
   sprintscfgMonday.boards.forEach((board: any) => {
+  bconfig.name = board.name
+  bconfig.displayName = board.name
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
       let index = currentSprints.findIndex(x => x.groupid == sprintx.groupid)
@@ -292,6 +300,7 @@ async function getBoardConfig(bid: string) {
 
   //console.log("Sprints list xxx " + JSON.stringify(currentSprints))
   sprintDataStore.setsprintList(currentSprints)
+  sprintDataStore.setBoardCfg(bconfig)
 }
 
 
@@ -401,7 +410,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   }
   //@ts-ignore
   data.boards.forEach(board => {
-    console.log("found " + board.items_page.items.length + " board items")
+    console.log("found board name " + board.name + " " + board.items_page.items.length + " board items")
     board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
       //console.log("item " + JSON.stringify(item.name))
       // console.log("sub items XXX " + JSON.stringify(item.subitems))
@@ -481,7 +490,7 @@ async function sprintChanged(item: Sprint) {
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }
-  toolBarTitle.value = sprintDataStore.getTeamName(sprintDataStore.getBoardid()) + " Team " + curSprint.name + " progress status"
+  toolBarTitle.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.name + " progress status"
 }
 
 

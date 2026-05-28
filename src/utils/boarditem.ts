@@ -1,4 +1,15 @@
-import { createDateFromText2 } from "./utils";
+interface mondayFields {
+  id: string;
+  title: string;
+  status: string;
+  type: string;
+  assignedTo: string;
+  domain: string;
+  strategicCategory: string;
+  goalCategory: string;
+  sizeEstimation: string;
+  storyPoints: number;
+}
 
 export enum PlanningErrorsIndex {
   noEstimationError = 0,
@@ -10,25 +21,24 @@ export enum PlanningErrorsIndex {
   subitemNotDone = 6,
 }
 
-export class boardItem {
+export class boardItem implements mondayFields {
   id: string = "";
   title: string = "";
+  status: string = "";
+  type: string = "";
+  assignedTo: string = "";
   domain: string = "";
   strategicCategory: string = "";
   goalCategory: string = "";
-  type: string = "";
-  assignedTo: string = "";
   sizeEstimation: string = "";
-  storyPoints: number;
+  storyPoints: number = 0;
+
   doneStoryPoints: number;
   percentDone: number;
-  status: string = "";
   subItems: boardItem[];
   subitemsPoints: number;
   subitemsDonePoints: number;
   DoneDate: Date = new Date(0);
-  //startDate: Date = new Date();
-  //starWorkDate: Date = new Date();
   planningStatus: boolean;
   planningCheck: boolean;
   planningCheckErrors: boolean[];
@@ -47,70 +57,50 @@ export class boardItem {
       Object.keys(PlanningErrorsIndex).filter((key) => isNaN(Number(key)))
         .length,
     ).fill(false);
-
-
   }
 
   mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
     column_values.forEach((column: any) => {
-      switch (column.column.title) {
-        case "Status":
+      let internalId = columnToId.get(column.column.id);
+      switch (internalId) {
+        case statusID:
           this.status = column.text;
-          if (this.status == "Done")          {
-
-             let donedate = new Date (column.updated_at)
-             donedate.setHours(0,0,0,0);
-             this.DoneDate = donedate
+          if (this.status == "Done") {
+            let donedate = new Date(column.updated_at);
+            donedate.setHours(0, 0, 0, 0);
+            this.DoneDate = donedate;
           }
           break;
-        case "Domain":
+        case domainID:
           this.domain = column.text;
           break;
-        case "Strategic Category":
+        case strategicCategoryID:
           this.strategicCategory = column.text;
           break;
-        case "Goal Category":
+        case goalCategoryID:
           this.goalCategory = column.text;
           break;
-        case "Story Points":
+        case sizeEstimationID:
           this.sizeEstimation = column.text;
+          //console.log("Size is " + this.sizeEstimation)
           break;
-        case "Assigned":
+        case assignedToID:
           this.assignedTo = column.text;
+
           break;
-        case "Points":
-          if (column.text != "") {
-            this.storyPoints = parseInt(column.text);
-          }
-          break;
-        case "Issue Type":
-          this.type = column.text;
-          break;
-       /* case "DoneDate":
-        case "CompletionDate":
-        case "SubItemDoneDate":
-          if (this.status == "Done") {
-            this.DoneDate = createDateFromText2(column.text);
-          }*/
-          break;
-      /*  case "StartDate":
-          this.startDate = createDateFromText2(column.text);
-          break;
-        case "StartWorkDate":
-          this.starWorkDate = createDateFromText2(column.text);
-          break;*/
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))
       }
+
     });
+
     this.updateStoryPoints();
   }
 
-
   updateFields(column_values: any) {
     // todo add other apps here
-   this.mondayUpdateFields(column_values);
+    this.mondayUpdateFields(column_values);
   }
 
   updateStoryPoints() {
@@ -136,6 +126,7 @@ export class boardItem {
     if (this.status == "Not Planned") {
       this.storyPoints = 0;
     }
+
   }
 
   updateSubItemPoints() {
@@ -161,7 +152,6 @@ export class boardItem {
   }
 
   checkForPlanningIssues() {
-
     try {
       this.planningCheck = true;
       if (this.parent != "" && this.assignedTo.includes(",")) {
@@ -222,10 +212,24 @@ export class boardItem {
     }
   }
 }
+let columnToId: Map<string, number> = new Map();
 
+const assignedToID = 1;
+const statusID = 2;
+const domainID = 3;
+const strategicCategoryID = 4;
+const goalCategoryID = 5;
+const sizeEstimationID = 6;
 
-
-  const fieldsMap = new Map ([
-["name" , "mapped"]
-  ]
-  )
+export function initColumnMap() {
+  columnToId.clear();
+  columnToId.set("multiple_person_mkr4pbc8", assignedToID);
+  columnToId.set("multiple_person_mkt7ggz9", assignedToID);
+  columnToId.set("status", statusID);
+  columnToId.set("status4__1", statusID);
+  columnToId.set("color_mkperz3j", domainID);
+  columnToId.set("color_mkr3bggc", strategicCategoryID);
+  columnToId.set("color_mktax0mb", goalCategoryID);
+  columnToId.set("status_17__1", sizeEstimationID);
+  columnToId.set("status_19__1", sizeEstimationID);
+}

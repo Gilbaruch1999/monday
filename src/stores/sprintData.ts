@@ -1,18 +1,9 @@
+import { boardConfig } from "@/utils/boardCfg";
 import { boardItem } from "@/utils/boarditem";
-import { historyGraphData, sprintHistory } from "@/utils/historyData";
+import { sprintHistory } from "@/utils/historyData";
 import { Sprint } from "@/utils/sprintInfo";
 import { defineStore } from "pinia";
 import { ref, type Ref } from "vue";
-
-class boardCfg {
-  id: string;
-  team: string;
-
-  constructor(_id : string , _team : string) {
-    this.id = _id;
-    this.team = _team;
-  }
-}
 
 export class retroData
 {
@@ -31,10 +22,8 @@ export const useSprintData = defineStore("sprintData", () => {
   const boardid = ref("");
   const history: Ref<sprintHistory[]> = ref([]);
   const retroInfo : Ref<retroData> = ref(new retroData())
-  let boards: boardCfg[] = [
-    new boardCfg("1647137427", "Dev"),
-    new boardCfg("5048014529", "Nexus"),
-  ];
+  const boardData : Ref<boardConfig> = ref (new boardConfig())
+
 
   function getsprintData(): boardItem[] {
     return sprintItems.value;
@@ -76,13 +65,14 @@ export const useSprintData = defineStore("sprintData", () => {
     history.value = _history;
   }
 
-  function getTeamName(id: string): string {
-    let ret_val = "";
-    let index = boards.findIndex((x) => x.id == id);
-    if (index != -1) {
-      ret_val = boards[index].team;
-    }
-    return ret_val;
+  function getBoardCfg(): boardConfig {
+
+    return boardData.value;
+  }
+
+  function setBoardCfg(data : boardConfig  )  {
+
+   boardData.value = data
   }
 
   function setRetroInfo( data : retroData)
@@ -110,7 +100,8 @@ export const useSprintData = defineStore("sprintData", () => {
     setBoardid,
     getHistory,
     setHistory,
-    getTeamName,
+    getBoardCfg,
+    setBoardCfg,
     setRetroInfo,
     getRetroInfo
   };
