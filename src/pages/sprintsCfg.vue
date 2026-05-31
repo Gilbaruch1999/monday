@@ -64,7 +64,7 @@
 
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
-import { convertSprintToString, Sprint, sprintInfoStore } from "@/utils/sprintInfo";
+import { Sprint } from "@/utils/sprintInfo";
 import { addDays, createDateFromLocalText } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
 
@@ -133,7 +133,7 @@ function deleteSprint(item: Sprint) {
 function cancelUpdateSprintItem() {
   console.log("Cancel update")
   sprintsList.value[editIndex.value] = { ...oldSprintData.value };
-  console.log("BBB " + sprintDataStore.getsprintList()[editIndex.value].name)
+  //console.log("BBB " + sprintDataStore.getsprintList()[editIndex.value].name)
   dialog.value = false
 
 }
@@ -164,12 +164,9 @@ function manageSprintsClicked() {
 }
 
 async function updateSprints() {
-  var tmp: sprintInfoStore[] = []
-  sprintDataStore.setsprintList(sprintsList.value)
-  sprintsList.value.forEach(element => {
-    tmp.push(convertSprintToString(element))
-  });
-  tmp = tmp.sort((a, b) => createDateFromLocalText(b.startDate).getTime() - createDateFromLocalText(a.startDate).getTime())
+  var tmp: Sprint[] = [...sprintsList.value]
+  tmp = tmp.sort((a, b) => b.startDate.getTime() - a.startDate.getTime())
+  sprintDataStore.setsprintList(tmp)
   const res = await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
   //console.log("save to store results " + JSON.stringify(res))
 
@@ -178,6 +175,7 @@ async function updateSprints() {
 
 function UpdateSprintItem() {
   dialog.value = false
+  sprintsList.value[editIndex.value].workingDays =  sprintsList.value[editIndex.value].duration -  sprintsList.value[editIndex.value].nonWorkingDays.length
   sprintDataStore.setsprintList(sprintsList.value)
   updateRequired.value = true
 

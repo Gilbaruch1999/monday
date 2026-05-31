@@ -65,7 +65,7 @@ import { sprintHistory } from "@/utils/historyData";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
-import { Sprint } from "@/utils/sprintInfo";
+import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
 import { dummyReadItem } from "@/monday/mondayDummyStorage";
 import { boardConfig } from "@/utils/boardCfg";
 
@@ -87,7 +87,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v146")
+  console.log("Starting app version v148")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -157,8 +157,11 @@ async function initData() {
     router.push({ path: '/sprintsCfg' })
     return;
   }
-  groupid.value = curSprint.groupid
-  console.log("current sprint " + JSON.stringify(curSprint))
+  else {
+    groupid.value = curSprint.groupid
+    console.log("current sprint " + curSprint.name)
+    console.log("current sprint start date " + curSprint.startDate.toLocaleDateString())
+  }
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
 
@@ -167,54 +170,6 @@ async function initData() {
 
   router.push({ path: '/burndown' })
 }
-
-/*
-async function getCompletionDates() {
-  var updatedDate;
-  let ids = "[";
-  let count = 0;
-  itemsList.value.forEach(item => {
-    ids = ids + item.id
-    if (item.subItems.length > 0) {
-      ids = ids + ","
-      item.subItems.forEach(subitem => {
-        ids = ids + subitem.id + ','
-      });
-    }
-    if (count < sprintDataStore.getsprintData().length - 1) {
-      ids = ids + ","
-      count++
-    }
-  });
-  ids = ids + ']'
-  let query = getStatusUpdateDate(ids)
-  updatedDate = await mondayapi.api(query)
-  updatedDate.data.items.forEach((element: any) => {
-    if (element.column_values.length > 0) {
-      var idx1 : number;
-      if (element.column_values[0].label == "Done") {
-        console.log("Done element xxx " + JSON.stringify(element))
-
-        let doneDate = new Date(element.column_values[0].updated_at)
-        doneDate.setHours(0,0,0,0)
-        if (element.parent_item == null) {
-           console.log("Null parent item " + element.id )
-            idx1 = itemsList.value.findIndex(x => x.id == element.id)
-            console.log("idx 1 is " + idx1)
-           itemsList.value[idx1].DoneDate = doneDate;
-           console.log("New item update " +  itemsList.value[idx1].title + " donedate " + itemsList.value[idx1].DoneDate)
-        }
-        else
-        {
-           idx1 = itemsList.value.findIndex(x => x.id == element.parent_item.id)
-          // find subitem index
-          let idx2 = itemsList.value[idx1].subItems.findIndex(x=>x.id == element.id)
-           itemsList.value[idx1].subItems[idx2].DoneDate = doneDate;        }
-      }
-    }
-  });
-}
-*/
 
 async function getHistoryData(bid: string) {
   var tmp: any;
@@ -237,69 +192,52 @@ async function getHistoryData(bid: string) {
 
 async function getBoardConfig(bid: string) {
   var sprintscfgMonday: any;
-  var sprintscfgStorage: any
-  var currentSprints: Sprint[] = []
-  var bconfig : boardConfig = new boardConfig();
+  //var sprintscfgStorage: Sprint[] = []
+  var sprintList: Sprint[] = []
+  var bconfig: boardConfig = new boardConfig();
   console.log("Started get board config")
 
-  if (getFromDummy.value) {
-    sprintscfgMonday = getMondayDummyBoardConfig();
-    sprintscfgMonday = sprintscfgMonday.data
-    sprintscfgStorage = JSON.parse(dummyReadItem("boardInfo"))
+  var qstr = getBoardConfigQuery(bid);
+  //console.log("Query " + qstr)
+  var res = await mondayapi.api(qstr);
+  //console.log("get board config from api" + JSON.stringify(res))
+  sprintscfgMonday = res.data;
+
+  var res1 = await mondayapi.storage.instance.getItem("boardInfo");
+  //console.log("res1 " + JSON.stringify(res1))
+  if ((res1.data.value === null)) {
+    console.log("Board configuration is empty")
+    var tmp: never[] = []
+    await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
 
   }
   else {
-    var qstr = getBoardConfigQuery(bid);
-    //console.log("Query " + qstr)
-    var res = await mondayapi.api(qstr);
-    //console.log("get board config from api" + JSON.stringify(res))
-    sprintscfgMonday = res.data;
-
-    var res1 = await mondayapi.storage.instance.getItem("boardInfo");
-    //console.log("res1 " + JSON.stringify(res1))
-    if ((res1.data.value === null)) {
-      console.log("Board configuration is empty")
-      var tmp: never[] = []
-      await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
-      sprintscfgStorage = []
-
-    }
-    else {
-      //console.log("Result from storage key " + JSON.stringify(res1))
-      sprintscfgStorage = JSON.parse(res1.data.value);
-    }
+    //console.log("Result from storage key " + JSON.stringify(res1.data.value))
+    let arr = JSON.parse(res1.data.value)
+    arr.forEach((element: any) => {
+      //console.log("Sprint from storage key " + JSON.stringify(element))
+      let sprint : Sprint = convertJSONtoSprint(element);
+      //console.log("Sprint " + sprint.name + " start date " + sprint.startDate.toLocaleDateString())
+      sprintList.push(sprint)
+    });
   }
-
-  if (sprintscfgStorage.length == 0) {
-    sprintscfgMonday = getMondayDummyBoardConfig();
-    sprintscfgMonday = sprintscfgMonday.data
-    sprintscfgStorage = JSON.parse(dummyReadItem("boardInfo"))
-  }
-
-
-  sprintscfgStorage.forEach((sprint: any) => {
-    var sprintx = createSprint(sprint)
-    //console.log("Start Date YYYY " + sprintx.startDate)
-    currentSprints.push(sprintx)
-
-  });
+  //console.log("Sprints from storage " + JSON.stringify(sprintList))
 
   sprintscfgMonday.boards.forEach((board: any) => {
-  bconfig.name = board.name
-  bconfig.displayName = board.name
+    bconfig.name = board.name
+    bconfig.displayName = board.name
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
-      let index = currentSprints.findIndex(x => x.groupid == sprintx.groupid)
+      let index = sprintList.findIndex(x => x.groupid == sprintx.groupid)
       if (index == -1)
-        currentSprints.unshift(sprintx)
+        sprintList.unshift(sprintx)
       else {
-        currentSprints[index].orgName = group.title
+        sprintList[index].orgName = group.title
       }
     });
   });
 
-  //console.log("Sprints list xxx " + JSON.stringify(currentSprints))
-  sprintDataStore.setsprintList(currentSprints)
+  sprintDataStore.setsprintList(sprintList)
   sprintDataStore.setBoardCfg(bconfig)
 }
 

@@ -103,6 +103,7 @@ export function createDateFromText2(stringdate: string) : Date {
 
 
 export function createDateFromLocalText(stringdate: string) : Date {
+  //console.log("Date string format " + stringdate)
   var retval: Date = new Date();
   // format dd.mm.yyyy
   try {
@@ -111,14 +112,14 @@ export function createDateFromLocalText(stringdate: string) : Date {
     else {
       retval = new Date();
       retval.setFullYear(parseInt(tmp[2]));
-      retval.setMonth(parseInt(tmp[1]) - 1);
+      retval.setMonth(parseInt(tmp[1])-1);
       retval.setDate(parseInt(tmp[0]));
       retval.setHours(0,0,0,0)
     }
   } catch {
     console.log("Error in create date from text 2");
   }
-  //console.log('Created date is ' + retval.toLocaleDateString())
+ // console.log('Created date is ' + retval.toLocaleDateString())
   return retval;
 }
 
