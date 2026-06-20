@@ -87,7 +87,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v148")
+  console.log("Starting app version v149")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -226,6 +226,8 @@ async function getBoardConfig(bid: string) {
   sprintscfgMonday.boards.forEach((board: any) => {
     bconfig.name = board.name
     bconfig.displayName = board.name
+    // to do change this code
+    bconfig.displayName = "Dev 1"
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
       let index = sprintList.findIndex(x => x.groupid == sprintx.groupid)
