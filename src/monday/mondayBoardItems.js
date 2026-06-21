@@ -75,7 +75,7 @@ export function getMondayDummyContext() {
   return res;
 }
 
-export function getMondayDummyBoardItems(boardid) {
+export function getMondayDummyBoardItems() {
   const res = {
 
   "data": {

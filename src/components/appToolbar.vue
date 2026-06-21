@@ -8,7 +8,7 @@
     <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
     <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
     <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Sprints</v-btn>
+    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Board Config</v-btn>
     <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
     <v-btn v-if="false" class="mt-6" @click="$router.push('/retroOnLine')">Online Retrospective</v-btn>
 
@@ -60,7 +60,6 @@ import { useSprintData } from "../stores/sprintData";
 
 
 import router from "@/router";
-import { getMondayDummyBoardConfig, getMondayDummyConfig } from "@/monday/mondayDummyConfig";
 import { sprintHistory } from "@/utils/historyData";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
@@ -68,6 +67,7 @@ import { useUsersData } from "@/stores/usersData";
 import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
 import { dummyReadItem } from "@/monday/mondayDummyStorage";
 import { boardConfig } from "@/utils/boardCfg";
+import { getMondayDummyBoardConfig } from "@/monday/mondayDummyConfig";
 
 
 
@@ -75,7 +75,8 @@ const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData();
 let getFromDummy = ref(false);
 let toolBarTitle = ref("")
-let boardId = ref("")
+//let boardId = ref("")
+let bconfig: Ref<boardConfig> = ref(new boardConfig());
 let curSprint: Sprint = new Sprint();
 
 let groupid = ref("");
@@ -87,7 +88,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v149")
+  console.log("Starting app version v152")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -107,8 +108,10 @@ onMounted(async () => {
   }
   await getContext();
   //await writeTestDoc();
+  await getBoardConfig(bconfig.value.boardId)
   await getUserList();
   await initData();
+  console.log("Done toolbar on mounted ")
 
 })
 
@@ -148,10 +151,10 @@ async function initData() {
 
   initColumnMap();
 
-  await getBoardConfig(boardId.value)
-  await getHistoryData(boardId.value)
 
-  curSprint = findCurrentSprint(boardId.value)
+  await getHistoryData()
+
+  curSprint = findCurrentSprint()
   if (curSprint.duration == -1) {
     console.log("No current sprint");
     router.push({ path: '/sprintsCfg' })
@@ -171,7 +174,7 @@ async function initData() {
   router.push({ path: '/burndown' })
 }
 
-async function getHistoryData(bid: string) {
+async function getHistoryData() {
   var tmp: any;
   var history: sprintHistory[] = [];
   if (getFromDummy.value) {
@@ -192,42 +195,46 @@ async function getHistoryData(bid: string) {
 
 async function getBoardConfig(bid: string) {
   var sprintscfgMonday: any;
-  //var sprintscfgStorage: Sprint[] = []
   var sprintList: Sprint[] = []
-  var bconfig: boardConfig = new boardConfig();
+
   console.log("Started get board config")
 
-  var qstr = getBoardConfigQuery(bid);
-  //console.log("Query " + qstr)
-  var res = await mondayapi.api(qstr);
-  //console.log("get board config from api" + JSON.stringify(res))
-  sprintscfgMonday = res.data;
-
-  var res1 = await mondayapi.storage.instance.getItem("boardInfo");
-  //console.log("res1 " + JSON.stringify(res1))
-  if ((res1.data.value === null)) {
-    console.log("Board configuration is empty")
-    var tmp: never[] = []
-    await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
-
+  if (getFromDummy.value) {
+    sprintscfgMonday = getMondayDummyBoardConfig().data
   }
   else {
-    //console.log("Result from storage key " + JSON.stringify(res1.data.value))
-    let arr = JSON.parse(res1.data.value)
-    arr.forEach((element: any) => {
-      //console.log("Sprint from storage key " + JSON.stringify(element))
-      let sprint : Sprint = convertJSONtoSprint(element);
-      //console.log("Sprint " + sprint.name + " start date " + sprint.startDate.toLocaleDateString())
-      sprintList.push(sprint)
-    });
-  }
-  //console.log("Sprints from storage " + JSON.stringify(sprintList))
 
+    var qstr = getBoardConfigQuery(bid);
+    var res = await mondayapi.api(qstr);
+    //console.log("get board config from api" + JSON.stringify(res))
+    sprintscfgMonday = res.data;
+
+    var res1 = await mondayapi.storage.instance.getItem("boardInfo");
+    //console.log("res1 " + JSON.stringify(res1))
+    if ((res1.data.value === null)) {
+      console.log("Board sprints configuration is empty")
+      var tmp: never[] = []
+      await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
+
+    }
+    else {
+      //console.log("Result from storage key " + JSON.stringify(res1.data.value))
+      let arr = JSON.parse(res1.data.value)
+      arr.forEach((element: any) => {
+        //console.log("Sprint from storage key " + JSON.stringify(element))
+        let sprint: Sprint = convertJSONtoSprint(element);
+        //console.log("Sprint " + sprint.name + " start date " + sprint.startDate.toLocaleDateString())
+        sprintList.push(sprint)
+      });
+    }
+    //console.log("Sprints from storage " + JSON.stringify(sprintList))
+  }
+  //console.log("Sprints config " + JSON.stringify(sprintscfgMonday))
   sprintscfgMonday.boards.forEach((board: any) => {
-    bconfig.name = board.name
-    bconfig.displayName = board.name
+    bconfig.value.name = board.name
+    bconfig.value.displayName = board.name
     // to do change this code
-    bconfig.displayName = "Dev 1"
+    bconfig.value.displayName = "Dev 1"
     board.groups.forEach((group: any) => {
       let sprintx = createSprintFromBoardConfig(group, bid)
       let index = sprintList.findIndex(x => x.groupid == sprintx.groupid)
@@ -238,9 +245,24 @@ async function getBoardConfig(bid: string) {
       }
     });
   });
+  console.log("Bconfig is " + JSON.stringify(bconfig.value))
+  // read board configuration from storage if it exists
+  if (!getFromDummy.value) {
+    res1 = await mondayapi.storage.instance.getItem("boardConfig");
+    if ((res1.data.value === null)) {
+      console.log("Board Configuration is empty")
+    }
+    else
+    {
+      console.log("Board config from storage " + JSON.stringify((res1.data.value)))
+      bconfig.value.createBoardConfigFromStorage(JSON.parse(res1.data.value))
+    }
+  }
+
+  console.log("board configuration " + JSON.stringify(bconfig.value))
 
   sprintDataStore.setsprintList(sprintList)
-  sprintDataStore.setBoardCfg(bconfig)
+  sprintDataStore.setBoardCfg(bconfig.value)
 }
 
 
@@ -248,7 +270,7 @@ async function getContext() {
   let context: any = {};
   if (getFromDummy.value) {
     context = getMondayDummyContext();
-    boardId.value = context['boardId']
+    bconfig.value.boardId = context['boardId']
   }
   else {
 
@@ -257,22 +279,22 @@ async function getContext() {
     //console.log("Res " + JSON.stringify(res))
     context = res.data;
     try {
-      boardId.value = context['boardId']
-      console.log("Board id " + boardId.value)
+      bconfig.value.boardId = context['boardId']
+      console.log("Board id " + bconfig.value.boardId)
     }
     catch {
 
     }
   }
   currentUser.value.id = context['user'].id
-  sprintDataStore.setBoardid(boardId.value)
+
   //console.log("board id " + boardId.value)
 }
 
-function findCurrentSprint(boardid: string): Sprint {
+function findCurrentSprint(): Sprint {
   var ret_val = new Sprint();
   var curDate = new Date();
-  let boardSprintTable = sprintDataStore.getsprintList().filter(x => x.boardid == boardid)
+  let boardSprintTable = sprintDataStore.getsprintList()
   for (let index = 0; index < boardSprintTable.length; index++) {
     //console.log("Start date " +boardSprintTable[index].name + " " +  boardSprintTable[index].startDate.toLocaleDateString())
     var diff = getDaysdiff(curDate, boardSprintTable[index].startDate);
@@ -325,12 +347,12 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   var data: any;
   itemsList.value = []
   if (getFromDummy.value) {
-    data = getMondayDummyBoardItems(boardId.value);
+    data = getMondayDummyBoardItems();
     data = data.data
     //console.log("Get from Dummy " + JSON.stringify(data))
   }
   else {
-    var qstr = getBoardItemsQuery(boardId.value, groupid);
+    var qstr = getBoardItemsQuery(bconfig.value.boardId, groupid);
     // console.log("Query " + qstr)
     var res = await mondayapi.api(qstr);
     //console.log("get boards from api" + JSON.stringify(res))
@@ -421,7 +443,7 @@ function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): bo
 async function sprintChanged(item: Sprint) {
   console.log("Sprint changed to " + JSON.stringify(item))
   //console.log("sprints " + JSON.stringify(sprintDataStore.getsprintList()))
-  let index = sprintDataStore.getsprintList().findIndex(x => x.boardid == boardId.value && x.name == item.name)
+  let index = sprintDataStore.getsprintList().findIndex(x => x.name == item.name)
   console.log("index " + index)
   if (index != -1) {
     curSprint = sprintDataStore.getsprintList()[index]
@@ -465,46 +487,6 @@ function userChanged(item: userData) {
   userStore.setCurrentUser(item)
   currentUser.value = item;
 }
-/*
-async function parseConfiguration(data: any, boardId: string) {
-  let sprintarr: Sprint[] = []
-  let historyArr: historyData[] = []
-
-  data.data.docs[0].blocks.forEach((element: { content: string; }) => {
-
-    //console.log("Block " + JSON.stringify(element.content))
-    try {
-      //console.log("parsing element " + JSON.stringify(element.content))
-      if (JSON.stringify(element.content).includes("groupid")) {
-        let tmp = JSON.parse(element.content)
-        //console.log("element data tmp  " + JSON.stringify(tmp))
-        let sprint = JSON.parse(tmp.deltaFormat[0].insert)
-        let newsprint = createSprint(sprint);
-        if (newsprint.boardid == boardId) {
-          //console.log("new Sprint is xxx" + JSON.stringify(newsprint))
-          sprintarr.push(newsprint)
-        }
-      }
-      if (JSON.stringify(element.content).includes("dataLabels")) {
-        let tmp1 = JSON.parse(element.content)
-        let history: historyData = JSON.parse(tmp1.deltaFormat[0].insert)
-        //console.log("History data  " + JSON.stringify(history))
-        if (history.boardid == boardId) {
-          historyArr.push(history)
-        }
-
-      }
-    }
-    catch (e) {
-      console.log("On catch error is " + e)
-    }
-  });
-  //sprintDataStore.setsprintList(sprintarr)
-  //sprintDataStore.setHistory(historyArr)
-  //console.log("History data " + JSON.stringify(sprintDataStore.getHistory()))
-
-}
-*/
 
 
 </script>

@@ -1,6 +1,21 @@
 /* cspell:disable */
 <template>
   <v-container fluid>
+
+    <v-card :title="'Edit board Configuration ' + boardCfg.displayName">
+      <v-form>
+        <v-row>
+           <v-text-field disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
+           <v-text-field disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
+           <v-text-field label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
+        </v-row>
+      </v-form>
+      <template v-slot:actions>
+        <v-btn color="orange" class="ms-auto" text="Update" @click="updateBoardConfig()"></v-btn>
+        <v-btn class="ms-auto" text="Cancel" @click="cancelUpdateBoardCfg()"></v-btn>
+      </template>
+    </v-card>
+
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
       :headers="sprintHeaders" :items="sprintsList" :row-props="getRowProps">
       <template v-slot:item.startDate="{ item }">
@@ -67,6 +82,7 @@ import { useSprintData } from "../stores/sprintData";
 import { Sprint } from "@/utils/sprintInfo";
 import { addDays, createDateFromLocalText } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
+import { boardConfig } from "@/utils/boardCfg";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -76,9 +92,10 @@ let oldSprintData: Ref<Sprint> = ref(new Sprint())
 const sprintDataStore = useSprintData();
 const manageSprints = ref(false)
 const managBtnHeader = ref("Edit")
-
 let dialog = ref(false)
 let updateRequired = ref(false)
+let boardCfg : Ref<boardConfig> = ref(new boardConfig())
+
 
 
 
@@ -98,7 +115,9 @@ const sprintHeaders: any = [
 
 
 onMounted(async () => {
+  readBoardConfig();
   readSprintData();
+
 })
 
 function readSprintData() {
@@ -109,6 +128,11 @@ function readSprintData() {
 
 }
 
+function readBoardConfig()
+{
+  boardCfg.value.createBoardConfigFromStorage(sprintDataStore.getBoardCfg())
+  console.log( "Board config " +  JSON.stringify(boardCfg.value) )
+}
 
 function editSprint(item: Sprint) {
   //console.log("item " + JSON.stringify(item))
@@ -131,12 +155,18 @@ function deleteSprint(item: Sprint) {
 }
 
 function cancelUpdateSprintItem() {
-  console.log("Cancel update")
+  //console.log("Cancel update")
   sprintsList.value[editIndex.value] = { ...oldSprintData.value };
   //console.log("BBB " + sprintDataStore.getsprintList()[editIndex.value].name)
   dialog.value = false
+}
+
+
+function cancelUpdateBoardCfg() {
+  readBoardConfig();
 
 }
+
 
 
 function getRowProps(sprintitem: any) {
@@ -179,6 +209,13 @@ function UpdateSprintItem() {
   sprintDataStore.setsprintList(sprintsList.value)
   updateRequired.value = true
 
+}
+
+
+async function updateBoardConfig() {
+
+  sprintDataStore.setBoardCfg(boardCfg.value)
+  await mondayapi.storage.instance.setItem("boardConfig", JSON.stringify(boardCfg.value))
 }
 
 function dateArraytoString(array: Date[]) {

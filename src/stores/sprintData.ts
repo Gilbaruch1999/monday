@@ -19,7 +19,6 @@ export const useSprintData = defineStore("sprintData", () => {
   const sprintItems: Ref<boardItem[]> = ref([]);
   const curSprint: Ref<Sprint> = ref(new Sprint());
   const sprintList: Ref<Sprint[]> = ref([]);
-  const boardid = ref("");
   const history: Ref<sprintHistory[]> = ref([]);
   const retroInfo : Ref<retroData> = ref(new retroData())
   const boardData : Ref<boardConfig> = ref (new boardConfig())
@@ -47,14 +46,6 @@ export const useSprintData = defineStore("sprintData", () => {
 
   function setsprintList(list: Sprint[]) {
     sprintList.value = list;
-  }
-
-  function getBoardid(): string {
-    return boardid.value;
-  }
-
-  function setBoardid(id: string) {
-    boardid.value = id;
   }
 
   function getHistory(): sprintHistory[] {
@@ -96,8 +87,6 @@ export const useSprintData = defineStore("sprintData", () => {
     setCursprintConfig,
     getsprintList,
     setsprintList,
-    getBoardid,
-    setBoardid,
     getHistory,
     setHistory,
     getBoardCfg,
