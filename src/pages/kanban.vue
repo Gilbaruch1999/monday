@@ -40,32 +40,13 @@ onMounted(async () => {
 })
 
 function InitData() {
+
+   itemsList.value = sprintDataStore.getsprintData()
+
   if (filterByName.value) {
-    let user = userStore.getCurrentUser().name
-    itemsList.value = []
-    let tmp = sprintDataStore.getsprintData().filter(X => (X.assignedTo.includes(user)))
-
-    console.log("items size " + JSON.stringify(tmp.length))
-    tmp.forEach(element => {
-      if (element.subItems.length == 0) {
-        itemsList.value.push(element)
-
-      }
-      else {
-        element.subItems.forEach(subitem => {
-          if (subitem.assignedTo == user)
-           itemsList.value.push(subitem)
-        });
-
-      }
-
-    });
-
+     itemsList.value  =   itemsList.value.filter(X => (X.assignedTo.includes(userStore.getCurrentUser().name)))
   }
-  else {
-    itemsList.value = sprintDataStore.getsprintData()
 
-  }
 
 }
 
@@ -76,45 +57,21 @@ function getItems(state : any): boardItem[] {
 
   switch (state) {
     case "Not started":
-      ret_val = itemsList.value.filter(x => x.status.includes("Please") && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => x.status.includes("New") )
       break;
     case "Done":
-      ret_val = itemsList.value.filter(x => x.status == state && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => x.status == 'Done')
       break;
     case "Wait":
-      ret_val = itemsList.value.filter(x => x.status == 'Wait')
+      ret_val = itemsList.value.filter(x => x.status == 'Stuck')
       break;
     case 'WIP':
-      ret_val = itemsList.value.filter(x => ((x.status == "Work In Progress") || (x.status.includes('Review'))) && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => (x.status.includes("Work")))
       break
     default:
-      ret_val = itemsList.value.filter(x => x.status == state && x.subItems.length == 0)
+      ret_val = itemsList.value.filter(x => x.status == state )
       break;
   }
-
-  list = itemsList.value.filter(x => x.subItems.length > 0)
-  list.forEach(element => {
-
-    switch (state) {
-      case "Not started":
-        ret_val = ret_val.concat(element.subItems.filter(x => x.status.includes("Please")))
-        break;
-      case "Done":
-        ret_val = ret_val.concat(element.subItems.filter(x => x.status == state))
-        break;
-      case "Wait":
-        ret_val = ret_val.concat(element.subItems.filter(x => x.status == 'Wait'))
-        break;
-      case 'WIP':
-        ret_val = ret_val.concat(element.subItems.filter(x => (x.status == 'Work In Progress') || (x.status.includes("Review"))))
-        break
-      default:
-        ret_val = ret_val.concat(element.subItems.filter(x => x.status == state))
-        break;
-    }
-
-  });
-
   return ret_val;
 
 }

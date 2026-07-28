@@ -34,29 +34,35 @@ export class boardItem implements mondayFields {
   storyPoints: number = 0;
 
   doneStoryPoints: number;
-  percentDone: number;
-  subItems: boardItem[];
-  subitemsPoints: number;
+  percentDone: number = 0;
+  //subItems: boardItem[] = [];
+  numOfSubitems: number = 0;
+  subitemsPoints: number = 0;
   subitemsDonePoints: number;
   DoneDate: Date = new Date(0);
-  planningStatus: boolean;
+  planningStatus: string = "";
   planningCheck: boolean;
-  planningCheckErrors: boolean[];
-  parent: string;
-  constructor() {
+  planningCheckErrors: boolean[] = [];
+  parent: string = "";
+  rootItemId: string = "";
+  constructor(item: any) {
+    this.title = item.name;
+    this.id = item.id;
+    try {
+      this.parent = item.parent_item.id;
+      //console.log("Parent id " + this.parent)
+    } catch {}
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
-    this.subItems = [];
     this.subitemsPoints = 0;
     this.subitemsDonePoints = 0;
-    this.percentDone = 0;
-    this.planningStatus = true;
     this.planningCheck = false;
-    this.parent = "";
+
     this.planningCheckErrors = new Array(
       Object.keys(PlanningErrorsIndex).filter((key) => isNaN(Number(key)))
         .length,
     ).fill(false);
+    this.updateFields(item.column_values);
   }
 
   mondayUpdateFields(column_values: any) {
@@ -87,12 +93,16 @@ export class boardItem implements mondayFields {
           break;
         case assignedToID:
           this.assignedTo = column.text;
-
+          break;
+        case issueTypeID:
+          this.type = column.text;
+          break;
+        case planningStatusID:
+          this.planningStatus = column.text;
           break;
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))
       }
-
     });
 
     this.updateStoryPoints();
@@ -103,115 +113,93 @@ export class boardItem implements mondayFields {
     this.mondayUpdateFields(column_values);
   }
 
+  calcPercentDone() {
+    if (this.status == "Done") return 100;
+    if (this.storyPoints == 0) return 0;
+    else return Math.round((100 * this.doneStoryPoints) / this.storyPoints);
+  }
+
   updateStoryPoints() {
+    if (this.type == "Task") this.storyPoints = this.getPointsFromSize()
+
+  }
+
+  getPointsFromSize(): number {
+    var ret_val: number = 0;
     switch (this.sizeEstimation) {
       case "xS":
-        this.storyPoints = 1;
+        ret_val = 1;
         break;
       case "S":
-        this.storyPoints = 2;
+        ret_val = 2;
         break;
       case "M":
-        this.storyPoints = 4;
+        ret_val = 4;
         break;
       case "L":
-        this.storyPoints = 8;
+        ret_val = 8;
         break;
       case "xL":
-        this.storyPoints = 16;
+        ret_val = 16;
         break;
       default:
-        this.storyPoints = 0;
+        ret_val = 0;
     }
     if (this.status == "Not Planned") {
-      this.storyPoints = 0;
+      ret_val = 0;
     }
-
+    return ret_val;
   }
 
-  updateSubItemPoints() {
-    this.subitemsPoints = this.subItems.reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
-    this.subitemsDonePoints = this.subItems
-      .filter((x) => x.status == "Done")
-      .reduce((accumulator, object) => {
-        return accumulator + object.storyPoints;
-      }, 0);
-
-    if (this.status == "Done") {
-      this.percentDone = 100;
-      this.doneStoryPoints = this.storyPoints;
-    } else {
-      if (this.subitemsPoints > 0) {
-        this.percentDone = Math.round(
-          (100 * this.subitemsDonePoints) / this.subitemsPoints,
-        );
-      }
+  checkPlanningStatusTask() {
+    if (this.assignedTo.includes(",")) {
+      this.setErrorIndication(PlanningErrorsIndex.tooManyOwners);
+    }
+    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
+      this.setErrorIndication(PlanningErrorsIndex.noEstimationError);
+    }
+    if (this.storyPoints >= 4) {
+      this.setErrorIndication(PlanningErrorsIndex.itemNotBroken);
     }
   }
+
+  checkPlanningStatusStory() {
+    // check that story size is correct compare to size estimation
+    if (this.sizeEstimation == "Not Estimated")
+      this.setErrorIndication(PlanningErrorsIndex.noEstimationError);
+
+    if (this.storyPoints >= 4 && this.numOfSubitems == 0) {
+      this.setErrorIndication(PlanningErrorsIndex.itemNotBroken);
+    }
+    var points = this.getPointsFromSize();
+    if (points > this.storyPoints * 1.75 || points < this.storyPoints * 0.75) {
+      this.setErrorIndication(PlanningErrorsIndex.parentSizeError);
+    }
+  }
+
+  setErrorIndication(index: PlanningErrorsIndex) {
+    this.planningCheck = false;
+    this.planningCheckErrors[index] = true;
+  }
+
+  checkPlanningStatusFeature() {}
 
   checkForPlanningIssues() {
-    try {
-      this.planningCheck = true;
-      if (this.parent != "" && this.assignedTo.includes(",")) {
-        this.planningCheckErrors[PlanningErrorsIndex.tooManyOwners] = true;
-        this.planningCheck = false;
-      }
-
-      if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
-        this.planningCheck = false;
-        this.planningCheckErrors[PlanningErrorsIndex.noEstimationError] = true;
-      }
-      if (this.subItems.length == 0 && this.storyPoints >= 4) {
-        this.planningCheck = false;
-        this.planningCheckErrors[PlanningErrorsIndex.itemNotBroken] = true;
-      }
-
-      this.subItems.forEach((item) => {
-        if (item.storyPoints == 0 && item.sizeEstimation != "No Effort") {
-          this.planningCheck = false;
-          this.planningCheckErrors[PlanningErrorsIndex.noEstimationError] =
-            true;
-        }
-        if (item.planningCheck == false) {
-          this.planningCheck = false;
-          this.planningCheckErrors[PlanningErrorsIndex.subItemError] = true;
-        }
-      });
-
-      if (this.subItems.length > 0) {
-        let subitemstot = this.subItems.reduce((accumulator, object) => {
-          return accumulator + object.storyPoints;
-        }, 0);
-        if (
-          subitemstot > this.storyPoints * 1.75 ||
-          subitemstot < this.storyPoints * 0.75
-        ) {
-          this.planningCheck = false;
-          this.planningCheckErrors[PlanningErrorsIndex.parentSizeError] = true;
-        }
-      }
-
-      if (this.status == "Done") {
-        if (this.DoneDate.getTime() == 0) {
-          this.planningCheck = false;
-          this.planningCheckErrors[PlanningErrorsIndex.noCompletionDate] = true;
-          //console.log(this.title +  "  No done date !!!!!!!!!")
-        }
-
-        this.subItems.forEach((element) => {
-          if (element.status != "Done") {
-            this.planningCheck = false;
-            this.planningCheckErrors[PlanningErrorsIndex.subitemNotDone] = true;
-          }
-        });
-      }
-    } catch {
-      console.log("Error in plan check for " + JSON.stringify(this));
+    this.planningCheck = true;
+    switch (this.type) {
+      case "Task":
+        this.checkPlanningStatusTask();
+        break;
+      case "Story":
+        this.checkPlanningStatusStory();
+        break;
+      case "Feature":
+        this.checkPlanningStatusFeature();
+        break;
     }
   }
 }
+
 let columnToId: Map<string, number> = new Map();
 
 const assignedToID = 1;
@@ -220,16 +208,33 @@ const domainID = 3;
 const strategicCategoryID = 4;
 const goalCategoryID = 5;
 const sizeEstimationID = 6;
+const issueTypeID = 7;
+const planningStatusID = 8;
 
 export function initColumnMap() {
   columnToId.clear();
   columnToId.set("multiple_person_mkr4pbc8", assignedToID);
   columnToId.set("multiple_person_mkt7ggz9", assignedToID);
+  columnToId.set("person", assignedToID);
+
   columnToId.set("status", statusID);
   columnToId.set("status4__1", statusID);
+  columnToId.set("color_mm5k4f4", statusID);
+
   columnToId.set("color_mkperz3j", domainID);
+  columnToId.set("color_mm5fj7av", domainID);
+
   columnToId.set("color_mkr3bggc", strategicCategoryID);
+  columnToId.set("color_mm5fqavz", strategicCategoryID);
+
   columnToId.set("color_mktax0mb", goalCategoryID);
+  columnToId.set("color_mm5k7m7a", goalCategoryID);
+
   columnToId.set("status_17__1", sizeEstimationID);
   columnToId.set("status_19__1", sizeEstimationID);
+  columnToId.set("color_mm5fnp1x", sizeEstimationID);
+
+  columnToId.set("color_mm5fx8bd", issueTypeID);
+
+  columnToId.set("color_mm5fb7mm", planningStatusID);
 }

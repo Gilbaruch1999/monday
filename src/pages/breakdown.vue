@@ -242,7 +242,7 @@ onMounted(async () => {
 })
 
 function initData() {
-  itemsList.value = sprintDataStore.getsprintData()
+  itemsList.value = sprintDataStore.getsprintData().filter(x=> (x.type == "Feature") || ( (x.type == "Story")  && (x.numOfSubitems == 0) ))
   curSprint.value = sprintDataStore.getCursprintConfig()
   createBreakDownChart()
   statusHeader.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.value.name;

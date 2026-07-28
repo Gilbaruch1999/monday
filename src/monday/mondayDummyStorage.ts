@@ -1,53 +1,68 @@
 /* cspell:disable */
 
 import { sprintHistory } from "@/utils/historyData";
+import { Sprint } from "@/utils/sprintInfo";
+import { createDateFromLocalText } from "@/utils/utils";
 
 var boardinfoString: string = "";
 
-var dummySprints: any[] = [
+
+
+export function getMondayDummySprintsConfig() : Sprint[] {
+
+var dummySprints: Sprint[] = [
 
   {
     name: "Sprint 40",
     duration: 14,
-    startDate: "26.4.2026",
+    startDate : createDateFromLocalText("26.4.2026"),
     orgName: "Sprint 40 org",
     boardid: "1647137427",
     groupid: "group_mm1rp91q",
     workingDays: 10,
-    nonWorkingDays: ["1.5.2026", "2.5.2026", "8.5.2026", "9.5.2026"],
+    nonWorkingDays: [createDateFromLocalText("1.5.2026"), createDateFromLocalText("2.5.2026"), createDateFromLocalText("8.5.2026"), createDateFromLocalText("9.5.2026")],
   },
   {
     name: "Sprint 41",
     duration: 14,
-    startDate: "10.5.2026",
+    startDate: createDateFromLocalText("10.5.2026"),
     orgName: "Sprint 41 org",
     boardid: "1647137427",
     groupid: "group_mm288bn5",
     workingDays: 9,
     nonWorkingDays: [
-      "15.5.2026",
-      "16.5.2026",
-      "21.5.2026",
-      "22.5.2026",
-      "23.5.2026",
+      createDateFromLocalText("15.5.2026"),
+      createDateFromLocalText("16.5.2026"),
+      createDateFromLocalText("21.5.2026"),
+      createDateFromLocalText("22.5.2026"),
+      createDateFromLocalText("23.5.2026"),
     ],
   },
   {
     name: "Sprint 42",
     duration: 14,
-    startDate: "24.5.2026",
+    startDate: createDateFromLocalText("19.7.2026"),
     orgName: "Sprint 42 org",
     boardid: "1647137427",
     groupid: "group_mm25gkjt",
     workingDays: 10,
     nonWorkingDays: [
-      "29.5.2026",
-      "30.5.2026",
-      "5.6.2026",
-      "6.6.2026",
+      createDateFromLocalText("24.7.2026"),
+      createDateFromLocalText("25.7.2026"),
+      createDateFromLocalText("31.7.2026"),
+      createDateFromLocalText("1.8.2026"),
     ],
   },
 ];
+
+return dummySprints
+
+}
+
+
+
+export function getMondayDummyHistory() : string {
+
 
 var historyStore  : sprintHistory[] = [
   { sprint: "Sprint 22", groupid: "", velocity: 37, predictability: 70 },
@@ -70,31 +85,9 @@ var historyStore  : sprintHistory[] = [
   { sprint: "Sprint 39", groupid: "", velocity: 44, predictability: 86 },
 ]
 
-
-
-
-export function dummyWriteItem(key: string, item: string) {
-  switch (key) {
-    case "boardInfo":
-      boardinfoString = item;
-      break;
-    default:
-      break;
-  }
+return JSON.stringify(historyStore)
 }
 
-export function dummyReadItem(key: string): string {
-  let ret_val: string = "";
-  switch (key) {
-    case "boardInfo":
-      ret_val = JSON.stringify(dummySprints);
-      break;
-      case "historyInfo":
-      ret_val = JSON.stringify(historyStore);
-      break;
-    default:
-      break;
-  }
 
-  return ret_val;
-}
+
+

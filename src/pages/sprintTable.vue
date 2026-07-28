@@ -1,48 +1,86 @@
 /* cspell:disable */
 <template>
   <v-container fluid class="ma-0">
+
+     <div v-if="showFeatures">
+     <v-toolbar color="primary">
+        <v-toolbar-title>Features</v-toolbar-title>
+     </v-toolbar>
     <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
-      :row-props="rowProps" @click:row="rowClicked" :items="itemsList">
+      :row-props="rowProps" @click:row="featureRowClicked" :items="featureList">
       <template v-slot:item.percentDone="{ item }">
         <!-- @vue-ignore -->
         <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
           <!-- @vue-ignore -->
-          <span style="color:white"> {{ item.percentDone }} % </span>
+          <span style="color:white"> {{ item.calcPercentDone() }} % </span>
         </v-progress-linear>
       </template>
-      <template v-slot:item.planningStatus="item">
+      <template v-slot:item.planningCheckErrors="item">
         <!-- @vue-ignore -->
-        <v-icon v-if="item.item.planningCheck" color="green" icon="mdi-check-circle"></v-icon>
-        <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
-      </template>
-       <template v-slot:item.planningCheckErrors="item">
-         <!-- @vue-ignore -->
-       <span> {{ getErrorString(item.item.planningCheckErrors)  }}</span>
+        <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
       </template>
     </v-data-table>
-    <br></br>
+    </div>
+
+     <div v-if="showEpics">
+     <v-toolbar color="primary">
+        <v-toolbar-title>{{ epicListTitle }}</v-toolbar-title>
+     </v-toolbar>
+    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+      :row-props="rowProps" @click:row="epicRowClicked" :items="epicList">
+      <template v-slot:item.percentDone="{ item }">
+        <!-- @vue-ignore -->
+        <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
+          <!-- @vue-ignore -->
+          <span style="color:white"> {{ item.calcPercentDone() }} % </span>
+        </v-progress-linear>
+      </template>
+      <template v-slot:item.planningCheckErrors="item">
+        <!-- @vue-ignore -->
+        <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
+      </template>
+    </v-data-table>
+    </div>
+
+    <v-toolbar color="primary">
+        <v-toolbar-title>{{ storyListTitle }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+         <v-checkbox @change="onFeaturesCbChange()" class="mt-6" v-model="showFeatures" label="Features"></v-checkbox>
+         <v-checkbox @change="onEpicCbChange()" class="mt-6 mr-2" v-model="showEpics" label="Epics"></v-checkbox>
+      </v-toolbar>
+    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
+      :row-props="rowProps" @click:row="level1RowClicked" :items="storyList">
+      <template v-slot:item.percentDone="{ item }">
+        <!-- @vue-ignore -->
+        <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
+          <!-- @vue-ignore -->
+          <span style="color:white"> {{ item.calcPercentDone() }} % </span>
+        </v-progress-linear>
+      </template>
+      <template v-slot:item.planningCheckErrors="item">
+        <!-- @vue-ignore -->
+        <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
+      </template>
+    </v-data-table>
+
     <div v-if="showDetails">
       <v-toolbar color="primary">
-        <v-toolbar-title>{{ childTitle }}</v-toolbar-title>
+        <v-toolbar-title>{{ taskListTitle }}</v-toolbar-title>
       </v-toolbar>
       <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" @click:row="subItemrowClicked" :items="childItems">
+        :headers="issuesheaders" :row-props="rowProps" @click:row="level2RowClicked" :items="taskList">
         <template v-slot:item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
             <!-- @vue-ignore -->
-            <span style="color:white"> {{ item.percentDone }} % </span>
+            <span style="color:white"> {{ item.calcPercentDone() }} % </span>
           </v-progress-linear>
         </template>
-        <template v-slot:item.planningStatus="item">
-          <!-- @vue-ignore -->
-          <v-icon v-if="item.item.planningCheck" color="green" icon="mdi-check-circle"></v-icon>
-          <v-icon v-else color="red" icon="mdi-close-circle"></v-icon>
-        </template>
+
         <template v-slot:item.planningCheckErrors="item">
-         <!-- @vue-ignore -->
-       <span> {{ getErrorString(item.item.planningCheckErrors)  }}</span>
-      </template>
+          <!-- @vue-ignore -->
+          <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
+        </template>
       </v-data-table>
     </div>
   </v-container>
@@ -58,12 +96,23 @@ import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
 
 let showDetails = ref(false)
+let showFeatureDetails = ref(false)
+let showEpicDetails = ref(false)
+
 const userStore = useUsersData();
-let childItems: Ref<boardItem[]> = ref([])
-let childTitle = ref("")
-let itemsList: Ref<boardItem[]> = ref([]);
+
+let storyListTitle = ref("Sprint Stories")
+let epicListTitle = ref("Sprint Epics")
+let taskListTitle = ref("Tasks")
+let featureList: Ref<boardItem[]> = ref([]);
+let epicList: Ref<boardItem[]> = ref([]);
+let storyList: Ref<boardItem[]> = ref([]);
+let taskList: Ref<boardItem[]> = ref([]);
+let showEpics  = ref(false)
+let showFeatures  = ref(false)
+
 const sprintDataStore = useSprintData();
-let filterByName = ref(false)
+
 
 
 const issuesheaders: any = [
@@ -73,76 +122,136 @@ const issuesheaders: any = [
   { title: 'Type', key: "type" },
   { title: 'Goal Category', key: "goalCategory" },
   { title: "Status", key: "status" },
-  { title: "Plan Status", key: "planningStatus" },
+  { title: "Planning Status", key: "planningStatus" },
   { title: "Plan Errors", key: "planningCheckErrors" },
   { title: "Estimated Effort", key: "sizeEstimation" },
+  { title: "Story Points", key: "storyPoints" },
   { title: "Percent Done", key: "percentDone" },
   { title: "Owner", key: "assignedTo" },
   { title: "Domain", key: "domain" },
   { title: "Category", key: "strategicCategory" },
+  { title: "items", key: "numOfSubitems" },
 
 ]
 
 
 onMounted(async () => {
   //console.log("On mounted burndown ")
-  itemsList.value = sprintDataStore.getsprintData()
+  getItems()
+
 
 })
+
+
+function getItems() {
+  taskList.value = sprintDataStore.getsprintData().filter(x => x.type == "task")
+  storyList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Story") || (x.type == "Bug"))
+  epicList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Epic"))
+  featureList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Feature"))
+}
 
 function rowProps(data: any) {
   let ret_val = {}
 
-  switch (data.item.status )
-  {
-    case 'Done' :
+  switch (data.item.status) {
+    case 'Done':
       ret_val = { class: 'done_bg' }
       break
-      case 'Next Sprint' :
-         ret_val = { class: 'error_bg' }
+    case 'Next Sprint':
+      ret_val = { class: 'error_bg' }
       break;
-      case 'Pushed Out' :
-       ret_val = { class: 'pushedOut_bg' }
+    case 'Pushed Out':
+      ret_val = { class: 'pushedOut_bg' }
       break;
   }
   return ret_val
 }
 
 
-function rowClicked(event : any, row : any) {
+function level1RowClicked(event: any, row: any) {
   if (showDetails.value == true) {
     showDetails.value = false;
-    itemsList.value = sprintDataStore.getsprintData()
+    getItems()
+
+    storyListTitle.value = "Sprint Stories"
   }
   else {
-
-    childTitle.value = "Sub items of " + row.item.title
-    childItems.value = row.item.subItems
     showDetails.value = true;
-    itemsList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    storyListTitle.value = "Stories of feature " + row.item.title
+    storyList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
   }
 
 }
 
-function getErrorString(erros : boolean[]) : string
-{
-  let ret_val : string = "";
+
+
+function featureRowClicked(event: any, row: any) {
+  if (showFeatureDetails.value == true) {
+    showFeatureDetails.value = false;
+    epicListTitle.value = "Sprint Epics"
+    getItems()
+  }
+  else {
+    showFeatureDetails.value = true;
+    epicListTitle.value = "Epics of feature " + row.item.title
+    featureList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+  }
+
+}
+
+
+
+function epicRowClicked(event: any, row: any) {
+  if (showEpicDetails.value == true) {
+    showEpicDetails.value = false;
+    epicListTitle.value = "Sprint Epics"
+    getItems()
+  }
+  else {
+    showEpicDetails.value = true;
+    storyListTitle.value = "Stories of Epic " + row.item.title
+    epicList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+  }
+
+}
+
+function getErrorString(erros: boolean[]): string {
+  let ret_val: string = "";
   for (let index = 0; index < erros.length; index++) {
 
-  if (erros[index])
-  {
-    ret_val = ret_val + PlanningErrorsIndex[index].toString() +  " "
-  }
+    if (erros[index]) {
+      ret_val = ret_val + PlanningErrorsIndex[index].toString() + " "
+    }
 
   }
   return ret_val
 
 }
 
-function subItemrowClicked(event : any, row : any) {
+function level2RowClicked(event: any, row: any) {
 
-  showDetails.value = false
-  itemsList.value = sprintDataStore.getsprintData()
+  if (showDetails.value == false) {
+    //taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+    showDetails.value = true
+    taskListTitle.value = "Tasks of story " + row.item.title
+  }
+  else {
+    showDetails.value = false;
+  }
+
+}
+
+
+function onFeaturesCbChange() {
+
+
+}
+
+
+function onEpicCbChange() {
 
 }
 
@@ -150,19 +259,11 @@ function subItemrowClicked(event : any, row : any) {
 watch(
   () => sprintDataStore.getsprintData(),
   (newValue, oldValue) => {
-     itemsList.value = newValue
+   getItems()
 
   }
 );
 
 
-
-watch(
-  () => userStore.getCurrentUser(),
-  (newValue, oldValue) => {
-     itemsList.value = sprintDataStore.getsprintData().filter(x=>x.assignedTo.includes(newValue.name))
-
-  }
-);
 
 </script>

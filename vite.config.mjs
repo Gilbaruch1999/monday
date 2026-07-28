@@ -36,6 +36,23 @@ export default defineConfig({
       },
     }),
   ],
+   
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Bundles vuetify specifically into a separate chunk
+          if (id.includes('vuetify')) {
+            return 'vuetify';
+          }
+          // Bundles all other node_modules dependencies together
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
   optimizeDeps: {
     exclude: [
       'vuetify',

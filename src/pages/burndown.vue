@@ -228,33 +228,16 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 
 
 function getCompletedOnDate(index: number): boardItem[] {
-  let compdate = new Date(addDays(curSprint.value.startDate, index))
-  compdate.setHours(0, 0, 0, 0);
-  //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
-  if (detailedgrpah.value) {
-    let arr1 = []
-    let items = itemsList.value.filter(x => x.subItems.length > 0)
-    items.forEach(element => {
-      var arr2
-      if (filterByName.value)
-        arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.assignedTo == userStore.getCurrentUser().name)
-      else
-        arr2 = element.subItems.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))
-      if (arr2.length > 0)
-        arr1.push(...arr2)
-    });
-    var arr;
-    if (filterByName.value)
-      arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0 && x.assignedTo == userStore.getCurrentUser().name)
+   let compdate = new Date(addDays(curSprint.value.startDate, index))
+   compdate.setHours(0, 0, 0, 0);
+   //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
 
-    else
-      arr = itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.subItems.length == 0)
+     let items = itemsList.value.filter( x => (x.numOfSubitems == 0) && ( x.status == "Done") && (x.DoneDate.getTime() == compdate.getTime() ))
 
-    arr1.push(...arr)
-    return arr1;
-  }
-  else
-    return (itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()) && x.parent == ""))
+     if (filterByName.value)
+      items = items.filter(x=> x.assignedTo == userStore.getCurrentUser().name)
+    return items
+
 }
 
 
@@ -330,7 +313,7 @@ async function createGraph() {
     }
   }
   prepareGraph();
-  calcBurnUp();
+  calcBurnUpDonw();
 }
 
 
@@ -406,51 +389,38 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   let done = 0
 
   var arr = []
-
   if (detailedgrpah.value) {
-    if (goalCategory == "All") {
-      arr = itemsList.value.filter(x => x.status != 'Removed')
-    }
-    else {
-      arr = itemsList.value.filter(x => x.status != 'Removed' && x.goalCategory == goalCategory)
-    }
-    total = arr.reduce((accumulator, object) => {
-      return accumulator + object.subitemsPoints;
-    }, 0);
+    arr = itemsList.value.filter(x => ( (x.status != 'Removed') && (x.type == "Task" || ( (x.type == "Story") && (x.numOfSubitems == 0) ))))
 
-    done = arr.reduce((accumulator, object) => {
-      return accumulator + object.subitemsDonePoints;
-    }, 0);
-
-    total += arr.filter(x => x.subItems.length == 0).reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
-
-    done += arr.filter(x => x.subItems.length == 0 && x.status == 'Done').reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
   }
   else {
-    if (goalCategory == "All") {
-      arr = itemsList.value.filter(x => x.status != 'Removed')
-    }
-    else {
-      arr = itemsList.value.filter(x => x.status != 'Removed' && x.goalCategory == goalCategory)
-    }
-    total = arr.reduce((accumulator, object) => {
-      return accumulator + object.storyPoints;
-    }, 0);
-
-    done = arr.reduce((accumulator, object) => {
-      return accumulator + object.doneStoryPoints;
-    }, 0);
+    arr = itemsList.value.filter(x => x.status != 'Removed' && (x.type == "Story"))
   }
+
+
+  if (goalCategory != "All") {
+
+    arr = arr.filter(x => x.goalCategory == goalCategory)
+  }
+
+  arr.forEach(element => {
+    console.log("Title " + element.title + " Points " + element.storyPoints)
+
+  });
+
+  total = arr.reduce((accumulator, object) => {
+    return accumulator + object.storyPoints;
+  }, 0);
+
+  done = arr.reduce((accumulator, object) => {
+    return accumulator + object.doneStoryPoints;
+  }, 0);
 
   if (total > 0)
     pred = ((100 * (done / total))).toFixed(0) + " %"
   else
     pred = "NA"
-
+  console.log("category " + goalCategory + " total  " + JSON.stringify(total) + " Done " + done)
   return [total, done, pred];
 
 }
@@ -478,38 +448,30 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
 }
 
 
-function calcBurnUp() {
+function calcBurnUpDonw() {
 
 
   var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   // get all items without subitems
 
-  var noSubitems = itemsList.value.filter(x => (x.subItems.length == 0) && (x.status == "Done"))
+
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-    var withSubitems = itemsList.value.filter(x => x.subItems.length > 0)
-    if (filterByName.value) {
-      noSubitems = noSubitems.filter(x => x.assignedTo.includes(userStore.getCurrentUser().name))
+    var tasks = itemsList.value.filter(x =>  x.type=="Task" && x.status == "Done" )
+    var storiesNoTasks = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.type == 'Story') && (x.status == "Done"))
 
-    }
-    var subitemlist: boardItem[] = []
-    withSubitems.forEach(element => {
-      subitemlist.push(...(element.subItems))
-    });
-    addBurnUpValues(subitemlist, currentIndex)
-    addBurnUpValues(noSubitems, currentIndex)
+    addBurnUpValues(storiesNoTasks, currentIndex)
+    addBurnUpValues(tasks, currentIndex)
     //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
   }
   else {
 
-    var highlevelItemss = itemsList.value.filter(x => x.status == "Done")
+    var stories = itemsList.value.filter(x => x.status == "Done" && x.type == "Story")
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
-    addBurnUpValues(highlevelItemss, currentIndex)
+    addBurnUpValues(stories, currentIndex)
   }
 
-  if (filterByName.value) {
-    burndownStep.value = calcEmpTotal(userStore.getCurrentUser().name) / curSprint.value.workingDays
-  }
+
 
   actualValues.value[0] = totalPoints.value
   var curDate = curSprint.value.startDate;
@@ -533,16 +495,11 @@ function calcBurnUp() {
 function calcEmpTotal(name: string): number {
   var tot = 0;
   itemsList.value.forEach(element => {
-    if (element.subItems.length == 0) {
+    if (element.numOfSubitems == 0) {
       if ((element.assignedTo == name) && (element.status != "Removed"))
         tot += element.storyPoints
     }
-    else {
-      element.subItems.forEach(subitem => {
-        if ((subitem.assignedTo == name) && (element.status != "Removed"))
-          tot += subitem.storyPoints
-      });
-    }
+
   });
 
   return tot
@@ -552,7 +509,7 @@ function calcEmpTotal(name: string): number {
 
 function onDetaileGraphChanged() {
   prepareGraph();
-  calcBurnUp()
+  calcBurnUpDonw()
 }
 
 function graphTypeChanged() {

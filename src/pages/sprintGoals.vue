@@ -56,7 +56,7 @@ onMounted(() => {
 
 function initData()
 {
-  boardItems.value = sprintDataStore.getsprintData();
+  boardItems.value = sprintDataStore.getsprintData().filter(X=> X.type=="Feature" || ((X.type == "Story") && X.numOfSubitems ==0));
   updatePOStatus(boardItems.value);
   pagetitle.value = sprintDataStore.getBoardCfg().displayName + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
 

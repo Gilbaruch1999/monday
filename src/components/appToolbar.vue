@@ -52,7 +52,7 @@
 import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
-import { boardItem, initColumnMap } from "@/utils/boarditem";
+import { boardItem, initColumnMap, PlanningErrorsIndex } from "@/utils/boarditem";
 import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
 import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
 import { createDateFromLocalText, getDaysdiff } from "@/utils/utils";
@@ -65,9 +65,10 @@ import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { createUserList, userData } from "@/utils/users";
 import { useUsersData } from "@/stores/usersData";
 import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
-import { dummyReadItem } from "@/monday/mondayDummyStorage";
+
 import { boardConfig } from "@/utils/boardCfg";
 import { getMondayDummyBoardConfig } from "@/monday/mondayDummyConfig";
+import { getMondayDummyHistory, getMondayDummySprintsConfig } from "@/monday/mondayDummyStorage";
 
 
 
@@ -115,45 +116,11 @@ onMounted(async () => {
 
 })
 
-async function writeTestDoc() {
-
-  console.log("Writing to document !!!")
-  var tmp = getWriteLineQuery2("test 1 large title", "large_title")
-  console.log("query " + tmp)
-  var res = await mondayapi.api(tmp);
-  console.log("Return from write doc " + JSON.stringify(res))
-
-
-
-  /*  let afterBlockId = "00c8f923-16a1-4052-8ba9-7701a4d7199c"
-   const data = {
-      type: "normal text", // or "large title", "quote", etc.
-      content: {
-        deltaFormat: [
-          {
-            insert: "New block content from SDK"
-          }
-        ]
-      },
-      afterBlockId
-    };
-
-   let res =  await mondayapi.execute("addDocBlock", data);
-   console.log("Results from add line api " + JSON.stringify(res))
-  */
-
-  //await addLineOfTextToDoc(mondayapi , "00c8f923-16a1-4052-8ba9-7701a4d7199c")
-
-}
 
 async function initData() {
-  var content;
 
   initColumnMap();
-
-
-  await getHistoryData()
-
+  await getHistoryData();
   curSprint = findCurrentSprint()
   if (curSprint.duration == -1) {
     console.log("No current sprint");
@@ -167,7 +134,6 @@ async function initData() {
   }
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)
-
   toolBarTitle.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.name + " progress status"
   sprintDataStore.setCursprintConfig(curSprint)
 
@@ -178,7 +144,7 @@ async function getHistoryData() {
   var tmp: any;
   var history: sprintHistory[] = [];
   if (getFromDummy.value) {
-    tmp = JSON.parse(dummyReadItem("historyInfo"))
+    tmp = JSON.parse(getMondayDummyHistory())
     history = tmp as sprintHistory[]
   }
   else {
@@ -201,6 +167,8 @@ async function getBoardConfig(bid: string) {
 
   if (getFromDummy.value) {
     sprintscfgMonday = getMondayDummyBoardConfig().data
+    sprintList.push(...getMondayDummySprintsConfig())
+    //console.log("Sprints list xxxx" + JSON.stringify(sprintList))
   }
   else {
 
@@ -229,7 +197,7 @@ async function getBoardConfig(bid: string) {
     }
     //console.log("Sprints from storage " + JSON.stringify(sprintList))
   }
-  //console.log("Sprints config " + JSON.stringify(sprintscfgMonday))
+  console.log("Sprints config from storage" + JSON.stringify(sprintscfgMonday))
   sprintscfgMonday.boards.forEach((board: any) => {
     bconfig.value.name = board.name
     bconfig.value.displayName = board.name
@@ -245,15 +213,14 @@ async function getBoardConfig(bid: string) {
       }
     });
   });
-  console.log("Bconfig is " + JSON.stringify(bconfig.value))
+  //console.log("Bconfig is " + JSON.stringify(bconfig.value))
   // read board configuration from storage if it exists
   if (!getFromDummy.value) {
     res1 = await mondayapi.storage.instance.getItem("boardConfig");
     if ((res1.data.value === null)) {
       console.log("Board Configuration is empty")
     }
-    else
-    {
+    else {
       console.log("Board config from storage " + JSON.stringify((res1.data.value)))
       bconfig.value.createBoardConfigFromStorage(JSON.parse(res1.data.value))
     }
@@ -342,14 +309,13 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 
 }
 
-
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
   var data: any;
   itemsList.value = []
   if (getFromDummy.value) {
     data = getMondayDummyBoardItems();
     data = data.data
-    //console.log("Get from Dummy " + JSON.stringify(data))
+    //console.log("Get from Dummy !!!!" + JSON.stringify(data))
   }
   else {
     var qstr = getBoardItemsQuery(bconfig.value.boardId, groupid);
@@ -370,66 +336,103 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     data['boards'] = []
 
   }
+  itemsList.value = []
   //@ts-ignore
   data.boards.forEach(board => {
-    console.log("found board name " + board.name + " " + board.items_page.items.length + " board items")
+
     board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
-      //console.log("item " + JSON.stringify(item.name))
-      // console.log("sub items XXX " + JSON.stringify(item.subitems))
-      var bitem: boardItem = new boardItem();
-      bitem.title = item.name
-      bitem.id = item.id
-      bitem.parent = ""
-      //console.log('New Item ' + bitem.title)
-      bitem.updateFields(item.column_values);
-      // get sub items
-      try {
-        if (item.subitems.length > 0) {
-          //  console.log("num of subitems " + JSON.stringify(item.subitems.length))
-          item.subitems.forEach(subitem => {
-            //  console.log("Found sub item @@@@ " + JSON.stringify(subitem.name))
-            var sbitem: boardItem = new boardItem();
-            sbitem.title = subitem.name
-            sbitem.id = subitem.id
-            sbitem.parent = bitem.title
-            //console.log("new sub item " + sbitem.title)
-            sbitem.updateFields(subitem.column_values);
 
-            sbitem.goalCategory = bitem.goalCategory
-            sbitem.updateStoryPoints()
-            sbitem.checkForPlanningIssues();
+      var featureItem: boardItem = new boardItem(item);
+      itemsList.value.push(featureItem)
+      var rootid = featureItem.id
 
-            switch (sbitem.status) {
-              case "Done":
-                // console.log("Calling is date in sprint " + bitem.title + "  " +  JSON.stringify(sbitem.title) + " " + sbitem.DoneDate)
-                if (isDateInSprint(sprintStart, sbitem.DoneDate, sprintLength) || sbitem.DoneDate.getTime() == 0)
-                  bitem.subItems.push(sbitem)
-                break;
-              case "Removed":
-                break;
-              default:
-                bitem.subItems.push(sbitem)
-                break;
-            }
 
-            //console.log("created sub item $$$$$$ " + JSON.stringify(sbitem))
-          });
-        }
-      }
-      catch {
-        console.log("Error in subitem")
+      item.subitems.forEach(subItemElement => {
+        var subitem: boardItem = new boardItem(subItemElement);
+        // console.log("Item type " + subitem.type)
+        if (subitem.type == "Task" || subitem.type == "Story")
+          subitem.rootItemId = rootid
+        itemsList.value.push(subitem);
 
-      }
-      bitem.updateSubItemPoints();
-      bitem.checkForPlanningIssues();
-      itemsList.value.push(bitem)
+      }); // end 2Nd level loop
 
     }); // end item loop
 
   }); // end board loop
+  // console.log("Items " + JSON.stringify(itemsList.value))
+  console.log("Number of items " + itemsList.value.length)
+  updateAllLevels()
+}
+
+
+function updateAllLevels() {
+  for (let index = 0; index < itemsList.value.length; index++) {
+    switch (itemsList.value[index].type) {
+      case "Task":
+        updateParents(index)
+        break;
+      case "Story":
+        updateParents(index)
+        itemsList.value[index].checkForPlanningIssues()
+        break;
+      case "Epic":
+            updateParents(index)
+        itemsList.value[index].checkForPlanningIssues()
+        break;
+      case "Feature":
+    itemsList.value[index].checkForPlanningIssues()
+    break;
+  }
+}
 
 }
 
+function updateParents(index: number) {
+
+  itemsList.value[index].checkForPlanningIssues();
+  var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
+  var rootIndex = itemsList.value.findIndex(x => x.id == itemsList.value[index].rootItemId)
+  if (pindex != -1)
+     itemsList.value[pindex].numOfSubitems++
+  if (rootIndex != -1) {
+    itemsList.value[index].domain = itemsList.value[rootIndex].domain
+    itemsList.value[index].strategicCategory = itemsList.value[rootIndex].strategicCategory
+  }
+  // check if this is a  story taht does not have children
+  if ( itemsList.value[index].type == "Story" )
+  {
+    if (itemsList.value.findIndex(x=>x.parent ==  itemsList.value[index].id) == -1)
+    {
+      // if have no childrent update story points
+       itemsList.value[index].storyPoints =   itemsList.value[index].getPointsFromSize()
+
+    }
+  }
+  while (pindex != -1) {
+    var spoints = itemsList.value[index].storyPoints
+    var donePoints = 0;
+    if (itemsList.value[index].status == "Done") {
+      if (isDateInSprint(curSprint.startDate, itemsList.value[index].DoneDate, curSprint.duration)) {
+        donePoints = itemsList.value[index].storyPoints
+        itemsList.value[index].doneStoryPoints = itemsList.value[index].storyPoints
+      }
+      else {
+        spoints = 0;
+      }
+    }
+
+    itemsList.value[pindex].storyPoints += spoints;
+    itemsList.value[pindex].doneStoryPoints += donePoints;
+
+    if (itemsList.value[index].planningCheck == false) {
+      itemsList.value[pindex].setErrorIndication(PlanningErrorsIndex.subItemError)
+
+    }
+    pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
+
+  }
+
+}
 
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
   var diff = getDaysdiff(checkDate, startDate)
