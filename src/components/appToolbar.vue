@@ -326,28 +326,29 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
   }
   try {
-    if (data.boards.length == 0)
-      console.log("No boards")
+    if (data.items.length == 0)
+      console.log("No items")
 
   }
   catch {
     data = {}
     console.log("Error from API " + JSON.stringify(data))
-    data['boards'] = []
+    data['items'] = []
 
   }
   itemsList.value = []
   //@ts-ignore
-  data.boards.forEach(board => {
+  console.log("Items " + JSON.stringify(data))
+  data.items.forEach((item: { subitems: any[]; }) => {
 
-    board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
+  //  board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
 
       var featureItem: boardItem = new boardItem(item);
       itemsList.value.push(featureItem)
       var rootid = featureItem.id
 
 
-      item.subitems.forEach(subItemElement => {
+      item.subitems.forEach((subItemElement: any) => {
         var subitem: boardItem = new boardItem(subItemElement);
         // console.log("Item type " + subitem.type)
         if (subitem.type == "Task" || subitem.type == "Story")
@@ -358,7 +359,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
     }); // end item loop
 
-  }); // end board loop
+
   // console.log("Items " + JSON.stringify(itemsList.value))
   console.log("Number of items " + itemsList.value.length)
   updateAllLevels()

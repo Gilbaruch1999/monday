@@ -79,2384 +79,4374 @@ export function getMondayDummyBoardItems() {
   const res = {
 
   "data": {
-    "boards": [
+    "items": [
       {
-        "name": "Spark journey board",
-        "items_page": {
-          "items": [
-            {
-              "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓",
+        "id": "3096293097",
+        "name": "🎨Improve Daily Tasks Claim Feedback",
+        "column_values": [
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": ""
+          },
+          {
+            "column": {
+              "id": "color_mm5k4f4",
+              "title": "Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Ready for Design"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "How Many Coffees Do I need? ☕"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Lobby"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Cosmetics"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Outstanding"
+          },
+          {
+            "column": {
+              "id": "rating_mm5m33pq",
+              "title": "Product Value"
+            },
+            "text": "1"
+          }
+        ],
+        "subitems": []
+      },
+      {
+        "id": "3116072287",
+        "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓",
+        "column_values": [
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": ""
+          },
+          {
+            "column": {
+              "id": "color_mm5k4f4",
+              "title": "Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Ready for Design"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "How Many Coffees Do I need? ☕"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Onboarding"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "User Needs"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Minimum"
+          },
+          {
+            "column": {
+              "id": "rating_mm5m33pq",
+              "title": "Product Value"
+            },
+            "text": "5"
+          }
+        ],
+        "subitems": [
+          {
+            "id": "3116117315",
+            "name": "Tunnel Progress – Name Selection Intro",
+            "parent_item": {
               "id": "3116072287",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "person",
-                    "title": "Assigned"
-                  },
-                  "text": ""
+              "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5k4f4",
-                    "title": "Status"
-                  },
-                  "text": "Pending"
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
                 },
-                {
-                  "column": {
-                    "id": "subtasks_mkrmtgvm",
-                    "title": "Subitems"
-                  },
-                  "text": null
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fb7mm",
-                    "title": "Planning Status"
-                  },
-                  "text": "Ready for Design"
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:43+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fx8bd",
-                    "title": "Issue Type"
-                  },
-                  "text": "Feature"
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:17:58+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fnp1x",
-                    "title": "Size Estimation"
-                  },
-                  "text": "How Many Coffees Do I need? ☕"
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fj7av",
-                    "title": "Domain"
-                  },
-                  "text": "Onboarding"
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-27T10:46:57+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fqavz",
-                    "title": "Strategic Category"
-                  },
-                  "text": "User Needs"
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-27T10:47:02+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5k7m7a",
-                    "title": "Sprint Goal"
-                  },
-                  "text": "Minimum"
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-27T10:47:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
                 },
-                {
-                  "column": {
-                    "id": "rating_mm5m33pq",
-                    "title": "Product Value"
-                  },
-                  "text": "5"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Tunnel Progress – Name Selection Intro",
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120000495",
+                "name": "UI design",
+                "parent_item": {
                   "id": "3116117315",
-                  "parent_item": {
-                    "id": "3116072287"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:17:58+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-27T10:46:57+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-27T10:47:02+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-27T10:47:04+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Tunnel Progress – Name Selection Intro"
                 },
-                {
-                  "name": "Player Name Selection Modal",
-                  "id": "3116186557",
-                  "parent_item": {
-                    "id": "3116072287"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko, Asaf Bashari"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
+                      "title": "Status"
                     },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:17:58+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-27T10:46:57+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-27T10:47:02+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-27T10:47:04+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Tunnel Play Button Guidance",
-                  "id": "3116177429",
-                  "parent_item": {
-                    "id": "3116072287"
+                    "text": "Pending"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
                     },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T08:07:21+00:00",
+                    "column": {
                       "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
+                      "title": "Planning Status"
                     },
-                    {
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T08:05:46+00:00",
+                    "column": {
                       "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:17:58+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
+                      "title": "Issue Type"
                     },
-                    {
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "How Many Coffees Do I need? ☕",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
+                      "title": "Size Estimation"
                     },
-                    {
+                    "text": "How Many Coffees Do I need? ☕"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T08:06:00+00:00",
+                    "column": {
                       "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-27T10:46:57+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
+                      "title": "Domain"
                     },
-                    {
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-28T08:06:02+00:00",
+                    "column": {
                       "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-27T10:47:02+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
+                      "title": "Strategic Category"
                     },
-                    {
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-28T08:06:04+00:00",
+                    "column": {
                       "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-27T10:47:04+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
+                      "title": "Sprint Goal"
                     },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3116186557",
+            "name": "Player Name Selection Modalicon",
+            "parent_item": {
+              "id": "3116072287",
+              "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓"
             },
-            {
-              "name": "🎨FTUE Part 2  | 🎓",
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": ""
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:43+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:17:58+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-27T10:46:57+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-27T10:47:02+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-27T10:47:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3116177429",
+            "name": "Tunnel Play Button Guidance",
+            "parent_item": {
+              "id": "3116072287",
+              "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": ""
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:43+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:17:58+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-27T10:46:57+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-27T10:47:02+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-27T10:47:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120000495",
+            "name": "UI design",
+            "parent_item": {
+              "id": "3116117315",
+              "name": "Tunnel Progress – Name Selection Intro"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:07:21+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T08:05:46+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T08:06:00+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-28T08:06:02+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-28T08:06:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          }
+        ]
+      },
+      {
+        "id": "3116088824",
+        "name": "🎨FTUE Part 2  | 🎓",
+        "column_values": [
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": "Asaf Bashari, Katerina sayko"
+          },
+          {
+            "column": {
+              "id": "color_mm5k4f4",
+              "title": "Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Ready for Design"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "How Many Coffees Do I need? ☕"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Onboarding"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "User Needs"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Minimum"
+          },
+          {
+            "column": {
+              "id": "rating_mm5m33pq",
+              "title": "Product Value"
+            },
+            "text": "5"
+          }
+        ],
+        "subitems": [
+          {
+            "id": "3116145747",
+            "name": "Objective Screen",
+            "parent_item": {
               "id": "3116088824",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "person",
-                    "title": "Assigned"
-                  },
-                  "text": ""
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5k4f4",
-                    "title": "Status"
-                  },
-                  "text": "Pending"
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
                 },
-                {
-                  "column": {
-                    "id": "subtasks_mkrmtgvm",
-                    "title": "Subitems"
-                  },
-                  "text": null
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fb7mm",
-                    "title": "Planning Status"
-                  },
-                  "text": "Ready for Design"
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fx8bd",
-                    "title": "Issue Type"
-                  },
-                  "text": "Feature"
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T22:32:22+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fnp1x",
-                    "title": "Size Estimation"
-                  },
-                  "text": "How Many Coffees Do I need? ☕"
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fj7av",
-                    "title": "Domain"
-                  },
-                  "text": "Onboarding"
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T22:32:26+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5fqavz",
-                    "title": "Strategic Category"
-                  },
-                  "text": "User Needs"
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T22:32:27+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
                 },
-                {
-                  "column": {
-                    "id": "color_mm5k7m7a",
-                    "title": "Sprint Goal"
-                  },
-                  "text": "Minimum"
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T22:32:29+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
                 },
-                {
-                  "column": {
-                    "id": "rating_mm5m33pq",
-                    "title": "Product Value"
-                  },
-                  "text": "5"
-                }
-              ],
-              "subitems": [
-                {
-                  "name": "Objective Screen",
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120254086",
+                "name": "UI",
+                "parent_item": {
                   "id": "3116145747",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T22:32:22+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T22:32:26+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T22:32:27+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T22:32:29+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Objective Screen"
                 },
-                {
-                  "name": "Guided Order Completion Tutorial",
-                  "id": "3116105040",
-                  "parent_item": {
-                    "id": "3116088824"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
+                      "title": "Status"
                     },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
                     },
-                    {
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:07:23+00:00",
+                    "column": {
                       "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
+                      "title": "Planning Status"
                     },
-                    {
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:07:20+00:00",
+                    "column": {
                       "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
+                      "title": "Issue Type"
                     },
-                    {
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "No Effort",
+                    "updated_at": "2026-07-28T09:07:26+00:00",
+                    "column": {
                       "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
+                      "title": "Size Estimation"
                     },
-                    {
+                    "text": "No Effort"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:07:28+00:00",
+                    "column": {
                       "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
+                      "title": "Domain"
                     },
-                    {
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
+                      "title": "Strategic Category"
                     },
-                    {
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
+                      "title": "Sprint Goal"
                     },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3116105040",
+            "name": "Guided Order Completion Tutorial",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
                 },
-                {
-                  "name": "Highlight Order Progress",
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3116081959",
+            "name": "Highlight Order Progress",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120269299",
+                "name": "UI",
+                "parent_item": {
                   "id": "3116081959",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Highlight Order Progress"
                 },
-                {
-                  "name": "Continue Guided Order Tutorial",
-                  "id": "3116081875",
-                  "parent_item": {
-                    "id": "3116088824"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
+                      "title": "Status"
                     },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Force Order Sale",
-                  "id": "3116061501",
-                  "parent_item": {
-                    "id": "3116088824"
+                    "text": "Pending"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
                     },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "Guided Multi-Order Tutorial",
-                  "id": "3116116680",
-                  "parent_item": {
-                    "id": "3116088824"
+                    "text": null
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:09:07+00:00",
+                    "column": {
                       "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
+                      "title": "Planning Status"
                     },
-                    {
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:09:08+00:00",
+                    "column": {
                       "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
+                      "title": "Issue Type"
                     },
-                    {
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:09:10+00:00",
+                    "column": {
                       "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
+                      "title": "Size Estimation"
                     },
-                    {
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:11:52+00:00",
+                    "column": {
                       "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
+                      "title": "Domain"
                     },
-                    {
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
+                      "title": "Strategic Category"
                     },
-                    {
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
                       "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
+                      "title": "Sprint Goal"
                     },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3116081875",
+            "name": "Continue Guided Order Tutorial",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
                 },
-                {
-                  "name": "Prevent Over-Merging During FTUE",
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3116061501",
+            "name": "Force Order Sale",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3116116680",
+            "name": "Guided Multi-Order Tutorial",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3116147291",
+            "name": "Prevent Over-Merging During FTUE",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120287527",
+                "name": "UI",
+                "parent_item": {
                   "id": "3116147291",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Prevent Over-Merging During FTUE"
                 },
-                {
-                  "name": "Level 2 Completion Screen",
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:11:44+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:11:42+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:11:45+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:11:54+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3116176326",
+            "name": "Level 2 Completion Screen",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120297720",
+                "name": "UI",
+                "parent_item": {
                   "id": "3116176326",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Level 2 Completion Screen"
                 },
-                {
-                  "name": "Booster Unlock Screen",
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:13:29+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:13:28+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "No Effort",
+                    "updated_at": "2026-07-28T09:13:21+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "No Effort"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:13:23+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3116176726",
+            "name": "Booster Unlock Screen",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-26T23:07:37+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-26T23:07:38+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-26T23:07:40+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-26T23:07:42+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120291842",
+                "name": "UI",
+                "parent_item": {
                   "id": "3116176726",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-26T23:07:37+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-26T23:07:38+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-26T23:07:40+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-26T23:07:42+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Booster Unlock Screen"
                 },
-                {
-                  "name": "Complete MVP FTUE Flow",
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:18:06+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:13:57+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:14:00+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:13:58+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3117479785",
+            "name": "Complete MVP FTUE Flow",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko, Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-27T10:29:49+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-27T10:29:52+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-27T10:29:56+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-27T10:29:59+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120300685",
+                "name": "UI",
+                "parent_item": {
                   "id": "3117479785",
-                  "parent_item": {
-                    "id": "3116088824"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-27T10:29:49+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-27T10:29:52+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-27T10:29:56+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-27T10:29:59+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
+                  "name": "Complete MVP FTUE Flow"
                 },
-                {
-                  "name": "Open Welcome Gift",
-                  "id": "3117530151",
-                  "parent_item": {
-                    "id": "3116088824"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
                   },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Epic",
-                      "updated_at": "2026-07-27T10:29:51+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Epic"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "How Many Coffees Do I need? ☕",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "How Many Coffees Do I need? ☕"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Onboarding",
-                      "updated_at": "2026-07-27T10:29:54+00:00",
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Onboarding"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "User Needs",
-                      "updated_at": "2026-07-27T10:29:57+00:00",
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "User Needs"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Minimum",
-                      "updated_at": "2026-07-27T10:30:00+00:00",
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Minimum"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "test story 1",
-                  "id": "3117642530",
-                  "parent_item": {
-                    "id": "3117530151"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Story",
-                      "updated_at": "2026-07-27T13:15:38+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "xS",
-                      "updated_at": "2026-07-27T12:05:08+00:00",
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "xS"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Where We At? 🕵️‍♂️",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Where We At? 🕵️‍♂️"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "Why Though? 🤨",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "Why Though? 🤨"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Not set",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Not set"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "test task 1",
-                  "id": "3117678405",
-                  "parent_item": {
-                    "id": "3117642530"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Done",
-                      "updated_at": "2026-07-28T01:25:48+00:00",
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Done"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Task",
-                      "updated_at": "2026-07-27T13:15:41+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "M",
-                      "updated_at": "2026-07-27T12:04:10+00:00",
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "M"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Where We At? 🕵️‍♂️",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Where We At? 🕵️‍♂️"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "Why Though? 🤨",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "Why Though? 🤨"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Not set",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Not set"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "test task 2",
-                  "id": "3117833375",
-                  "parent_item": {
-                    "id": "3117642530"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Task",
-                      "updated_at": "2026-07-27T13:15:44+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Task"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "S",
-                      "updated_at": "2026-07-27T12:04:32+00:00",
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Where We At? 🕵️‍♂️",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Where We At? 🕵️‍♂️"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "Why Though? 🤨",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "Why Though? 🤨"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Not set",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Not set"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                },
-                {
-                  "name": "test story 2",
-                  "id": "3117829519",
-                  "parent_item": {
-                    "id": "3117530151"
-                  },
-                  "column_values": [
-                    {
-                      "column": {
-                        "id": "person",
-                        "title": "Assigned",
-                        "type": "people"
-                      },
-                      "text": ""
-                    },
-                    {
-                      "id": "color_mm5k4f4",
-                      "label": "Pending",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k4f4",
-                        "title": "Status",
-                        "type": "status"
-                      },
-                      "text": "Pending"
-                    },
-                    {
-                      "column": {
-                        "id": "subtasks_mkrmtgvm",
-                        "title": "Subitems",
-                        "type": "subtasks"
-                      },
-                      "text": null
-                    },
-                    {
-                      "id": "color_mm5fb7mm",
-                      "label": "Not Defined",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fb7mm",
-                        "title": "Planning Status",
-                        "type": "status"
-                      },
-                      "text": "Not Defined"
-                    },
-                    {
-                      "id": "color_mm5fx8bd",
-                      "label": "Story",
-                      "updated_at": "2026-07-27T13:15:47+00:00",
-                      "column": {
-                        "id": "color_mm5fx8bd",
-                        "title": "Issue Type",
-                        "type": "status"
-                      },
-                      "text": "Story"
-                    },
-                    {
-                      "id": "color_mm5fnp1x",
-                      "label": "S",
-                      "updated_at": "2026-07-27T12:04:55+00:00",
-                      "column": {
-                        "id": "color_mm5fnp1x",
-                        "title": "Size Estimation",
-                        "type": "status"
-                      },
-                      "text": "S"
-                    },
-                    {
-                      "id": "color_mm5fj7av",
-                      "label": "Where We At? 🕵️‍♂️",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fj7av",
-                        "title": "Domain",
-                        "type": "status"
-                      },
-                      "text": "Where We At? 🕵️‍♂️"
-                    },
-                    {
-                      "id": "color_mm5fqavz",
-                      "label": "Why Though? 🤨",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5fqavz",
-                        "title": "Strategic Category",
-                        "type": "status"
-                      },
-                      "text": "Why Though? 🤨"
-                    },
-                    {
-                      "id": "color_mm5k7m7a",
-                      "label": "Not set",
-                      "updated_at": null,
-                      "column": {
-                        "id": "color_mm5k7m7a",
-                        "title": "Sprint Goal",
-                        "type": "status"
-                      },
-                      "text": "Not set"
-                    },
-                    {
-                      "column": {
-                        "id": "rating_mm5m33pq",
-                        "title": "Product Value",
-                        "type": "rating"
-                      },
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Implement Modular Lobby Onboarding | 🎓",
-              "id": "3117510155",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "person",
-                    "title": "Assigned"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5k4f4",
-                    "title": "Status"
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
                   },
-                  "text": "Pending"
-                },
-                {
-                  "column": {
-                    "id": "subtasks_mkrmtgvm",
-                    "title": "Subitems"
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
                   },
-                  "text": null
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fb7mm",
-                    "title": "Planning Status"
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:20:08+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
                   },
-                  "text": "Ready for Planning"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fx8bd",
-                    "title": "Issue Type"
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:20:10+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
                   },
-                  "text": "Feature"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fnp1x",
-                    "title": "Size Estimation"
+                    "label": "M",
+                    "updated_at": "2026-07-28T09:20:11+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "M"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fj7av",
-                    "title": "Domain"
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:20:15+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
                   },
-                  "text": "Onboarding"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fqavz",
-                    "title": "Strategic Category"
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
                   },
-                  "text": "Vision"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5k7m7a",
-                    "title": "Sprint Goal"
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
                   },
-                  "text": "Minimum"
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3120280432",
+                "name": "UI Tunnel Design",
+                "parent_item": {
+                  "id": "3117479785",
+                  "name": "Complete MVP FTUE Flow"
                 },
-                {
-                  "column": {
-                    "id": "rating_mm5m33pq",
-                    "title": "Product Value"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
                   },
-                  "text": "4"
-                }
-              ],
-              "subitems": []
-            },
-            {
-              "name": "Booster Charge Animation - MVP",
-              "id": "3117534415",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "person",
-                    "title": "Assigned"
-                  },
-                  "text": ""
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5k4f4",
-                    "title": "Status"
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
                   },
-                  "text": "Pending"
-                },
-                {
-                  "column": {
-                    "id": "subtasks_mkrmtgvm",
-                    "title": "Subitems"
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
                   },
-                  "text": null
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fb7mm",
-                    "title": "Planning Status"
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:14:51+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
                   },
-                  "text": "Ready for Planning"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fx8bd",
-                    "title": "Issue Type"
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:14:50+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
                   },
-                  "text": "Feature"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fnp1x",
-                    "title": "Size Estimation"
+                    "label": "S",
+                    "updated_at": "2026-07-28T09:19:22+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "S"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fj7av",
-                    "title": "Domain"
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:14:53+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
                   },
-                  "text": "Brainstorm Match"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fqavz",
-                    "title": "Strategic Category"
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
                   },
-                  "text": "User Needs"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5k7m7a",
-                    "title": "Sprint Goal"
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
                   },
-                  "text": "Target"
-                },
-                {
-                  "column": {
-                    "id": "rating_mm5m33pq",
-                    "title": "Product Value"
-                  },
-                  "text": "3"
-                }
-              ],
-              "subitems": []
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3117530151",
+            "name": "Open Welcome Gift",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
             },
-            {
-              "name": "🎨Improve Daily Tasks Claim Feedback",
-              "id": "3096293097",
-              "column_values": [
-                {
-                  "column": {
-                    "id": "person",
-                    "title": "Assigned"
-                  },
-                  "text": ""
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
                 },
-                {
-                  "column": {
+                "text": "Asaf Bashari"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-07-27T10:29:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-27T10:29:54+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-27T10:29:57+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-27T10:30:00+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120286512",
+            "name": "UI Full Flow",
+            "parent_item": {
+              "id": "3116088824",
+              "name": "🎨FTUE Part 2  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:10:06+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:10:07+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:10:23+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:13:32+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120254086",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116145747",
+              "name": "Objective Screen"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:07:23+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:07:20+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "No Effort",
+                "updated_at": "2026-07-28T09:07:26+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "No Effort"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:07:28+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120269299",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116081959",
+              "name": "Highlight Order Progress"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:09:07+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:09:08+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:09:10+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:11:52+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120287527",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116147291",
+              "name": "Prevent Over-Merging During FTUE"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:11:44+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:11:42+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:11:45+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:11:54+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120297720",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116176326",
+              "name": "Level 2 Completion Screen"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:13:29+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:13:28+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "No Effort",
+                "updated_at": "2026-07-28T09:13:21+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "No Effort"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:13:23+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120291842",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116176726",
+              "name": "Booster Unlock Screen"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:18:06+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:13:57+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:14:00+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:13:58+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120295435",
+            "name": "BG Design",
+            "parent_item": {
+              "id": "3120280432",
+              "name": "UI Tunnel Design"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Not Defined",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Not Defined"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:15:20+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:19:15+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:15:42+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120299867",
+            "name": "עיצוב של כל השלב בכמה מצבים",
+            "parent_item": {
+              "id": "3120280432",
+              "name": "UI Tunnel Design"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Not Defined",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Not Defined"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:15:40+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:19:14+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:15:44+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120300685",
+            "name": "UI",
+            "parent_item": {
+              "id": "3117479785",
+              "name": "Complete MVP FTUE Flow"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:20:08+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:20:10+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "M",
+                "updated_at": "2026-07-28T09:20:11+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "M"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:20:15+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120325136",
+                "name": "Kaider Design 1",
+                "parent_item": {
+                  "id": "3120300685",
+                  "name": "UI"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
                     "id": "color_mm5k4f4",
-                    "title": "Status"
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
                   },
-                  "text": "Pending"
-                },
-                {
-                  "column": {
-                    "id": "subtasks_mkrmtgvm",
-                    "title": "Subitems"
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
                   },
-                  "text": null
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fb7mm",
-                    "title": "Planning Status"
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:21:15+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
                   },
-                  "text": "Ready for Design"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fx8bd",
-                    "title": "Issue Type"
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:19:06+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
                   },
-                  "text": "Feature"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fnp1x",
-                    "title": "Size Estimation"
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:18:31+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
                   },
-                  "text": "How Many Coffees Do I need? ☕"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fj7av",
-                    "title": "Domain"
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:18:32+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
                   },
-                  "text": "Lobby"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5fqavz",
-                    "title": "Strategic Category"
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
                   },
-                  "text": "Cosmetics"
-                },
-                {
-                  "column": {
+                  {
                     "id": "color_mm5k7m7a",
-                    "title": "Sprint Goal"
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
                   },
-                  "text": "Outstanding"
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3120314175",
+                "name": "Kaider Design 2 + BTN",
+                "parent_item": {
+                  "id": "3120300685",
+                  "name": "UI"
                 },
-                {
-                  "column": {
-                    "id": "rating_mm5m33pq",
-                    "title": "Product Value"
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
                   },
-                  "text": "1"
-                }
-              ],
-              "subitems": []
-            }
-          ]
-        }
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:21:17+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:19:07+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:18:28+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:18:34+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3120325136",
+            "name": "Kaider Design 1",
+            "parent_item": {
+              "id": "3120300685",
+              "name": "UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:21:15+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:19:06+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:18:31+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:18:32+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120314175",
+            "name": "Kaider Design 2 + BTN",
+            "parent_item": {
+              "id": "3120300685",
+              "name": "UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:21:17+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:19:07+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:18:28+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:18:34+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120280432",
+            "name": "UI Tunnel Design",
+            "parent_item": {
+              "id": "3117479785",
+              "name": "Complete MVP FTUE Flow"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:14:51+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:14:50+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-07-28T09:19:22+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:14:53+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Why Though? 🤨",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Why Though? 🤨"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Not set",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Not set"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120295435",
+                "name": "BG Design",
+                "parent_item": {
+                  "id": "3120280432",
+                  "name": "UI Tunnel Design"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Not Defined",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Not Defined"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:15:20+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:19:15+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:15:42+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3120299867",
+                "name": "עיצוב של כל השלב בכמה מצבים",
+                "parent_item": {
+                  "id": "3120280432",
+                  "name": "UI Tunnel Design"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Not Defined",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Not Defined"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:15:40+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:19:14+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:15:44+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Why Though? 🤨",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Why Though? 🤨"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Not set",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Not set"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "3117510155",
+        "name": "Implement Modular Lobby Onboarding | 🎓",
+        "column_values": [
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": ""
+          },
+          {
+            "column": {
+              "id": "color_mm5k4f4",
+              "title": "Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Ready for Planning"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "How Many Coffees Do I need? ☕"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Onboarding"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Vision"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Minimum"
+          },
+          {
+            "column": {
+              "id": "rating_mm5m33pq",
+              "title": "Product Value"
+            },
+            "text": "4"
+          }
+        ],
+        "subitems": []
+      },
+      {
+        "id": "3117534415",
+        "name": "Booster Charge Animation - MVP",
+        "column_values": [
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": ""
+          },
+          {
+            "column": {
+              "id": "color_mm5k4f4",
+              "title": "Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Ready for Planning"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "How Many Coffees Do I need? ☕"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Brainstorm Match"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "User Needs"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Target"
+          },
+          {
+            "column": {
+              "id": "rating_mm5m33pq",
+              "title": "Product Value"
+            },
+            "text": "3"
+          }
+        ],
+        "subitems": []
       }
     ]
   }
 }
+
+
 
 
 
