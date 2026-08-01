@@ -330,7 +330,9 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   }
   else {
     var qstr = getItemsIdyGroupQuery(groupid);
-    var res = await mondayapi.api(qstr);
+    //console.log("Query " + qstr)
+    idsdata = await mondayapi.api(qstr);
+    console.log("Return from get board items " + JSON.stringify(idsdata))
     var ids : string[]= []
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
     board.items_page.items.forEach((item: { id: any; }) => {
