@@ -1,4 +1,5 @@
-export function getBoardItemsQueryOld(boardid: string, groupid: string) {
+/* cspell:disable */
+export function getBoardItemsQueryLast(boardid: string, groupid: string) {
   var tmp: string =
     "query GetBoardItemsByGroup {   boards(ids: [" +
     boardid +
@@ -9,12 +10,97 @@ export function getBoardItemsQueryOld(boardid: string, groupid: string) {
   return tmp;
 }
 
-export function getBoardItemsQuery(boardid: string, groupid: string): string {
+export function getItemsIdyGroupQuery(groupid: string): string {
   var tmp: string =
-    ' query getBoardItemsByGroup { \
-  boards(ids: [ ' + boardid + ' ]) { \
+    'query GetFilteredtemsByGroup {   \
+  boards(ids: [5100968747]) {       \
+    items_page(                     \
+      limit: 100                     \
+      query_params: {rules: [{column_id: "group", compare_value:  ["' +
+    groupid +
+    '"], operator: any_of}]}  \
+    ) {       \
+      items {   \
+        id      \
+      }         \
+    }            \
+  }             \
+}  \ ';
+
+  return tmp;
+}
+
+export function getBoardItemsByIdQuery(ids: string[]): string {
+  var idsstring: string = "[";
+  for (let index = 0; index < ids.length; index++) {
+    idsstring = idsstring + ids[index];
+    if (index < ids.length - 1) idsstring = idsstring + ", ";
+  }
+  idsstring = idsstring + "]";
+
+  var tmp: string =
+    "query getitembyid {    \
+  items(ids: " + idsstring + ") {   \
+    id    \
+    name      \
+    column_values {   \
+      column { id title }   \
+      text    \
+    }   \
+    subitems {    \
+      id    \
+      name    \
+      parent_item {   \
+        id  \
+        name  \
+      }     \
+      column_values { \
+           ... on StatusValue { \
+        id  \
+        label \
+        updated_at  \
+      }             \
+        column { id title } \
+        text  \
+      }       \
+      subitems {    \
+        id          \
+      name          \
+      parent_item { \
+        id          \
+        name        \
+      }             \
+      column_values {       \
+           ... on StatusValue {   \
+        id                        \
+        label               \
+        updated_at          \
+      }                     \
+        column { id title } \
+        text                 \
+      }                     \
+                            \
+      }                     \
+    }                       \
+  }                         \
+} \ ";
+
+  return tmp;
+}
+
+export function getBoardItemsQueryOld(
+  boardid: string,
+  groupid: string,
+): string {
+  var tmp: string =
+    " query getBoardItemsByGroup { \
+  boards(ids: [ " +
+    boardid +
+    ' ]) { \
   name \
-    items_page(limit : 100,query_params: {rules: [{column_id: "group", compare_value: ["' + groupid  + '"], operator: any_of}]}) { \
+    items_page(limit : 100,query_params: {rules: [{column_id: "group", compare_value: ["' +
+    groupid +
+    '"], operator: any_of}]}) { \
       items { \
         name \
         id \

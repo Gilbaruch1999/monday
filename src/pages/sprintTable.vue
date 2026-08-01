@@ -69,7 +69,7 @@
         <v-toolbar-title>{{ taskListTitle }}</v-toolbar-title>
       </v-toolbar>
       <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" @click:row="level2RowClicked" :items="taskList">
+        :headers="issuesheaders" :row-props="rowProps" @click:row="taskRowClicked" :items="taskList">
         <template v-slot:item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
@@ -107,6 +107,8 @@ let epicListTitle = ref("Sprint Epics")
 let taskListTitle = ref("Tasks")
 let featureList: Ref<boardItem[]> = ref([]);
 let epicList: Ref<boardItem[]> = ref([]);
+let lastEpicList: Ref<boardItem[]> = ref([]);
+let lastStoryList: Ref<boardItem[]> = ref([]);
 let storyList: Ref<boardItem[]> = ref([]);
 let taskList: Ref<boardItem[]> = ref([]);
 let showEpics = ref(false)
@@ -149,6 +151,7 @@ function getItems() {
   storyList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Story") || (x.type == "Bug"))
   epicList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Epic"))
   featureList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Feature"))
+  lastEpicList.value = epicList.value
 }
 
 function rowProps(data: any) {
@@ -169,69 +172,73 @@ function rowProps(data: any) {
 }
 
 
-function storyRowClicked(event: any, row: any) {
-  /*if (showDetails.value == true) {
-    showDetails.value = false;
+function featureRowClicked(event: any, row: any) {
+  if (showFeatureDetails.value == true) {
+    showFeatureDetails.value = false;
+    epicListTitle.value = "Sprint Epics"
     getItems()
+  }
+  else {
+    showFeatureDetails.value = true;
+    epicListTitle.value = "Epics of feature " + row.item.title
+    featureList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+    lastEpicList.value = epicList.value
+  }
 
+
+}
+
+
+function epicRowClicked(event: any, row: any) {
+  if (showEpicDetails.value == true) {
+    showEpicDetails.value = false;
+    epicListTitle.value = "Sprint Epics"
+    epicList.value = lastEpicList.value
+
+  }
+  else {
+    showEpicDetails.value = true;
+    storyListTitle.value = "Stories of Epic " + row.item.title
+    epicList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
+    storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+    lastStoryList.value = storyList.value
+  }
+
+
+}
+
+
+
+function storyRowClicked(event: any, row: any) {
+  if (showDetails.value == true) {
+    showDetails.value = false;
+    storyList.value = lastStoryList.value
     storyListTitle.value = "Sprint Stories"
   }
   else {
     showDetails.value = true;
-    storyListTitle.value = "Stories of feature " + row.item.title
     storyList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
     taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-  }*/
-  showDetails.value = true;
-  storyListTitle.value = "Stories of feature " + row.item.title
-  storyList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-  taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+    taskListTitle.value = "Tasks of story " + row.item.title
+  }
 
 }
 
 
+function taskRowClicked(event: any, row: any) {
 
-function featureRowClicked(event: any, row: any) {
-  /* if (showFeatureDetails.value == true) {
-     showFeatureDetails.value = false;
-     epicListTitle.value = "Sprint Epics"
-     getItems()
-   }
-   else {
-     showFeatureDetails.value = true;
-     epicListTitle.value = "Epics of feature " + row.item.title
-     featureList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-     epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-   }*/
+  if (showDetails.value == false) {
 
-  showFeatureDetails.value = true;
-  epicListTitle.value = "Epics of feature " + row.item.title
-  featureList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-  epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
+    showDetails.value = true
+
+  }
+  else {
+    showDetails.value = false;
+  }
 
 }
 
-
-
-function epicRowClicked(event: any, row: any) {
-  /* if (showEpicDetails.value == true) {
-     showEpicDetails.value = false;
-     epicListTitle.value = "Sprint Epics"
-     getItems()
-   }
-   else {
-     showEpicDetails.value = true;
-     storyListTitle.value = "Stories of Epic " + row.item.title
-     epicList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-     storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-   }*/
-
-  showEpicDetails.value = true;
-  storyListTitle.value = "Stories of Epic " + row.item.title
-  epicList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-  storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-
-}
 
 function getErrorString(erros: boolean[]): string {
   let ret_val: string = "";
@@ -243,19 +250,6 @@ function getErrorString(erros: boolean[]): string {
 
   }
   return ret_val
-
-}
-
-function level2RowClicked(event: any, row: any) {
-
-  if (showDetails.value == false) {
-    //taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-    showDetails.value = true
-    taskListTitle.value = "Tasks of story " + row.item.title
-  }
-  else {
-    showDetails.value = false;
-  }
 
 }
 

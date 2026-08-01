@@ -53,8 +53,8 @@ import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
 import { boardItem, initColumnMap, PlanningErrorsIndex } from "@/utils/boarditem";
-import { getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
-import { getAllUsersQuery, getBoardItemsQuery, getAppConfigQuery, getBoardConfigQuery, getWriteLineQuery2, getStatusUpdateDate } from "@/monday/mondayQueries";
+import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
+import { getAllUsersQuery, getBoardConfigQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from "@/monday/mondayQueries";
 import { createDateFromLocalText, getDaysdiff } from "@/utils/utils";
 import { useSprintData } from "../stores/sprintData";
 
@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v152")
+  console.log("Starting app version v156")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -310,61 +310,88 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 }
 
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
-  var data: any;
+  var boarddata: any;
+  var idsdata : any;
   itemsList.value = []
   if (getFromDummy.value) {
-    data = getMondayDummyBoardItems();
-    data = data.data
+    boarddata = getMondayDummyBoardItems();
+    idsdata = getDummyIdsList()
+    boarddata = boarddata.data
+     var ids : string[]= []
+    idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
+    board.items_page.items.forEach((item: { id: any; }) => {
+
+      ids.push(item.id)
+    });
+
+    });
+    //console.log("TTTTTTTTTTTT " + JSON.stringify(ids))
     //console.log("Get from Dummy !!!!" + JSON.stringify(data))
   }
   else {
-    var qstr = getBoardItemsQuery(bconfig.value.boardId, groupid);
-    // console.log("Query " + qstr)
+    var qstr = getItemsIdyGroupQuery(groupid);
+    var res = await mondayapi.api(qstr);
+    var ids : string[]= []
+    idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
+    board.items_page.items.forEach((item: { id: any; }) => {
+
+      ids.push(item.id)
+    });
+
+    });
+    qstr = getBoardItemsByIdQuery(ids);
     var res = await mondayapi.api(qstr);
     //console.log("get boards from api" + JSON.stringify(res))
-    data = res.data
+    boarddata = res.data
 
   }
   try {
-    if (data.items.length == 0)
+    if (boarddata.items.length == 0)
       console.log("No items")
 
   }
   catch {
-    data = {}
-    console.log("Error from API " + JSON.stringify(data))
-    data['items'] = []
+    boarddata = {}
+    console.log("Error from API " + JSON.stringify(boarddata))
+    boarddata['items'] = []
 
   }
   itemsList.value = []
   //@ts-ignore
-  console.log("Items " + JSON.stringify(data))
-  data.items.forEach((item: { subitems: any[]; }) => {
+  //console.log("Items " + JSON.stringify(boarddata))
+  boarddata.items.forEach((item: { subitems: any[]; }) => {
 
-  //  board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
+    //  board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
 
-      var featureItem: boardItem = new boardItem(item);
-      itemsList.value.push(featureItem)
-      var rootid = featureItem.id
+    var featureItem: boardItem = new boardItem(item);
+    itemsList.value.push(featureItem)
+    var rootid = featureItem.id
 
 
-      item.subitems.forEach((subItemElement: any) => {
-        var subitem: boardItem = new boardItem(subItemElement);
-        // console.log("Item type " + subitem.type)
-        if (subitem.type == "Task" || subitem.type == "Story")
-          subitem.rootItemId = rootid
-        itemsList.value.push(subitem);
+    item.subitems.forEach((subItemElement: any) => {
+      var subitem: boardItem = new boardItem(subItemElement);
+      // console.log("Item type " + subitem.type)
+      if (subitem.type == "Task" || subitem.type == "Story")
+        subitem.rootItemId = rootid
+      itemsList.value.push(subitem);
 
-      }); // end 2Nd level loop
+    }); // end 2Nd level loop
 
-    }); // end item loop
+  }); // end item loop
 
 
   // console.log("Items " + JSON.stringify(itemsList.value))
   console.log("Number of items " + itemsList.value.length)
   updateAllLevels()
+  checkStorySize()
 }
 
+function checkStorySize() {
+  let arr = itemsList.value.filter(x => x.type == "Story")
+  arr.forEach(element => {
+    element.checkStorySizeEstimation()
+  });
+}
 
 function updateAllLevels() {
   for (let index = 0; index < itemsList.value.length; index++) {
@@ -377,38 +404,37 @@ function updateAllLevels() {
         itemsList.value[index].checkForPlanningIssues()
         break;
       case "Epic":
-            updateParents(index)
+        updateParents(index)
         itemsList.value[index].checkForPlanningIssues()
         break;
       case "Feature":
-    itemsList.value[index].checkForPlanningIssues()
-    break;
+        itemsList.value[index].checkForPlanningIssues()
+        break;
+    }
   }
-}
 
 }
 
 function updateParents(index: number) {
 
-  itemsList.value[index].checkForPlanningIssues();
+
   var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
   var rootIndex = itemsList.value.findIndex(x => x.id == itemsList.value[index].rootItemId)
   if (pindex != -1)
-     itemsList.value[pindex].numOfSubitems++
+    itemsList.value[pindex].numOfSubitems++
   if (rootIndex != -1) {
     itemsList.value[index].domain = itemsList.value[rootIndex].domain
     itemsList.value[index].strategicCategory = itemsList.value[rootIndex].strategicCategory
   }
   // check if this is a  story taht does not have children
-  if ( itemsList.value[index].type == "Story" )
-  {
-    if (itemsList.value.findIndex(x=>x.parent ==  itemsList.value[index].id) == -1)
-    {
+  if (itemsList.value[index].type == "Story") {
+    if (itemsList.value.findIndex(x => x.parent == itemsList.value[index].id) == -1) {
       // if have no childrent update story points
-       itemsList.value[index].storyPoints =   itemsList.value[index].getPointsFromSize()
+      itemsList.value[index].storyPoints = itemsList.value[index].getPointsFromSize()
 
     }
   }
+  itemsList.value[index].checkForPlanningIssues();
   while (pindex != -1) {
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;

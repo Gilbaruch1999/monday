@@ -164,18 +164,28 @@ export class boardItem implements mondayFields {
   }
 
   checkPlanningStatusStory() {
-    // check that story size is correct compare to size estimation
+
+    this.planningCheckErrors = []
     if (this.sizeEstimation == "Not Estimated")
       this.setErrorIndication(PlanningErrorsIndex.noEstimationError);
 
     if (this.storyPoints >= 4 && this.numOfSubitems == 0) {
       this.setErrorIndication(PlanningErrorsIndex.itemNotBroken);
     }
+
+  }
+
+
+  checkStorySizeEstimation() {
+    // check that story size is correct compare to size estimation
+
     var points = this.getPointsFromSize();
     if (points > this.storyPoints * 1.75 || points < this.storyPoints * 0.75) {
       this.setErrorIndication(PlanningErrorsIndex.parentSizeError);
     }
   }
+
+
 
   setErrorIndication(index: PlanningErrorsIndex) {
     this.planningCheck = false;

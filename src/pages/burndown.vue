@@ -402,12 +402,6 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
 
     arr = arr.filter(x => x.goalCategory == goalCategory)
   }
-
-  arr.forEach(element => {
-    console.log("Title " + element.title + " Points " + element.storyPoints)
-
-  });
-
   total = arr.reduce((accumulator, object) => {
     return accumulator + object.storyPoints;
   }, 0);
@@ -420,7 +414,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
     pred = ((100 * (done / total))).toFixed(0) + " %"
   else
     pred = "NA"
-  console.log("category " + goalCategory + " total  " + JSON.stringify(total) + " Done " + done)
+  //console.log("category " + goalCategory + " total  " + JSON.stringify(total) + " Done " + done)
   return [total, done, pred];
 
 }

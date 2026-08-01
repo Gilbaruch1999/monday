@@ -75,6 +75,39 @@ export function getMondayDummyContext() {
   return res;
 }
 
+export function getDummyIdsList()
+{
+   const res = {
+  "data": {
+    "boards": [
+      {
+        "items_page": {
+          "items": [
+            {
+              "id": "3116072287"
+            },
+            {
+              "id": "3116088824"
+            },
+            {
+              "id": "3117510155"
+            },
+            {
+              "id": "3117534415"
+            },
+            {
+              "id": "3096293097"
+            }
+          ]
+        }
+      }
+    ]
+  },
+   };
+  return res;
+
+}
+
 export function getMondayDummyBoardItems() {
   const res = {
 
