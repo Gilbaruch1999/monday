@@ -166,8 +166,9 @@ export class boardItem implements mondayFields {
   checkPlanningStatusStory() {
 
     this.planningCheckErrors = []
-    if (this.sizeEstimation == "Not Estimated")
+     if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
       this.setErrorIndication(PlanningErrorsIndex.noEstimationError);
+    }
 
     if (this.storyPoints >= 4 && this.numOfSubitems == 0) {
       this.setErrorIndication(PlanningErrorsIndex.itemNotBroken);
@@ -176,7 +177,7 @@ export class boardItem implements mondayFields {
   }
 
 
-  checkStorySizeEstimation() {
+  checkSizeEstimation() {
     // check that story size is correct compare to size estimation
 
     var points = this.getPointsFromSize();
@@ -192,7 +193,13 @@ export class boardItem implements mondayFields {
     this.planningCheckErrors[index] = true;
   }
 
-  checkPlanningStatusFeature() {}
+  checkPlanningStatusEpic() {
+
+  }
+
+   checkPlanningStatusFeature() {
+
+  }
 
   checkForPlanningIssues() {
     this.planningCheck = true;
@@ -202,6 +209,10 @@ export class boardItem implements mondayFields {
         break;
       case "Story":
         this.checkPlanningStatusStory();
+       this. checkSizeEstimation()
+        break;
+        case "Epic":
+        this.checkPlanningStatusEpic();
         break;
       case "Feature":
         this.checkPlanningStatusFeature();

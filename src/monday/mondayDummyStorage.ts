@@ -12,33 +12,7 @@ export function getMondayDummySprintsConfig() : Sprint[] {
 
 var dummySprints: Sprint[] = [
 
-  {
-    name: "Sprint 40",
-    duration: 14,
-    startDate : createDateFromLocalText("26.4.2026"),
-    orgName: "Sprint 40 org",
-    boardid: "1647137427",
-    groupid: "group_mm1rp91q",
-    workingDays: 10,
-    nonWorkingDays: [createDateFromLocalText("1.5.2026"), createDateFromLocalText("2.5.2026"), createDateFromLocalText("8.5.2026"), createDateFromLocalText("9.5.2026")],
-  },
-  {
-    name: "Sprint 41",
-    duration: 14,
-    startDate: createDateFromLocalText("10.5.2026"),
-    orgName: "Sprint 41 org",
-    boardid: "1647137427",
-    groupid: "group_mm288bn5",
-    workingDays: 9,
-    nonWorkingDays: [
-      createDateFromLocalText("15.5.2026"),
-      createDateFromLocalText("16.5.2026"),
-      createDateFromLocalText("21.5.2026"),
-      createDateFromLocalText("22.5.2026"),
-      createDateFromLocalText("23.5.2026"),
-    ],
-  },
-  {
+   {
     name: "Sprint 42",
     duration: 14,
     startDate: createDateFromLocalText("19.7.2026"),
@@ -51,6 +25,22 @@ var dummySprints: Sprint[] = [
       createDateFromLocalText("25.7.2026"),
       createDateFromLocalText("31.7.2026"),
       createDateFromLocalText("1.8.2026"),
+    ],
+  },
+
+   {
+    name: "Sprint Q3.1.2026",
+    duration: 14,
+    startDate: createDateFromLocalText("2.8.2026"),
+    orgName: "Sprint Q3.1.2026",
+    boardid: "1647137427",
+    groupid: "group_mm25gkjt",
+    workingDays: 10,
+    nonWorkingDays: [
+      createDateFromLocalText("7.8.2026"),
+      createDateFromLocalText("8.8.2026"),
+      createDateFromLocalText("14.8.2026"),
+      createDateFromLocalText("15.8.2026"),
     ],
   },
 ];

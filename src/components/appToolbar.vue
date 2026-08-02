@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v156")
+  console.log("Starting app version v159")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -311,18 +311,18 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
   var boarddata: any;
-  var idsdata : any;
+  var idsdata: any;
   itemsList.value = []
   if (getFromDummy.value) {
     boarddata = getMondayDummyBoardItems();
     idsdata = getDummyIdsList()
     boarddata = boarddata.data
-     var ids : string[]= []
+    var ids: string[] = []
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
-    board.items_page.items.forEach((item: { id: any; }) => {
+      board.items_page.items.forEach((item: { id: any; }) => {
 
-      ids.push(item.id)
-    });
+        ids.push(item.id)
+      });
 
     });
     //console.log("TTTTTTTTTTTT " + JSON.stringify(ids))
@@ -333,12 +333,12 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     //console.log("Query " + qstr)
     idsdata = await mondayapi.api(qstr);
     console.log("Return from get board items " + JSON.stringify(idsdata))
-    var ids : string[]= []
+    var ids: string[] = []
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
-    board.items_page.items.forEach((item: { id: any; }) => {
+      board.items_page.items.forEach((item: { id: any; }) => {
 
-      ids.push(item.id)
-    });
+        ids.push(item.id)
+      });
 
     });
     qstr = getBoardItemsByIdQuery(ids);
@@ -384,21 +384,33 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
   // console.log("Items " + JSON.stringify(itemsList.value))
   console.log("Number of items " + itemsList.value.length)
-  updateAllLevels()
-  checkStorySize()
+  updateLevel("Task")
+  updateLevel("Story")
+  updateLevel("Epic")
+  //updateAllLevels()
+  //checkStorySize()
 }
 
-function checkStorySize() {
-  let arr = itemsList.value.filter(x => x.type == "Story")
+
+function updateLevel(type: string) {
+  var arr = itemsList.value.filter(x => x.type == type)
   arr.forEach(element => {
-    element.checkStorySizeEstimation()
+    element.checkForPlanningIssues();
+    var index = itemsList.value.findIndex(x => x.id == element.id)
+    if (index != -1)
+      updateParents(index);
   });
 }
 
 function updateAllLevels() {
+
+  // run on all tasks
+  // check planing and update parents
+
   for (let index = 0; index < itemsList.value.length; index++) {
     switch (itemsList.value[index].type) {
       case "Task":
+        itemsList.value[index].checkForPlanningIssues()
         updateParents(index)
         break;
       case "Story":

@@ -255,6 +255,7 @@ function getErrorString(erros: boolean[]): string {
 
 function resetFilters() {
   getItems();
+  showDetails.value = false
 }
 
 

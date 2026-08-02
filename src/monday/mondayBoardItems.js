@@ -122,7 +122,7 @@ export function getMondayDummyBoardItems() {
               "id": "person",
               "title": "Assigned"
             },
-            "text": ""
+            "text": "Katerina sayko, Asaf Bashari"
           },
           {
             "column": {
@@ -188,7 +188,110 @@ export function getMondayDummyBoardItems() {
             "text": "1"
           }
         ],
-        "subitems": []
+        "subitems": [
+          {
+            "id": "3123124052",
+            "name": "UI",
+            "parent_item": {
+              "id": "3096293097",
+              "name": "🎨Improve Daily Tasks Claim Feedback"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T08:08:38+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-08-01T18:44:19+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "How Many Coffees Do I need? ☕",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "How Many Coffees Do I need? ☕"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Lobby",
+                "updated_at": "2026-07-29T08:08:55+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Lobby"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Cosmetics",
+                "updated_at": "2026-07-29T08:08:59+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Cosmetics"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Outstanding",
+                "updated_at": "2026-07-29T08:09:02+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Outstanding"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          }
+        ]
       },
       {
         "id": "3116072287",
@@ -199,7 +302,7 @@ export function getMondayDummyBoardItems() {
               "id": "person",
               "title": "Assigned"
             },
-            "text": ""
+            "text": "Katerina sayko, Asaf Bashari"
           },
           {
             "column": {
@@ -266,6 +369,412 @@ export function getMondayDummyBoardItems() {
           }
         ],
         "subitems": [
+          {
+            "id": "3123100470",
+            "name": "UI",
+            "parent_item": {
+              "id": "3116072287",
+              "name": "🎨FTUE Tunnel Identity Step (1 --> 2)  | 🎓"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T08:03:57+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-08-01T18:40:15+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "M",
+                "updated_at": "2026-07-29T08:05:35+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "M"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-29T08:05:40+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:47+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:05:59+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3123149435",
+                "name": "Keidar Design",
+                "parent_item": {
+                  "id": "3123100470",
+                  "name": "UI"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-29T08:03:55+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-08-01T18:40:18+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-29T08:04:14+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-29T08:05:41+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-29T08:05:49+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-29T08:06:01+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3123121002",
+                "name": "Popup Design (how would you like to be called)",
+                "parent_item": {
+                  "id": "3123100470",
+                  "name": "UI"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-29T08:06:14+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-08-01T18:40:21+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "S",
+                    "updated_at": "2026-07-29T08:05:02+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "S"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-29T08:05:43+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-29T08:05:55+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-29T08:06:06+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3120280432",
+                "name": "UI Tunnel Design",
+                "parent_item": {
+                  "id": "3123100470",
+                  "name": "UI"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-28T09:14:51+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Story",
+                    "updated_at": "2026-07-28T09:14:50+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Story"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "S",
+                    "updated_at": "2026-07-28T09:19:22+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "S"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:14:53+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-29T08:05:50+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-29T08:06:02+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
+          },
           {
             "id": "3116117315",
             "name": "Tunnel Progress – Name Selection Intro",
@@ -380,7 +889,7 @@ export function getMondayDummyBoardItems() {
                       "id": "person",
                       "title": "Assigned"
                     },
-                    "text": "Katerina sayko, Asaf Bashari"
+                    "text": "Katerina sayko"
                   },
                   {
                     "id": "color_mm5k4f4",
@@ -687,7 +1196,7 @@ export function getMondayDummyBoardItems() {
                   "id": "person",
                   "title": "Assigned"
                 },
-                "text": "Katerina sayko, Asaf Bashari"
+                "text": "Katerina sayko"
               },
               {
                 "id": "color_mm5k4f4",
@@ -775,6 +1284,719 @@ export function getMondayDummyBoardItems() {
               }
             ],
             "subitems": []
+          },
+          {
+            "id": "3120295435",
+            "name": "BG Design",
+            "parent_item": {
+              "id": "3120280432",
+              "name": "UI Tunnel Design"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T07:59:15+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:15:20+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:19:15+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:15:42+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:52+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:06:03+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120299867",
+            "name": "עיצוב של כל השלב בכמה מצבים",
+            "parent_item": {
+              "id": "3120280432",
+              "name": "UI Tunnel Design"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T07:59:17+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-07-28T09:15:40+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-28T09:19:14+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:15:44+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:54+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:06:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3123149435",
+            "name": "Keidar Design",
+            "parent_item": {
+              "id": "3123100470",
+              "name": "UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T08:03:55+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-08-01T18:40:18+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-07-29T08:04:14+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-29T08:05:41+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:49+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:06:01+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3123121002",
+            "name": "Popup Design (how would you like to be called)",
+            "parent_item": {
+              "id": "3123100470",
+              "name": "UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-29T08:06:14+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-08-01T18:40:21+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-07-29T08:05:02+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-29T08:05:43+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:55+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:06:06+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3120280432",
+            "name": "UI Tunnel Design",
+            "parent_item": {
+              "id": "3123100470",
+              "name": "UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              },
+              {
+                "id": "color_mm5k4f4",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5k4f4",
+                  "title": "Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Ready for Design",
+                "updated_at": "2026-07-28T09:14:51+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Ready for Design"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-07-28T09:14:50+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-07-28T09:19:22+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Onboarding",
+                "updated_at": "2026-07-28T09:14:53+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Onboarding"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "User Needs",
+                "updated_at": "2026-07-29T08:05:50+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "User Needs"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-07-29T08:06:02+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "rating_mm5m33pq",
+                  "title": "Product Value"
+                },
+                "text": ""
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3120295435",
+                "name": "BG Design",
+                "parent_item": {
+                  "id": "3120280432",
+                  "name": "UI Tunnel Design"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-29T07:59:15+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:15:20+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:19:15+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:15:42+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-29T08:05:52+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-29T08:06:03+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "3120299867",
+                "name": "עיצוב של כל השלב בכמה מצבים",
+                "parent_item": {
+                  "id": "3120280432",
+                  "name": "UI Tunnel Design"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Katerina sayko"
+                  },
+                  {
+                    "id": "color_mm5k4f4",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5k4f4",
+                      "title": "Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Ready for Design",
+                    "updated_at": "2026-07-29T07:59:17+00:00",
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Ready for Design"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-07-28T09:15:40+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "xS",
+                    "updated_at": "2026-07-28T09:19:14+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "xS"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Onboarding",
+                    "updated_at": "2026-07-28T09:15:44+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Onboarding"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "User Needs",
+                    "updated_at": "2026-07-29T08:05:54+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "User Needs"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Minimum",
+                    "updated_at": "2026-07-29T08:06:04+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Minimum"
+                  },
+                  {
+                    "column": {
+                      "id": "rating_mm5m33pq",
+                      "title": "Product Value"
+                    },
+                    "text": ""
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -2437,109 +3659,8 @@ export function getMondayDummyBoardItems() {
                   },
                   {
                     "id": "color_mm5fnp1x",
-                    "label": "M",
-                    "updated_at": "2026-07-28T09:20:11+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "M"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Onboarding",
-                    "updated_at": "2026-07-28T09:20:15+00:00",
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Onboarding"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "rating_mm5m33pq",
-                      "title": "Product Value"
-                    },
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "3120280432",
-                "name": "UI Tunnel Design",
-                "parent_item": {
-                  "id": "3117479785",
-                  "name": "Complete MVP FTUE Flow"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": "Katerina sayko"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Status"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Ready for Design",
-                    "updated_at": "2026-07-28T09:14:51+00:00",
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Ready for Design"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Story",
-                    "updated_at": "2026-07-28T09:14:50+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Story"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
                     "label": "S",
-                    "updated_at": "2026-07-28T09:19:22+00:00",
+                    "updated_at": "2026-07-29T08:10:22+00:00",
                     "column": {
                       "id": "color_mm5fnp1x",
                       "title": "Size Estimation"
@@ -2549,7 +3670,7 @@ export function getMondayDummyBoardItems() {
                   {
                     "id": "color_mm5fj7av",
                     "label": "Onboarding",
-                    "updated_at": "2026-07-28T09:14:53+00:00",
+                    "updated_at": "2026-07-28T09:20:15+00:00",
                     "column": {
                       "id": "color_mm5fj7av",
                       "title": "Domain"
@@ -3302,210 +4423,6 @@ export function getMondayDummyBoardItems() {
             "subitems": []
           },
           {
-            "id": "3120295435",
-            "name": "BG Design",
-            "parent_item": {
-              "id": "3120280432",
-              "name": "UI Tunnel Design"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Task",
-                "updated_at": "2026-07-28T09:15:20+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Task"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "xS",
-                "updated_at": "2026-07-28T09:19:15+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "xS"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Onboarding",
-                "updated_at": "2026-07-28T09:15:42+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Onboarding"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "rating_mm5m33pq",
-                  "title": "Product Value"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3120299867",
-            "name": "עיצוב של כל השלב בכמה מצבים",
-            "parent_item": {
-              "id": "3120280432",
-              "name": "UI Tunnel Design"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Task",
-                "updated_at": "2026-07-28T09:15:40+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Task"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "xS",
-                "updated_at": "2026-07-28T09:19:14+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "xS"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Onboarding",
-                "updated_at": "2026-07-28T09:15:44+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Onboarding"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "rating_mm5m33pq",
-                  "title": "Product Value"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
             "id": "3120300685",
             "name": "UI",
             "parent_item": {
@@ -3559,13 +4476,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fnp1x",
-                "label": "M",
-                "updated_at": "2026-07-28T09:20:11+00:00",
+                "label": "S",
+                "updated_at": "2026-07-29T08:10:22+00:00",
                 "column": {
                   "id": "color_mm5fnp1x",
                   "title": "Size Estimation"
                 },
-                "text": "M"
+                "text": "S"
               },
               {
                 "id": "color_mm5fj7av",
@@ -3608,7 +4525,7 @@ export function getMondayDummyBoardItems() {
             "subitems": [
               {
                 "id": "3120325136",
-                "name": "Kaider Design 1",
+                "name": "Kaider Design",
                 "parent_item": {
                   "id": "3120300685",
                   "name": "UI"
@@ -3812,7 +4729,7 @@ export function getMondayDummyBoardItems() {
           },
           {
             "id": "3120325136",
-            "name": "Kaider Design 1",
+            "name": "Kaider Design",
             "parent_item": {
               "id": "3120300685",
               "name": "UI"
@@ -4013,311 +4930,6 @@ export function getMondayDummyBoardItems() {
               }
             ],
             "subitems": []
-          },
-          {
-            "id": "3120280432",
-            "name": "UI Tunnel Design",
-            "parent_item": {
-              "id": "3117479785",
-              "name": "Complete MVP FTUE Flow"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Ready for Design",
-                "updated_at": "2026-07-28T09:14:51+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Ready for Design"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-07-28T09:14:50+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Story"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-07-28T09:19:22+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Onboarding",
-                "updated_at": "2026-07-28T09:14:53+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Onboarding"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "rating_mm5m33pq",
-                  "title": "Product Value"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": [
-              {
-                "id": "3120295435",
-                "name": "BG Design",
-                "parent_item": {
-                  "id": "3120280432",
-                  "name": "UI Tunnel Design"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": "Katerina sayko"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Status"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Task",
-                    "updated_at": "2026-07-28T09:15:20+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Task"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "xS",
-                    "updated_at": "2026-07-28T09:19:15+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "xS"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Onboarding",
-                    "updated_at": "2026-07-28T09:15:42+00:00",
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Onboarding"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "rating_mm5m33pq",
-                      "title": "Product Value"
-                    },
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "3120299867",
-                "name": "עיצוב של כל השלב בכמה מצבים",
-                "parent_item": {
-                  "id": "3120280432",
-                  "name": "UI Tunnel Design"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": "Katerina sayko"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Status"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Task",
-                    "updated_at": "2026-07-28T09:15:40+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Task"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "xS",
-                    "updated_at": "2026-07-28T09:19:14+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "xS"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Onboarding",
-                    "updated_at": "2026-07-28T09:15:44+00:00",
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Onboarding"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "rating_mm5m33pq",
-                      "title": "Product Value"
-                    },
-                    "text": ""
-                  }
-                ]
-              }
-            ]
           }
         ]
       },
@@ -4330,7 +4942,7 @@ export function getMondayDummyBoardItems() {
               "id": "person",
               "title": "Assigned"
             },
-            "text": ""
+            "text": "Asaf Bashari"
           },
           {
             "column": {
@@ -4407,7 +5019,7 @@ export function getMondayDummyBoardItems() {
               "id": "person",
               "title": "Assigned"
             },
-            "text": ""
+            "text": "Asaf Bashari"
           },
           {
             "column": {
@@ -4478,10 +5090,6 @@ export function getMondayDummyBoardItems() {
     ]
   }
 }
-
-
-
-
 
   return res;
 }
