@@ -5,9 +5,9 @@
     <v-card :title="'Edit board Configuration ' + boardCfg.displayName">
       <v-form>
         <v-row>
-           <v-text-field disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
-           <v-text-field disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
-           <v-text-field label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
+          <v-text-field disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
+          <v-text-field disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
+          <v-text-field label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
         </v-row>
       </v-form>
       <template v-slot:actions>
@@ -23,6 +23,9 @@
       </template>
       <template v-slot:item.nonWorkingDays="{ item }">
         {{ dateArraytoString(item.nonWorkingDays) }}
+      </template>
+      <template v-slot:item.type="{ item }">
+        {{ sprintType[item.type] }}
       </template>
       <template v-slot:item.actions="{ item }">
         <v-icon :disabled="!manageSprints" small color="blue" class="mr-2" @click="editSprint(item)">
@@ -42,20 +45,31 @@
   </v-container>
   <v-dialog v-model="dialog" width="50%">
     <v-card :title="'Edit Sprint ' + sprintsList[editIndex].name">
-      <v-form>
-        <v-row>
-          <v-text-field label='Sprint Name' v-model="sprintsList[editIndex].name"> </v-text-field>
-          <v-text-field disabled label='boardid' v-model="sprintsList[editIndex].boardid"> </v-text-field>
-          <v-text-field label='Group id' v-model="sprintsList[editIndex].groupid"> </v-text-field>
+      <v-form >
+        <v-row >
+          <v-text-field class="ma-4" label='Sprint Name' v-model="sprintsList[editIndex].name"> </v-text-field>
+          <v-text-field class="ma-4" disabled label='boardid' v-model="sprintsList[editIndex].boardid"> </v-text-field>
+          <v-text-field class="ma-4" label='Group id' v-model="sprintsList[editIndex].groupid"> </v-text-field>
+          <v-menu>
+            <template v-slot:activator="{ props }">
+              <v-text-field class="ma-4" v-bind="props" label='type' v-model="sprintType[sprintsList[editIndex].type]" > </v-text-field>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in Object.keys(sprintType).filter(key => isNaN(Number(key)))"
+                :key="index">
+                <v-list-item-title  @click="sprintTypeChanged(item) "> {{ sprintType[index] }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-row>
         <v-row>
           <v-date-input input-format="dd.mm.yyyy" max-width="450px" class="ma-4" label='Start Day'
             v-model="sprintsList[editIndex].startDate"></v-date-input>
-          <v-text-field max-width="150px" class="ma-2" label='Duration' v-model="sprintsList[editIndex].duration">
+          <v-text-field class="ma-4" max-width="150px" label='Duration' v-model="sprintsList[editIndex].duration">
           </v-text-field>
         </v-row>
         <v-card class="bg-blue-lighten-4">
-          <h2 class="ma-2">None working days</h2>
+          <h2 class="ma-4">None working days</h2>
           <v-date-input input-format="dd.mm.yyyy" class="ma-4"
             v-for="(item, index) in sprintsList[editIndex].nonWorkingDays" label='Non working days'
             v-model="sprintsList[editIndex].nonWorkingDays[index]">
@@ -79,7 +93,7 @@
 
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
-import { Sprint } from "@/utils/sprintInfo";
+import { Sprint, sprintType } from "@/utils/sprintInfo";
 import { addDays, createDateFromLocalText } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
 import { boardConfig } from "@/utils/boardCfg";
@@ -94,7 +108,7 @@ const manageSprints = ref(false)
 const managBtnHeader = ref("Edit")
 let dialog = ref(false)
 let updateRequired = ref(false)
-let boardCfg : Ref<boardConfig> = ref(new boardConfig())
+let boardCfg: Ref<boardConfig> = ref(new boardConfig())
 
 
 
@@ -104,6 +118,7 @@ const sprintHeaders: any = [
   { title: 'Actions', key: 'actions', sortable: false }, // Action Column
   { title: 'Display Name', key: 'name' },
   { title: 'Original Name', key: 'orgName' },
+  { title: 'Sprint type', key: 'type' },
   { title: 'Start Date', key: 'startDate' },
   { title: 'Duration', key: "duration" },
   { title: "Board id", key: "boardid" },
@@ -128,10 +143,9 @@ function readSprintData() {
 
 }
 
-function readBoardConfig()
-{
+function readBoardConfig() {
   boardCfg.value.createBoardConfigFromStorage(sprintDataStore.getBoardCfg())
-  console.log( "Board config " +  JSON.stringify(boardCfg.value) )
+  console.log("Board config " + JSON.stringify(boardCfg.value))
 }
 
 function editSprint(item: Sprint) {
@@ -167,7 +181,15 @@ function cancelUpdateBoardCfg() {
 
 }
 
+function sprintTypeChanged(item : any)
+{
 
+  let x: keyof typeof sprintType;
+  x = item
+  //console.log("Sprint type changed to " + JSON.stringify(item) )
+  sprintsList.value[editIndex.value].type = sprintType[x]
+
+}
 
 function getRowProps(sprintitem: any) {
   let ret_val = {}
@@ -188,7 +210,6 @@ function manageSprintsClicked() {
 
   }
   else {
-    managBtnHeader.value = "Edit"
     readSprintData()
   }
 }
@@ -205,7 +226,7 @@ async function updateSprints() {
 
 function UpdateSprintItem() {
   dialog.value = false
-  sprintsList.value[editIndex.value].workingDays =  sprintsList.value[editIndex.value].duration -  sprintsList.value[editIndex.value].nonWorkingDays.length
+  sprintsList.value[editIndex.value].workingDays = sprintsList.value[editIndex.value].duration - sprintsList.value[editIndex.value].nonWorkingDays.length
   sprintDataStore.setsprintList(sprintsList.value)
   updateRequired.value = true
 

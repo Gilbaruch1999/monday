@@ -7,6 +7,12 @@ export interface sprintInfo {
   nonWorkingDays: Date[];
 }
 
+export enum sprintType {
+  backlog,
+  planning,
+  execution,
+}
+
 export class Sprint implements sprintInfo {
   name: string = "";
   orgName: string = "";
@@ -16,6 +22,7 @@ export class Sprint implements sprintInfo {
   groupid: string = "";
   workingDays: number = 0;
   nonWorkingDays: Date[];
+  type: sprintType = sprintType.execution;
   constructor() {
     this.duration = -1;
     this.nonWorkingDays = [];
@@ -31,14 +38,18 @@ export function convertJSONtoSprint(data: any): Sprint {
   ret_val.boardid = data.boardid;
   ret_val.groupid = data.groupid;
   ret_val.workingDays = data.workingDays;
+  try {
+    ret_val.type = data.type;
+  } catch {
+      ret_val.type = sprintType.execution
+  }
   //console.log("String date " + data.startDate)
   ret_val.startDate = new Date(data.startDate);
   //console.log("Start date " + ret_val.startDate.toLocaleDateString())
   data.nonWorkingDays.forEach((element: string) => {
-    ret_val.nonWorkingDays.push( new Date(element));
+    ret_val.nonWorkingDays.push(new Date(element));
   });
-  ret_val.workingDays = ret_val.duration - ret_val.nonWorkingDays.length
+  ret_val.workingDays = ret_val.duration - ret_val.nonWorkingDays.length;
 
   return ret_val;
 }
-
