@@ -4,7 +4,7 @@
 
     <div v-if="showFeatures">
       <v-toolbar color="primary">
-        <v-toolbar-title>Features</v-toolbar-title>
+        <v-toolbar-title>Sprint Features</v-toolbar-title>
       </v-toolbar>
       <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id"
         :headers="issuesheaders" :row-props="rowProps" @click:row="featureRowClicked" :items="featureList">
@@ -42,34 +42,13 @@
       </v-data-table>
     </div>
 
-    <v-toolbar color="primary">
-      <v-toolbar-title>{{ storyListTitle }}</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-checkbox @change="onFeaturesCbChange()" class="mt-6" v-model="showFeatures" label="Features"></v-checkbox>
-      <v-checkbox @change="onEpicCbChange()" class="mt-6 mr-2" v-model="showEpics" label="Epics"></v-checkbox>
-      <v-btn @click="resetFilters()">Reset</v-btn>
-    </v-toolbar>
-    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id" :headers="issuesheaders"
-      :row-props="rowProps" @click:row="storyRowClicked" :items="storyList">
-      <template v-slot:item.percentDone="{ item }">
-        <!-- @vue-ignore -->
-        <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
-          <!-- @vue-ignore -->
-          <span style="color:white"> {{ item.calcPercentDone() }} % </span>
-        </v-progress-linear>
-      </template>
-      <template v-slot:item.planningCheckErrors="item">
-        <!-- @vue-ignore -->
-        <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
-      </template>
-    </v-data-table>
 
-    <div v-if="showDetails">
-      <v-toolbar color="primary">
-        <v-toolbar-title>{{ taskListTitle }}</v-toolbar-title>
+    <div v-if="showEpicDetails">
+       <v-toolbar color="primary">
+        <v-toolbar-title>{{ storyListTitle }}</v-toolbar-title>
       </v-toolbar>
       <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" @click:row="taskRowClicked" :items="taskList">
+        :headers="issuesheaders" :row-props="rowProps" @click:row="storyRowClicked" :items="storyList">
         <template v-slot:item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
@@ -77,13 +56,13 @@
             <span style="color:white"> {{ item.calcPercentDone() }} % </span>
           </v-progress-linear>
         </template>
-
         <template v-slot:item.planningCheckErrors="item">
           <!-- @vue-ignore -->
           <span> {{ getErrorString(item.item.planningCheckErrors) }}</span>
         </template>
       </v-data-table>
     </div>
+
   </v-container>
 </template>
 
@@ -96,27 +75,21 @@ import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
 
-let showDetails = ref(false)
-let showFeatureDetails = ref(false)
+
 let showEpicDetails = ref(false)
 
 const userStore = useUsersData();
 
 let storyListTitle = ref("Sprint Stories")
 let epicListTitle = ref("Sprint Epics")
-let taskListTitle = ref("Tasks")
 let featureList: Ref<boardItem[]> = ref([]);
 let epicList: Ref<boardItem[]> = ref([]);
 let lastEpicList: Ref<boardItem[]> = ref([]);
-let lastStoryList: Ref<boardItem[]> = ref([]);
 let storyList: Ref<boardItem[]> = ref([]);
 let taskList: Ref<boardItem[]> = ref([]);
 let showEpics = ref(false)
-let showFeatures = ref(false)
-
+let showFeatures = ref(true)
 const sprintDataStore = useSprintData();
-
-
 
 const issuesheaders: any = [
 
@@ -173,17 +146,18 @@ function rowProps(data: any) {
 
 
 function featureRowClicked(event: any, row: any) {
-  if (showFeatureDetails.value == true) {
-    showFeatureDetails.value = false;
+  if (showEpics.value == true) {
+    showEpics.value = false;
+    showEpicDetails.value = false;
     epicListTitle.value = "Sprint Epics"
     getItems()
   }
   else {
-    showFeatureDetails.value = true;
-    epicListTitle.value = "Epics of feature " + row.item.title
+    showEpics.value = true;
+    epicListTitle.value = "Children of feature " + row.item.title
     featureList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
     epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-    lastEpicList.value = epicList.value
+
   }
 
 
@@ -191,53 +165,20 @@ function featureRowClicked(event: any, row: any) {
 
 
 function epicRowClicked(event: any, row: any) {
-  if (showEpicDetails.value == true) {
-    showEpicDetails.value = false;
-    epicListTitle.value = "Sprint Epics"
-    epicList.value = lastEpicList.value
-
-  }
-  else {
-    showEpicDetails.value = true;
-    storyListTitle.value = "Stories of Epic " + row.item.title
-    epicList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-    storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-    lastStoryList.value = storyList.value
-  }
-
+  showEpicDetails.value = true;
+  storyListTitle.value = "childrent of Epic " + row.item.title
+  storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
 
 }
 
 
 
 function storyRowClicked(event: any, row: any) {
-  if (showDetails.value == true) {
-    showDetails.value = false;
-    storyList.value = lastStoryList.value
-    storyListTitle.value = "Sprint Stories"
-  }
-  else {
-    showDetails.value = true;
-    storyList.value = sprintDataStore.getsprintData().filter(x => x.id == row.item.id)
-    taskList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-    taskListTitle.value = "Tasks of story " + row.item.title
-  }
+
 
 }
 
 
-function taskRowClicked(event: any, row: any) {
-
-  if (showDetails.value == false) {
-
-    showDetails.value = true
-
-  }
-  else {
-    showDetails.value = false;
-  }
-
-}
 
 
 function getErrorString(erros: boolean[]): string {
@@ -252,23 +193,6 @@ function getErrorString(erros: boolean[]): string {
   return ret_val
 
 }
-
-function resetFilters() {
-  getItems();
-  showDetails.value = false
-}
-
-
-function onFeaturesCbChange() {
-
-
-}
-
-
-function onEpicCbChange() {
-
-}
-
 
 watch(
   () => sprintDataStore.getsprintData(),

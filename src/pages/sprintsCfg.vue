@@ -5,13 +5,13 @@
     <v-card :title="'Edit board Configuration ' + boardCfg.displayName">
       <v-form>
         <v-row>
-          <v-text-field disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
-          <v-text-field disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
-          <v-text-field label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
+          <v-text-field class="font-weight-bold" disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
+          <v-text-field class="font-weight-bold" disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
+          <v-text-field @input="nameChangeCliked()" class="font-weight-bold" label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
         </v-row>
       </v-form>
       <template v-slot:actions>
-        <v-btn color="orange" class="ms-auto" text="Update" @click="updateBoardConfig()"></v-btn>
+        <v-btn :disabled="!boardChanged"class="ms-auto bg-orange" text="Update" @click="updateBoardConfig()"></v-btn>
         <v-btn class="ms-auto" text="Cancel" @click="cancelUpdateBoardCfg()"></v-btn>
       </template>
     </v-card>
@@ -109,6 +109,7 @@ const managBtnHeader = ref("Edit")
 let dialog = ref(false)
 let updateRequired = ref(false)
 let boardCfg: Ref<boardConfig> = ref(new boardConfig())
+let boardChanged = ref(false)
 
 
 
@@ -178,6 +179,7 @@ function cancelUpdateSprintItem() {
 
 function cancelUpdateBoardCfg() {
   readBoardConfig();
+  boardChanged.value = false
 
 }
 
@@ -269,24 +271,11 @@ function populateNonWorkingDays() {
   }
 }
 
-function stringToDateArray(str: string) {
-  let ret_val: Date[] = []
 
-  try {
-    var tmp = str.split(",");
-    if (tmp.length == 0) return [];
-    else {
-      tmp.forEach(element => {
-        ret_val.push(createDateFromLocalText(element.trim()))
-      });
-    }
-  } catch {
-    console.log("Error in create date from text 2");
-  }
-  //console.log('Date is ' + retval.toLocaleDateString())
-  return ret_val;
+function nameChangeCliked()
+{
+  boardChanged.value = true
 }
-
 
 
 </script>

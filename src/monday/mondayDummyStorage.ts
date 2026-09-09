@@ -1,7 +1,7 @@
 /* cspell:disable */
 
 import { sprintHistory } from "@/utils/historyData";
-import { Sprint } from "@/utils/sprintInfo";
+import { Sprint, sprintType } from "@/utils/sprintInfo";
 import { createDateFromLocalText } from "@/utils/utils";
 
 var boardinfoString: string = "";
@@ -13,29 +13,31 @@ export function getMondayDummySprintsConfig() : Sprint[] {
 var dummySprints: Sprint[] = [
 
    {
-    name: "Sprint 42",
+    name: "Sprint 49",
     duration: 14,
-    startDate: createDateFromLocalText("19.7.2026"),
-    orgName: "Sprint 42 org",
+    startDate: createDateFromLocalText("6.9.2026"),
+    orgName: "Sprint 49",
     boardid: "1647137427",
     groupid: "group_mm25gkjt",
     workingDays: 10,
+    type : sprintType.execution,
     nonWorkingDays: [
-      createDateFromLocalText("24.7.2026"),
-      createDateFromLocalText("25.7.2026"),
-      createDateFromLocalText("31.7.2026"),
-      createDateFromLocalText("1.8.2026"),
+      createDateFromLocalText("11.9.2026"),
+      createDateFromLocalText("12.9.2026"),
+      createDateFromLocalText("18.9.2026"),
+      createDateFromLocalText("19.9.2026"),
     ],
   },
 
    {
-    name: "Sprint Q3.1.2026",
+    name: "Sprint 50",
     duration: 14,
-    startDate: createDateFromLocalText("2.8.2026"),
-    orgName: "Sprint Q3.1.2026",
+    startDate: createDateFromLocalText("20.9.2026"),
+    orgName: "Sprint 50",
     boardid: "1647137427",
     groupid: "group_mm25gkjt",
     workingDays: 10,
+     type : sprintType.execution,
     nonWorkingDays: [
       createDateFromLocalText("7.8.2026"),
       createDateFromLocalText("8.8.2026"),

@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v159")
+  console.log("Starting app version v161")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -197,7 +197,7 @@ async function getBoardConfig(bid: string) {
     }
     //console.log("Sprints from storage " + JSON.stringify(sprintList))
   }
-  console.log("Sprints config from storage" + JSON.stringify(sprintscfgMonday))
+  //console.log("Sprints config from storage" + JSON.stringify(sprintscfgMonday))
   sprintscfgMonday.boards.forEach((board: any) => {
     bconfig.value.name = board.name
     bconfig.value.displayName = board.name
@@ -299,6 +299,8 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 
   let newSprint = new Sprint();
 
+  newSprint.startDate = new Date()
+  newSprint.duration = 14
   newSprint.orgName = groupdata.title
   newSprint.name = groupdata.title
   newSprint.nonWorkingDays = []
@@ -325,8 +327,9 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
       });
 
     });
-    //console.log("TTTTTTTTTTTT " + JSON.stringify(ids))
-    //console.log("Get from Dummy !!!!" + JSON.stringify(data))
+    //console.log("got dummy items " + JSON.stringify(boarddata))
+    //boarddata = boarddata.boards[0].items_page
+
   }
   else {
     var qstr = getItemsIdyGroupQuery(groupid);
@@ -336,7 +339,6 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     var ids: string[] = []
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
       board.items_page.items.forEach((item: { id: any; }) => {
-
         ids.push(item.id)
       });
 
@@ -387,6 +389,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   updateLevel("Task")
   updateLevel("Story")
   updateLevel("Epic")
+  updateLevel("Feature")
   //updateAllLevels()
   //checkStorySize()
 }
@@ -395,6 +398,18 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 function updateLevel(type: string) {
   var arr = itemsList.value.filter(x => x.type == type)
   arr.forEach(element => {
+    switch (element.type)
+    {
+      case "Task" :
+      break;
+      case "Story" :
+      case "Epic" :
+      case "Feature":
+        if (element.numOfSubitems == 0)
+        element.storyPoints = element.getPointsFromSize()
+      break;
+
+    }
     element.checkForPlanningIssues();
     var index = itemsList.value.findIndex(x => x.id == element.id)
     if (index != -1)
@@ -402,54 +417,18 @@ function updateLevel(type: string) {
   });
 }
 
-function updateAllLevels() {
-
-  // run on all tasks
-  // check planing and update parents
-
-  for (let index = 0; index < itemsList.value.length; index++) {
-    switch (itemsList.value[index].type) {
-      case "Task":
-        itemsList.value[index].checkForPlanningIssues()
-        updateParents(index)
-        break;
-      case "Story":
-        updateParents(index)
-        itemsList.value[index].checkForPlanningIssues()
-        break;
-      case "Epic":
-        updateParents(index)
-        itemsList.value[index].checkForPlanningIssues()
-        break;
-      case "Feature":
-        itemsList.value[index].checkForPlanningIssues()
-        break;
-    }
-  }
-
-}
-
 function updateParents(index: number) {
-
 
   var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
   var rootIndex = itemsList.value.findIndex(x => x.id == itemsList.value[index].rootItemId)
-  if (pindex != -1)
-    itemsList.value[pindex].numOfSubitems++
-  if (rootIndex != -1) {
+   if (rootIndex != -1) {
     itemsList.value[index].domain = itemsList.value[rootIndex].domain
     itemsList.value[index].strategicCategory = itemsList.value[rootIndex].strategicCategory
   }
-  // check if this is a  story taht does not have children
-  if (itemsList.value[index].type == "Story") {
-    if (itemsList.value.findIndex(x => x.parent == itemsList.value[index].id) == -1) {
-      // if have no childrent update story points
-      itemsList.value[index].storyPoints = itemsList.value[index].getPointsFromSize()
-
-    }
-  }
-  itemsList.value[index].checkForPlanningIssues();
-  while (pindex != -1) {
+   itemsList.value[index].checkForPlanningIssues();
+  if (pindex != -1)
+  {
+    itemsList.value[pindex].numOfSubitems++
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;
     if (itemsList.value[index].status == "Done") {
@@ -469,9 +448,10 @@ function updateParents(index: number) {
       itemsList.value[pindex].setErrorIndication(PlanningErrorsIndex.subItemError)
 
     }
-    pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
-
   }
+    //pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
+
+ // }
 
 }
 

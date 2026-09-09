@@ -32,13 +32,11 @@ export class boardItem implements mondayFields {
   goalCategory: string = "";
   sizeEstimation: string = "";
   storyPoints: number = 0;
-
   doneStoryPoints: number;
   percentDone: number = 0;
-  //subItems: boardItem[] = [];
   numOfSubitems: number = 0;
-  subitemsPoints: number = 0;
-  subitemsDonePoints: number;
+  //subitemsPoints: number = 0;
+  //subitemsDonePoints: number;
   DoneDate: Date = new Date(0);
   planningStatus: string = "";
   planningCheck: boolean;
@@ -54,8 +52,6 @@ export class boardItem implements mondayFields {
     } catch {}
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
-    this.subitemsPoints = 0;
-    this.subitemsDonePoints = 0;
     this.planningCheck = false;
 
     this.planningCheckErrors = new Array(
@@ -105,7 +101,8 @@ export class boardItem implements mondayFields {
       }
     });
 
-    this.updateStoryPoints();
+    if (this.type == "Task") this.storyPoints = this.getPointsFromSize()
+
   }
 
   updateFields(column_values: any) {
@@ -119,10 +116,6 @@ export class boardItem implements mondayFields {
     else return Math.round((100 * this.doneStoryPoints) / this.storyPoints);
   }
 
-  updateStoryPoints() {
-    if (this.type == "Task") this.storyPoints = this.getPointsFromSize()
-
-  }
 
   getPointsFromSize(): number {
     var ret_val: number = 0;
@@ -148,6 +141,7 @@ export class boardItem implements mondayFields {
     if (this.status == "Not Planned") {
       ret_val = 0;
     }
+    //console.log("Points for " + this.title + " type " + this.type + " points " + ret_val)
     return ret_val;
   }
 
