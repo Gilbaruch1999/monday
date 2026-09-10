@@ -66,12 +66,16 @@ export class boardItem implements mondayFields {
     column_values.forEach((column: any) => {
       let internalId = columnToId.get(column.column.id);
       switch (internalId) {
-        case statusID:
+        //case statusID:
+        case planningStatusID:
+          this.planningStatus = column.text;
           this.status = column.text;
           if (this.status == "Done") {
+
             let donedate = new Date(column.updated_at);
             donedate.setHours(0, 0, 0, 0);
             this.DoneDate = donedate;
+            //console.log("Found done item " + JSON.stringify(this))
           }
           break;
         case domainID:
@@ -93,9 +97,6 @@ export class boardItem implements mondayFields {
         case issueTypeID:
           this.type = column.text;
           break;
-        case planningStatusID:
-          this.planningStatus = column.text;
-          break;
         default:
         //console.log('undefined column ' + JSON.stringify(column.column))
       }
@@ -108,6 +109,7 @@ export class boardItem implements mondayFields {
   updateFields(column_values: any) {
     // todo add other apps here
     this.mondayUpdateFields(column_values);
+
   }
 
   calcPercentDone() {

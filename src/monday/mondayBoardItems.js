@@ -111,6 +111,7 @@ export function getDummyIdsList()
 export function getMondayDummyBoardItems() {
   const res = {
 
+
   "data": {
     "items": [
       {
@@ -2095,13 +2096,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-09-10T06:54:35+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Not Defined"
+                "text": "Done"
               },
               {
                 "id": "color_mm5k4f4",

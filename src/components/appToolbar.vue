@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v161")
+  console.log("Starting app version v162")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -418,8 +418,10 @@ function updateLevel(type: string) {
 }
 
 function updateParents(index: number) {
+ // console.log("Updating parent of " +  itemsList.value[index].title + " status " +  itemsList.value[index].status)
 
   var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
+  // console.log("pindex " +  pindex)
   var rootIndex = itemsList.value.findIndex(x => x.id == itemsList.value[index].rootItemId)
    if (rootIndex != -1) {
     itemsList.value[index].domain = itemsList.value[rootIndex].domain
@@ -432,6 +434,7 @@ function updateParents(index: number) {
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;
     if (itemsList.value[index].status == "Done") {
+    console.log("Done item " + JSON.stringify(itemsList.value[index]))
       if (isDateInSprint(curSprint.startDate, itemsList.value[index].DoneDate, curSprint.duration)) {
         donePoints = itemsList.value[index].storyPoints
         itemsList.value[index].doneStoryPoints = itemsList.value[index].storyPoints
