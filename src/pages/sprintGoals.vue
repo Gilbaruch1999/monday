@@ -8,6 +8,11 @@
     </div>
     <div>
       <v-toolbar color="primary" :title="pagetitle">
+      <v-radio-group @change="itemTypeChanged()" v-model="itemType" inline>
+      <v-radio class="mt-6" label="Features" value="Feature"></v-radio>
+      <v-radio class="mt-6" label="Epics" value="Epic"></v-radio>
+      <v-radio class="mt-6" label="Stories" value="Story"></v-radio>
+    </v-radio-group>
       </v-toolbar>
       <v-card min-height="150" :color="category.color" class="my-2" v-for="category in goalsCategory">
         <v-card-title class=""> {{ category.name }}</v-card-title>
@@ -20,8 +25,6 @@
       </v-card>
     </div>
   </v-container>
-
-
 </template>
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
@@ -32,7 +35,6 @@ const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
   { name: "Target", color: "#43A047" },
   { name: "Outstanding", color: "#F48FB1" },
-
 ]
 
 const poImage = [
@@ -40,6 +42,8 @@ const poImage = [
   { src: "target.jpeg", text: "Happy", color: "#43A047" },
   { src: "outstanding.jpeg", text: "Excited", color: "#F48FB1" },
 ]
+
+let itemType = ref("Feature")
 
 let poImageSrc = ref("")
 let poImageColor = ref("")
@@ -56,13 +60,16 @@ onMounted(() => {
 
 function initData()
 {
-  boardItems.value = sprintDataStore.getsprintData().filter(X=> X.type=="Feature" || ((X.type == "Story") && X.numOfSubitems ==0));
+  boardItems.value = sprintDataStore.getsprintData().filter(X=> X.type==itemType.value );
   updatePOStatus(boardItems.value);
   pagetitle.value = sprintDataStore.getBoardCfg().displayName + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
 
 }
 
-
+function itemTypeChanged()
+{
+  initData()
+}
 
 
 function getGoals(category: string) {

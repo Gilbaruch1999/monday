@@ -391,22 +391,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   let pred = ""
   let total = 0
   let done = 0
-
-
-
   var arr = itemsList.value.filter(x => ((x.status != 'Removed') && (x.type == "Feature")))
-
-  /*
-
-  if (detailedgrpah.value) {
-    arr = itemsList.value.filter(x => ( (x.status != 'Removed') && (x.type == "Task" || ( (x.type == "Story") && (x.numOfSubitems == 0) ))))
-
-  }
-  else {
-    arr = itemsList.value.filter(x => x.status != 'Removed' && (x.type == "Story"))
-  }
-*/
-
   //console.log("Goal category " + goalCategory)
   if (goalCategory != "All") {
 
@@ -416,7 +401,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   if (detailedgrpah.value) {
 
     while (arr.length > 0) {
-      console.log("Starting while loop Array length " + arr.length)
+      //console.log("Starting while loop Array length " + arr.length)
       var temp_arr: boardItem[] = []
       arr.forEach(element => {
         //console.log("item " + element.title + " sub items " + element.numOfSubitems)
@@ -433,13 +418,13 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
       });
       arr = [...temp_arr]
     }
-    console.log("While loop ended !!!!!!!")
+    //console.log("While loop ended !!!!!!!")
 
   }
 
   else {
 
-    console.log("Non detailed array size " + arr.length)
+    //console.log("Non detailed array size " + arr.length)
 
     total = arr.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
@@ -492,18 +477,17 @@ function calcBurnUpDonw() {
 
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-    var tasks = itemsList.value.filter(x => x.type == "Task" && x.status == "Done")
-    var storiesNoTasks = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.type == 'Story') && (x.status == "Done"))
+    //var tasks = itemsList.value.filter(x => x.type == "Task" && x.status == "Done")
+    var items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.type != 'Feature') && (x.status == "Done"))
 
-    addBurnUpValues(storiesNoTasks, currentIndex)
-    addBurnUpValues(tasks, currentIndex)
-    //console.log("Burn up detailed " + JSON.stringify(burnUpValues.value))
+    addBurnUpValues(items, currentIndex)
+
   }
   else {
 
-    var stories = itemsList.value.filter(x => x.status == "Done" && x.type == "Story")
+    var features = itemsList.value.filter(x => x.status == "Done" && x.type == "Feature")
     //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
-    addBurnUpValues(stories, currentIndex)
+    addBurnUpValues(features, currentIndex)
   }
 
 

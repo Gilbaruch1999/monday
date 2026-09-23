@@ -123,7 +123,7 @@ function getItems() {
   taskList.value = sprintDataStore.getsprintData().filter(x => x.type == "task")
   storyList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Story") || (x.type == "Bug"))
   epicList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Epic"))
-  featureList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Feature"))
+  featureList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Feature")).sort((a, b) => a.sortOrder - b.sortOrder)
   lastEpicList.value = epicList.value
 }
 
@@ -159,8 +159,6 @@ function featureRowClicked(event: any, row: any) {
     epicList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
 
   }
-
-
 }
 
 
@@ -168,17 +166,13 @@ function epicRowClicked(event: any, row: any) {
   showEpicDetails.value = true;
   storyListTitle.value = "childrent of Epic " + row.item.title
   storyList.value = sprintDataStore.getsprintData().filter(x => x.parent == row.item.id)
-
 }
 
 
 
 function storyRowClicked(event: any, row: any) {
 
-
 }
-
-
 
 
 function getErrorString(erros: boolean[]): string {

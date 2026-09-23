@@ -35,14 +35,13 @@ export class boardItem implements mondayFields {
   doneStoryPoints: number;
   percentDone: number = 0;
   numOfSubitems: number = 0;
-  //subitemsPoints: number = 0;
-  //subitemsDonePoints: number;
   DoneDate: Date = new Date(0);
   planningStatus: string = "";
   planningCheck: boolean;
   planningCheckErrors: boolean[] = [];
   parent: string = "";
   rootItemId: string = "";
+  sortOrder: number = -1;
   constructor(item: any) {
     this.title = item.name;
     this.id = item.id;
@@ -61,6 +60,20 @@ export class boardItem implements mondayFields {
     this.updateFields(item.column_values);
   }
 
+  setSortNumber() {
+    switch (this.goalCategory) {
+      case "Minimum":
+        this.sortOrder = 0;
+        break;
+      case "Target":
+        this.sortOrder = 1;
+        break;
+      case "Outstanding":
+        this.sortOrder = 2;
+        break;
+    }
+  }
+
   mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
     column_values.forEach((column: any) => {
@@ -71,7 +84,6 @@ export class boardItem implements mondayFields {
           this.planningStatus = column.text;
           this.status = column.text;
           if (this.status == "Done") {
-
             let donedate = new Date(column.updated_at);
             donedate.setHours(0, 0, 0, 0);
             this.DoneDate = donedate;
@@ -86,6 +98,7 @@ export class boardItem implements mondayFields {
           break;
         case goalCategoryID:
           this.goalCategory = column.text;
+          this.setSortNumber();
           break;
         case sizeEstimationID:
           this.sizeEstimation = column.text;
@@ -102,14 +115,12 @@ export class boardItem implements mondayFields {
       }
     });
 
-    if (this.type == "Task") this.storyPoints = this.getPointsFromSize()
-
+    if (this.type == "Task") this.storyPoints = this.getPointsFromSize();
   }
 
   updateFields(column_values: any) {
     // todo add other apps here
     this.mondayUpdateFields(column_values);
-
   }
 
   calcPercentDone() {
@@ -117,7 +128,6 @@ export class boardItem implements mondayFields {
     if (this.storyPoints == 0) return 0;
     else return Math.round((100 * this.doneStoryPoints) / this.storyPoints);
   }
-
 
   getPointsFromSize(): number {
     var ret_val: number = 0;
@@ -160,18 +170,15 @@ export class boardItem implements mondayFields {
   }
 
   checkPlanningStatusStory() {
-
-    this.planningCheckErrors = []
-     if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
+    this.planningCheckErrors = [];
+    if (this.storyPoints == 0 && this.sizeEstimation != "No Effort") {
       this.setErrorIndication(PlanningErrorsIndex.noEstimationError);
     }
 
     if (this.storyPoints >= 4 && this.numOfSubitems == 0) {
       this.setErrorIndication(PlanningErrorsIndex.itemNotBroken);
     }
-
   }
-
 
   checkSizeEstimation() {
     // check that story size is correct compare to size estimation
@@ -182,20 +189,14 @@ export class boardItem implements mondayFields {
     }
   }
 
-
-
   setErrorIndication(index: PlanningErrorsIndex) {
     this.planningCheck = false;
     this.planningCheckErrors[index] = true;
   }
 
-  checkPlanningStatusEpic() {
+  checkPlanningStatusEpic() {}
 
-  }
-
-   checkPlanningStatusFeature() {
-
-  }
+  checkPlanningStatusFeature() {}
 
   checkForPlanningIssues() {
     this.planningCheck = true;
@@ -205,9 +206,9 @@ export class boardItem implements mondayFields {
         break;
       case "Story":
         this.checkPlanningStatusStory();
-       this. checkSizeEstimation()
+        this.checkSizeEstimation();
         break;
-        case "Epic":
+      case "Epic":
         this.checkPlanningStatusEpic();
         break;
       case "Feature":

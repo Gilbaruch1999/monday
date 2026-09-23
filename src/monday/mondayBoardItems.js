@@ -683,7 +683,7 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Pending"
+            "text": "Work In Progress"
           },
           {
             "column": {
@@ -752,7 +752,7 @@ export function getMondayDummyBoardItems() {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Done" /* !!!!!! */
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -2212,7 +2212,7 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Pending"
+            "text": "Work In Progress"
           },
           {
             "column": {
@@ -2275,23 +2275,23 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-09-23T07:32:20+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-22T07:23:18+00:00",
+                "label": "Epic",
+                "updated_at": "2026-09-22T07:59:54+00:00",
                 "column": {
                   "id": "color_mm5fx8bd",
                   "title": "Issue Type"
                 },
-                "text": "Story"
+                "text": "Epic"
               },
               {
                 "id": "color_mm5fnp1x",
@@ -2306,7 +2306,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fj7av",
                 "label": "Brainstorm Match",
-                "updated_at": "2026-09-22T07:23:02+00:00",
+                "updated_at": "2026-09-22T07:59:39+00:00",
                 "column": {
                   "id": "color_mm5fj7av",
                   "title": "Domain"
@@ -2360,23 +2360,23 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Work In Progress",
+                "updated_at": "2026-09-23T07:33:04+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Work In Progress"
               },
               {
                 "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-22T07:23:18+00:00",
+                "label": "Epic",
+                "updated_at": "2026-09-22T07:59:56+00:00",
                 "column": {
                   "id": "color_mm5fx8bd",
                   "title": "Issue Type"
                 },
-                "text": "Story"
+                "text": "Epic"
               },
               {
                 "id": "color_mm5fnp1x",
@@ -2391,7 +2391,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fj7av",
                 "label": "Brainstorm Match",
-                "updated_at": "2026-09-22T07:23:02+00:00",
+                "updated_at": "2026-09-22T07:59:40+00:00",
                 "column": {
                   "id": "color_mm5fj7av",
                   "title": "Domain"
@@ -2455,13 +2455,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-22T07:23:18+00:00",
+                "label": "Epic",
+                "updated_at": "2026-09-22T07:59:58+00:00",
                 "column": {
                   "id": "color_mm5fx8bd",
                   "title": "Issue Type"
                 },
-                "text": "Story"
+                "text": "Epic"
               },
               {
                 "id": "color_mm5fnp1x",
@@ -2476,7 +2476,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fj7av",
                 "label": "Brainstorm Match",
-                "updated_at": "2026-09-22T07:23:02+00:00",
+                "updated_at": "2026-09-22T07:59:42+00:00",
                 "column": {
                   "id": "color_mm5fj7av",
                   "title": "Domain"
@@ -2518,9 +2518,6 @@ export function getMondayDummyBoardItems() {
     ]
   }
 }
-
-
-
 
   return res;
 }
