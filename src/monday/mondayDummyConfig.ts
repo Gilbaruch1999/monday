@@ -10,13 +10,13 @@ export function getMondayDummyBoardConfig() {
         "type": "board",
         "groups": [
           {
-            "id": "group_mm30xrkd",
-            "title": "Sprint 49",
+            "id": "group_mm71vrn6",
+            "title": "Sprint 50",
             "__typename": "Group"
           },
           {
-            "id": "group_mm25gkjt",
-            "title": "Sprint 50",
+            "id": "group_mm79mx0x",
+            "title": "Sprint 51",
             "__typename": "Group"
           },
 

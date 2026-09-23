@@ -12,30 +12,34 @@ export function getMondayDummySprintsConfig() : Sprint[] {
 
 var dummySprints: Sprint[] = [
 
-   {
-    name: "Sprint 49",
-    duration: 14,
-    startDate: createDateFromLocalText("6.9.2026"),
-    orgName: "Sprint 49",
-    boardid: "1647137427",
-    groupid: "group_mm25gkjt",
-    workingDays: 10,
-    type : sprintType.execution,
-    nonWorkingDays: [
-      createDateFromLocalText("11.9.2026"),
-      createDateFromLocalText("12.9.2026"),
-      createDateFromLocalText("18.9.2026"),
-      createDateFromLocalText("19.9.2026"),
-    ],
-  },
 
    {
     name: "Sprint 50",
-    duration: 14,
+    duration: 21,
     startDate: createDateFromLocalText("20.9.2026"),
     orgName: "Sprint 50",
     boardid: "1647137427",
-    groupid: "group_mm25gkjt",
+    groupid: "group_mm71vrn6",
+    workingDays: 13,
+     type : sprintType.execution,
+    nonWorkingDays: [
+      createDateFromLocalText("20.9.2026"),
+      createDateFromLocalText("21.9.2026"),
+      createDateFromLocalText("25.9.2026"),
+      createDateFromLocalText("26.9.2026"),
+      createDateFromLocalText("2.10.2026"),
+      createDateFromLocalText("3.10.2026"),
+      createDateFromLocalText("9.10.2026"),
+      createDateFromLocalText("10.10.2026")
+    ],
+  },
+   {
+    name: "Sprint 51",
+    duration: 14,
+    startDate: createDateFromLocalText("11.10.2026"),
+    orgName: "Sprint 51",
+    boardid: "1647137427",
+    groupid: "group_mm79mx0x",
     workingDays: 10,
      type : sprintType.execution,
     nonWorkingDays: [

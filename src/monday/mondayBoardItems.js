@@ -78,6 +78,7 @@ export function getMondayDummyContext() {
 export function getDummyIdsList()
 {
    const res = {
+
   "data": {
     "boards": [
       {
@@ -111,7 +112,6 @@ export function getDummyIdsList()
 export function getMondayDummyBoardItems() {
   const res = {
 
-
   "data": {
     "items": [
       {
@@ -130,14 +130,7 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Ready for Takeoff"
-          },
-          {
-            "column": {
-              "id": "color_mm5k4f4",
-              "title": "Workstream"
-            },
-            "text": "Design"
+            "text": "Pending"
           },
           {
             "column": {
@@ -200,23 +193,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T12:54:17+00:00",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:31:29+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T12:54:12+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -281,1190 +264,6 @@ export function getMondayDummyBoardItems() {
         ]
       },
       {
-        "id": "3208220047",
-        "name": "Build Zen Zone POC",
-        "column_values": [
-          {
-            "column": {
-              "id": "subtasks_mkrmtgvm",
-              "title": "Subitems"
-            },
-            "text": null
-          },
-          {
-            "column": {
-              "id": "color_mm5fb7mm",
-              "title": "Planning Status"
-            },
-            "text": "Not Defined"
-          },
-          {
-            "column": {
-              "id": "color_mm5k4f4",
-              "title": "Workstream"
-            },
-            "text": "Dev"
-          },
-          {
-            "column": {
-              "id": "color_mm5fx8bd",
-              "title": "Issue Type"
-            },
-            "text": "Feature"
-          },
-          {
-            "column": {
-              "id": "color_mm5fnp1x",
-              "title": "Size Estimation"
-            },
-            "text": "How Many Coffees Do I need? ☕"
-          },
-          {
-            "column": {
-              "id": "color_mm5fj7av",
-              "title": "Domain"
-            },
-            "text": "General"
-          },
-          {
-            "column": {
-              "id": "color_mm5fqavz",
-              "title": "Strategic Category"
-            },
-            "text": "Vision"
-          },
-          {
-            "column": {
-              "id": "color_mm5k7m7a",
-              "title": "Sprint Goal"
-            },
-            "text": "Minimum"
-          },
-          {
-            "column": {
-              "id": "person",
-              "title": "Assigned"
-            },
-            "text": ""
-          }
-        ],
-        "subitems": []
-      },
-      {
-        "id": "3208298246",
-        "name": "🎨Safe Space Booster - Only UI",
-        "column_values": [
-          {
-            "column": {
-              "id": "subtasks_mkrmtgvm",
-              "title": "Subitems"
-            },
-            "text": null
-          },
-          {
-            "column": {
-              "id": "color_mm5fb7mm",
-              "title": "Planning Status"
-            },
-            "text": "Ready for Takeoff"
-          },
-          {
-            "column": {
-              "id": "color_mm5k4f4",
-              "title": "Workstream"
-            },
-            "text": "Design"
-          },
-          {
-            "column": {
-              "id": "color_mm5fx8bd",
-              "title": "Issue Type"
-            },
-            "text": "Feature"
-          },
-          {
-            "column": {
-              "id": "color_mm5fnp1x",
-              "title": "Size Estimation"
-            },
-            "text": "L"
-          },
-          {
-            "column": {
-              "id": "color_mm5fj7av",
-              "title": "Domain"
-            },
-            "text": "Brainstorm Match"
-          },
-          {
-            "column": {
-              "id": "color_mm5fqavz",
-              "title": "Strategic Category"
-            },
-            "text": "Game Content"
-          },
-          {
-            "column": {
-              "id": "color_mm5k7m7a",
-              "title": "Sprint Goal"
-            },
-            "text": "Minimum"
-          },
-          {
-            "column": {
-              "id": "person",
-              "title": "Assigned"
-            },
-            "text": "Katerina sayko"
-          }
-        ],
-        "subitems": [
-          {
-            "id": "3208359515",
-            "name": "🎨Active Safe Space Animation",
-            "parent_item": {
-              "id": "3208298246",
-              "name": "🎨Safe Space Booster - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-09T07:46:30+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T13:25:16+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T13:25:19+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "M",
-                "updated_at": "2026-09-07T20:33:03+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "M"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Minimum",
-                "updated_at": "2026-09-07T20:38:16+00:00",
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Minimum"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              }
-            ],
-            "subitems": [
-              {
-                "id": "3210992538",
-                "name": "Generate Animation",
-                "parent_item": {
-                  "id": "3208359515",
-                  "name": "🎨Active Safe Space Animation"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Workstream"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Story",
-                    "updated_at": "2026-09-07T20:37:17+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Story"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "S",
-                    "updated_at": "2026-09-07T20:33:23+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "S"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Where We At? 🕵️‍♂️",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Where We At? 🕵️‍♂️"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": ""
-                  }
-                ]
-              },
-              {
-                "id": "3211026090",
-                "name": "Create png sequense and save it",
-                "parent_item": {
-                  "id": "3208359515",
-                  "name": "🎨Active Safe Space Animation"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Workstream"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Story",
-                    "updated_at": "2026-09-07T20:37:20+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Story"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "S",
-                    "updated_at": "2026-09-07T20:34:26+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "S"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Where We At? 🕵️‍♂️",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Where We At? 🕵️‍♂️"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": ""
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "3208367835",
-            "name": "🎨Blocked Attack Animation",
-            "parent_item": {
-              "id": "3208298246",
-              "name": "🎨Safe Space Booster - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T13:25:17+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T13:25:16+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T13:25:19+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "M",
-                "updated_at": "2026-09-07T20:35:10+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "M"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Minimum",
-                "updated_at": "2026-09-07T20:38:18+00:00",
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Minimum"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              }
-            ],
-            "subitems": [
-              {
-                "id": "3210997550",
-                "name": "generate animation",
-                "parent_item": {
-                  "id": "3208367835",
-                  "name": "🎨Blocked Attack Animation"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Workstream"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Story",
-                    "updated_at": "2026-09-07T20:37:27+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Story"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "S",
-                    "updated_at": "2026-09-07T20:35:43+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "S"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Where We At? 🕵️‍♂️",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Where We At? 🕵️‍♂️"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": "Katerina sayko"
-                  }
-                ]
-              },
-              {
-                "id": "3210988277",
-                "name": "ceate png sequence and save",
-                "parent_item": {
-                  "id": "3208367835",
-                  "name": "🎨Blocked Attack Animation"
-                },
-                "column_values": [
-                  {
-                    "column": {
-                      "id": "subtasks_mkrmtgvm",
-                      "title": "Subitems"
-                    },
-                    "text": null
-                  },
-                  {
-                    "id": "color_mm5fb7mm",
-                    "label": "Not Defined",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fb7mm",
-                      "title": "Planning Status"
-                    },
-                    "text": "Not Defined"
-                  },
-                  {
-                    "id": "color_mm5k4f4",
-                    "label": "Pending",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k4f4",
-                      "title": "Workstream"
-                    },
-                    "text": "Pending"
-                  },
-                  {
-                    "id": "color_mm5fx8bd",
-                    "label": "Story",
-                    "updated_at": "2026-09-07T20:37:29+00:00",
-                    "column": {
-                      "id": "color_mm5fx8bd",
-                      "title": "Issue Type"
-                    },
-                    "text": "Story"
-                  },
-                  {
-                    "id": "color_mm5fnp1x",
-                    "label": "S",
-                    "updated_at": "2026-09-07T20:35:46+00:00",
-                    "column": {
-                      "id": "color_mm5fnp1x",
-                      "title": "Size Estimation"
-                    },
-                    "text": "S"
-                  },
-                  {
-                    "id": "color_mm5fj7av",
-                    "label": "Where We At? 🕵️‍♂️",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fj7av",
-                      "title": "Domain"
-                    },
-                    "text": "Where We At? 🕵️‍♂️"
-                  },
-                  {
-                    "id": "color_mm5fqavz",
-                    "label": "Why Though? 🤨",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5fqavz",
-                      "title": "Strategic Category"
-                    },
-                    "text": "Why Though? 🤨"
-                  },
-                  {
-                    "id": "color_mm5k7m7a",
-                    "label": "Not set",
-                    "updated_at": null,
-                    "column": {
-                      "id": "color_mm5k7m7a",
-                      "title": "Sprint Goal"
-                    },
-                    "text": "Not set"
-                  },
-                  {
-                    "column": {
-                      "id": "person",
-                      "title": "Assigned"
-                    },
-                    "text": "Katerina sayko"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "id": "3208371710",
-            "name": "🎨Safe Space Expiration & Flower Reward Animation",
-            "parent_item": {
-              "id": "3208298246",
-              "name": "🎨Safe Space Booster - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T13:25:17+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T13:25:16+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-09T08:19:01+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-07T20:37:01+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Minimum",
-                "updated_at": "2026-09-07T20:38:20+00:00",
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Minimum"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3210992538",
-            "name": "Generate Animation",
-            "parent_item": {
-              "id": "3208359515",
-              "name": "🎨Active Safe Space Animation"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-07T20:37:17+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Story"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-07T20:33:23+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3211026090",
-            "name": "Create png sequense and save it",
-            "parent_item": {
-              "id": "3208359515",
-              "name": "🎨Active Safe Space Animation"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-07T20:37:20+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Story"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-07T20:34:26+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3210997550",
-            "name": "generate animation",
-            "parent_item": {
-              "id": "3208367835",
-              "name": "🎨Blocked Attack Animation"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-07T20:37:27+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Story"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-07T20:35:43+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3210988277",
-            "name": "ceate png sequence and save",
-            "parent_item": {
-              "id": "3208367835",
-              "name": "🎨Blocked Attack Animation"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Not Defined",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Not Defined"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Pending",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Story",
-                "updated_at": "2026-09-07T20:37:29+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Story"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-07T20:35:46+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Where We At? 🕵️‍♂️",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Where We At? 🕵️‍♂️"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": "Katerina sayko"
-              }
-            ],
-            "subitems": []
-          }
-        ]
-      },
-      {
         "id": "3208302220",
         "name": "🎨 Tournaments - Only UI",
         "column_values": [
@@ -1480,14 +279,7 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Ready for Takeoff"
-          },
-          {
-            "column": {
-              "id": "color_mm5k4f4",
-              "title": "Workstream"
-            },
-            "text": "Design"
+            "text": "Pending"
           },
           {
             "column": {
@@ -1550,23 +342,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T14:22:38+00:00",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:31:16+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T14:22:33+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1645,23 +427,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T14:22:38+00:00",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:31:16+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T14:22:41+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1740,23 +512,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T14:22:38+00:00",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:31:16+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T14:22:41+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1835,23 +597,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Ready for Takeoff",
-                "updated_at": "2026-09-06T14:22:38+00:00",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:31:16+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Ready for Takeoff"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T14:22:41+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1916,8 +668,8 @@ export function getMondayDummyBoardItems() {
         ]
       },
       {
-        "id": "3208309529",
-        "name": "🎨Trophy Progression Screen - Only UI",
+        "id": "3208379529",
+        "name": "🎨Deja Vu Booster - Only UI",
         "column_values": [
           {
             "column": {
@@ -1931,14 +683,326 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Work In Progress"
+            "text": "Pending"
           },
           {
             "column": {
-              "id": "color_mm5k4f4",
-              "title": "Workstream"
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
             },
-            "text": "Design"
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "L"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Brainstorm Match"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Game Content"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Minimum"
+          },
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": "Katerina sayko"
+          }
+        ],
+        "subitems": [
+          {
+            "id": "3208372821",
+            "name": "🎨Gold Rush Activation Animation",
+            "parent_item": {
+              "id": "3208379529",
+              "name": "🎨Deja Vu Booster - Only UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:43:37+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Done" /* !!!!!! */
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-09T08:15:46+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "M",
+                "updated_at": "2026-09-08T10:13:47+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "M"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:31:20+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:31:19+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-17T07:31:17+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3208375793",
+            "name": "🎨Item Duplication Animation",
+            "parent_item": {
+              "id": "3208379529",
+              "name": "🎨Deja Vu Booster - Only UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:43:37+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-09T08:15:49+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-08T10:13:25+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:31:20+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:31:19+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-17T07:31:17+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3208376053",
+            "name": "🎨Gold Rush Ending Animation",
+            "parent_item": {
+              "id": "3208379529",
+              "name": "🎨Deja Vu Booster - Only UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:43:37+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-09T08:15:50+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-08T10:13:42+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:31:20+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:31:19+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-17T07:31:17+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          }
+        ]
+      },
+      {
+        "id": "3221363215",
+        "name": "Trophy Progression Screen - Dev",
+        "column_values": [
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Pending"
           },
           {
             "column": {
@@ -1973,6 +1037,1216 @@ export function getMondayDummyBoardItems() {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
             },
+            "text": "Target"
+          },
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": "Asaf Bashari"
+          }
+        ],
+        "subitems": [
+          {
+            "id": "3229501429",
+            "name": "Build progression ui page",
+            "parent_item": {
+              "id": "3221363215",
+              "name": "Trophy Progression Screen - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-09-17T07:23:10+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "M",
+                "updated_at": "2026-09-17T06:58:21+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "M"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Lobby",
+                "updated_at": "2026-09-17T07:22:57+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Lobby"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Vision",
+                "updated_at": "2026-09-17T07:22:55+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Vision"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Target",
+                "updated_at": "2026-09-17T07:22:59+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Target"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": [
+              {
+                "id": "3237206942",
+                "name": "Implement design",
+                "parent_item": {
+                  "id": "3229501429",
+                  "name": "Build progression ui page"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-09-22T07:22:24+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "S",
+                    "updated_at": "2026-09-22T06:41:37+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "S"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Lobby",
+                    "updated_at": "2026-09-22T07:22:31+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Lobby"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Vision",
+                    "updated_at": "2026-09-22T07:22:32+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Vision"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Target",
+                    "updated_at": "2026-09-22T07:22:34+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Target"
+                  },
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Asaf Bashari"
+                  }
+                ]
+              },
+              {
+                "id": "3237207777",
+                "name": "Build controller script",
+                "parent_item": {
+                  "id": "3229501429",
+                  "name": "Build progression ui page"
+                },
+                "column_values": [
+                  {
+                    "column": {
+                      "id": "subtasks_mkrmtgvm",
+                      "title": "Subitems"
+                    },
+                    "text": null
+                  },
+                  {
+                    "id": "color_mm5fb7mm",
+                    "label": "Pending",
+                    "updated_at": null,
+                    "column": {
+                      "id": "color_mm5fb7mm",
+                      "title": "Planning Status"
+                    },
+                    "text": "Pending"
+                  },
+                  {
+                    "id": "color_mm5fx8bd",
+                    "label": "Task",
+                    "updated_at": "2026-09-22T07:22:24+00:00",
+                    "column": {
+                      "id": "color_mm5fx8bd",
+                      "title": "Issue Type"
+                    },
+                    "text": "Task"
+                  },
+                  {
+                    "id": "color_mm5fnp1x",
+                    "label": "S",
+                    "updated_at": "2026-09-22T06:41:40+00:00",
+                    "column": {
+                      "id": "color_mm5fnp1x",
+                      "title": "Size Estimation"
+                    },
+                    "text": "S"
+                  },
+                  {
+                    "id": "color_mm5fj7av",
+                    "label": "Lobby",
+                    "updated_at": "2026-09-22T07:22:31+00:00",
+                    "column": {
+                      "id": "color_mm5fj7av",
+                      "title": "Domain"
+                    },
+                    "text": "Lobby"
+                  },
+                  {
+                    "id": "color_mm5fqavz",
+                    "label": "Vision",
+                    "updated_at": "2026-09-22T07:22:32+00:00",
+                    "column": {
+                      "id": "color_mm5fqavz",
+                      "title": "Strategic Category"
+                    },
+                    "text": "Vision"
+                  },
+                  {
+                    "id": "color_mm5k7m7a",
+                    "label": "Target",
+                    "updated_at": "2026-09-22T07:22:34+00:00",
+                    "column": {
+                      "id": "color_mm5k7m7a",
+                      "title": "Sprint Goal"
+                    },
+                    "text": "Target"
+                  },
+                  {
+                    "column": {
+                      "id": "person",
+                      "title": "Assigned"
+                    },
+                    "text": "Asaf Bashari"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3229516384",
+            "name": "open progression ui from lobby",
+            "parent_item": {
+              "id": "3221363215",
+              "name": "Trophy Progression Screen - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-09-17T07:23:11+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "No Effort",
+                "updated_at": "2026-09-17T06:58:20+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "No Effort"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Lobby",
+                "updated_at": "2026-09-17T07:23:02+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Lobby"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Vision",
+                "updated_at": "2026-09-17T07:23:00+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Vision"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Target",
+                "updated_at": "2026-09-17T07:23:03+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Target"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3237206942",
+            "name": "Implement design",
+            "parent_item": {
+              "id": "3229501429",
+              "name": "Build progression ui page"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-09-22T07:22:24+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-22T06:41:37+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Lobby",
+                "updated_at": "2026-09-22T07:22:31+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Lobby"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Vision",
+                "updated_at": "2026-09-22T07:22:32+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Vision"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Target",
+                "updated_at": "2026-09-22T07:22:34+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Target"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3237207777",
+            "name": "Build controller script",
+            "parent_item": {
+              "id": "3229501429",
+              "name": "Build progression ui page"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Task",
+                "updated_at": "2026-09-22T07:22:24+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Task"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-22T06:41:40+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Lobby",
+                "updated_at": "2026-09-22T07:22:31+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Lobby"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Vision",
+                "updated_at": "2026-09-22T07:22:32+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Vision"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Target",
+                "updated_at": "2026-09-22T07:22:34+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Target"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          }
+        ]
+      },
+      {
+        "id": "3221363216",
+        "name": "Safe Space Booster - Dev",
+        "column_values": [
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "L"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Brainstorm Match"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Game Content"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Minimum"
+          },
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": "Asaf Bashari"
+          }
+        ],
+        "subitems": [
+          {
+            "id": "3221378670",
+            "name": "Active Safe Space Animation",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:28:16+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-09-22T06:39:08+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:22:33+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:22:35+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-07T20:38:16+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3221378671",
+            "name": "Blocked Attack Animation",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:28:16+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-09-22T06:39:11+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:22:33+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:22:35+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-07T20:38:18+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3221378672",
+            "name": "Safe Space Expiration & Flower Reward Animation",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": "2026-09-14T08:28:16+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-09-22T06:39:16+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-17T07:22:33+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-17T07:22:35+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-07T20:38:20+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3237197767",
+            "name": "Game Logic",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-22T06:37:44+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:21:54+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:21:55+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-22T07:22:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3237200759",
+            "name": "Progression Config",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-09-22T06:37:55+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:21:54+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:21:55+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-22T07:22:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3237201853",
+            "name": "Testing",
+            "parent_item": {
+              "id": "3221363216",
+              "name": "Safe Space Booster - Dev"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:21:51+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-22T06:37:49+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:21:54+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:21:55+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-22T07:22:04+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Asaf Bashari"
+              }
+            ],
+            "subitems": []
+          }
+        ]
+      },
+      {
+        "id": "3221430414",
+        "name": "🎨Win Streak - Only UI",
+        "column_values": [
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "S"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Lobby"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Game Content"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
+            "text": "Target"
+          },
+          {
+            "column": {
+              "id": "person",
+              "title": "Assigned"
+            },
+            "text": "Katerina sayko"
+          }
+        ],
+        "subitems": []
+      },
+      {
+        "id": "3230372116",
+        "name": "🎨Safe Space Booster - Only UI part 2",
+        "column_values": [
+          {
+            "column": {
+              "id": "subtasks_mkrmtgvm",
+              "title": "Subitems"
+            },
+            "text": null
+          },
+          {
+            "column": {
+              "id": "color_mm5fb7mm",
+              "title": "Planning Status"
+            },
+            "text": "Pending"
+          },
+          {
+            "column": {
+              "id": "color_mm5fx8bd",
+              "title": "Issue Type"
+            },
+            "text": "Feature"
+          },
+          {
+            "column": {
+              "id": "color_mm5fnp1x",
+              "title": "Size Estimation"
+            },
+            "text": "M"
+          },
+          {
+            "column": {
+              "id": "color_mm5fj7av",
+              "title": "Domain"
+            },
+            "text": "Brainstorm Match"
+          },
+          {
+            "column": {
+              "id": "color_mm5fqavz",
+              "title": "Strategic Category"
+            },
+            "text": "Game Content"
+          },
+          {
+            "column": {
+              "id": "color_mm5k7m7a",
+              "title": "Sprint Goal"
+            },
             "text": "Minimum"
           },
           {
@@ -1985,11 +2259,11 @@ export function getMondayDummyBoardItems() {
         ],
         "subitems": [
           {
-            "id": "3208335679",
-            "name": "UI",
+            "id": "3230387538",
+            "name": "Safe space booster card",
             "parent_item": {
-              "id": "3208309529",
-              "name": "🎨Trophy Progression Screen - Only UI"
+              "id": "3230372116",
+              "name": "🎨Safe Space Booster - Only UI part 2"
             },
             "column_values": [
               {
@@ -2001,28 +2275,18 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Work In Progress",
-                "updated_at": "2026-09-09T07:44:39+00:00",
+                "label": "Pending",
+                "updated_at": null,
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Work In Progress"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-06T12:53:49+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
                 "label": "Story",
-                "updated_at": "2026-09-06T12:53:47+00:00",
+                "updated_at": "2026-09-22T07:23:18+00:00",
                 "column": {
                   "id": "color_mm5fx8bd",
                   "title": "Issue Type"
@@ -2032,7 +2296,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fnp1x",
                 "label": "S",
-                "updated_at": "2026-09-09T07:45:13+00:00",
+                "updated_at": "2026-09-17T11:33:19+00:00",
                 "column": {
                   "id": "color_mm5fnp1x",
                   "title": "Size Estimation"
@@ -2041,28 +2305,28 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-09T08:02:02+00:00",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:23:02+00:00",
                 "column": {
                   "id": "color_mm5fj7av",
                   "title": "Domain"
                 },
-                "text": "Lobby"
+                "text": "Brainstorm Match"
               },
               {
                 "id": "color_mm5fqavz",
-                "label": "Vision",
-                "updated_at": "2026-09-09T08:02:08+00:00",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:23:03+00:00",
                 "column": {
                   "id": "color_mm5fqavz",
                   "title": "Strategic Category"
                 },
-                "text": "Vision"
+                "text": "Game Content"
               },
               {
                 "id": "color_mm5k7m7a",
                 "label": "Minimum",
-                "updated_at": "2026-09-07T13:06:51+00:00",
+                "updated_at": "2026-09-22T07:23:05+00:00",
                 "column": {
                   "id": "color_mm5k7m7a",
                   "title": "Sprint Goal"
@@ -2080,11 +2344,11 @@ export function getMondayDummyBoardItems() {
             "subitems": []
           },
           {
-            "id": "3214143948",
-            "name": "Background",
+            "id": "3230387646",
+            "name": "Safe space booster card animation",
             "parent_item": {
-              "id": "3208309529",
-              "name": "🎨Trophy Progression Screen - Only UI"
+              "id": "3230372116",
+              "name": "🎨Safe Space Booster - Only UI part 2"
             },
             "column_values": [
               {
@@ -2096,28 +2360,18 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Done",
-                "updated_at": "2026-09-10T06:54:35+00:00",
+                "label": "Pending",
+                "updated_at": null,
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Done"
-              },
-              {
-                "id": "color_mm5k4f4",
-                "label": "Design",
-                "updated_at": "2026-09-09T08:01:47+00:00",
-                "column": {
-                  "id": "color_mm5k4f4",
-                  "title": "Workstream"
-                },
-                "text": "Design"
+                "text": "Pending"
               },
               {
                 "id": "color_mm5fx8bd",
                 "label": "Story",
-                "updated_at": "2026-09-09T08:01:44+00:00",
+                "updated_at": "2026-09-22T07:23:18+00:00",
                 "column": {
                   "id": "color_mm5fx8bd",
                   "title": "Issue Type"
@@ -2127,7 +2381,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fnp1x",
                 "label": "S",
-                "updated_at": "2026-09-09T07:45:15+00:00",
+                "updated_at": "2026-09-17T11:33:16+00:00",
                 "column": {
                   "id": "color_mm5fnp1x",
                   "title": "Size Estimation"
@@ -2136,28 +2390,113 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-09T08:02:05+00:00",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:23:02+00:00",
                 "column": {
                   "id": "color_mm5fj7av",
                   "title": "Domain"
                 },
-                "text": "Lobby"
+                "text": "Brainstorm Match"
               },
               {
                 "id": "color_mm5fqavz",
-                "label": "Vision",
-                "updated_at": "2026-09-09T08:02:11+00:00",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:23:03+00:00",
                 "column": {
                   "id": "color_mm5fqavz",
                   "title": "Strategic Category"
                 },
-                "text": "Vision"
+                "text": "Game Content"
               },
               {
                 "id": "color_mm5k7m7a",
                 "label": "Minimum",
-                "updated_at": "2026-09-09T07:45:27+00:00",
+                "updated_at": "2026-09-22T07:23:05+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3230406513",
+            "name": "Safe space booster logo",
+            "parent_item": {
+              "id": "3230372116",
+              "name": "🎨Safe Space Booster - Only UI part 2"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Pending",
+                "updated_at": null,
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Pending"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-22T07:23:18+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-17T11:33:14+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-22T07:23:02+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-22T07:23:03+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-22T07:23:05+00:00",
                 "column": {
                   "id": "color_mm5k7m7a",
                   "title": "Sprint Goal"
@@ -2179,6 +2518,8 @@ export function getMondayDummyBoardItems() {
     ]
   }
 }
+
+
 
 
   return res;

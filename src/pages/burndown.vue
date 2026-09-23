@@ -228,15 +228,15 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 
 
 function getCompletedOnDate(index: number): boardItem[] {
-   let compdate = new Date(addDays(curSprint.value.startDate, index))
-   compdate.setHours(0, 0, 0, 0);
-   //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
+  let compdate = new Date(addDays(curSprint.value.startDate, index))
+  compdate.setHours(0, 0, 0, 0);
+  //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
 
-     let items = itemsList.value.filter( x => (x.numOfSubitems == 0) && ( x.status == "Done") && (x.DoneDate.getTime() == compdate.getTime() ))
+  let items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.status == "Done") && (x.DoneDate.getTime() == compdate.getTime()))
 
-     if (filterByName.value)
-      items = items.filter(x=> x.assignedTo == userStore.getCurrentUser().name)
-    return items
+  if (filterByName.value)
+    items = items.filter(x => x.assignedTo == userStore.getCurrentUser().name)
+  return items
 
 }
 
@@ -360,8 +360,12 @@ function prepareGraph() {
   //console.log("working days " + curSprint.value.workingDays)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
-    if (index == 0)
-      idealValues.value[index] = totalPoints.value - burndownStep.value
+    if (index == 0) {
+      if (!isDateInList(curDate, curSprint.value.nonWorkingDays))
+        idealValues.value[index] = totalPoints.value - burndownStep.value
+      else
+        idealValues.value[index] = totalPoints.value
+    }
     else {
 
       if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
@@ -388,7 +392,12 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   let total = 0
   let done = 0
 
-  var arr = []
+
+
+  var arr = itemsList.value.filter(x => ((x.status != 'Removed') && (x.type == "Feature")))
+
+  /*
+
   if (detailedgrpah.value) {
     arr = itemsList.value.filter(x => ( (x.status != 'Removed') && (x.type == "Task" || ( (x.type == "Story") && (x.numOfSubitems == 0) ))))
 
@@ -396,19 +405,51 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   else {
     arr = itemsList.value.filter(x => x.status != 'Removed' && (x.type == "Story"))
   }
+*/
 
-
+  //console.log("Goal category " + goalCategory)
   if (goalCategory != "All") {
 
     arr = arr.filter(x => x.goalCategory == goalCategory)
   }
-  total = arr.reduce((accumulator, object) => {
-    return accumulator + object.storyPoints;
-  }, 0);
 
-  done = arr.reduce((accumulator, object) => {
-    return accumulator + object.doneStoryPoints;
-  }, 0);
+  if (detailedgrpah.value) {
+
+    while (arr.length > 0) {
+      console.log("Starting while loop Array length " + arr.length)
+      var temp_arr: boardItem[] = []
+      arr.forEach(element => {
+        //console.log("item " + element.title + " sub items " + element.numOfSubitems)
+        if (element.numOfSubitems == 0) {
+          total += element.storyPoints;
+          if (element.status == "Done")
+            done += element.storyPoints;
+        }
+        else {
+          var children = itemsList.value.filter(x => x.parent == element.id)
+          //console.log("parent is " + element.id + " type " + element.type + " num of children " + children.length)
+          temp_arr.push(...children)
+        }
+      });
+      arr = [...temp_arr]
+    }
+    console.log("While loop ended !!!!!!!")
+
+  }
+
+  else {
+
+    console.log("Non detailed array size " + arr.length)
+
+    total = arr.reduce((accumulator, object) => {
+      return accumulator + object.storyPoints;
+    }, 0);
+
+    done = arr.reduce((accumulator, object) => {
+      return accumulator + object.doneStoryPoints;
+    }, 0);
+  }
+
 
   if (total > 0)
     pred = ((100 * (done / total))).toFixed(0) + " %"
@@ -451,7 +492,7 @@ function calcBurnUpDonw() {
 
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-    var tasks = itemsList.value.filter(x =>  x.type=="Task" && x.status == "Done" )
+    var tasks = itemsList.value.filter(x => x.type == "Task" && x.status == "Done")
     var storiesNoTasks = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.type == 'Story') && (x.status == "Done"))
 
     addBurnUpValues(storiesNoTasks, currentIndex)

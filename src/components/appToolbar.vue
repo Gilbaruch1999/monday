@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v162")
+  console.log("Starting app version v163")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -434,7 +434,7 @@ function updateParents(index: number) {
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;
     if (itemsList.value[index].status == "Done") {
-    console.log("Done item " + JSON.stringify(itemsList.value[index]))
+    //console.log("Done item " + JSON.stringify(itemsList.value[index]))
       if (isDateInSprint(curSprint.startDate, itemsList.value[index].DoneDate, curSprint.duration)) {
         donePoints = itemsList.value[index].storyPoints
         itemsList.value[index].doneStoryPoints = itemsList.value[index].storyPoints

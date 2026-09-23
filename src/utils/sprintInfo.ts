@@ -49,6 +49,7 @@ export function convertJSONtoSprint(data: any): Sprint {
   data.nonWorkingDays.forEach((element: string) => {
     ret_val.nonWorkingDays.push(new Date(element));
   });
+    ret_val.nonWorkingDays =   ret_val.nonWorkingDays.sort((a: Date, b: Date) => a.getTime() - b.getTime());
   ret_val.workingDays = ret_val.duration - ret_val.nonWorkingDays.length;
 
   return ret_val;
