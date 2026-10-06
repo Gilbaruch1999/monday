@@ -126,6 +126,9 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Pending",
+            "updated_at": "2026-09-13T11:10:01+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
@@ -133,6 +136,9 @@ export function getMondayDummyBoardItems() {
             "text": "Pending"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-07-27T10:31:43+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -140,6 +146,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "S",
+            "updated_at": "2026-09-08T10:17:16+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -147,6 +156,9 @@ export function getMondayDummyBoardItems() {
             "text": "S"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Lobby",
+            "updated_at": "2026-07-27T10:24:45+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -154,6 +166,9 @@ export function getMondayDummyBoardItems() {
             "text": "Lobby"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Cosmetics",
+            "updated_at": "2026-07-27T10:24:49+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -161,6 +176,9 @@ export function getMondayDummyBoardItems() {
             "text": "Cosmetics"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Outstanding",
+            "updated_at": "2026-07-27T10:24:50+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -264,410 +282,6 @@ export function getMondayDummyBoardItems() {
         ]
       },
       {
-        "id": "3208302220",
-        "name": "🎨 Tournaments - Only UI",
-        "column_values": [
-          {
-            "column": {
-              "id": "subtasks_mkrmtgvm",
-              "title": "Subitems"
-            },
-            "text": null
-          },
-          {
-            "column": {
-              "id": "color_mm5fb7mm",
-              "title": "Planning Status"
-            },
-            "text": "Pending"
-          },
-          {
-            "column": {
-              "id": "color_mm5fx8bd",
-              "title": "Issue Type"
-            },
-            "text": "Feature"
-          },
-          {
-            "column": {
-              "id": "color_mm5fnp1x",
-              "title": "Size Estimation"
-            },
-            "text": "L"
-          },
-          {
-            "column": {
-              "id": "color_mm5fj7av",
-              "title": "Domain"
-            },
-            "text": "Lobby"
-          },
-          {
-            "column": {
-              "id": "color_mm5fqavz",
-              "title": "Strategic Category"
-            },
-            "text": "Game Content"
-          },
-          {
-            "column": {
-              "id": "color_mm5k7m7a",
-              "title": "Sprint Goal"
-            },
-            "text": "Target"
-          },
-          {
-            "column": {
-              "id": "person",
-              "title": "Assigned"
-            },
-            "text": "Katerina sayko"
-          }
-        ],
-        "subitems": [
-          {
-            "id": "3208394085",
-            "name": "🎨Tournament Lobby Entry icon",
-            "parent_item": {
-              "id": "3208302220",
-              "name": "🎨 Tournaments - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:31:16+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T14:22:45+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-08T10:14:32+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-06T14:22:51+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Lobby"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3208403299",
-            "name": "🎨 Tournament Entry Popup",
-            "parent_item": {
-              "id": "3208302220",
-              "name": "🎨 Tournaments - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:31:16+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T14:22:45+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-08T10:14:39+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-06T14:22:51+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Lobby"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3208397846",
-            "name": "🎨 Tournament Bracket & Progress",
-            "parent_item": {
-              "id": "3208302220",
-              "name": "🎨 Tournaments - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:31:16+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T14:22:45+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "M",
-                "updated_at": "2026-09-08T10:16:25+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "M"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-06T14:22:51+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Lobby"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          },
-          {
-            "id": "3208409326",
-            "name": "🎨Tournament Winner & Reward Opening",
-            "parent_item": {
-              "id": "3208302220",
-              "name": "🎨 Tournaments - Only UI"
-            },
-            "column_values": [
-              {
-                "column": {
-                  "id": "subtasks_mkrmtgvm",
-                  "title": "Subitems"
-                },
-                "text": null
-              },
-              {
-                "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:31:16+00:00",
-                "column": {
-                  "id": "color_mm5fb7mm",
-                  "title": "Planning Status"
-                },
-                "text": "Pending"
-              },
-              {
-                "id": "color_mm5fx8bd",
-                "label": "Epic",
-                "updated_at": "2026-09-06T14:22:45+00:00",
-                "column": {
-                  "id": "color_mm5fx8bd",
-                  "title": "Issue Type"
-                },
-                "text": "Epic"
-              },
-              {
-                "id": "color_mm5fnp1x",
-                "label": "S",
-                "updated_at": "2026-09-08T10:16:03+00:00",
-                "column": {
-                  "id": "color_mm5fnp1x",
-                  "title": "Size Estimation"
-                },
-                "text": "S"
-              },
-              {
-                "id": "color_mm5fj7av",
-                "label": "Lobby",
-                "updated_at": "2026-09-06T14:22:51+00:00",
-                "column": {
-                  "id": "color_mm5fj7av",
-                  "title": "Domain"
-                },
-                "text": "Lobby"
-              },
-              {
-                "id": "color_mm5fqavz",
-                "label": "Why Though? 🤨",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5fqavz",
-                  "title": "Strategic Category"
-                },
-                "text": "Why Though? 🤨"
-              },
-              {
-                "id": "color_mm5k7m7a",
-                "label": "Not set",
-                "updated_at": null,
-                "column": {
-                  "id": "color_mm5k7m7a",
-                  "title": "Sprint Goal"
-                },
-                "text": "Not set"
-              },
-              {
-                "column": {
-                  "id": "person",
-                  "title": "Assigned"
-                },
-                "text": ""
-              }
-            ],
-            "subitems": []
-          }
-        ]
-      },
-      {
         "id": "3208379529",
         "name": "🎨Deja Vu Booster - Only UI",
         "column_values": [
@@ -679,13 +293,19 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Done",
+            "updated_at": "2026-10-05T18:41:36+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Work In Progress"
+            "text": "Done"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-09-06T13:38:20+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -693,6 +313,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "L",
+            "updated_at": "2026-09-08T10:14:04+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -700,6 +323,9 @@ export function getMondayDummyBoardItems() {
             "text": "L"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Brainstorm Match",
+            "updated_at": "2026-09-06T14:23:21+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -707,6 +333,9 @@ export function getMondayDummyBoardItems() {
             "text": "Brainstorm Match"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Game Content",
+            "updated_at": "2026-09-06T14:23:02+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -714,6 +343,9 @@ export function getMondayDummyBoardItems() {
             "text": "Game Content"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Minimum",
+            "updated_at": "2026-09-07T13:07:10+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -731,7 +363,7 @@ export function getMondayDummyBoardItems() {
         "subitems": [
           {
             "id": "3208372821",
-            "name": "🎨Gold Rush Activation Animation",
+            "name": "🎨Deja Vu Activation Animation",
             "parent_item": {
               "id": "3208379529",
               "name": "🎨Deja Vu Booster - Only UI"
@@ -746,13 +378,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:43:37+00:00",
+                "label": "Done",
+                "updated_at": "2026-10-05T18:41:34+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -831,13 +463,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:43:37+00:00",
+                "label": "Done",
+                "updated_at": "2026-10-05T11:56:09+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -901,7 +533,7 @@ export function getMondayDummyBoardItems() {
           },
           {
             "id": "3208376053",
-            "name": "🎨Gold Rush Ending Animation",
+            "name": "🎨Deja Vu Ending Animation",
             "parent_item": {
               "id": "3208379529",
               "name": "🎨Deja Vu Booster - Only UI"
@@ -916,13 +548,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:43:37+00:00",
+                "label": "Done",
+                "updated_at": "2026-10-05T11:56:14+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -983,6 +615,176 @@ export function getMondayDummyBoardItems() {
               }
             ],
             "subitems": []
+          },
+          {
+            "id": "3247368021",
+            "name": "Deja Vu Booster Card Design",
+            "parent_item": {
+              "id": "3208379529",
+              "name": "🎨Deja Vu Booster - Only UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Done",
+                "updated_at": "2026-09-30T08:01:46+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Done"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-28T08:58:33+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-28T08:58:37+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-28T08:58:47+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-28T08:58:52+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-28T08:59:18+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3247381918",
+            "name": "Deja Vu Booster Card Animation",
+            "parent_item": {
+              "id": "3208379529",
+              "name": "🎨Deja Vu Booster - Only UI"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Done",
+                "updated_at": "2026-10-04T13:51:59+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Done"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-28T08:58:35+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-28T08:58:39+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-28T08:58:50+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-28T08:58:54+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-28T08:59:20+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
           }
         ]
       },
@@ -998,13 +800,19 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Work In Progress",
+            "updated_at": "2026-09-27T19:59:38+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Pending"
+            "text": "Work In Progress"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-09-06T12:53:36+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -1012,6 +820,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "M",
+            "updated_at": "2026-09-17T06:57:35+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -1019,6 +830,9 @@ export function getMondayDummyBoardItems() {
             "text": "M"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Lobby",
+            "updated_at": "2026-09-06T12:54:28+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -1026,6 +840,9 @@ export function getMondayDummyBoardItems() {
             "text": "Lobby"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Vision",
+            "updated_at": "2026-09-06T12:54:34+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -1033,6 +850,9 @@ export function getMondayDummyBoardItems() {
             "text": "Vision"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Target",
+            "updated_at": "2026-09-13T11:59:56+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -1065,13 +885,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Work In Progress",
+                "updated_at": "2026-09-27T19:59:36+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Work In Progress"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1571,13 +1391,19 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Done",
+            "updated_at": "2026-10-04T08:01:08+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Pending"
+            "text": "Done"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-09-06T13:25:23+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -1585,6 +1411,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "L",
+            "updated_at": "2026-09-17T06:57:23+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -1592,6 +1421,9 @@ export function getMondayDummyBoardItems() {
             "text": "L"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Brainstorm Match",
+            "updated_at": "2026-09-06T14:22:55+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -1599,6 +1431,9 @@ export function getMondayDummyBoardItems() {
             "text": "Brainstorm Match"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Game Content",
+            "updated_at": "2026-09-06T14:23:06+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -1606,6 +1441,9 @@ export function getMondayDummyBoardItems() {
             "text": "Game Content"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Minimum",
+            "updated_at": "2026-09-07T13:07:03+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -1638,13 +1476,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:28:16+00:00",
+                "label": "Done",
+                "updated_at": "2026-09-27T19:59:03+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1723,13 +1561,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:28:16+00:00",
+                "label": "Done",
+                "updated_at": "2026-09-27T19:59:06+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1808,13 +1646,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": "2026-09-14T08:28:16+00:00",
+                "label": "Done",
+                "updated_at": "2026-09-27T19:59:12+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1893,13 +1731,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-10-04T08:01:03+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -1978,13 +1816,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-09-24T06:26:37+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -2063,13 +1901,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-10-04T08:01:05+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -2145,13 +1983,19 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Work In Progress",
+            "updated_at": "2026-10-05T18:42:20+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Pending"
+            "text": "Work In Progress"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-09-13T13:07:39+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -2159,6 +2003,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "S",
+            "updated_at": "2026-09-16T16:06:46+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -2166,6 +2013,9 @@ export function getMondayDummyBoardItems() {
             "text": "S"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Lobby",
+            "updated_at": "2026-09-13T13:07:55+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -2173,6 +2023,9 @@ export function getMondayDummyBoardItems() {
             "text": "Lobby"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Game Content",
+            "updated_at": "2026-09-13T13:08:13+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -2180,6 +2033,9 @@ export function getMondayDummyBoardItems() {
             "text": "Game Content"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Target",
+            "updated_at": "2026-09-14T08:40:16+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -2208,13 +2064,19 @@ export function getMondayDummyBoardItems() {
             "text": null
           },
           {
+            "id": "color_mm5fb7mm",
+            "label": "Done",
+            "updated_at": "2026-09-28T08:52:21+00:00",
             "column": {
               "id": "color_mm5fb7mm",
               "title": "Planning Status"
             },
-            "text": "Work In Progress"
+            "text": "Done"
           },
           {
+            "id": "color_mm5fx8bd",
+            "label": "Feature",
+            "updated_at": "2026-09-20T16:24:31+00:00",
             "column": {
               "id": "color_mm5fx8bd",
               "title": "Issue Type"
@@ -2222,6 +2084,9 @@ export function getMondayDummyBoardItems() {
             "text": "Feature"
           },
           {
+            "id": "color_mm5fnp1x",
+            "label": "M",
+            "updated_at": "2026-09-22T06:39:00+00:00",
             "column": {
               "id": "color_mm5fnp1x",
               "title": "Size Estimation"
@@ -2229,6 +2094,9 @@ export function getMondayDummyBoardItems() {
             "text": "M"
           },
           {
+            "id": "color_mm5fj7av",
+            "label": "Brainstorm Match",
+            "updated_at": "2026-09-20T18:06:40+00:00",
             "column": {
               "id": "color_mm5fj7av",
               "title": "Domain"
@@ -2236,6 +2104,9 @@ export function getMondayDummyBoardItems() {
             "text": "Brainstorm Match"
           },
           {
+            "id": "color_mm5fqavz",
+            "label": "Game Content",
+            "updated_at": "2026-09-20T18:06:38+00:00",
             "column": {
               "id": "color_mm5fqavz",
               "title": "Strategic Category"
@@ -2243,6 +2114,9 @@ export function getMondayDummyBoardItems() {
             "text": "Game Content"
           },
           {
+            "id": "color_mm5k7m7a",
+            "label": "Minimum",
+            "updated_at": "2026-09-20T18:06:41+00:00",
             "column": {
               "id": "color_mm5k7m7a",
               "title": "Sprint Goal"
@@ -2316,7 +2190,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fqavz",
                 "label": "Game Content",
-                "updated_at": "2026-09-22T07:23:03+00:00",
+                "updated_at": "2026-09-27T09:28:09+00:00",
                 "column": {
                   "id": "color_mm5fqavz",
                   "title": "Strategic Category"
@@ -2360,13 +2234,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Work In Progress",
-                "updated_at": "2026-09-23T07:33:04+00:00",
+                "label": "Done",
+                "updated_at": "2026-09-26T19:24:52+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Work In Progress"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -2401,7 +2275,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fqavz",
                 "label": "Game Content",
-                "updated_at": "2026-09-22T07:23:03+00:00",
+                "updated_at": "2026-09-27T09:28:11+00:00",
                 "column": {
                   "id": "color_mm5fqavz",
                   "title": "Strategic Category"
@@ -2445,13 +2319,13 @@ export function getMondayDummyBoardItems() {
               },
               {
                 "id": "color_mm5fb7mm",
-                "label": "Pending",
-                "updated_at": null,
+                "label": "Done",
+                "updated_at": "2026-09-27T19:09:12+00:00",
                 "column": {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Pending"
+                "text": "Done"
               },
               {
                 "id": "color_mm5fx8bd",
@@ -2486,7 +2360,7 @@ export function getMondayDummyBoardItems() {
               {
                 "id": "color_mm5fqavz",
                 "label": "Game Content",
-                "updated_at": "2026-09-22T07:23:03+00:00",
+                "updated_at": "2026-09-27T09:28:12+00:00",
                 "column": {
                   "id": "color_mm5fqavz",
                   "title": "Strategic Category"
@@ -2512,12 +2386,183 @@ export function getMondayDummyBoardItems() {
               }
             ],
             "subitems": []
+          },
+          {
+            "id": "3246170620",
+            "name": "Safe space Booster - loop redesign",
+            "parent_item": {
+              "id": "3230372116",
+              "name": "🎨Safe Space Booster - Only UI part 2"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Done",
+                "updated_at": "2026-09-28T08:52:11+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Done"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Epic",
+                "updated_at": "2026-09-27T09:26:13+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Epic"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "S",
+                "updated_at": "2026-09-27T09:26:15+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "S"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-27T09:28:02+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-27T09:28:13+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-28T08:01:49+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
+          },
+          {
+            "id": "3246229380",
+            "name": "Safe space booster - size change",
+            "parent_item": {
+              "id": "3230372116",
+              "name": "🎨Safe Space Booster - Only UI part 2"
+            },
+            "column_values": [
+              {
+                "column": {
+                  "id": "subtasks_mkrmtgvm",
+                  "title": "Subitems"
+                },
+                "text": null
+              },
+              {
+                "id": "color_mm5fb7mm",
+                "label": "Done",
+                "updated_at": "2026-09-28T08:52:19+00:00",
+                "column": {
+                  "id": "color_mm5fb7mm",
+                  "title": "Planning Status"
+                },
+                "text": "Done"
+              },
+              {
+                "id": "color_mm5fx8bd",
+                "label": "Story",
+                "updated_at": "2026-09-27T09:27:57+00:00",
+                "column": {
+                  "id": "color_mm5fx8bd",
+                  "title": "Issue Type"
+                },
+                "text": "Story"
+              },
+              {
+                "id": "color_mm5fnp1x",
+                "label": "xS",
+                "updated_at": "2026-09-27T09:27:59+00:00",
+                "column": {
+                  "id": "color_mm5fnp1x",
+                  "title": "Size Estimation"
+                },
+                "text": "xS"
+              },
+              {
+                "id": "color_mm5fj7av",
+                "label": "Brainstorm Match",
+                "updated_at": "2026-09-27T09:28:03+00:00",
+                "column": {
+                  "id": "color_mm5fj7av",
+                  "title": "Domain"
+                },
+                "text": "Brainstorm Match"
+              },
+              {
+                "id": "color_mm5fqavz",
+                "label": "Game Content",
+                "updated_at": "2026-09-27T09:28:16+00:00",
+                "column": {
+                  "id": "color_mm5fqavz",
+                  "title": "Strategic Category"
+                },
+                "text": "Game Content"
+              },
+              {
+                "id": "color_mm5k7m7a",
+                "label": "Minimum",
+                "updated_at": "2026-09-28T08:01:54+00:00",
+                "column": {
+                  "id": "color_mm5k7m7a",
+                  "title": "Sprint Goal"
+                },
+                "text": "Minimum"
+              },
+              {
+                "column": {
+                  "id": "person",
+                  "title": "Assigned"
+                },
+                "text": "Katerina sayko"
+              }
+            ],
+            "subitems": []
           }
         ]
       }
     ]
   }
 }
+
 
   return res;
 }

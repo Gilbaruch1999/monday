@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v165")
+  console.log("Starting app version v167")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -335,7 +335,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     var qstr = getItemsIdyGroupQuery(groupid);
     //console.log("Query " + qstr)
     idsdata = await mondayapi.api(qstr);
-    console.log("Return from get board items " + JSON.stringify(idsdata))
+    //console.log("Return from get board items " + JSON.stringify(idsdata))
     var ids: string[] = []
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
       board.items_page.items.forEach((item: { id: any; }) => {

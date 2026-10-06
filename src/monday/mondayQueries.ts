@@ -43,7 +43,12 @@ export function getBoardItemsByIdQuery(ids: string[]): string {
   items(ids: " + idsstring + ") {   \
     id    \
     name      \
-    column_values {   \
+     column_values {   \
+          ... on StatusValue { \
+        id                     \
+        label                  \
+        updated_at             \
+      }                        \
       column { id title }   \
       text    \
     }   \

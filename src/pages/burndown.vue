@@ -486,7 +486,7 @@ function calcBurnUpDonw() {
   else {
 
     var features = itemsList.value.filter(x => x.status == "Done" && x.type == "Feature")
-    //console.log("Burn up not detailed " + JSON.stringify(burnUpValues.value))
+    //console.log("Burn up not detailed " + JSON.stringify(features))
     addBurnUpValues(features, currentIndex)
   }
 
