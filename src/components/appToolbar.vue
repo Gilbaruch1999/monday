@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v167")
+  console.log("Starting app version v170")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -146,14 +146,36 @@ async function getHistoryData() {
   if (getFromDummy.value) {
     tmp = JSON.parse(getMondayDummyHistory())
     history = tmp as sprintHistory[]
+    sprintDataStore.setHistory(history)
   }
   else {
     var res1 = await mondayapi.storage.instance.getItem("historyInfo");
     history = JSON.parse(res1.data.value)
     //console.log("History from storage  " + JSON.stringify(history))
+    if (res1.data.value != null)
+      sprintDataStore.setHistory(history)
+    else {
+      var tmphistory: sprintHistory[] = [
+        { sprint: "Sprint 35", velocity: 37, normVelocity: 37, predictability: 61 },
+        { sprint: "Sprint 36", velocity: 55, normVelocity: 55, predictability: 71 },
+        { sprint: "Sprint 37", velocity: 48, normVelocity: 48, predictability: 70 },
+        { sprint: "Sprint 38", velocity: 30, normVelocity: 30, predictability: 64 },
+        { sprint: "Sprint 39", velocity: 44, normVelocity: 44, predictability: 86 },
+        { sprint: "Sprint 40", velocity: 39, normVelocity: 39, predictability: 91 },
+        { sprint: "Sprint 41", velocity: 38, normVelocity: 38, predictability: 100 },
+        { sprint: "Sprint 42", velocity: 42, normVelocity: 42, predictability: 70 },
+        { sprint: "Sprint 43", velocity: 32, normVelocity: 32, predictability: 64 },
+        { sprint: "Sprint 44", velocity: 51, normVelocity: 51, predictability: 78 },
+        { sprint: "Sprint 45", velocity: 35, normVelocity: 35, predictability: 100 },
+        { sprint: "Sprint 46", velocity: 35, normVelocity: 35, predictability: 72 },
+
+
+      ];
+      sprintDataStore.setHistory(tmphistory)
+    }
   }
 
-  sprintDataStore.setHistory(history)
+
 }
 
 
@@ -398,16 +420,15 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 function updateLevel(type: string) {
   var arr = itemsList.value.filter(x => x.type == type)
   arr.forEach(element => {
-    switch (element.type)
-    {
-      case "Task" :
-      break;
-      case "Story" :
-      case "Epic" :
+    switch (element.type) {
+      case "Task":
+        break;
+      case "Story":
+      case "Epic":
       case "Feature":
         if (element.numOfSubitems == 0)
-        element.storyPoints = element.getPointsFromSize()
-      break;
+          element.storyPoints = element.getPointsFromSize()
+        break;
 
     }
     element.checkForPlanningIssues();
@@ -418,23 +439,22 @@ function updateLevel(type: string) {
 }
 
 function updateParents(index: number) {
- // console.log("Updating parent of " +  itemsList.value[index].title + " status " +  itemsList.value[index].status)
+  // console.log("Updating parent of " +  itemsList.value[index].title + " status " +  itemsList.value[index].status)
 
   var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
   // console.log("pindex " +  pindex)
   var rootIndex = itemsList.value.findIndex(x => x.id == itemsList.value[index].rootItemId)
-   if (rootIndex != -1) {
+  if (rootIndex != -1) {
     itemsList.value[index].domain = itemsList.value[rootIndex].domain
     itemsList.value[index].strategicCategory = itemsList.value[rootIndex].strategicCategory
   }
-   itemsList.value[index].checkForPlanningIssues();
-  if (pindex != -1)
-  {
+  itemsList.value[index].checkForPlanningIssues();
+  if (pindex != -1) {
     itemsList.value[pindex].numOfSubitems++
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;
     if (itemsList.value[index].status == "Done") {
-    //console.log("Done item " + JSON.stringify(itemsList.value[index]))
+      //console.log("Done item " + JSON.stringify(itemsList.value[index]))
       if (isDateInSprint(curSprint.startDate, itemsList.value[index].DoneDate, curSprint.duration)) {
         donePoints = itemsList.value[index].storyPoints
         itemsList.value[index].doneStoryPoints = itemsList.value[index].storyPoints
@@ -452,9 +472,9 @@ function updateParents(index: number) {
 
     }
   }
-    //pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
+  //pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
 
- // }
+  // }
 
 }
 

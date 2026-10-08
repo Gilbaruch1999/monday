@@ -31,6 +31,7 @@
       <v-form>
         <v-row>
           <v-text-field label='Velocity' v-model="selectedHistory.velocity"> </v-text-field>
+          <v-text-field label='norm Velocity' v-model="selectedHistory.normVelocity"> </v-text-field>
           <v-text-field label='Predictability' v-model="selectedHistory.predictability"> </v-text-field>
         </v-row>
       </v-form>
@@ -66,7 +67,7 @@ const mondayapi = inject('monday') as MondayClientSdk
 
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
-const velocity: Ref<number[]> = ref([]);
+const calcVelocity: Ref<number[]> = ref([]);
 const dataLabels: Ref<string[]> = ref([]);
 const predictability: Ref<number[]> = ref([]);
 const predictabilityGoalLow: Ref<number[]> = ref([]);
@@ -86,7 +87,7 @@ const sprintHeaders: any = [
 
   { title: 'Actions', key: 'actions', sortable: false }, // Action Column
   { title: 'Sprint', key: 'sprint' },
-  { title: 'Velocity', key: 'velocity' },
+  { title: 'Velocity', key: 'normVelocity' },
   { title: 'predictability', key: 'predictability' },
 
 ]
@@ -107,7 +108,7 @@ let velocityData = computed<ChartData<"line">>(() => ({
   datasets: [
     {
       label: velocityLable.value,
-      data: velocity.value,
+      data: calcVelocity.value,
       backgroundColor: vellcolor,
       borderColor: vellcolor,
       pointStyle: "circle",
@@ -231,7 +232,7 @@ function initData() {
 
   dataLabels.value = []
   predictability.value = []
-  velocity.value = []
+  calcVelocity.value = []
   historyList.value = sprintDataStore.getHistory()
   velocityLable.value = "Velocity"
   velocityChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Velocity History"
@@ -239,7 +240,7 @@ function initData() {
   predLable.value = "Predictability"
   historyList.value.forEach((element: any) => {
     dataLabels.value.push(element.sprint)
-    velocity.value.push(element.velocity)
+    calcVelocity.value.push(element.normVelocity)
     predictability.value.push(element.predictability);
   });
 
@@ -247,8 +248,8 @@ function initData() {
   predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
   minPredChart.value = Math.min(...predictability.value) - 5
   maxPredChart.value = Math.max(...predictability.value) + 5
-  minVelocitychart.value = Math.min(...velocity.value) - 5
-  maxVelocitychart.value = Math.max(...velocity.value) + 5
+  minVelocitychart.value = Math.min(...calcVelocity.value) - 5
+  maxVelocitychart.value = Math.max(...calcVelocity.value) + 5
 }
 
 function editHistory(item: any) {
@@ -269,6 +270,7 @@ function deleteHistory(item: any) {
 function AddHistoryItem() {
   selectedHistory.value.sprint = sprintDataStore.getCursprintConfig().name
   selectedHistory.value.velocity = 0
+  selectedHistory.value.normVelocity = 0
   selectedHistory.value.predictability = 0
   historyList.value.push(selectedHistory.value)
 
@@ -278,6 +280,7 @@ function UpdateSprintHistory() {
   let index = historyList.value.findIndex(x => x.sprint == selectedHistory.value.sprint)
   if (index != -1) {
     historyList.value[index].velocity = selectedHistory.value.velocity
+    historyList.value[index].normVelocity = selectedHistory.value.normVelocity
     historyList.value[index].predictability = selectedHistory.value.predictability
   }
   dialog.value = false
