@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v170")
+  console.log("Starting app version v173")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -336,6 +336,7 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
   var boarddata: any;
   var idsdata: any;
+  var ids: string[] = []
   itemsList.value = []
   if (getFromDummy.value) {
     boarddata = getMondayDummyBoardItems();
@@ -358,7 +359,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     //console.log("Query " + qstr)
     idsdata = await mondayapi.api(qstr);
     //console.log("Return from get board items " + JSON.stringify(idsdata))
-    var ids: string[] = []
+
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any; }[]; }; }) => {
       board.items_page.items.forEach((item: { id: any; }) => {
         ids.push(item.id)
@@ -387,12 +388,16 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
   //console.log("Items " + JSON.stringify(boarddata))
   boarddata.items.forEach((item: { subitems: any[]; }) => {
 
-    //  board.items_page.items.forEach((item: { name: string; id: string; column_values: any; subitems: any[]; }) => {
-
     var featureItem: boardItem = new boardItem(item);
+    if (featureItem.type == "Feature") {
+      var tmpidx = ids.findIndex(x => x == featureItem.id)
+      if (tmpidx != -1) {
+        //console.log("Setting sort order of item " + featureItem.title + " to " + tmpidx)
+        featureItem.sortOrder = tmpidx;
+      }
+    }
     itemsList.value.push(featureItem)
     var rootid = featureItem.id
-
 
     item.subitems.forEach((subItemElement: any) => {
       var subitem: boardItem = new boardItem(subItemElement);

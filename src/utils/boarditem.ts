@@ -60,19 +60,6 @@ export class boardItem implements mondayFields {
     this.updateFields(item.column_values);
   }
 
-  setSortNumber() {
-    switch (this.goalCategory) {
-      case "Minimum":
-        this.sortOrder = 0;
-        break;
-      case "Target":
-        this.sortOrder = 1;
-        break;
-      case "Outstanding":
-        this.sortOrder = 2;
-        break;
-    }
-  }
 
   mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
@@ -98,7 +85,6 @@ export class boardItem implements mondayFields {
           break;
         case goalCategoryID:
           this.goalCategory = column.text;
-          this.setSortNumber();
           break;
         case sizeEstimationID:
           this.sizeEstimation = column.text;
