@@ -38,10 +38,10 @@ export function getMondayDummySprintsConfig(): Sprint[] {
       workingDays: 10,
       type: sprintType.execution,
       nonWorkingDays: [
-        createDateFromLocalText("7.8.2026"),
-        createDateFromLocalText("8.8.2026"),
-        createDateFromLocalText("14.8.2026"),
-        createDateFromLocalText("15.8.2026"),
+        createDateFromLocalText("16.10.2026"),
+        createDateFromLocalText("17.10.2026"),
+        createDateFromLocalText("23.10.2026"),
+        createDateFromLocalText("24.10.2026"),
       ],
     },
   ];
