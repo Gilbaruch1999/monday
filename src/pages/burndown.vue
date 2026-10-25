@@ -355,12 +355,14 @@ function prepareGraph() {
   sprintDataStore.setRetroInfo(retro)
 
 
-  var curDate = curSprint.value.startDate;
+  var curDate: Date = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
   //console.log("working days " + curSprint.value.workingDays)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
+    let nonworkingday: boolean = isDateInList(curDate, curSprint.value.nonWorkingDays);
+    //console.log(" Index is " + index + " Cur date " + curDate.toLocaleString() + " Non working day " + nonworkingday)
     if (index == 0) {
       if (!isDateInList(curDate, curSprint.value.nonWorkingDays))
         idealValues.value[index] = totalPoints.value - burndownStep.value
@@ -369,7 +371,7 @@ function prepareGraph() {
     }
     else {
 
-      if (isDateInList(curDate, curSprint.value.nonWorkingDays)) {
+      if (nonworkingday) {
         // console.log("Date in list " + curDate.toLocaleDateString())
         idealValues.value[index] = idealValues.value[index - 1]
       }
@@ -378,7 +380,9 @@ function prepareGraph() {
       }
 
     }
+    //console.log(" before add " + curDate.toLocaleString())
     curDate = new Date(addDays(curDate, 1))
+    //console.log(" after add day Index is " + index + " Cur date " + curDate.toLocaleString() + " Non working day " + nonworkingday)
 
   }
   for (let index = 0; index < idealValues.value.length; index++) {
@@ -400,14 +404,14 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
   }
 
   if (detailedgrpah.value) {
-    arr = arr.filter(x => (x.type == "Story") || ((x.type == "Epic") && x.numOfSubitems == 0)  || ((x.type == "Feature") && x.numOfSubitems == 0))
+    arr = arr.filter(x => (x.type == "Story") || ((x.type == "Epic") && x.numOfSubitems == 0) || ((x.type == "Feature") && x.numOfSubitems == 0))
     //arr = arr.filter(x => (x.type == "Story") )
 
-   /*  console.log("Number of stories " + arr.length)
-     arr.forEach(element => {
-      console.log("story " + element.title + " Parent " +element.parent)
+    /*  console.log("Number of stories " + arr.length)
+      arr.forEach(element => {
+       console.log("story " + element.title + " Parent " +element.parent)
 
-     });*/
+      });*/
 
 
     total = arr.reduce((accumulator, object) => {
@@ -445,8 +449,8 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
     if (element.status == "Done") {
       //console.log("Done item " + JSON.stringify(element.title ) + " date " + element.DoneDate.toLocaleDateString() + " Points " + element.storyPoints)
       var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
-      if (index < 0)
-      console.log("Done date not in sprint " + element.title)
+       if (index < 0)
+       console.log("Done date not in sprint " + element.title)
       if (filterByName.value) {
 
         if ((index >= 0) && (index <= curindex) && (element.assignedTo.includes(userStore.getCurrentUser().name))) {

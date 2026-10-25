@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v174")
+  console.log("Starting app version v175")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -130,7 +130,7 @@ async function initData() {
   else {
     groupid.value = curSprint.groupid
     console.log("current sprint " + curSprint.name)
-    console.log("current sprint start date " + curSprint.startDate.toLocaleDateString())
+    console.log("current sprint start date " + curSprint.startDate.toLocaleString())
   }
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid);
   sprintDataStore.setsprintData(itemsList.value)

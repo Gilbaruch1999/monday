@@ -44,6 +44,23 @@ export function getMondayDummySprintsConfig(): Sprint[] {
         createDateFromLocalText("24.10.2026"),
       ],
     },
+     {
+      name: "Sprint 52",
+      duration: 14,
+      startDate: createDateFromLocalText("25.10.2026"),
+      orgName: "Sprint 52",
+      boardid: "1647137427",
+      groupid: "group_mm79mx0x",
+      workingDays: 9,
+      type: sprintType.execution,
+      nonWorkingDays: [
+        createDateFromLocalText("27.10.2026"),
+        createDateFromLocalText("30.10.2026"),
+        createDateFromLocalText("31.10.2026"),
+        createDateFromLocalText("6.11.2026"),
+        createDateFromLocalText("7.11.2026"),
+      ],
+    },
   ];
 
   return dummySprints;

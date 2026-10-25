@@ -5,13 +5,15 @@ const DAY_TO_MSEC = 24 * 3600 * 1000;
 }*/
 
 export function isDateInList(curDate: Date, list: Date[]): boolean {
-  // console.log("Compare date " + curDate.toLocaleDateString())
+  let tmpdate : Date = new Date (curDate.getTime())
+  tmpdate.setHours(0,0,0,0)
+  //console.log("Is date in list  " + tmpdate.toLocaleString())
   let ret_val = false;
   for (let index = 0; index < list.length; index++) {
     let testTime = list[index];
     testTime.setHours(0, 0, 0, 0);
     //console.log("In list date " + testTime.toLocaleString())
-    let dif = curDate.getTime() - testTime.getTime();
+    let dif = tmpdate.getTime() - testTime.getTime();
     //console.log("Time Dif is " + dif)
     if (dif == 0) {
       ret_val = true;
@@ -19,7 +21,7 @@ export function isDateInList(curDate: Date, list: Date[]): boolean {
     }
     if (dif < 0) break;
   }
- // console.log("Ret value is " + ret_val)
+ //console.log("Ret value is " + ret_val)
 
   return ret_val;
 }
@@ -32,7 +34,7 @@ export function IsWorkingDay(index: number, noWorkingDays: number[]): boolean {
 }
 
 export function addDays(date: Date, days: number): number {
-  return date.getTime() + days * 1000 * 3600 * 24;
+  return (date.getTime() + (days * 1000 * 3600 * 25));
 }
 
 export const MsecInOneDay = 1000 * 3600 * 24;
