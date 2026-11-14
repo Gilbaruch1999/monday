@@ -8,49 +8,14 @@ var boardinfoString: string = "";
 
 export function getMondayDummySprintsConfig(): Sprint[] {
   var dummySprints: Sprint[] = [
-    {
-      name: "Sprint 50",
-      duration: 21,
-      startDate: createDateFromLocalText("20.9.2026"),
-      orgName: "Sprint 50",
-      boardid: "1647137427",
-      groupid: "group_mm71vrn6",
-      workingDays: 13,
-      type: sprintType.execution,
-      nonWorkingDays: [
-        createDateFromLocalText("20.9.2026"),
-        createDateFromLocalText("21.9.2026"),
-        createDateFromLocalText("25.9.2026"),
-        createDateFromLocalText("26.9.2026"),
-        createDateFromLocalText("2.10.2026"),
-        createDateFromLocalText("3.10.2026"),
-        createDateFromLocalText("9.10.2026"),
-        createDateFromLocalText("10.10.2026"),
-      ],
-    },
-    {
-      name: "Sprint 51",
-      duration: 14,
-      startDate: createDateFromLocalText("11.10.2026"),
-      orgName: "Sprint 51",
-      boardid: "1647137427",
-      groupid: "group_mm79mx0x",
-      workingDays: 10,
-      type: sprintType.execution,
-      nonWorkingDays: [
-        createDateFromLocalText("16.10.2026"),
-        createDateFromLocalText("17.10.2026"),
-        createDateFromLocalText("23.10.2026"),
-        createDateFromLocalText("24.10.2026"),
-      ],
-    },
+
      {
       name: "Sprint 52",
       duration: 14,
       startDate: createDateFromLocalText("25.10.2026"),
       orgName: "Sprint 52",
       boardid: "1647137427",
-      groupid: "group_mm79mx0x",
+      groupid: "group_mm7tqqt6",
       workingDays: 9,
       type: sprintType.execution,
       nonWorkingDays: [
@@ -59,6 +24,22 @@ export function getMondayDummySprintsConfig(): Sprint[] {
         createDateFromLocalText("31.10.2026"),
         createDateFromLocalText("6.11.2026"),
         createDateFromLocalText("7.11.2026"),
+      ],
+    },
+    {
+      name: "Sprint 53",
+      duration: 14,
+      startDate: createDateFromLocalText("8.11.2026"),
+      orgName: "Sprint 53",
+      boardid: "1647137427",
+      groupid: "group_mm88ws0p",
+      workingDays: 10,
+      type: sprintType.execution,
+      nonWorkingDays: [
+        createDateFromLocalText("13.11.2026"),
+        createDateFromLocalText("14.11.2026"),
+        createDateFromLocalText("20.11.2026"),
+        createDateFromLocalText("21.11.2026"),
       ],
     },
   ];

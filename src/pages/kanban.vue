@@ -41,35 +41,35 @@ onMounted(async () => {
 
 function InitData() {
 
-   itemsList.value = sprintDataStore.getsprintData()
+  itemsList.value = sprintDataStore.getsprintData()
 
   if (filterByName.value) {
-     itemsList.value  =   itemsList.value.filter(X => (X.assignedTo.includes(userStore.getCurrentUser().name)))
+    itemsList.value = itemsList.value.filter(X => (X.assignedTo.includes(userStore.getCurrentUser().name)))
   }
 
 
 }
 
-function getItems(state : any): boardItem[] {
+function getItems(state: any): boardItem[] {
   let ret_val: boardItem[] = []
-  let list: boardItem[]
+  let list: boardItem[] = itemsList.value.filter(x => x.type == "Story")
 
 
   switch (state) {
     case "Not started":
-      ret_val = itemsList.value.filter(x => x.status.includes("New") )
+      ret_val = list.filter(x => x.status == "Pending" || x.status == "Next Sprint")
       break;
+    case 'WIP':
+      ret_val = list.filter(x => (x.status.includes("Work") || x.status.includes("Needs")))
+      break
     case "Done":
       ret_val = itemsList.value.filter(x => x.status == 'Done')
       break;
     case "Wait":
       ret_val = itemsList.value.filter(x => x.status == 'Stuck')
       break;
-    case 'WIP':
-      ret_val = itemsList.value.filter(x => (x.status.includes("Work")))
-      break
     default:
-      ret_val = itemsList.value.filter(x => x.status == state )
+      ret_val = itemsList.value.filter(x => x.status == state)
       break;
   }
   return ret_val;

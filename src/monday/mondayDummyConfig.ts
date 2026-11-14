@@ -24,6 +24,11 @@ export function getMondayDummyBoardConfig() {
             "title": "Sprint 52",
             "__typename": "Group"
           },
+           {
+            "id": "group_mm79mx0x",
+            "title": "Sprint 53",
+            "__typename": "Group"
+          },
 
         ]
       }
