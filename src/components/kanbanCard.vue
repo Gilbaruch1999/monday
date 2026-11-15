@@ -1,5 +1,5 @@
 <template>
-  <v-card :color="getCardColor(item)">
+  <v-card :color="getCardColor(item.parent)">
     <v-card-title v-if="item.parent.length > 1 ">Parent : {{ item.parent }}</v-card-title>
     <v-card-text> {{ item.title }}
     <v-chip size="x-small" variant="flat" :color="getPointsColor(item.sizeEstimation)">{{ item.sizeEstimation
@@ -13,6 +13,7 @@
 
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
+import { getCardColor } from '@/utils/cardcolors';
 
 
 
@@ -47,18 +48,4 @@ function getPointsColor(size: string) {
 
 }
 
-function getCardColor(item : boardItem)
-{
- let ret_val = ""
- if (item.status == "Next Sprint")
- return "red"
-
- if (item.status.includes("Review"))
- ret_val = "orange"
-if (item.status == "Done")
-ret_val = 'green'
-
-  return ret_val
-
-}
 </script>

@@ -22,7 +22,7 @@ import { boardItem } from '@/utils/boarditem';
 import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 
-import colors from 'vuetify/util/colors'
+
 import { useUsersData } from '@/stores/usersData';
 
 let itemsList: Ref<boardItem[]> = ref([]);
@@ -52,7 +52,7 @@ function InitData() {
 
 function getItems(state: any): boardItem[] {
   let ret_val: boardItem[] = []
-  let list: boardItem[] = itemsList.value.filter(x => x.type == "Story")
+  let list: boardItem[] = itemsList.value.filter(x => (x.type == "Story") || ((x.type=="Epic" && x.numOfSubitems==0 )))
 
 
   switch (state) {
