@@ -89,7 +89,7 @@ let currentUser: Ref<userData> = ref(new userData())
 
 
 onMounted(async () => {
-  console.log("Starting app version v176")
+  console.log("Starting app version v177")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -403,7 +403,10 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
       var subitem: boardItem = new boardItem(subItemElement);
       // console.log("Item type " + subitem.type)
       if (subitem.type == "Task" || subitem.type == "Story")
+    {
         subitem.rootItemId = rootid
+        subitem.goalCategory = featureItem.goalCategory
+    }
       itemsList.value.push(subitem);
 
     }); // end 2Nd level loop
