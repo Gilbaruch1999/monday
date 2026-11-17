@@ -217,7 +217,7 @@ export function getMondayDummyBoardItems() {
                   "id": "color_mm5fb7mm",
                   "title": "Planning Status"
                 },
-                "text": "Stuck"
+                "text": "Work In Progress"
               },
               {
                 "id": "color_mm5fx8bd",

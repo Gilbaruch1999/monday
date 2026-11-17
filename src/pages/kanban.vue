@@ -4,38 +4,81 @@
       <v-col width="250px" :key="state" v-for="state in states">
         <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="400px">
           <v-card-title class="ma-1">{{ state }}</v-card-title>
-          <v-card elevation="2" class="ma-1 " :key="card.id" v-for="card in getItems(state)">
-            <kanban-card :item="card">
-            </kanban-card>
-          </v-card>
+          <VueDraggable :data-column-id="state"  @end="(event) => onDragEnd(event)" v-model="processedValue" group="kanban" :animation="300"
+            class="flex flex-col gap-2 min-h-[150px]">
+            <v-card elevation="2" class="ma-1" :key="card.id" v-for="card in getItems(state)">
+              <kanban-card :item="card">
+              </kanban-card>
+            </v-card>
+          </VueDraggable>
         </v-card>
       </v-col>
-
     </v-row>
+
   </v-container>
 
 </template>
 
 <script setup lang='ts'>
 
+
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, Ref, ref, watch } from 'vue';
+import { computed, onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
-
-
 import { useUsersData } from '@/stores/usersData';
+import { DraggableEvent, VueDraggable } from 'vue-draggable-plus'
+import { mapStates, states } from '@/custom/states';
 
 let itemsList: Ref<boardItem[]> = ref([]);
 let filterByName = ref(false)
 const sprintDataStore = useSprintData();
 const userStore = useUsersData();
+
+/*
 let states = ref(['Not started', 'WIP', 'Wait', 'Done'])
+
+let mapStates: Map<string, string[]> = new Map([
+  ['Not started', ['Pending', 'Next Sprint']],
+  ['WIP', ['Work In Progress', 'Needs PO Review']],
+  ['Wait', ['Stuck']],
+  ['Done', ['Done']],
+]);*/
+
+
+const processedValue = computed<boardItem[]>({
+  get(state: any): boardItem[] {
+    return getItems(state) // Transform on read
+  },
+  set(newValue) {
+
+  }
+})
+
+
+
+const onDragEnd = (event: DraggableEvent) => {
+  //console.log('Drag from  ' + event.from.dataset.columnId)
+  //console.log('Drag to  ' + event.to.dataset.columnId)
+  var allowedStates: string[] = mapStates.get(String(event.to.dataset.columnId)) ?? [];
+  if (allowedStates.length > 0) {
+
+    var list = getItems(String(event.from.dataset.columnId))
+    //console.log("item title " + list[parseInt(String(event.oldIndex))].title)
+    let index = itemsList.value.findIndex(x => x.id == list[parseInt(String(event.oldIndex))].id)
+    if (index != -1) {
+      //console.log("Updating status of  " +   itemsList.value[index].title)
+      itemsList.value[index].status = allowedStates[0]
+    }
+  }
+}
+
 
 onMounted(async () => {
 
   //console.log("On mounted sprint plan")
   filterByName.value = false;
   InitData();
+
 
 })
 
@@ -52,29 +95,25 @@ function InitData() {
 
 function getItems(state: any): boardItem[] {
   let ret_val: boardItem[] = []
-  let list: boardItem[] = itemsList.value.filter(x => (x.type == "Story") || ((x.type=="Epic" && x.numOfSubitems==0 )))
+  let list: boardItem[] = itemsList.value.filter(x => (x.type == "Story") || ((x.type == "Epic" && x.numOfSubitems == 0)))
+  var allowedStates: string[] = mapStates.get(state) ?? [];
+  ret_val = list.filter(item => allowedStates.includes(item.status));
 
-
-  switch (state) {
-    case "Not started":
-      ret_val = list.filter(x => x.status == "Pending" || x.status == "Next Sprint")
-      break;
-    case 'WIP':
-      ret_val = list.filter(x => (x.status.includes("Work") || x.status.includes("Needs")))
-      break
-    case "Done":
-      ret_val = itemsList.value.filter(x => x.status == 'Done')
-      break;
-    case "Wait":
-      ret_val = itemsList.value.filter(x => x.status == 'Stuck')
-      break;
-    default:
-      ret_val = itemsList.value.filter(x => x.status == state)
-      break;
-  }
   return ret_val;
 
 }
+
+function getStateName(state: string): string {
+
+  let tmp = mapStates.has(state)
+  if (tmp) {
+    return String(mapStates.get(state))
+  }
+  else
+    return "Not found"
+
+}
+
 
 function getColorClass(state: string) {
 
