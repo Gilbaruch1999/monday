@@ -1,21 +1,19 @@
 /* cspell:disable */
 <template>
 
-  <v-toolbar color="primary " :title="toolBarTitle">
-    <v-btn class="mt-6" @click="$router.push('/burndown')">BurnDown</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintTable')">Sprint items</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintGoals')">Goals</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/kanban')">Kanban</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/history')">History</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/sprintsCfg')">Board Config</v-btn>
-    <v-btn class="mt-6" @click="$router.push('/retro')">Retrospective</v-btn>
-    <v-btn v-if="false" class="mt-6" @click="$router.push('/retroOnLine')">Online Retrospective</v-btn>
-
+  <v-toolbar color="primary" :class="vBtnClass" :title="toolBarTitle">
+    <v-btn :class="vBtnClass" @click="$router.push('/burndown')">BurnDown</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/sprintTable')">Sprint items</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/sprintGoals')">Goals</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/breakdown')">BreakDown pie</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/kanban')">Kanban</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/history')">History</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/sprintsCfg')">Board Config</v-btn>
+    <v-btn :class="vBtnClass" @click="$router.push('/retro')">Retrospective</v-btn>
 
     <v-menu class="mt-6">
       <template v-slot:activator="{ props }">
-        <v-btn class="mt-6" color="white" light v-bind="props">
+        <v-btn :class="vBtnClass" color="white" light v-bind="props">
           {{ curSprint.name }}
         </v-btn>
       </template>
@@ -72,11 +70,11 @@ import { getMondayDummyHistory, getMondayDummySprintsConfig } from "@/monday/mon
 
 
 
+
 const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData();
 let getFromDummy = ref(false);
 let toolBarTitle = ref("")
-//let boardId = ref("")
 let bconfig: Ref<boardConfig> = ref(new boardConfig());
 let curSprint: Sprint = new Sprint();
 
@@ -85,11 +83,11 @@ let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
 let usersList: Ref<userData[]> = ref([])
 let currentUser: Ref<userData> = ref(new userData())
-
+const vBtnClass = 'mt-6 text-title-large'
 
 
 onMounted(async () => {
-  console.log("Starting app version v178")
+  console.log("Starting app version v185")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -402,11 +400,10 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     item.subitems.forEach((subItemElement: any) => {
       var subitem: boardItem = new boardItem(subItemElement);
       // console.log("Item type " + subitem.type)
-      if (subitem.type == "Task" || subitem.type == "Story")
-    {
+      if (subitem.type == "Task" || subitem.type == "Story") {
         subitem.rootItemId = rootid
         subitem.goalCategory = featureItem.goalCategory
-    }
+      }
       itemsList.value.push(subitem);
 
     }); // end 2Nd level loop

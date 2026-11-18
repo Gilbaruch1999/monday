@@ -1,11 +1,14 @@
 <template>
   <v-container fluid class="ma-1">
     <v-row>
-      <v-col width="250px" :key="state" v-for="state in states">
+      <v-col width="250px" :key="state" v-for="(state, index) in states">
         <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="400px">
-          <v-card-title class="ma-1">{{ state }}</v-card-title>
-          <VueDraggable :data-column-id="state"  @end="(event) => onDragEnd(event)" v-model="processedValue" group="kanban" :animation="300"
-            class="flex flex-col gap-2 min-h-[150px]">
+          <v-card-title class="ma-1">{{ state }}
+            <v-btn v-if="(index == 0)" :disabled="changeList.length == 0" @click="updateStates()">Update</v-btn>
+          </v-card-title>
+
+          <VueDraggable :data-column-id="state" @end="(event) => onDragEnd(event)" v-model="processedValue"
+            group="kanban" :animation="300" class="flex flex-col gap-2 min-h-[150px]">
             <v-card elevation="2" class="ma-1" :key="card.id" v-for="card in getItems(state)">
               <kanban-card :item="card">
               </kanban-card>
@@ -21,29 +24,36 @@
 
 <script setup lang='ts'>
 
-
-import { boardItem } from '@/utils/boarditem';
-import { computed, onMounted, Ref, ref, watch } from 'vue';
+const mondayapi = inject('monday') as MondayClientSdk
+import { boardItem, statusColId } from '@/utils/boarditem';
+import { computed, inject, onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
 import { DraggableEvent, VueDraggable } from 'vue-draggable-plus'
 import { mapStates, states } from '@/custom/states';
+import { MondayClientSdk } from 'monday-sdk-js';
+import { updateValueQuery } from '@/monday/mondayQueries';
+import { boardConfig } from '@/utils/boardCfg';
+
+class changeItem {
+  itemid: string = ""
+  fromState: string = ""
+  toState: string = ""
+
+  constructor(id: string, from: string, to: string) {
+    this.itemid = id
+    this.fromState = from
+    this.toState = to
+  }
+
+}
 
 let itemsList: Ref<boardItem[]> = ref([]);
+let changeList: Ref<changeItem[]> = ref([]);
 let filterByName = ref(false)
 const sprintDataStore = useSprintData();
 const userStore = useUsersData();
-
-/*
-let states = ref(['Not started', 'WIP', 'Wait', 'Done'])
-
-let mapStates: Map<string, string[]> = new Map([
-  ['Not started', ['Pending', 'Next Sprint']],
-  ['WIP', ['Work In Progress', 'Needs PO Review']],
-  ['Wait', ['Stuck']],
-  ['Done', ['Done']],
-]);*/
-
+let boardcfg: boardConfig = new boardConfig()
 
 const processedValue = computed<boardItem[]>({
   get(state: any): boardItem[] {
@@ -68,8 +78,28 @@ const onDragEnd = (event: DraggableEvent) => {
     if (index != -1) {
       //console.log("Updating status of  " +   itemsList.value[index].title)
       itemsList.value[index].status = allowedStates[0]
+      AddChangeToList(itemsList.value[index].id, String(event.from.dataset.columnId), String(event.to.dataset.columnId))
     }
   }
+}
+
+
+function AddChangeToList(id: string, fromState: string, toState: string) {
+
+  let index = changeList.value.findIndex(x => x.itemid == id)
+  if (index == -1) {
+    changeList.value.push(new changeItem(id, fromState, toState))
+  }
+  else {
+    if (changeList.value[index].fromState == toState) {
+      changeList.value.splice(index, 1);
+
+    }
+    else {
+      changeList.value[index].toState = toState;
+    }
+  }
+
 }
 
 
@@ -78,8 +108,6 @@ onMounted(async () => {
   //console.log("On mounted sprint plan")
   filterByName.value = false;
   InitData();
-
-
 })
 
 function InitData() {
@@ -89,6 +117,7 @@ function InitData() {
   if (filterByName.value) {
     itemsList.value = itemsList.value.filter(X => (X.assignedTo.includes(userStore.getCurrentUser().name)))
   }
+  boardcfg = sprintDataStore.getBoardCfg()
 
 
 }
@@ -103,6 +132,7 @@ function getItems(state: any): boardItem[] {
 
 }
 
+/*
 function getStateName(state: string): string {
 
   let tmp = mapStates.has(state)
@@ -112,7 +142,7 @@ function getStateName(state: string): string {
   else
     return "Not found"
 
-}
+}*/
 
 
 function getColorClass(state: string) {
@@ -137,6 +167,22 @@ function getColorClass(state: string) {
   }
 
   return ret_val
+
+}
+
+async function updateStates() {
+
+  console.log("Update List " + JSON.stringify(changeList.value))
+  for (let index = 0; index < changeList.value.length; index++) {
+    var allowedStates: string[] = mapStates.get(changeList.value[index].toState) ?? [];
+    if (allowedStates.length > 0) {
+      var qstr = updateValueQuery(boardcfg.boardId, changeList.value[index].itemid, statusColId, allowedStates[0]);
+      console.log("Query is " + qstr)
+      var res = await mondayapi.api(qstr);
+      console.log("Result of update " + JSON.stringify(res))
+    }
+  }
+  changeList.value.splice(0, changeList.value.length)
 
 }
 

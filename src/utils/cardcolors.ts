@@ -21,8 +21,3 @@ export function getCardColor(parentId : string) : string
 
 }
 
-
-export function resetCardColorScheme()
-{
-
-}

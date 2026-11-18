@@ -215,6 +215,8 @@ const sizeEstimationID = 6;
 const issueTypeID = 7;
 const planningStatusID = 8;
 
+export const statusColId = 'color_mm5fb7mm'
+
 export function initColumnMap() {
   columnToId.clear();
   columnToId.set("multiple_person_mkr4pbc8", assignedToID);
@@ -240,5 +242,5 @@ export function initColumnMap() {
 
   columnToId.set("color_mm5fx8bd", issueTypeID);
 
-  columnToId.set("color_mm5fb7mm", planningStatusID);
+  columnToId.set(statusColId, planningStatusID);
 }
