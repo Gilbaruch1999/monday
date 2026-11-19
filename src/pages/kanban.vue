@@ -6,26 +6,24 @@
           <v-card-title class="ma-1">{{ state }}
             <v-btn v-if="(index == 0)" :disabled="changeList.length == 0" @click="updateStates()">Update</v-btn>
           </v-card-title>
-
           <VueDraggable :data-column-id="state" @end="(event) => onDragEnd(event)" v-model="processedValue"
             group="kanban" :animation="300" class="flex flex-col gap-2 min-h-[150px]">
             <v-card elevation="2" class="ma-1" :key="card.id" v-for="card in getItems(state)">
-              <kanban-card :item="card">
+              <kanban-card :item="card" :parent-title="getParentTitle(card.parent)">
               </kanban-card>
             </v-card>
           </VueDraggable>
         </v-card>
       </v-col>
     </v-row>
-
   </v-container>
-
 </template>
 
 <script setup lang='ts'>
 
+
 const mondayapi = inject('monday') as MondayClientSdk
-import { boardItem, statusColId } from '@/utils/boarditem';
+import { boardItem } from '@/utils/boarditem';
 import { computed, inject, onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
@@ -34,6 +32,7 @@ import { mapStates, states } from '@/custom/states';
 import { MondayClientSdk } from 'monday-sdk-js';
 import { updateValueQuery } from '@/monday/mondayQueries';
 import { boardConfig } from '@/utils/boardCfg';
+import { statusColId } from '@/custom/mondayFields';
 
 class changeItem {
   itemid: string = ""
@@ -172,18 +171,26 @@ function getColorClass(state: string) {
 
 async function updateStates() {
 
-  console.log("Update List " + JSON.stringify(changeList.value))
+  //console.log("Update List " + JSON.stringify(changeList.value))
   for (let index = 0; index < changeList.value.length; index++) {
     var allowedStates: string[] = mapStates.get(changeList.value[index].toState) ?? [];
     if (allowedStates.length > 0) {
       var qstr = updateValueQuery(boardcfg.boardId, changeList.value[index].itemid, statusColId, allowedStates[0]);
-      console.log("Query is " + qstr)
+      // console.log("Query is " + qstr)
       var res = await mondayapi.api(qstr);
       console.log("Result of update " + JSON.stringify(res))
     }
   }
   changeList.value.splice(0, changeList.value.length)
 
+}
+
+function getParentTitle(parentID: string): string {
+  let index = itemsList.value.findIndex(x => x.parent == parentID)
+  if (index != -1)
+    return "parent: " + itemsList.value[index].title
+  else
+    return "No Parent"
 }
 
 

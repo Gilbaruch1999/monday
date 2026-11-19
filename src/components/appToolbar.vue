@@ -50,7 +50,7 @@
 import { inject, onMounted, ref, type Ref } from "vue";
 import { MondayClientSdk } from "monday-sdk-js";
 
-import { boardItem, initColumnMap, PlanningErrorsIndex } from "@/utils/boarditem";
+import { boardItem, PlanningErrorsIndex } from "@/utils/boarditem";
 import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from "@/monday/mondayBoardItems";
 import { getAllUsersQuery, getBoardConfigQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from "@/monday/mondayQueries";
 import { createDateFromLocalText, getDaysdiff } from "@/utils/utils";
@@ -67,6 +67,7 @@ import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
 import { boardConfig } from "@/utils/boardCfg";
 import { getMondayDummyBoardConfig } from "@/monday/mondayDummyConfig";
 import { getMondayDummyHistory, getMondayDummySprintsConfig } from "@/monday/mondayDummyStorage";
+import { initFieldsMap } from "@/custom/mondayFields";
 
 
 
@@ -83,11 +84,11 @@ let itemsList: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
 let usersList: Ref<userData[]> = ref([])
 let currentUser: Ref<userData> = ref(new userData())
-const vBtnClass = 'mt-6 text-title-large'
+const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 
 onMounted(async () => {
-  console.log("Starting app version v185")
+  console.log("Starting app version v186")
   var res = await mondayapi.get('context')
   //console.log("Res " + JSON.stringify(res))
   try {
@@ -117,7 +118,7 @@ onMounted(async () => {
 
 async function initData() {
 
-  initColumnMap();
+  initFieldsMap()
   await getHistoryData();
   curSprint = findCurrentSprint()
   if (curSprint.duration == -1) {

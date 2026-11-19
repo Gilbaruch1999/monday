@@ -1,4 +1,19 @@
-interface mondayFields {
+import { itemsApplication } from "@/custom/fields";
+import { fieldsMap } from "@/custom/mondayFields";
+
+
+
+export const assignedToID = 1;
+export const statusID = 2;
+export const domainID = 3;
+export const strategicCategoryID = 4;
+export const goalCategoryID = 5;
+export const sizeEstimationID = 6;
+export const issueTypeID = 7;
+export const planningStatusID = 8;
+
+
+interface planningAppFields {
   id: string;
   title: string;
   status: string;
@@ -8,7 +23,6 @@ interface mondayFields {
   strategicCategory: string;
   goalCategory: string;
   sizeEstimation: string;
-  storyPoints: number;
 }
 
 export enum PlanningErrorsIndex {
@@ -21,7 +35,7 @@ export enum PlanningErrorsIndex {
   subitemNotDone = 6,
 }
 
-export class boardItem implements mondayFields {
+export class boardItem implements planningAppFields {
   id: string = "";
   title: string = "";
   status: string = "";
@@ -36,7 +50,6 @@ export class boardItem implements mondayFields {
   percentDone: number = 0;
   numOfSubitems: number = 0;
   DoneDate: Date = new Date(0);
-  planningStatus: string = "";
   planningCheck: boolean;
   planningCheckErrors: boolean[] = [];
   parent: string = "";
@@ -64,11 +77,9 @@ export class boardItem implements mondayFields {
   mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
     column_values.forEach((column: any) => {
-      let internalId = columnToId.get(column.column.id);
+      let internalId = fieldsMap.get(column.column.id);
       switch (internalId) {
-        //case statusID:
         case planningStatusID:
-          this.planningStatus = column.text;
           this.status = column.text;
           if (this.status == "Done") {
             let donedate = new Date(column.updated_at);
@@ -106,7 +117,13 @@ export class boardItem implements mondayFields {
 
   updateFields(column_values: any) {
     // todo add other apps here
-    this.mondayUpdateFields(column_values);
+    switch (itemsApplication)
+    {
+      case "Monday" :
+      this.mondayUpdateFields(column_values);
+      break;
+    }
+
   }
 
   calcPercentDone() {
@@ -204,19 +221,8 @@ export class boardItem implements mondayFields {
   }
 }
 
-let columnToId: Map<string, number> = new Map();
 
-const assignedToID = 1;
-const statusID = 2;
-const domainID = 3;
-const strategicCategoryID = 4;
-const goalCategoryID = 5;
-const sizeEstimationID = 6;
-const issueTypeID = 7;
-const planningStatusID = 8;
-
-export const statusColId = 'color_mm5fb7mm'
-
+/*
 export function initColumnMap() {
   columnToId.clear();
   columnToId.set("multiple_person_mkr4pbc8", assignedToID);
@@ -243,4 +249,4 @@ export function initColumnMap() {
   columnToId.set("color_mm5fx8bd", issueTypeID);
 
   columnToId.set(statusColId, planningStatusID);
-}
+}*/

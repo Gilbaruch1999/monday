@@ -1,17 +1,22 @@
 <template>
+
   <v-card :color="getCardColor(item.parent)">
-    <v-card-title> {{ item.title }} </v-card-title>
-    <v-card-text v-if="item.parent.length > 1">Parent : {{ item.parent }}
+    <v-tooltip :text="parentTitle">
+      <template v-slot:activator="{ props }">
+        <v-card-title v-bind="props">{{ item.title }}</v-card-title>
+      </template>
+    </v-tooltip>    <v-card-text v-if="item.parent.length > 1">Parent : {{ item.parent }}
       <v-chip size="x-small" variant="flat" :color="getPointsColor(item.sizeEstimation)">{{ item.sizeEstimation
-        }}</v-chip>
+      }}</v-chip>
       <v-chip class="mr-2" size="x-small" variant="flat" color="green-darken-4">{{ item.assignedTo
-        }}</v-chip>
+      }}</v-chip>
       <v-chip class="mr-1" size="x-small" variant="flat" color="green-darken-4">{{ item.status
-        }}</v-chip>
+      }}</v-chip>
       <v-chip size="x-small" variant="flat" color="green-darken-4">{{ item.goalCategory
-        }}</v-chip>
+      }}</v-chip>
 
     </v-card-text>
+
   </v-card>
 
 </template>
@@ -23,7 +28,8 @@ import { getCardColor } from '@/utils/cardcolors';
 
 
 const props = defineProps<{
-  item: boardItem
+  item: boardItem,
+  parentTitle: string;
 }>()
 
 function getPointsColor(size: string) {

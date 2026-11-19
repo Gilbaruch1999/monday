@@ -98,7 +98,6 @@ const issuesheaders: any = [
   { title: 'Type', key: "type" },
   { title: 'Goal Category', key: "goalCategory" },
   { title: "Status", key: "status" },
-  { title: "Planning Status", key: "planningStatus" },
   { title: "Plan Errors", key: "planningCheckErrors" },
   { title: "Estimated Effort", key: "sizeEstimation" },
   { title: "Story Points", key: "storyPoints" },
