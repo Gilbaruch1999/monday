@@ -1,6 +1,6 @@
 <template>
 
-  <v-card :color="getCardColor(item.parent)">
+  <v-card :color="getCardParentColor(item.parent)">
     <v-tooltip :text="parentTitle">
       <template v-slot:activator="{ props }">
         <v-card-title v-bind="props">{{ item.title }}</v-card-title>
@@ -23,7 +23,7 @@
 
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
-import { getCardColor } from '@/utils/cardcolors';
+import { getCardParentColor } from '@/utils/cardcolors';
 
 
 

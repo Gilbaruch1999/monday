@@ -60,6 +60,7 @@ import { addDays, getDaysdiff, isDateInList } from "@/utils/utils";
 import { retroData, useSprintData } from "../stores/sprintData";
 import { useUsersData } from "@/stores/usersData";
 import { Sprint } from "@/utils/sprintInfo";
+import { isDoneState } from "@/custom/states";
 
 
 
@@ -230,10 +231,7 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 function getCompletedOnDate(index: number): boardItem[] {
   let compdate = new Date(addDays(curSprint.value.startDate, index))
   compdate.setHours(0, 0, 0, 0);
-  //console.log("xxxx " + JSON.stringify(itemsList.value.filter(x => x.status == "Done" && (x.DoneDate.getTime() == compdate.getTime()))))
-
-  let items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.status == "Done") && (x.DoneDate.getTime() == compdate.getTime()))
-
+  let items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (isDoneState(x.status)) && (x.DoneDate.getTime() == compdate.getTime()))
   if (filterByName.value)
     items = items.filter(x => x.assignedTo == userStore.getCurrentUser().name)
   return items
@@ -417,7 +415,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
     total = arr.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-    done = arr.filter(x => x.status == "Done").reduce((accumulator, object) => {
+    done = arr.filter(x => isDoneState(x.status)).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
@@ -429,7 +427,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
     total = arr.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-    done = arr.filter(x => x.status == "Done").reduce((accumulator, object) => {
+    done = arr.filter(x => isDoneState(x.status)).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
@@ -446,11 +444,11 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
 
 function addBurnUpValues(itemsList: boardItem[], curindex: number) {
   itemsList.forEach(element => {
-    if (element.status == "Done") {
+    if (isDoneState(element.status)) {
       //console.log("Done item " + JSON.stringify(element.title ) + " date " + element.DoneDate.toLocaleDateString() + " Points " + element.storyPoints)
       var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
-       if (index < 0)
-       console.log("Done date not in sprint " + element.title)
+      if (index < 0)
+        console.log("Done date not in sprint " + element.title)
       if (filterByName.value) {
 
         if ((index >= 0) && (index <= curindex) && (element.assignedTo.includes(userStore.getCurrentUser().name))) {
@@ -478,20 +476,14 @@ function calcBurnUpDonw() {
 
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-
-    //var items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.type != 'Feature') && (x.status == "Done"))
-    var items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (x.status == "Done"))
-
+    var items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (isDoneState(x.status)))
     addBurnUpValues(items, currentIndex)
-
   }
   else {
-
-    var features = itemsList.value.filter(x => x.status == "Done" && x.type == "Feature")
+    var features = itemsList.value.filter(x => isDoneState(x.status) && x.type == "Feature")
     //console.log("Burn up not detailed " + JSON.stringify(features))
     addBurnUpValues(features, currentIndex)
   }
-
   actualValues.value[0] = totalPoints.value
   var curDate = curSprint.value.startDate;
   curDate.setHours(0, 0, 0, 0)
@@ -511,6 +503,7 @@ function calcBurnUpDonw() {
 
 }
 
+/*
 function calcEmpTotal(name: string): number {
   var tot = 0;
   itemsList.value.forEach(element => {
@@ -524,7 +517,7 @@ function calcEmpTotal(name: string): number {
   return tot
 
 }
-
+*/
 
 function onDetaileGraphChanged() {
   prepareGraph();

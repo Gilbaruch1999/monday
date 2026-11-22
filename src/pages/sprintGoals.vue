@@ -17,7 +17,7 @@
       <v-card min-height="150" :color="category.color" class="my-2" v-for="category in goalsCategory">
         <v-card-title class=""> {{ category.name }}</v-card-title>
         <v-row>
-          <v-card class="my-8 mx-4" :key="category.name" :color="getGoalColor(item)"
+          <v-card class="my-8 mx-4" :key="category.name" "
             v-for="item in getGoals(category.name)">
            <goals-card :item="item"></goals-card>
           </v-card>
@@ -30,6 +30,7 @@
 import { boardItem } from '@/utils/boarditem';
 import { onMounted, Ref, ref , watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
+import { getCardColor, isDoneState } from '@/custom/states';
 
 const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
@@ -81,38 +82,15 @@ function getGoals(category: string) {
 function updatePOStatus(items : boardItem[]) {
   let index = 0;
   let arr = items.filter(X=>X.status != "Removed");
-  //console.log("!!!" +  props.boardItems.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length)
-  if (arr.filter(x => x.goalCategory == "Minimum" && x.status != "Done").length == 0) {
+  if (arr.filter(x => x.goalCategory == "Minimum" && !isDoneState(x.status)).length == 0) {
     index = 1;
-    if (arr.filter(x => x.goalCategory == "Target" && x.status != "Done").length == 0)
+    if (arr.filter(x => x.goalCategory == "Target" && !isDoneState(x.status)).length == 0)
       index = 2
   }
 
   poImageSrc.value = poImage[index].src
   poImageColor.value = poImage[index].color
   poImageText.value = poImage[index].text
-}
-
-function getGoalColor(item: boardItem) {
-  var ret_val = ""
-  switch (item.status) {
-    case "Work In Progress":
-    case "Code Review Me":
-    case "Design Review Me":
-    case "PO Review Me":
-    case "Wait":
-      ret_val = 'yellow'
-      break;
-    case "Done":
-      ret_val = 'green'
-      break
-    case "Not Done":
-      ret_val = 'red'
-      break
-    default:
-      ret_val = "red"
-  }
-  return ret_val;
 }
 
 

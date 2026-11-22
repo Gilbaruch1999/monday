@@ -67,7 +67,8 @@ import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
 import { boardConfig } from "@/utils/boardCfg";
 import { getMondayDummyBoardConfig } from "@/monday/mondayDummyConfig";
 import { getMondayDummyHistory, getMondayDummySprintsConfig } from "@/monday/mondayDummyStorage";
-import { initFieldsMap } from "@/custom/mondayFields";
+import { initFieldsMap } from "@/custom/snooze/fields-snooze";
+import { isDoneState } from "@/custom/states";
 
 
 
@@ -445,7 +446,6 @@ function updateLevel(type: string) {
 }
 
 function updateParents(index: number) {
-  // console.log("Updating parent of " +  itemsList.value[index].title + " status " +  itemsList.value[index].status)
 
   var pindex = itemsList.value.findIndex(x => x.id == itemsList.value[index].parent)
   // console.log("pindex " +  pindex)
@@ -459,7 +459,7 @@ function updateParents(index: number) {
     itemsList.value[pindex].numOfSubitems++
     var spoints = itemsList.value[index].storyPoints
     var donePoints = 0;
-    if (itemsList.value[index].status == "Done") {
+    if (isDoneState( itemsList.value[index].status) ) {
       //console.log("Done item " + JSON.stringify(itemsList.value[index]))
       if (isDateInSprint(curSprint.startDate, itemsList.value[index].DoneDate, curSprint.duration)) {
         donePoints = itemsList.value[index].storyPoints

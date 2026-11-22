@@ -1,5 +1,6 @@
 import { itemsApplication } from "@/custom/fields";
-import { fieldsMap } from "@/custom/mondayFields";
+import { fieldsMap } from "@/custom/snooze/fields-snooze";
+import { isDoneState } from "@/custom/states";
 
 
 
@@ -81,7 +82,7 @@ export class boardItem implements planningAppFields {
       switch (internalId) {
         case planningStatusID:
           this.status = column.text;
-          if (this.status == "Done") {
+          if (isDoneState(this.status)) {
             let donedate = new Date(column.updated_at);
             donedate.setHours(0, 0, 0, 0);
             this.DoneDate = donedate;
@@ -127,7 +128,7 @@ export class boardItem implements planningAppFields {
   }
 
   calcPercentDone() {
-    if (this.status == "Done") return 100;
+    if (isDoneState(this.status)) return 100;
     if (this.storyPoints == 0) return 0;
     else return Math.round((100 * this.doneStoryPoints) / this.storyPoints);
   }
@@ -153,10 +154,7 @@ export class boardItem implements planningAppFields {
       default:
         ret_val = 0;
     }
-    if (this.status == "Not Planned") {
-      ret_val = 0;
-    }
-    //console.log("Points for " + this.title + " type " + this.type + " points " + ret_val)
+
     return ret_val;
   }
 

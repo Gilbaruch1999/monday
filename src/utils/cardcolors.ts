@@ -3,7 +3,7 @@ var currentMapIndex = 0;
 var colorsArray = ["#00FFFF" , "#008080","#F54927" , "#00FF00" , "#FFFF00" , "#808080" , "#000080" , "#0000FF" , "#FF00FF"
   , "#800000" , "#800080", "#808000", "#000000"]
 
-export function getCardColor(parentId : string) : string
+export function getCardParentColor(parentId : string) : string
 {
 
   if (colorMap.has(parentId))

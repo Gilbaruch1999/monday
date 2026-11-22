@@ -1,16 +1,17 @@
+
 <template>
-  <v-container fluid class="ma-1">
+  <v-container class="ma-1" fluid>
     <v-row>
-      <v-col width="250px" :key="state" v-for="(state, index) in states">
-        <v-card elevation="5" :class="getColorClass(state)" min-height="20" max-width="400px">
+      <v-col v-for="(state, index) in states" :key="state" width="250px">
+        <v-card :class="getCardColorClass(state)" elevation="5" max-width="400px" min-height="20">
           <v-card-title class="ma-1">{{ state }}
-            <v-btn v-if="(index == 0)" :disabled="changeList.length == 0" @click="updateStates()">Update</v-btn>
+            <v-btn v-if="(index == 0)" :disabled="changeList.length === 0" @click="updateStates()">Update</v-btn>
           </v-card-title>
-          <VueDraggable :data-column-id="state" @end="(event) => onDragEnd(event)" v-model="processedValue"
-            group="kanban" :animation="300" class="flex flex-col gap-2 min-h-[150px]">
-            <v-card elevation="2" class="ma-1" :key="card.id" v-for="card in getItems(state)">
-              <kanban-card :item="card" :parent-title="getParentTitle(card.parent)">
-              </kanban-card>
+
+          <VueDraggable :data-column-id="state" v-model="processedValue" class="flex flex-col gap-2 min-h-[150px]"
+            @end="(event) => onDragEnd(event)" group="kanban" :animation="300">
+            <v-card v-for="card in getItems(state)" :key="card.id" class="ma-1" elevation="2">
+              <kanban-card :item="card" :parent-title="getParentTitle(card.parent)" />
             </v-card>
           </VueDraggable>
         </v-card>
@@ -20,7 +21,7 @@
 </template>
 
 <script setup lang='ts'>
-
+/* eslint-disable */
 
 const mondayapi = inject('monday') as MondayClientSdk
 import { boardItem } from '@/utils/boarditem';
@@ -28,11 +29,11 @@ import { computed, inject, onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
 import { useUsersData } from '@/stores/usersData';
 import { DraggableEvent, VueDraggable } from 'vue-draggable-plus'
-import { mapStates, states } from '@/custom/states';
+import { getCardColorClass, mapStates, states } from '@/custom/states';
 import { MondayClientSdk } from 'monday-sdk-js';
 import { updateValueQuery } from '@/monday/mondayQueries';
 import { boardConfig } from '@/utils/boardCfg';
-import { statusColId } from '@/custom/mondayFields';
+import { statusColId } from '@/custom/snooze/fields-snooze';
 
 class changeItem {
   itemid: string = ""
@@ -131,43 +132,7 @@ function getItems(state: any): boardItem[] {
 
 }
 
-/*
-function getStateName(state: string): string {
 
-  let tmp = mapStates.has(state)
-  if (tmp) {
-    return String(mapStates.get(state))
-  }
-  else
-    return "Not found"
-
-}*/
-
-
-function getColorClass(state: string) {
-
-  let ret_val = "ma-1 "
-  switch (state) {
-    case "Done":
-      ret_val = ret_val + "bg-light-green-darken-3";
-      break;
-    case "Not started":
-      ret_val = ret_val + "bg-blue-grey-lighten-3";
-      break;
-    case "Wait":
-      ret_val = ret_val + "bg-red-accent-4";
-      break;
-    case 'WIP':
-      ret_val = ret_val + "bg-yellow-darken-2";
-      break
-    default:
-      ret_val = ret_val + "bg-blue-grey-lighten-3";
-      break;
-  }
-
-  return ret_val
-
-}
 
 async function updateStates() {
 

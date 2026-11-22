@@ -1,5 +1,5 @@
 <template>
-  <v-card :color="getCardColor(item)">
+  <v-card :color="getCardColor(item.status)">
     <v-card-title>{{ item.title }}</v-card-title>
     <v-chip size="x-small" variant="flat" :color="getPointsColor(item.sizeEstimation)">{{ item.sizeEstimation
     }}</v-chip>
@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang='ts'>
+import { getCardColor } from '@/custom/states';
 import { boardItem } from '@/utils/boarditem';
-
 
 
 const props = defineProps<{
@@ -44,35 +44,6 @@ function getPointsColor(size: string) {
     default:
       ret_val = "deep-purple-lighten-1"
   }
-  return ret_val
-
-}
-
-function getCardColor(item: boardItem) {
-  let ret_val = ""
-  switch (item.status) {
-    case "Done":
-      ret_val = "green"
-      break;
-    case "Next Sprint":
-    case "Wait":
-    case "Stuck":
-      ret_val = "red"
-      break;
-    case "Pushed Out":
-      ret_val = "black"
-      break;
-    case "Work In Progress":
-      ret_val = "yellow"
-      break;
-    default:
-
-      break;
-  }
-
-  if (item.status.includes("Review"))
-  ret_val = "yellow";
-
   return ret_val
 
 }
