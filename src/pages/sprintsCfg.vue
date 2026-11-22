@@ -100,21 +100,21 @@ import { boardConfig } from "@/utils/boardCfg";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
-let sprintsList: Ref<Sprint[]> = ref([])
-let editIndex = ref(0)
-let oldSprintData: Ref<Sprint> = ref(new Sprint())
+const sprintsList: Ref<Sprint[]> = ref([])
+const editIndex = ref(0)
+const oldSprintData: Ref<Sprint> = ref(new Sprint())
 const sprintDataStore = useSprintData();
 const manageSprints = ref(false)
 const managBtnHeader = ref("Edit")
-let dialog = ref(false)
-let updateRequired = ref(false)
-let boardCfg: Ref<boardConfig> = ref(new boardConfig())
-let boardChanged = ref(false)
+const dialog = ref(false)
+const updateRequired = ref(false)
+const boardCfg: Ref<boardConfig> = ref(new boardConfig())
+const boardChanged = ref(false)
 
 
 
 
-const sprintHeaders: any = [
+const sprintHeaders = [
 
   { title: 'Actions', key: 'actions', sortable: false }, // Action Column
   { title: 'Display Name', key: 'name' },
@@ -151,7 +151,7 @@ function readBoardConfig() {
 
 function editSprint(item: Sprint) {
   //console.log("item " + JSON.stringify(item))
-  let index = sprintsList.value.findIndex(x => x.groupid == item.groupid)
+  const index = sprintsList.value.findIndex(x => x.groupid == item.groupid)
   if (index != -1) {
     editIndex.value = index
     oldSprintData.value = { ...sprintsList.value[index] }
@@ -161,7 +161,7 @@ function editSprint(item: Sprint) {
 
 function deleteSprint(item: Sprint) {
   //console.log(" XXX " + JSON.stringify(idx))
-  let index = sprintsList.value.findIndex(x => x.groupid == item.groupid)
+  const index = sprintsList.value.findIndex(x => x.groupid == item.groupid)
   if (index != -1) {
     sprintsList.value.splice(index, 1)
     updateRequired.value = true
@@ -193,6 +193,7 @@ function sprintTypeChanged(item : any)
 
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getRowProps(sprintitem: any) {
   let ret_val = {}
   console.log("Sprint item group " + sprintitem.groupid)
@@ -217,10 +218,10 @@ function manageSprintsClicked() {
 }
 
 async function updateSprints() {
-  var tmp: Sprint[] = [...sprintsList.value]
+  let tmp: Sprint[] = [...sprintsList.value]
   tmp = tmp.sort((a, b) => b.startDate.getTime() - a.startDate.getTime())
   sprintDataStore.setsprintList(tmp)
-  const res = await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
+  await mondayapi.storage.instance.setItem("boardInfo", JSON.stringify(tmp))
   //console.log("save to store results " + JSON.stringify(res))
 
   updateRequired.value = false;
@@ -261,7 +262,7 @@ function addNonWorkingDay() {
 function populateNonWorkingDays() {
 
   sprintsList.value[editIndex.value].nonWorkingDays = []
-  var curDate: Date = new Date(sprintsList.value[editIndex.value].startDate)
+  let curDate: Date = new Date(sprintsList.value[editIndex.value].startDate)
   for (let index = 0; index < sprintsList.value[editIndex.value].duration; index++) {
     if (curDate.getDay() == 5 || curDate.getDay() == 6) {
       sprintsList.value[editIndex.value].nonWorkingDays.push(curDate);

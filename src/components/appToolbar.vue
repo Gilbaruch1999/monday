@@ -84,7 +84,7 @@ const currentUser: Ref<userData> = ref(new userData())
 const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 onMounted(async () => {
-  console.log('Starting app version v189')
+  console.log('Starting app version v190')
   const res = await mondayapi.get('context')
   // console.log("Res " + JSON.stringify(res))
   try {
