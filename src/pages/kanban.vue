@@ -127,6 +127,8 @@ function getItems(state: any): boardItem[] {
   let list: boardItem[] = itemsList.value.filter(x => (x.type == "Story") || ((x.type == "Epic" && x.numOfSubitems == 0)))
   var allowedStates: string[] = mapStates.get(state) ?? [];
   ret_val = list.filter(item => allowedStates.includes(item.status));
+  console.log("get items. status  " + state + " allowed state " + JSON.stringify(allowedStates))
+  console.log("returned num of items " + ret_val.length)
 
   return ret_val;
 

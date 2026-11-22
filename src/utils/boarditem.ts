@@ -56,13 +56,14 @@ export class boardItem implements planningAppFields {
   parent: string = "";
   rootItemId: string = "";
   sortOrder: number = -1;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(item: any) {
     this.title = item.name;
     this.id = item.id;
     try {
       this.parent = item.parent_item.id;
       //console.log("Parent id " + this.parent)
-    } catch {}
+    } catch { /* empty */ }
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
     this.planningCheck = false;
@@ -75,15 +76,17 @@ export class boardItem implements planningAppFields {
   }
 
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mondayUpdateFields(column_values: any) {
     //console.log('Columns ' + JSON.stringify(column_values))
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     column_values.forEach((column: any) => {
-      let internalId = fieldsMap.get(column.column.id);
+      const internalId = fieldsMap.get(column.column.id);
       switch (internalId) {
         case planningStatusID:
           this.status = column.text;
           if (isDoneState(this.status)) {
-            let donedate = new Date(column.updated_at);
+            const donedate = new Date(column.updated_at);
             donedate.setHours(0, 0, 0, 0);
             this.DoneDate = donedate;
             //console.log("Found done item " + JSON.stringify(this))
@@ -116,6 +119,7 @@ export class boardItem implements planningAppFields {
     if (this.type == "Task") this.storyPoints = this.getPointsFromSize();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updateFields(column_values: any) {
     // todo add other apps here
     switch (itemsApplication)
@@ -134,7 +138,7 @@ export class boardItem implements planningAppFields {
   }
 
   getPointsFromSize(): number {
-    var ret_val: number = 0;
+    let ret_val: number;
     switch (this.sizeEstimation) {
       case "xS":
         ret_val = 1;
@@ -184,7 +188,7 @@ export class boardItem implements planningAppFields {
   checkSizeEstimation() {
     // check that story size is correct compare to size estimation
 
-    var points = this.getPointsFromSize();
+    const points = this.getPointsFromSize();
     if (points > this.storyPoints * 1.75 || points < this.storyPoints * 0.75) {
       this.setErrorIndication(PlanningErrorsIndex.parentSizeError);
     }

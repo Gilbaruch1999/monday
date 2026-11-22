@@ -4,12 +4,9 @@ import { sprintHistory } from "@/utils/historyData";
 import { Sprint, sprintType } from "@/utils/sprintInfo";
 import { createDateFromLocalText } from "@/utils/utils";
 
-var boardinfoString: string = "";
-
 export function getMondayDummySprintsConfig(): Sprint[] {
-  var dummySprints: Sprint[] = [
-
-     {
+  const dummySprints: Sprint[] = [
+    {
       name: "Sprint 52",
       duration: 14,
       startDate: createDateFromLocalText("25.10.2026"),
@@ -42,13 +39,29 @@ export function getMondayDummySprintsConfig(): Sprint[] {
         createDateFromLocalText("21.11.2026"),
       ],
     },
+     {
+      name: "Sprint 54",
+      duration: 14,
+      startDate: createDateFromLocalText("22.11.2026"),
+      orgName: "Sprint 53",
+      boardid: "1647137427",
+      groupid: "group_mm88ws0p",
+      workingDays: 10,
+      type: sprintType.execution,
+      nonWorkingDays: [
+        createDateFromLocalText("27.11.2026"),
+        createDateFromLocalText("28.11.2026"),
+        createDateFromLocalText("3.12.2026"),
+        createDateFromLocalText("4.12.2026"),
+      ],
+    },
   ];
 
   return dummySprints;
 }
 
 export function getMondayDummyHistory(): string {
-  var historyStore: sprintHistory[] = [
+  const historyStore: sprintHistory[] = [
     { sprint: "Sprint 22", normVelocity: 37, velocity: 37, predictability: 70 },
     { sprint: "Sprint 23", normVelocity: 33, velocity: 33, predictability: 80 },
     { sprint: "Sprint 24", normVelocity: 39, velocity: 39, predictability: 57 },

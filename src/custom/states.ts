@@ -1,6 +1,6 @@
 export const states = ['Not Started', 'WIP', 'Wait', 'Done']
 export const mapStates: Map<string, string[]> = new Map([
-  ['Not started', ['Pending', 'Next Sprint']],
+  ['Not Started', ['Pending', 'Next Sprint']],
   ['WIP', ['Work In Progress', 'Needs PO Review']],
   ['Wait', ['Stuck']],
   ['Done', ['Done']],
@@ -56,8 +56,6 @@ export function getCardColor (status: string) {
       break
     }
   }
-
-  console.log('Get card color ' + status + ' color ' + ret_val)
   return ret_val
 }
 

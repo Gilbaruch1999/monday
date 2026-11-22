@@ -7,7 +7,7 @@
   </v-app>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AppToolbar from './components/appToolbar.vue';
 
   //

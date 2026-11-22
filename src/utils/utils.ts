@@ -1,19 +1,19 @@
-const DAY_TO_MSEC = 24 * 3600 * 1000;
+export const MsecInOneDay = 1000 * 3600 * 24;
 /*export function isIndexOnWeekEnd(index: number) {
   if (index == 5 || index == 6 || index == 12 || index == 13) return true;
   else return false;
 }*/
 
 export function isDateInList(curDate: Date, list: Date[]): boolean {
-  let tmpdate : Date = new Date (curDate.getTime())
+  const tmpdate : Date = new Date (curDate.getTime())
   tmpdate.setHours(0,0,0,0)
   //console.log("Is date in list  " + tmpdate.toLocaleString())
   let ret_val = false;
   for (let index = 0; index < list.length; index++) {
-    let testTime = list[index];
+    const testTime = list[index];
     testTime.setHours(0, 0, 0, 0);
     //console.log("In list date " + testTime.toLocaleString())
-    let dif = tmpdate.getTime() - testTime.getTime();
+    const dif = tmpdate.getTime() - testTime.getTime();
     //console.log("Time Dif is " + dif)
     if (dif == 0) {
       ret_val = true;
@@ -27,7 +27,7 @@ export function isDateInList(curDate: Date, list: Date[]): boolean {
 }
 
 export function IsWorkingDay(index: number, noWorkingDays: number[]): boolean {
-  var ret_val = false;
+  let ret_val = false;
   if (noWorkingDays.findIndex((x) => x == index) == -1) ret_val = true;
 
   return ret_val;
@@ -37,10 +37,10 @@ export function addDays(date: Date, days: number): number {
   return (date.getTime() + (days * 1000 * 3600 * 25));
 }
 
-export const MsecInOneDay = 1000 * 3600 * 24;
+
 
 export function getDaysdiff(date1: Date, date2: Date): number {
-  var res = -1;
+  let res = -1;
   try {
     res = Math.floor((date1.getTime() - date2.getTime()) / MsecInOneDay);
   } catch {
@@ -52,11 +52,11 @@ export function getDaysdiff(date1: Date, date2: Date): number {
 
 export function geNumberOfWorkingDays(date1: Date, date2: Date): number {
   //console.log("VVV " + JSON.stringify(date1))
-  var ret_val = 0;
-  var index = getDaysdiff(date2, date1);
-  var curDate = new Date(date1);
+  let ret_val = 0;
+  const index = getDaysdiff(date2, date1);
+  const curDate = new Date(date1);
   for (let i = 0; i < index; i++) {
-    var day = curDate.getDay();
+    const day = curDate.getDay();
     if (day < 6) ret_val++;
   }
 
@@ -65,10 +65,10 @@ export function geNumberOfWorkingDays(date1: Date, date2: Date): number {
 }
 
 export function createDateFromText11(stringdate: string) {
-  var retval: Date = new Date();
+  let retval: Date = new Date();
   // format dd-mm-yyyy
   try {
-    var tmp = stringdate.split("-");
+    const tmp = stringdate.split("-");
     if (tmp.length != 3) return null;
     else {
       retval = new Date();
@@ -76,16 +76,16 @@ export function createDateFromText11(stringdate: string) {
       retval.setMonth(parseInt(tmp[1]) - 1);
       retval.setDate(parseInt(tmp[0]));
     }
-  } catch {}
+  } catch { /* empty */ }
   //console.log('Date is ' + retval.toLocaleDateString())
   return retval;
 }
 
 export function createDateFromText2(stringdate: string) : Date {
-  var retval: Date = new Date();
+  let retval: Date = new Date();
   // format yyyy-mm-dd
   try {
-    var tmp = stringdate.split("-");
+    const tmp = stringdate.split("-");
     if (tmp.length != 3) return new Date(0);
     else {
       retval = new Date();
@@ -106,10 +106,10 @@ export function createDateFromText2(stringdate: string) : Date {
 
 export function createDateFromLocalText(stringdate: string) : Date {
   //console.log("Date string format " + stringdate)
-  var retval: Date = new Date();
+  let retval: Date = new Date();
   // format dd.mm.yyyy
   try {
-    var tmp = stringdate.split(".");
+    const tmp = stringdate.split(".");
     if (tmp.length != 3) return new Date(0);
     else {
       retval = new Date();

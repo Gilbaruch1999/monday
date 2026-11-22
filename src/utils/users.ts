@@ -6,10 +6,11 @@ export class userData {
   image_link : string = ""
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createUserList(data: any): userData[] {
-  let ret_val: userData[] = [];
+  const ret_val: userData[] = [];
   data.data.users.forEach((user: { name: string; email: string; id: string; is_admin: boolean; photo_tiny: string; }) => {
-    let newUser = new userData();
+    const newUser = new userData();
     newUser.name = user.name;
     newUser.email = user.email;
     newUser.id = user.id;
@@ -24,7 +25,7 @@ export function createUserList(data: any): userData[] {
 
 export function findUser(list : userData[] , name : string) : userData
 {
-  let index = list.findIndex(x=>x.name == name)
+  const index = list.findIndex(x=>x.name == name)
   if (index != -1)
   return list[index]
   else

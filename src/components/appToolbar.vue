@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 /* cspell:disable */
 <template>
 
@@ -13,7 +14,7 @@
 
     <v-menu class="mt-6">
       <template #activator="{ props }">
-        <v-btn :class="vBtnClass" color="white" light v-bind="props">
+        <v-btn :class="vBtnClass" color="white" v-bind="props">
           {{ curSprint.name }}
         </v-btn>
       </template>
@@ -27,7 +28,7 @@
 
     <v-menu v-if="userStore.getOrgUser().is_admin" class="mt-6">
       <template #activator="{ props }">
-        <v-btn class="mt-6" color="white" light v-bind="props">
+        <v-btn class="mt-6" color="white" v-bind="props">
           {{ currentUser.name }}
         </v-btn>
       </template>
@@ -66,7 +67,7 @@ import { boardConfig } from '@/utils/boardCfg'
 import { boardItem, PlanningErrorsIndex } from '@/utils/boarditem'
 import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
 import { createUserList, userData } from '@/utils/users'
-import { createDateFromLocalText, getDaysdiff } from '@/utils/utils'
+import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -84,7 +85,7 @@ const currentUser: Ref<userData> = ref(new userData())
 const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 onMounted(async () => {
-  console.log('Starting app version v186')
+  console.log('Starting app version v189')
   const res = await mondayapi.get('context')
   // console.log("Res " + JSON.stringify(res))
   try {
@@ -129,7 +130,7 @@ async function initData() {
 
 async function getHistoryData() {
   let tmp: any
-  let history: sprintHistory[] = []
+  let history: sprintHistory[]
   if (getFromDummy.value) {
     tmp = JSON.parse(getMondayDummyHistory())
     history = tmp as sprintHistory[]
