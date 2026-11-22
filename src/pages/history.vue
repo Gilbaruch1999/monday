@@ -1,42 +1,50 @@
 /* cspell:disable */
 <template>
-  <v-toolbar class="mt-6" :title="toolBarTitle" color="primary">
+  <v-toolbar class="mt-6" color="primary" :title="toolBarTitle">
   </v-toolbar>
+
   <div class="mx-6">
     <LineChart :chart-data="velocityData" :options="velocityChartOptions" />
-  </div class="mx-6">
-  <br></br>
+  </div>
+
+  <br>
+  </br>
   <div class="mx-6">
     <LineChart :chart-data="predData" :options="predChartOptions" />
   </div>
-  <div align="center" v-if="props.editHistory">
-    <v-btn class="ma-4" @click="updateToStore()" color="orange">Save to store</v-btn>
+
+  <div v-if="props.editHistory" align="center">
+    <v-btn class="ma-4" color="orange" @click="updateToStore()">Save to store</v-btn>
     <v-btn class="ma-4" color="orange" @click="AddHistoryItem()">Add </v-btn>
   </div>
-  <v-container fluid v-if="props.editHistory">
-    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
-      :headers="sprintHeaders" :items="historyList">
-      <template v-slot:item.actions="{ item }">
-        <v-icon small color="blue" class="mr-2" @click="editHistory(item)">
+
+  <v-container v-if="props.editHistory" fluid>
+    <v-data-table class="datatable" dense :headers="sprintHeaders" hide-default-footer item-key="name"
+      :items="historyList" items-per-page="60">
+      <template #item.actions="{ item }">
+        <v-icon class="mr-2" color="blue" small @click="editHistory(item)">
           mdi-pencil
         </v-icon>
-        <v-icon small color="red" class="mr-2" @click="deleteHistory(item)">
+
+        <v-icon class="mr-2" color="red" small @click="deleteHistory(item)">
           mdi-delete
         </v-icon>
       </template>
     </v-data-table>
   </v-container>
+
   <v-dialog v-model="dialog" width="50%">
     <v-card :title="'Edit Sprint ' + selectedHistory.sprint">
       <v-form>
         <v-row>
-          <v-text-field label='Velocity' v-model="selectedHistory.velocity"> </v-text-field>
-          <v-text-field label='norm Velocity' v-model="selectedHistory.normVelocity"> </v-text-field>
-          <v-text-field label='Predictability' v-model="selectedHistory.predictability"> </v-text-field>
+          <v-text-field v-model="selectedHistory.velocity" label='Velocity'> </v-text-field>
+          <v-text-field v-model="selectedHistory.normVelocity" label='norm Velocity'> </v-text-field>
+          <v-text-field v-model="selectedHistory.predictability" label='Predictability'> </v-text-field>
         </v-row>
       </v-form>
-      <template v-slot:actions>
-        <v-btn color="orange" class="ms-auto" text="Update" @click="UpdateSprintHistory()"></v-btn>
+
+      <template #actions>
+        <v-btn class="ms-auto" color="orange" text="Update" @click="UpdateSprintHistory()"></v-btn>
         <v-btn class="ms-auto" text="Cancel" @click="dialog = false"></v-btn>
       </template>
     </v-card>
@@ -45,13 +53,14 @@
 </template>
 
 <script setup lang='ts'>
+import type { ChartData, ChartOptions } from "chart.js";
+import type { MondayClientSdk } from "monday-sdk-js";
+import { Chart, registerables } from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, inject, onMounted, ref, type Ref } from "vue";
 import { LineChart } from "vue-chart-3";
-import { Chart, ChartData, ChartOptions, registerables } from "chart.js";
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { useSprintData } from "../stores/sprintData";
 import { sprintHistory } from "@/utils/historyData";
-import { MondayClientSdk } from "monday-sdk-js";
+import { useSprintData } from "../stores/sprintData";
 
 
 const props = defineProps({
@@ -98,12 +107,12 @@ const sprintHeaders: any = [
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
 const predgoalcolor = "rgb(255,0,0)"
-let toolBarTitle = ref("History KPIs")
-let velocityChartText = ref("Velocity history")
-let predChartText = ref("Predictability history")
+const toolBarTitle = ref("History KPIs")
+const velocityChartText = ref("Velocity history")
+const predChartText = ref("Predictability history")
 
 
-let velocityData = computed<ChartData<"line">>(() => ({
+const velocityData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
@@ -131,7 +140,7 @@ let velocityData = computed<ChartData<"line">>(() => ({
 
 
 
-let predData = computed<ChartData<"line">>(() => ({
+const predData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
@@ -183,7 +192,7 @@ let predData = computed<ChartData<"line">>(() => ({
 
 
 
-let velocityChartOptions = computed<ChartOptions<"line">>(() => ({
+const velocityChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
   maintainAspectRatio: true,
   scales: {
@@ -204,7 +213,7 @@ let velocityChartOptions = computed<ChartOptions<"line">>(() => ({
 
 
 
-let predChartOptions = computed<ChartOptions<"line">>(() => ({
+const predChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
   maintainAspectRatio: true,
   scales: {
@@ -244,8 +253,8 @@ function initData() {
     predictability.value.push(element.predictability);
   });
 
-  predictabilityGoalLow.value = new Array(dataLabels.value.length).fill(80);
-  predictabilityGoalHigh.value = new Array(dataLabels.value.length).fill(90);
+  predictabilityGoalLow.value = new Array<number>(dataLabels.value.length).fill(80);
+  predictabilityGoalHigh.value = new Array<number>(dataLabels.value.length).fill(90);
   minPredChart.value = Math.min(...predictability.value) - 5
   maxPredChart.value = Math.max(...predictability.value) + 5
   minVelocitychart.value = Math.min(...calcVelocity.value) - 5
@@ -260,7 +269,7 @@ function editHistory(item: any) {
 
 
 function deleteHistory(item: any) {
-  let index = historyList.value.findIndex(x => x.sprint == item.sprint)
+  const index = historyList.value.findIndex(x => x.sprint == item.sprint)
   if (index != -1) {
     historyList.value.splice(index, 1)
   }
@@ -277,7 +286,7 @@ function AddHistoryItem() {
 }
 
 function UpdateSprintHistory() {
-  let index = historyList.value.findIndex(x => x.sprint == selectedHistory.value.sprint)
+  const index = historyList.value.findIndex(x => x.sprint == selectedHistory.value.sprint)
   if (index != -1) {
     historyList.value[index].velocity = selectedHistory.value.velocity
     historyList.value[index].normVelocity = selectedHistory.value.normVelocity
@@ -287,11 +296,10 @@ function UpdateSprintHistory() {
 
 }
 
-async function updateToStore()
-{
+async function updateToStore() {
   sprintDataStore.setHistory(historyList.value)
-   const res = await mondayapi.storage.instance.setItem("historyInfo" , JSON.stringify(historyList.value))
-   console.log("save to store results " + JSON.stringify(res))
+  const res = await mondayapi.storage.instance.setItem("historyInfo", JSON.stringify(historyList.value))
+  console.log("save to store results " + JSON.stringify(res))
   initData();
 
 }

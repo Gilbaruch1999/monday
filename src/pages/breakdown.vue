@@ -5,16 +5,19 @@
       <PieChart :chart-data="categoryPieData" :options="categoryPieOptions" />
       <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
     </v-row>
+
     <v-row class="mb-12 mt-4">
       <PieChart :chart-data="domainPieData" :options="domainPieOptions" />
       <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
     </v-row>
+
     <v-row class="mb-12 mt-4">
       <PieChart :chart-data="goalsPieData" :options="goalsPieOptions" />
       <PieChart :chart-data="goalsPercentPieData" :options="goalsPercentPieOptions" />
     </v-row>
   </v-container>
-  <v-container fluid v-else>
+
+  <v-container v-else fluid>
     <v-row >
       <PieChart :chart-data="catPercentpieData" :options="categoryPercentPieOptions" />
       <PieChart :chart-data="domainPercentpieData" :options="domainPercentPieOptions" />
@@ -25,36 +28,39 @@
 
 <script setup lang='ts'>
 
-import { boardItem } from "@/utils/boarditem";
-import { useSprintData } from "../stores/sprintData";
-import { Chart, ChartData, registerables } from "chart.js";
-import { PieChart } from "vue-chart-3";
+import type { boardItem } from "@/utils/boarditem";
+import type { ChartData} from "chart.js";
+import type { Ref} from "vue";
+import { Chart, registerables } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { computed, onMounted, ref, Ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
+import { PieChart } from "vue-chart-3";
 import { Sprint } from "@/utils/sprintInfo";
+import { useSprintData } from "../stores/sprintData";
 Chart.register(...registerables, ChartDataLabels);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   retroMode: {
     type: Boolean,
     default: false
   }
 });
-let categoryLabeles : Ref<string[]> = ref([])
-let domainLables : Ref<string[]> = ref([])
-let pieColors: Ref<string[]> = ref([])
-let goalsColors: Ref<string[]> = ref([])
-let categoryValues: Ref<number[]> = ref([])
-let domainValues: Ref<number[]> = ref([])
-let goalsLabel : Ref<string[]> = ref([])
-let goalsValues : Ref<number[]> = ref([])
+const categoryLabeles : Ref<string[]> = ref([])
+const domainLables : Ref<string[]> = ref([])
+const pieColors: Ref<string[]> = ref([])
+const goalsColors: Ref<string[]> = ref([])
+const categoryValues: Ref<number[]> = ref([])
+const domainValues: Ref<number[]> = ref([])
+const goalsLabel : Ref<string[]> = ref([])
+const goalsValues : Ref<number[]> = ref([])
 const rgbColors = ['#ff0000', '#ff8000', '#999900', '#00ff00', '#009999', '#0000ff', '#7f00ff', '#ff33ff', '#ff3399', '#a0a0a0']
-let statusHeader = ref("")
+const statusHeader = ref("")
 
 
 
 
-let categoryPieData = computed<ChartData<"pie">>(() => ({
+const categoryPieData = computed<ChartData<"pie">>(() => ({
   labels: categoryLabeles.value,
   datasets: [{
     data: categoryValues.value,
@@ -78,7 +84,7 @@ let categoryPieData = computed<ChartData<"pie">>(() => ({
 
 
 
-let domainPieData = computed<ChartData<"pie">>(() => ({
+const domainPieData = computed<ChartData<"pie">>(() => ({
   labels: domainLables.value,
   datasets: [{
     data: domainValues.value,
@@ -102,16 +108,16 @@ let domainPieData = computed<ChartData<"pie">>(() => ({
 
 
 
-let catPercentpieData = computed<ChartData<"pie">>(() => ({
+const catPercentpieData = computed<ChartData<"pie">>(() => ({
   labels: categoryLabeles.value,
   datasets: [{
     data: categoryValues.value,
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
-      formatter: function (value, context) {
+      formatter: function (value, _context) {
 
-        var total = categoryValues.value.reduce((accumulator, object) => {
+        const total = categoryValues.value.reduce((accumulator, object) => {
           return accumulator + object;
         }, 0);
         const percentage = (value / total) * 100
@@ -134,16 +140,16 @@ let catPercentpieData = computed<ChartData<"pie">>(() => ({
 }));
 
 
-let domainPercentpieData = computed<ChartData<"pie">>(() => ({
+const domainPercentpieData = computed<ChartData<"pie">>(() => ({
   labels: domainLables.value,
   datasets: [{
     data: domainValues.value,
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
-      formatter: function (value, context) {
+      formatter: function (value, _context) {
 
-        var total = domainValues.value.reduce((accumulator, object) => {
+        const total = domainValues.value.reduce((accumulator, object) => {
           return accumulator + object;
         }, 0);
         const percentage = (value / total) * 100
@@ -167,7 +173,7 @@ let domainPercentpieData = computed<ChartData<"pie">>(() => ({
 
 
 
-let goalsPieData = computed<ChartData<"pie">>(() => ({
+const goalsPieData = computed<ChartData<"pie">>(() => ({
   labels: goalsLabel.value,
   datasets: [{
     data: goalsValues.value,
@@ -191,16 +197,16 @@ let goalsPieData = computed<ChartData<"pie">>(() => ({
 
 
 
-let goalsPercentPieData = computed<ChartData<"pie">>(() => ({
+const goalsPercentPieData = computed<ChartData<"pie">>(() => ({
   labels: goalsLabel.value,
   datasets: [{
     data: goalsValues.value,
     backgroundColor: goalsColors.value,
     hoverOffset: 4,
     datalabels: {
-      formatter: function (value, context) {
+      formatter: function (value, _context) {
 
-        var total = goalsValues.value.reduce((accumulator, object) => {
+        const total = goalsValues.value.reduce((accumulator, object) => {
           return accumulator + object;
         }, 0);
         const percentage = (value / total) * 100
@@ -226,11 +232,10 @@ let domainPercentPieOptions = {};
 let categoryPieOptions = {};
 let domainPieOptions = {};
 let goalsPieOptions = {};
-let goalsPieOptions1 = {};
 let goalsPercentPieOptions = {}
 
-let itemsList: Ref<boardItem[]> = ref([]);
-let curSprint: Ref<Sprint> = ref(new Sprint());
+const itemsList: Ref<boardItem[]> = ref([]);
+const curSprint: Ref<Sprint> = ref(new Sprint());
 const sprintDataStore = useSprintData();
 
 
@@ -263,16 +268,6 @@ function updateOptions() {
   };
 
   goalsPieOptions = {
-    plugins: {
-      title: {
-        display: true,
-        text: statusHeader.value + " BreakDown by golas",
-      },
-    },
-  };
-
-
-  goalsPieOptions1 = {
     plugins: {
       title: {
         display: true,
@@ -328,48 +323,48 @@ function createBreakDownChart() {
   const distinctDomain = [...new Set(itemsList.value.map(x => x.domain))];
   categoryLabeles.value = []
   categoryValues.value = []
-  var idx = 0;
-  distinctCategory.forEach(element => {
+  let idx = 0;
+  for (const element of distinctCategory) {
     //console.log("Category " + element)
     categoryLabeles.value.push(element)
     pieColors.value.push(generateRgbColor(idx++))
-    var totalcat = itemsList.value.filter(x => x.strategicCategory == element).reduce((accumulator, object) => {
+    const totalcat = itemsList.value.filter(x => x.strategicCategory == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
     //console.log("Total " + totalcat)
     categoryValues.value.push(totalcat)
 
-  });
+  }
 
   domainLables.value = []
   domainValues.value = []
-  distinctDomain.forEach(element => {
+  for (const element of distinctDomain) {
     //console.log("Category " + element)
     domainLables.value.push(element)
     //pieColors.value.push(generateRgbColor(idx++))
-    var totaldomain = itemsList.value.filter(x => x.domain == element).reduce((accumulator, object) => {
+    const totaldomain = itemsList.value.filter(x => x.domain == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
     //console.log("Total " + totalcat)
     domainValues.value.push(totaldomain)
 
-  });
+  }
 
   const distinctGoals = [...new Set(itemsList.value.map(x => x.goalCategory))];
   goalsLabel.value = []
   goalsValues.value = []
   idx = 0;
-  distinctGoals.forEach(element => {
+  for (const element of distinctGoals) {
     //console.log("Category " + element)
     goalsLabel.value.push(element)
     goalsColors.value.push(generateRgbColor(idx++))
-    var totalcat = itemsList.value.filter(x => x.goalCategory == element).reduce((accumulator, object) => {
+    const totalcat = itemsList.value.filter(x => x.goalCategory == element).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
 
     goalsValues.value.push(totalcat)
 
-  });
+  }
 
 }
 
@@ -381,7 +376,7 @@ function generateRgbColor(index : number) {
 
 watch(
   () => sprintDataStore.getCursprintConfig().name,
-  (newValue, oldValue) => {
+  (_newValue, _oldValue) => {
     initData()
   }
 );

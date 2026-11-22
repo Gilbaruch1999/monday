@@ -1,4 +1,3 @@
-import { convertDateFormat2, createDateFromLocalText } from "./utils";
 
 export interface sprintInfo {
   name: string;
@@ -30,8 +29,9 @@ export class Sprint implements sprintInfo {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertJSONtoSprint(data: any): Sprint {
-  let ret_val = new Sprint();
+  const ret_val = new Sprint();
   ret_val.duration = data.duration;
   ret_val.name = data.name;
   ret_val.orgName = data.orgName;

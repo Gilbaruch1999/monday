@@ -8,18 +8,18 @@
     </div>
     <div>
       <v-toolbar color="primary" :title="pagetitle">
-      <v-radio-group @change="itemTypeChanged()" v-model="itemType" inline>
-      <v-radio class="mt-6" label="Features" value="Feature"></v-radio>
-      <v-radio class="mt-6" label="Epics" value="Epic"></v-radio>
-      <v-radio class="mt-6" label="Stories" value="Story"></v-radio>
-    </v-radio-group>
+        <v-radio-group v-model="itemType" inline @update:model-value="itemTypeChanged()">
+          <v-radio class="mt-6" label="Features" value="Feature"></v-radio>
+          <v-radio class="mt-6" label="Epics" value="Epic"></v-radio>
+          <v-radio class="mt-6" label="Stories" value="Story"></v-radio>
+        </v-radio-group>
       </v-toolbar>
-      <v-card min-height="150" :color="category.color" class="my-2" v-for="category in goalsCategory">
+      <v-card v-for="category in goalsCategory" :key="category.name" min-height="150" :color="category.color"
+        class="my-2">
         <v-card-title class=""> {{ category.name }}</v-card-title>
         <v-row>
-          <v-card class="my-8 mx-4" :key="category.name" "
-            v-for="item in getGoals(category.name)">
-           <goals-card :item="item"></goals-card>
+          <v-card v-for="item in getGoals(category.name)" :key="item.id" class="my-8 mx-4">
+            <goals-card :item="item"></goals-card>
           </v-card>
         </v-row>
       </v-card>
@@ -28,9 +28,9 @@
 </template>
 <script setup lang='ts'>
 import { boardItem } from '@/utils/boarditem';
-import { onMounted, Ref, ref , watch } from 'vue';
+import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
-import { getCardColor, isDoneState } from '@/custom/states';
+import { isDoneState } from '@/custom/states';
 
 const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
@@ -44,14 +44,14 @@ const poImage = [
   { src: "outstanding.jpeg", text: "Excited", color: "#F48FB1" },
 ]
 
-let itemType = ref("Feature")
+const itemType = ref("Feature")
 
-let poImageSrc = ref("")
-let poImageColor = ref("")
-let poImageText = ref("")
-let boardItems: Ref<boardItem[]> = ref([]);
+const poImageSrc = ref("")
+const poImageColor = ref("")
+const poImageText = ref("")
+const boardItems: Ref<boardItem[]> = ref([]);
 const sprintDataStore = useSprintData();
-let pagetitle = ref("")
+const pagetitle = ref("")
 
 onMounted(() => {
 
@@ -59,16 +59,14 @@ onMounted(() => {
 
 })
 
-function initData()
-{
-  boardItems.value = sprintDataStore.getsprintData().filter(X=> X.type==itemType.value );
+function initData() {
+  boardItems.value = sprintDataStore.getsprintData().filter(X => X.type == itemType.value);
   updatePOStatus(boardItems.value);
   pagetitle.value = sprintDataStore.getBoardCfg().displayName + " Team " + sprintDataStore.getCursprintConfig().name + " Goals status";
 
 }
 
-function itemTypeChanged()
-{
+function itemTypeChanged() {
   initData()
 }
 
@@ -79,9 +77,9 @@ function getGoals(category: string) {
 }
 
 
-function updatePOStatus(items : boardItem[]) {
+function updatePOStatus(items: boardItem[]) {
   let index = 0;
-  let arr = items.filter(X=>X.status != "Removed");
+  const arr = items.filter(X => X.status != "Removed");
   if (arr.filter(x => x.goalCategory == "Minimum" && !isDoneState(x.status)).length == 0) {
     index = 1;
     if (arr.filter(x => x.goalCategory == "Target" && !isDoneState(x.status)).length == 0)
@@ -96,7 +94,7 @@ function updatePOStatus(items : boardItem[]) {
 
 watch(
   () => sprintDataStore.getCursprintConfig().name,
-  (newValue, oldValue) => {
+  (newValue) => {
     console.log("Sprint goals sprint changed " + JSON.stringify(newValue))
     initData()
     //updatePOStatus(newValue)
