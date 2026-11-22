@@ -94,7 +94,7 @@
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
 import { Sprint, sprintType } from "@/utils/sprintInfo";
-import { addDays, createDateFromLocalText } from "@/utils/utils";
+import { addDays} from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
 import { boardConfig } from "@/utils/boardCfg";
 

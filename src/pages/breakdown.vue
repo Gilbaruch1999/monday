@@ -115,6 +115,7 @@ const catPercentpieData = computed<ChartData<"pie">>(() => ({
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       formatter: function (value, _context) {
 
         const total = categoryValues.value.reduce((accumulator, object) => {
@@ -147,6 +148,7 @@ const domainPercentpieData = computed<ChartData<"pie">>(() => ({
     backgroundColor: pieColors.value,
     hoverOffset: 4,
     datalabels: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       formatter: function (value, _context) {
 
         const total = domainValues.value.reduce((accumulator, object) => {
@@ -204,6 +206,7 @@ const goalsPercentPieData = computed<ChartData<"pie">>(() => ({
     backgroundColor: goalsColors.value,
     hoverOffset: 4,
     datalabels: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       formatter: function (value, _context) {
 
         const total = goalsValues.value.reduce((accumulator, object) => {
@@ -376,6 +379,7 @@ function generateRgbColor(index : number) {
 
 watch(
   () => sprintDataStore.getCursprintConfig().name,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (_newValue, _oldValue) => {
     initData()
   }

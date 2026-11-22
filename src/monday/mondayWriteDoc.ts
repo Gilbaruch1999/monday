@@ -14,7 +14,7 @@ export async function addLineOfTextToDoc(mondaysdk : MondayClientSdk, afterBlock
     afterBlockId
   };
 
- let res =  await mondaysdk.execute("addDocBlock", data);
+ const res =  await mondaysdk.execute("addDocBlock", data);
  console.log("Results from add line api " + JSON.stringify(res))
 
 }

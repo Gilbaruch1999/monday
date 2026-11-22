@@ -6,27 +6,25 @@
   <div class="mx-6">
     <LineChart :chart-data="velocityData" :options="velocityChartOptions" />
   </div>
-
-  <br>
-  </br>
+  <br />
   <div class="mx-6">
     <LineChart :chart-data="predData" :options="predChartOptions" />
   </div>
 
-  <div v-if="props.editHistory" align="center">
+  <div v-if="props.editHistoryProps" align="center">
     <v-btn class="ma-4" color="orange" @click="updateToStore()">Save to store</v-btn>
     <v-btn class="ma-4" color="orange" @click="AddHistoryItem()">Add </v-btn>
   </div>
 
-  <v-container v-if="props.editHistory" fluid>
-    <v-data-table class="datatable" dense :headers="sprintHeaders" hide-default-footer item-key="name"
+  <v-container v-if="props.editHistoryProps" fluid>
+    <v-data-table class="datatable" density="compact" :headers="sprintHeaders" hide-default-footer item-key="name"
       :items="historyList" items-per-page="60">
       <template #item.actions="{ item }">
-        <v-icon class="mr-2" color="blue" small @click="editHistory(item)">
+        <v-icon class="mr-2" color="blue" size="small" @click="editHistory(item)">
           mdi-pencil
         </v-icon>
 
-        <v-icon class="mr-2" color="red" small @click="deleteHistory(item)">
+        <v-icon class="mr-2" color="red" size="small" @click="deleteHistory(item)">
           mdi-delete
         </v-icon>
       </template>
@@ -64,7 +62,7 @@ import { useSprintData } from "../stores/sprintData";
 
 
 const props = defineProps({
-  editHistory: {
+  editHistoryProps: {
     type: Boolean,
     default: true
   }
@@ -92,7 +90,7 @@ const selectedHistory: Ref<sprintHistory> = ref(new sprintHistory())
 const dialog = ref(false)
 
 
-const sprintHeaders: any = [
+const sprintHeaders = [
 
   { title: 'Actions', key: 'actions', sortable: false }, // Action Column
   { title: 'Sprint', key: 'sprint' },
@@ -101,17 +99,12 @@ const sprintHeaders: any = [
 
 ]
 
-
-
-
 const vellcolor = "rgb(0,255,0)"
 const predcolor = "rgb(255,165,0)"
 const predgoalcolor = "rgb(255,0,0)"
 const toolBarTitle = ref("History KPIs")
 const velocityChartText = ref("Velocity history")
 const predChartText = ref("Predictability history")
-
-
 const velocityData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
@@ -152,6 +145,7 @@ const predData = computed<ChartData<"line">>(() => ({
       pointRadius: 18,
       pointHoverRadius: 20,
       datalabels: {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         formatter: function (value, context) {
           return value + '%';
 
@@ -247,6 +241,7 @@ function initData() {
   velocityChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Velocity History"
   predChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Predictability History"
   predLable.value = "Predictability"
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   historyList.value.forEach((element: any) => {
     dataLabels.value.push(element.sprint)
     calcVelocity.value.push(element.normVelocity)
@@ -261,14 +256,14 @@ function initData() {
   maxVelocitychart.value = Math.max(...calcVelocity.value) + 5
 }
 
-function editHistory(item: any) {
+function editHistory(item: sprintHistory) {
   selectedHistory.value = { ...item }
   dialog.value = true
 
 }
 
 
-function deleteHistory(item: any) {
+function deleteHistory(item: sprintHistory) {
   const index = historyList.value.findIndex(x => x.sprint == item.sprint)
   if (index != -1) {
     historyList.value.splice(index, 1)

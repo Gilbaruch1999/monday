@@ -2,14 +2,14 @@
 <template>
   <v-container class="ma-1" fluid>
     <v-row>
-      <v-col v-for="(state, index) in states" :key="state" width="250px">
+      <v-col v-for="(state, index) in states" :key="state">
         <v-card :class="getCardColorClass(state)" elevation="5" max-width="400px" min-height="20">
           <v-card-title class="ma-1">{{ state }}
             <v-btn v-if="(index == 0)" :disabled="changeList.length === 0" @click="updateStates()">Update</v-btn>
           </v-card-title>
 
-          <VueDraggable :data-column-id="state" v-model="processedValue" class="flex flex-col gap-2 min-h-[150px]"
-            @end="(event) => onDragEnd(event)" group="kanban" :animation="300">
+          <VueDraggable  v-model="processedValue" group="kanban" :animation="300" :data-column-id="state" class="flex flex-col gap-2 min-h-[150px]"
+            @end="(event) => onDragEnd(event)">
             <v-card v-for="card in getItems(state)" :key="card.id" class="ma-1" elevation="2">
               <kanban-card :item="card" :parent-title="getParentTitle(card.parent)" />
             </v-card>

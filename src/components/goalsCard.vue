@@ -26,7 +26,7 @@ const props = defineProps<{
 
 function getPointsColor(size: string) {
 
-  let ret_val = "";
+  let ret_val;
   switch (size) {
     case 'xS': {
       ret_val = "green-darken-3"

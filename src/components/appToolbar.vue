@@ -1,4 +1,3 @@
-<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 /* cspell:disable */
 <template>
 
@@ -89,6 +88,7 @@ onMounted(async () => {
   const res = await mondayapi.get('context')
   // console.log("Res " + JSON.stringify(res))
   try {
+    // eslint-disable-next-line no-prototype-builtins
     if (res.hasOwnProperty('data')) {
       getFromDummy.value = false
     } else {
@@ -129,6 +129,7 @@ async function initData() {
 }
 
 async function getHistoryData() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tmp: any
   let history: sprintHistory[]
   if (getFromDummy.value) {
@@ -163,6 +164,7 @@ async function getHistoryData() {
 }
 
 async function getBoardConfig(bid: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let sprintscfgMonday: any
   const sprintList: Sprint[] = []
 
@@ -197,11 +199,13 @@ async function getBoardConfig(bid: string) {
     // console.log("Sprints from storage " + JSON.stringify(sprintList))
   }
   // console.log("Sprints config from storage" + JSON.stringify(sprintscfgMonday))
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   sprintscfgMonday.boards.forEach((board: any) => {
     bconfig.value.name = board.name
     bconfig.value.displayName = board.name
     // to do change this code
     bconfig.value.displayName = 'Dev 1'
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     board.groups.forEach((group: any) => {
       const sprintx = createSprintFromBoardConfig(group, bid)
       const index = sprintList.findIndex(x => x.groupid == sprintx.groupid)
@@ -231,7 +235,8 @@ async function getBoardConfig(bid: string) {
 }
 
 async function getContext() {
-  let context: any = {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let context: any
   if (getFromDummy.value) {
     context = getMondayDummyContext()
     bconfig.value.boardId = context['boardId']
@@ -243,7 +248,7 @@ async function getContext() {
     try {
       bconfig.value.boardId = context['boardId']
       console.log('Board id ' + bconfig.value.boardId)
-    } catch { }
+    } catch { /* empty */ }
   }
   currentUser.value.id = context['user'].id
 
@@ -264,6 +269,7 @@ function findCurrentSprint(): Sprint {
   return ret_val
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
   const newSprint = new Sprint()
 
@@ -279,7 +285,9 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
 }
 
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let boarddata: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let idsdata: any
   const ids: string[] = []
   itemsList.value = []
@@ -287,7 +295,9 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     boarddata = getMondayDummyBoardItems()
     idsdata = getDummyIdsList()
     boarddata = boarddata.data
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any }[] } }) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       board.items_page.items.forEach((item: { id: any }) => {
         ids.push(item.id)
       })
@@ -300,7 +310,9 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     idsdata = await mondayapi.api(qstr)
     // console.log("Return from get board items " + JSON.stringify(idsdata))
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     idsdata.data.boards.forEach((board: { items_page: { items: { id: any }[] } }) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       board.items_page.items.forEach((item: { id: any }) => {
         ids.push(item.id)
       })
@@ -319,8 +331,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     boarddata['items'] = []
   }
   itemsList.value = []
-  // @ts-ignore
-  // console.log("Items " + JSON.stringify(boarddata))
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   boarddata.items.forEach((item: { subitems: any[] }) => {
     const featureItem: boardItem = new boardItem(item)
     if (featureItem.type == 'Feature') {
@@ -333,6 +344,7 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
     itemsList.value.push(featureItem)
     const rootid = featureItem.id
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     item.subitems.forEach((subItemElement: any) => {
       const subitem: boardItem = new boardItem(subItemElement)
       // console.log("Item type " + subitem.type)
