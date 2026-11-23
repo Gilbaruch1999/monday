@@ -30,7 +30,7 @@
 import { boardItem } from '@/utils/boarditem';
 import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
-import { isDoneState } from '@/custom/states';
+import { isDoneState, isRemovedState } from '@/custom/states';
 
 const goalsCategory = [
   { name: "Minimum", color: "#ff6347" },
@@ -79,7 +79,7 @@ function getGoals(category: string) {
 
 function updatePOStatus(items: boardItem[]) {
   let index = 0;
-  const arr = items.filter(X => X.status != "Removed");
+  const arr = items.filter(X => isRemovedState(X.status) );
   if (arr.filter(x => x.goalCategory == "Minimum" && !isDoneState(x.status)).length == 0) {
     index = 1;
     if (arr.filter(x => x.goalCategory == "Target" && !isDoneState(x.status)).length == 0)

@@ -6,8 +6,8 @@
       <v-toolbar color="primary">
         <v-toolbar-title>Sprint Features</v-toolbar-title>
       </v-toolbar>
-      <v-data-table  :items="featureList" items-per-page="60" class="datatable" hide-default-footer desity="compact" item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" @click:row="featureRowClicked">
+      <v-data-table :items="featureList" items-per-page="60" class="datatable" hide-default-footer desity="compact"
+        item-key="id" :headers="issuesheaders" :row-props="rowProps" @click:row="featureRowClicked">
         <template #item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
@@ -26,8 +26,8 @@
       <v-toolbar color="primary">
         <v-toolbar-title>{{ epicListTitle }}</v-toolbar-title>
       </v-toolbar>
-      <v-data-table  :items="epicList" items-per-page="60" class="datatable" hide-default-footer desity="compact" item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" @click:row="epicRowClicked">
+      <v-data-table :items="epicList" items-per-page="60" class="datatable" hide-default-footer desity="compact"
+        item-key="id" :headers="issuesheaders" :row-props="rowProps" @click:row="epicRowClicked">
         <template #item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
@@ -43,11 +43,11 @@
     </div>
 
     <div v-if="showEpicDetails">
-       <v-toolbar color="primary">
+      <v-toolbar color="primary">
         <v-toolbar-title>{{ storyListTitle }}</v-toolbar-title>
       </v-toolbar>
-      <v-data-table :items="storyList" items-per-page="60" class="datatable" hide-default-footer desity="compact" item-key="id"
-        :headers="issuesheaders" :row-props="rowProps" >
+      <v-data-table :items="storyList" items-per-page="60" class="datatable" hide-default-footer desity="compact"
+        item-key="id" :headers="issuesheaders" :row-props="rowProps">
         <template #item.percentDone="{ item }">
           <!-- @vue-ignore -->
           <v-progress-linear v-model="item.percentDone" height="25" style="color: blue; background-color: darkcyan">
@@ -72,6 +72,7 @@
 import { boardItem, PlanningErrorsIndex } from '@/utils/boarditem';
 import { onMounted, Ref, ref, watch } from 'vue';
 import { useSprintData } from "../stores/sprintData";
+import { getRowTableColorClass } from '@/custom/states';
 
 const showEpicDetails = ref(false)
 const storyListTitle = ref("Sprint Stories")
@@ -122,11 +123,15 @@ function getItems() {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowProps(data: any) {
-  let ret_val = {}
+  return getRowTableColorClass(data.item.status)
+  //return getCardColorClass(data.item.status)
+
+ /* let ret_val = {}
 
   switch (data.item.status) {
     case 'Done':
-      ret_val = { class: 'done_bg' }
+      //ret_val = { class: 'done_bg' }
+      ret_val = { class: 'bg-green-darken-1' }
       break
     case 'Next Sprint':
       ret_val = { class: 'error_bg' }
@@ -135,7 +140,7 @@ function rowProps(data: any) {
       ret_val = { class: 'pushedOut_bg' }
       break;
   }
-  return ret_val
+  return ret_val*/
 }
 
 
