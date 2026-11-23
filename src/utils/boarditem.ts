@@ -56,6 +56,7 @@ export class boardItem implements planningAppFields {
   parent: string = "";
   rootItemId: string = "";
   sortOrder: number = -1;
+  doneInCurrentSprint : boolean = true;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(item: any) {
     this.title = item.name;

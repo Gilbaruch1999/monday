@@ -58,8 +58,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { computed, inject, onMounted, ref, type Ref } from "vue";
 import { LineChart } from "vue-chart-3";
 import { sprintHistory } from "@/utils/historyData";
-import { useSprintData } from "../stores/sprintData";
-
+import { retroData, useSprintData } from "../stores/sprintData";
 
 const props = defineProps({
   editHistoryProps: {
@@ -70,8 +69,6 @@ const props = defineProps({
 
 
 const mondayapi = inject('monday') as MondayClientSdk
-
-
 Chart.register(...registerables, ChartDataLabels);
 const sprintDataStore = useSprintData();
 const calcVelocity: Ref<number[]> = ref([]);
@@ -86,6 +83,7 @@ const maxVelocitychart = ref(0);
 const velocityLable = ref("")
 const predLable = ref("")
 const historyList: Ref<sprintHistory[]> = ref([]);
+const sprintRetroData: Ref<retroData> = ref(new retroData());
 const selectedHistory: Ref<sprintHistory> = ref(new sprintHistory())
 const dialog = ref(false)
 
@@ -237,6 +235,7 @@ function initData() {
   predictability.value = []
   calcVelocity.value = []
   historyList.value = sprintDataStore.getHistory()
+  sprintRetroData.value = sprintDataStore.getRetroInfo()
   velocityLable.value = "Velocity"
   velocityChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Velocity History"
   predChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Predictability History"
@@ -273,9 +272,9 @@ function deleteHistory(item: sprintHistory) {
 
 function AddHistoryItem() {
   selectedHistory.value.sprint = sprintDataStore.getCursprintConfig().name
-  selectedHistory.value.velocity = 0
-  selectedHistory.value.normVelocity = 0
-  selectedHistory.value.predictability = 0
+  selectedHistory.value.velocity = sprintRetroData.value.velocity
+  selectedHistory.value.normVelocity = sprintRetroData.value.velocity
+  selectedHistory.value.predictability = parseInt(sprintRetroData.value.predictability)
   historyList.value.push(selectedHistory.value)
 
 }

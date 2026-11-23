@@ -84,7 +84,7 @@ const currentUser: Ref<userData> = ref(new userData())
 const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 onMounted(async () => {
-  console.log('Starting app version v190')
+  console.log('Starting app version v191')
   const res = await mondayapi.get('context')
   // console.log("Res " + JSON.stringify(res))
   try {
@@ -407,7 +407,8 @@ function updateParents(index: number) {
         donePoints = itemsList.value[index].storyPoints
         itemsList.value[index].doneStoryPoints = itemsList.value[index].storyPoints
       } else {
-        spoints = 0
+        spoints = 0;
+        itemsList.value[index].doneInCurrentSprint = false;
       }
     }
 

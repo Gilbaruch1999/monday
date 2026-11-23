@@ -2,15 +2,15 @@
 <template>
 
   <v-toolbar class="mt-7" :title="toolBarTitle" color="primary">
-    <v-checkbox @change="onDetaileGraphChanged()" class="mt-6" v-model="detailedgrpah" label="detailed"></v-checkbox>
-    <v-radio-group @change="graphTypeChanged()" v-model="graphType" inline>
+    <v-checkbox v-model="detailedgrpah" class="mt-6" label="detailed" @update:model-value="onDetaileGraphChanged()"></v-checkbox>
+    <v-radio-group v-model="graphType" inline @update:model-value="graphTypeChanged()">
       <v-radio class="mt-6" label="BurnDown" value="BurnDown"></v-radio>
       <v-radio class="mt-6" label="BurnUp" value="BurnUp"></v-radio>
       <v-radio class="mt-6" label="Delta" value="Delta"></v-radio>
     </v-radio-group>
   </v-toolbar>
   <div class="mx-4" style="display: flex; justify-content: center">
-    <v-row cols="2">
+    <v-row>
       <v-card class="ma-4" color="primary">
         <v-card-title>Predictability </v-card-title>
         <v-card-text> {{ predictability }} </v-card-text>
@@ -84,31 +84,31 @@ const actualValues: Ref<number[]> = ref([]);
 const burnUpValues: Ref<number[]> = ref([]);
 const burnUpGoals: Ref<number[]> = ref([]);
 const deltaValues: Ref<number[]> = ref([]);
-let dataLabels = ref(["1", '2']);
+const dataLabels : Ref<string[]> = ref([]);
 const idealcolor = "rgb(0,255,0)"
 const actualcolor = "rgb(255,165,0)"
 const deltacolor = "rgb(255,0,0)"
 const burnupcolor = "rgb(0,255,0)"
-let predictability = ref("")
-let minPredictability = ref("")
-let targetPredictability = ref("")
-let outstandingPredictability = ref("")
-let throughPut = ref(0)
-let cycleTime = ref(0)
-let leadTime = ref(0)
-let itemsList: Ref<boardItem[]> = ref([]);
-let totalPoints = ref(0)
-let totalDonePoints = ref(0)
-let detailedgrpah = ref(true)
-let graphType = ref("BurnDown")
-let getBtnHeader = ref("get API Data")
-let curSprint: Ref<Sprint> = ref(new Sprint());
-let burndownStep = ref(0)
-let filterByName = ref(false)
+const predictability = ref("")
+const minPredictability = ref("")
+const targetPredictability = ref("")
+const outstandingPredictability = ref("")
+const throughPut = ref(0)
+const cycleTime = ref(0)
+const leadTime = ref(0)
+const itemsList: Ref<boardItem[]> = ref([]);
+const totalPoints = ref(0)
+const totalDonePoints = ref(0)
+const detailedgrpah = ref(true)
+const graphType = ref("BurnDown")
+const getBtnHeader = ref("get API Data")
+const curSprint: Ref<Sprint> = ref(new Sprint());
+const burndownStep = ref(0)
+const filterByName = ref(false)
 
-let toolBarTitle = ref("")
-let lineChartText = ref("BurnDown")
-let graphData = computed<ChartData<"line">>(() => ({
+const toolBarTitle = ref("")
+const lineChartText = ref("BurnDown")
+const graphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
@@ -156,7 +156,7 @@ let graphData = computed<ChartData<"line">>(() => ({
 }));
 
 
-let deltaGraphData = computed<ChartData<"line">>(() => ({
+const deltaGraphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
@@ -181,7 +181,7 @@ let deltaGraphData = computed<ChartData<"line">>(() => ({
   ],
 }));
 
-let burnUpGraphData = computed<ChartData<"line">>(() => ({
+const burnUpGraphData = computed<ChartData<"line">>(() => ({
   labels: dataLabels.value,
   datasets: [
     {
@@ -229,17 +229,16 @@ let burnUpGraphData = computed<ChartData<"line">>(() => ({
 
 
 function getCompletedOnDate(index: number): boardItem[] {
-  let compdate = new Date(addDays(curSprint.value.startDate, index))
+  const compdate = new Date(addDays(curSprint.value.startDate, index))
   compdate.setHours(0, 0, 0, 0);
   let items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (isDoneState(x.status)) && (x.DoneDate.getTime() == compdate.getTime()))
   if (filterByName.value)
     items = items.filter(x => x.assignedTo == userStore.getCurrentUser().name)
   return items
-
 }
 
 
-let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
+const BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
   maintainAspectRatio: true,
   plugins: {
@@ -247,8 +246,8 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
       callbacks: {
         label: function (context) {
           //console.log("Tool tip " + JSON.stringify(context.dataIndex))
-          let labels: string[] = []
-          let arr = getCompletedOnDate(context.dataIndex)
+          const labels: string[] = []
+          const arr = getCompletedOnDate(context.dataIndex)
           arr.forEach(element => {
             labels.push("Size " + (element.sizeEstimation + " Owner " + element.assignedTo) + " Title: " + element.title + " Parent: " + element.parent + " Type " + element.type)
           });
@@ -266,7 +265,7 @@ let BurnUpChartOptions = computed<ChartOptions<"line">>(() => ({
 }));
 
 
-let lineChartOptions = computed<ChartOptions<"line">>(() => ({
+const lineChartOptions = computed<ChartOptions<"line">>(() => ({
   responsive: true,
   maintainAspectRatio: true,
   plugins: {
@@ -316,7 +315,7 @@ async function createGraph() {
 
 
 function resetData() {
-  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
+  const currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   burnUpValues.value = new Array(currentIndex + 1).fill(0)
   burnUpGoals.value = new Array(currentIndex + 1).fill(0)
   actualValues.value = new Array(currentIndex + 1).fill(0)
@@ -336,30 +335,30 @@ function prepareGraph() {
   totalDonePoints.value = done
   console.log("Total done points " + done)
   predictability.value = pred
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [mintot, mindone, minPred] = calcPredicatbility("Minimum")
   minPredictability.value = minPred
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [targettot, targetdone, targetPred] = calcPredicatbility("Target")
   targetPredictability.value = targetPred
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [outtot, outdone, outPred] = calcPredicatbility("Outstanding")
   outstandingPredictability.value = outPred
-  var retro: retroData = new retroData()
+  const retro: retroData = new retroData()
 
   retro.velocity = totalDonePoints.value
   retro.predictability = pred
   retro.minPredictability = minPred
   retro.targetPredictability = targetPred
   retro.outstandingPredictability = outPred
-  //console.log("REtro info is " + JSON.stringify(retro))
   sprintDataStore.setRetroInfo(retro)
-
-
-  var curDate: Date = curSprint.value.startDate;
+  let curDate: Date = curSprint.value.startDate;
   burndownStep.value = totalPoints.value / ((curSprint.value.workingDays))
   console.log("Step is " + burndownStep.value)
   //console.log("working days " + curSprint.value.workingDays)
 
   for (let index = 0; index < dataLabels.value.length; index++) {
-    let nonworkingday: boolean = isDateInList(curDate, curSprint.value.nonWorkingDays);
+    const nonworkingday: boolean = isDateInList(curDate, curSprint.value.nonWorkingDays);
     //console.log(" Index is " + index + " Cur date " + curDate.toLocaleString() + " Non working day " + nonworkingday)
     if (index == 0) {
       if (!isDateInList(curDate, curSprint.value.nonWorkingDays))
@@ -384,17 +383,17 @@ function prepareGraph() {
 
   }
   for (let index = 0; index < idealValues.value.length; index++) {
-    let tmp = Math.round(idealValues.value[index] * 100) / 100
+    const tmp = Math.round(idealValues.value[index] * 100) / 100
     idealValues.value[index] = Math.round(tmp)
   }
 
 }
 
 function calcPredicatbility(goalCategory: string): [number, number, string] {
-  let pred = ""
-  let total = 0
-  let done = 0
-  var arr = itemsList.value.filter(x => ((x.status != 'Removed')))
+  let pred : string;
+  let total: number
+  let done : number
+  let arr = itemsList.value.filter(x => ((x.status != 'Removed') && x.doneInCurrentSprint))
   //console.log("Goal category " + goalCategory)
   if (goalCategory != "All") {
 
@@ -403,15 +402,6 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
 
   if (detailedgrpah.value) {
     arr = arr.filter(x => (x.type == "Story") || ((x.type == "Epic") && x.numOfSubitems == 0) || ((x.type == "Feature") && x.numOfSubitems == 0))
-    //arr = arr.filter(x => (x.type == "Story") )
-
-    /*  console.log("Number of stories " + arr.length)
-      arr.forEach(element => {
-       console.log("story " + element.title + " Parent " +element.parent)
-
-      });*/
-
-
     total = arr.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
@@ -420,9 +410,7 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
     }, 0);
 
   }
-
   else {
-
     arr = arr.filter(x => ((x.type == "Feature")))
     total = arr.reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
@@ -430,7 +418,6 @@ function calcPredicatbility(goalCategory: string): [number, number, string] {
     done = arr.filter(x => isDoneState(x.status)).reduce((accumulator, object) => {
       return accumulator + object.storyPoints;
     }, 0);
-
   }
 
   if (total > 0)
@@ -446,7 +433,7 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
   itemsList.forEach(element => {
     if (isDoneState(element.status)) {
       //console.log("Done item " + JSON.stringify(element.title ) + " date " + element.DoneDate.toLocaleDateString() + " Points " + element.storyPoints)
-      var index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
+      const index = getDaysdiff(element.DoneDate, curSprint.value.startDate)
       if (index < 0)
         console.log("Done date not in sprint " + element.title)
       if (filterByName.value) {
@@ -470,22 +457,22 @@ function addBurnUpValues(itemsList: boardItem[], curindex: number) {
 function calcBurnUpDonw() {
 
 
-  var currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
+  const currentIndex = getDaysdiff(new Date(), curSprint.value.startDate)
   // get all items without subitems
 
 
   //console.log("No sub items " + JSON.stringify(noSubitems))
   if (detailedgrpah.value) {
-    var items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (isDoneState(x.status)))
+    const items = itemsList.value.filter(x => (x.numOfSubitems == 0) && (isDoneState(x.status)))
     addBurnUpValues(items, currentIndex)
   }
   else {
-    var features = itemsList.value.filter(x => isDoneState(x.status) && x.type == "Feature")
+    const features = itemsList.value.filter(x => isDoneState(x.status) && x.type == "Feature")
     //console.log("Burn up not detailed " + JSON.stringify(features))
     addBurnUpValues(features, currentIndex)
   }
   actualValues.value[0] = totalPoints.value
-  var curDate = curSprint.value.startDate;
+  let curDate = curSprint.value.startDate;
   curDate.setHours(0, 0, 0, 0)
   for (let index = 0; index < actualValues.value.length; index++) {
     actualValues.value[index] = actualValues.value[index] - burnUpValues.value[index]
@@ -503,21 +490,6 @@ function calcBurnUpDonw() {
 
 }
 
-/*
-function calcEmpTotal(name: string): number {
-  var tot = 0;
-  itemsList.value.forEach(element => {
-    if (element.numOfSubitems == 0) {
-      if ((element.assignedTo == name) && (element.status != "Removed"))
-        tot += element.storyPoints
-    }
-
-  });
-
-  return tot
-
-}
-*/
 
 function onDetaileGraphChanged() {
   prepareGraph();
@@ -526,7 +498,6 @@ function onDetaileGraphChanged() {
 
 function graphTypeChanged() {
 
-
   lineChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + curSprint.value.name + " " + graphType.value + " chart"
 
 }
@@ -534,6 +505,7 @@ function graphTypeChanged() {
 
 watch(
   () => sprintDataStore.getsprintData(),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (newValue, oldValue) => {
     console.log("Sprint data changed ")
     initData();
@@ -545,6 +517,7 @@ watch(
 
 watch(
   () => userStore.getCurrentUser(),
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (newValue, oldValue) => {
     filterByName.value = true
     initData();

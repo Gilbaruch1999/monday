@@ -5,82 +5,84 @@
     <v-card :title="'Edit board Configuration ' + boardCfg.displayName">
       <v-form>
         <v-row>
-          <v-text-field class="font-weight-bold" disabled label='Board Id' v-model="boardCfg.boardId"> </v-text-field>
-          <v-text-field class="font-weight-bold" disabled label='Board Name' v-model="boardCfg.name"> </v-text-field>
-          <v-text-field @input="nameChangeCliked()" class="font-weight-bold" label='Board Display Name' v-model="boardCfg.displayName"> </v-text-field>
+          <v-text-field v-model="boardCfg.boardId" class="font-weight-bold" disabled label='Board Id'> </v-text-field>
+          <v-text-field v-model="boardCfg.name" class="font-weight-bold" disabled label='Board Name'> </v-text-field>
+          <v-text-field v-model="boardCfg.displayName" class="font-weight-bold" label='Board Display Name'
+            @update:model-value="nameChangeCliked()"> </v-text-field>
         </v-row>
       </v-form>
-      <template v-slot:actions>
-        <v-btn :disabled="!boardChanged"class="ms-auto bg-orange" text="Update" @click="updateBoardConfig()"></v-btn>
+      <template #actions>
+        <v-btn :disabled="!boardChanged" class="ms-auto bg-orange" text="Update" @click="updateBoardConfig()"></v-btn>
         <v-btn class="ms-auto" text="Cancel" @click="cancelUpdateBoardCfg()"></v-btn>
       </template>
     </v-card>
 
-    <v-data-table items-per-page="60" class="datatable" hide-default-footer dense item-key="name"
+    <v-data-table items-per-page="60" class="datatable" hide-default-footer density="compact" item-key="name"
       :headers="sprintHeaders" :items="sprintsList" :row-props="getRowProps">
-      <template v-slot:item.startDate="{ item }">
+      <template #item.startDate="{ item }">
         {{ item.startDate.toLocaleDateString() }}
       </template>
-      <template v-slot:item.nonWorkingDays="{ item }">
+      <template #item.nonWorkingDays="{ item }">
         {{ dateArraytoString(item.nonWorkingDays) }}
       </template>
-      <template v-slot:item.type="{ item }">
+      <template #item.type="{ item }">
         {{ sprintType[item.type] }}
       </template>
-      <template v-slot:item.actions="{ item }">
-        <v-icon :disabled="!manageSprints" small color="blue" class="mr-2" @click="editSprint(item)">
+      <template #item.actions="{ item }">
+        <v-icon :disabled="!manageSprints" size="small" color="blue" class="mr-2" @click="editSprint(item)">
           mdi-pencil
         </v-icon>
-        <v-icon :disabled="!manageSprints" small color="red" class="mr-2" @click="deleteSprint(item)">
+        <v-icon :disabled="!manageSprints" size="small" color="red" class="mr-2" @click="deleteSprint(item)">
           mdi-delete
         </v-icon>
       </template>
 
     </v-data-table>
     <div align="center">
-      <v-btn v-if="manageSprints" @click="updateSprints()"" :disabled="updateRequired == false" color="orange"
-        class="mr-2 mt-4">Save </v-btn>
-      <v-btn @click="manageSprintsClicked()" class="mr-2 mt-4" color="orange">{{ managBtnHeader }}</v-btn>
+      <v-btn v-if="manageSprints" :disabled="updateRequired == false" color="orange" class="mr-2 mt-4"
+        @click="updateSprints()">Save </v-btn>
+      <v-btn class="mr-2 mt-4" color="orange">{{ managBtnHeader }} @click="manageSprintsClicked()"</v-btn>
     </div>
   </v-container>
   <v-dialog v-model="dialog" width="50%">
     <v-card :title="'Edit Sprint ' + sprintsList[editIndex].name">
-      <v-form >
-        <v-row >
-          <v-text-field class="ma-4" label='Sprint Name' v-model="sprintsList[editIndex].name"> </v-text-field>
-          <v-text-field class="ma-4" disabled label='boardid' v-model="sprintsList[editIndex].boardid"> </v-text-field>
-          <v-text-field class="ma-4" label='Group id' v-model="sprintsList[editIndex].groupid"> </v-text-field>
+      <v-form>
+        <v-row>
+          <v-text-field v-model="sprintsList[editIndex].name" class="ma-4" label='Sprint Name'> </v-text-field>
+          <v-text-field v-model="sprintsList[editIndex].boardid" class="ma-4" disabled label='boardid'> </v-text-field>
+          <v-text-field v-model="sprintsList[editIndex].groupid" class="ma-4" label='Group id'> </v-text-field>
           <v-menu>
-            <template v-slot:activator="{ props }">
-              <v-text-field class="ma-4" v-bind="props" label='type' v-model="sprintType[sprintsList[editIndex].type]" > </v-text-field>
+            <template #activator="{ props }">
+              <v-text-field v-model="sprintType[sprintsList[editIndex].type]" class="ma-4" v-bind="props" label='type'>
+              </v-text-field>
             </template>
             <v-list>
               <v-list-item v-for="(item, index) in Object.keys(sprintType).filter(key => isNaN(Number(key)))"
                 :key="index">
-                <v-list-item-title  @click="sprintTypeChanged(item) "> {{ sprintType[index] }}</v-list-item-title>
+                <v-list-item-title> {{ sprintType[index] }}</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
         </v-row>
         <v-row>
-          <v-date-input input-format="dd.mm.yyyy" max-width="450px" class="ma-4" label='Start Day'
-            v-model="sprintsList[editIndex].startDate"></v-date-input>
-          <v-text-field class="ma-4" max-width="150px" label='Duration' v-model="sprintsList[editIndex].duration">
+          <v-date-input v-model="sprintsList[editIndex].startDate" input-format="dd.mm.yyyy" max-width="450px"
+            class="ma-4" label='Start Day'></v-date-input>
+          <v-text-field v-model="sprintsList[editIndex].duration" class="ma-4" max-width="150px" label='Duration'>
           </v-text-field>
         </v-row>
         <v-card class="bg-blue-lighten-4">
           <h2 class="ma-4">None working days</h2>
-          <v-date-input input-format="dd.mm.yyyy" class="ma-4"
-            v-for="(item, index) in sprintsList[editIndex].nonWorkingDays" label='Non working days'
-            v-model="sprintsList[editIndex].nonWorkingDays[index]">
+          <v-date-input v-for="(item, index) in sprintsList[editIndex].nonWorkingDays" :key="index"
+            v-model="sprintsList[editIndex].nonWorkingDays[index]" input-format="dd.mm.yyyy" class="ma-4"
+            label='Non working days'>
           </v-date-input>
           <v-row>
-            <v-btn @click="populateNonWorkingDays()" class="ma-4" color="orange"> Populate </v-btn>
-            <v-btn @click="addNonWorkingDay()" class="ma-4" color="orange"> Add </v-btn>
+            <v-btn class="ma-4" color="orange" @click="populateNonWorkingDays()"> Populate </v-btn>
+            <v-btn class="ma-4" color="orange" @click="addNonWorkingDay()"> Add </v-btn>
           </v-row>
         </v-card>
       </v-form>
-      <template v-slot:actions>
+      <template #actions>
         <v-btn color="orange" class="ms-auto" text="Update" @click="UpdateSprintItem()"></v-btn>
         <v-btn class="ms-auto" text="Cancel" @click="cancelUpdateSprintItem()"></v-btn>
       </template>
@@ -94,7 +96,7 @@
 import { inject, onMounted, ref, type Ref } from "vue";
 import { useSprintData } from "../stores/sprintData";
 import { Sprint, sprintType } from "@/utils/sprintInfo";
-import { addDays} from "@/utils/utils";
+import { addDays } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
 import { boardConfig } from "@/utils/boardCfg";
 
@@ -183,15 +185,6 @@ function cancelUpdateBoardCfg() {
 
 }
 
-function sprintTypeChanged(item : any)
-{
-
-  let x: keyof typeof sprintType;
-  x = item
-  //console.log("Sprint type changed to " + JSON.stringify(item) )
-  sprintsList.value[editIndex.value].type = sprintType[x]
-
-}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getRowProps(sprintitem: any) {
@@ -203,18 +196,6 @@ function getRowProps(sprintitem: any) {
   }
 
   return ret_val
-}
-
-function manageSprintsClicked() {
-
-  manageSprints.value = !manageSprints.value
-  if (manageSprints.value) {
-    managBtnHeader.value = "Stop Edit"
-
-  }
-  else {
-    readSprintData()
-  }
 }
 
 async function updateSprints() {
@@ -273,8 +254,7 @@ function populateNonWorkingDays() {
 }
 
 
-function nameChangeCliked()
-{
+function nameChangeCliked() {
   boardChanged.value = true
 }
 
