@@ -31,7 +31,7 @@ import { useUsersData } from '@/stores/usersData';
 import { DraggableEvent, VueDraggable } from 'vue-draggable-plus'
 import { getCardColorClass, mapStates, states } from '@/custom/states';
 import { MondayClientSdk } from 'monday-sdk-js';
-import { updateValueQuery } from '@/monday/mondayQueries';
+import { updateValueQuery } from '@/custom/mondayQueries';
 import { boardConfig } from '@/utils/boardCfg';
 import { statusColId } from '@/custom/snooze/fields-snooze';
 
@@ -127,8 +127,8 @@ function getItems(state: any): boardItem[] {
   let list: boardItem[] = itemsList.value.filter(x => (x.type == "Story") || ((x.type == "Epic" && x.numOfSubitems == 0)))
   var allowedStates: string[] = mapStates.get(state) ?? [];
   ret_val = list.filter(item => allowedStates.includes(item.status));
-  console.log("get items. status  " + state + " allowed state " + JSON.stringify(allowedStates))
-  console.log("returned num of items " + ret_val.length)
+  //console.log("get items. status  " + state + " allowed state " + JSON.stringify(allowedStates))
+  //console.log("returned num of items " + ret_val.length)
 
   return ret_val;
 
@@ -145,7 +145,7 @@ async function updateStates() {
       var qstr = updateValueQuery(boardcfg.boardId, changeList.value[index].itemid, statusColId, allowedStates[0]);
       // console.log("Query is " + qstr)
       var res = await mondayapi.api(qstr);
-      console.log("Result of update " + JSON.stringify(res))
+      //console.log("Result of update " + JSON.stringify(res))
     }
   }
   changeList.value.splice(0, changeList.value.length)

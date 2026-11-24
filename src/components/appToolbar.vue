@@ -27,7 +27,7 @@
 
     <v-menu v-if="userStore.getOrgUser().is_admin" class="mt-6">
       <template #activator="{ props }">
-        <v-btn class="mt-6" color="white" v-bind="props">
+        <v-btn class="mt-6" color="white" v-bind="props" >
           {{ currentUser.name }}
         </v-btn>
       </template>
@@ -40,7 +40,7 @@
     </v-menu>
 
     <v-avatar class="mt-6" size="36px">
-      <v-img alt="Avatar" :src="currentUser.image_link" />
+      <v-img alt="Avatar" :src="currentUser.image_link" @click="testMonday()"/>
 
     </v-avatar>
   </v-toolbar>
@@ -59,7 +59,7 @@ import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from
 import { getMondayDummyBoardConfig } from '@/monday/mondayDummyConfig'
 import { getMondayDummyHistory, getMondayDummySprintsConfig } from '@/monday/mondayDummyStorage'
 import { getMondayDummyUsers } from '@/monday/mondayDummyUsers'
-import { getAllUsersQuery, getBoardConfigQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from '@/monday/mondayQueries'
+import { getAllUsersQuery, getBoardConfigQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from '@/custom/mondayQueries'
 import router from '@/router'
 import { useUsersData } from '@/stores/usersData'
 import { boardConfig } from '@/utils/boardCfg'
@@ -68,6 +68,7 @@ import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
 import { createUserList, userData } from '@/utils/users'
 import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
+import { getItemsFromApp } from '@/custom/getInfoFromApp'
 
 const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData()
@@ -467,6 +468,17 @@ function userChanged(item: userData) {
   userStore.setCurrentUser(item)
   currentUser.value = item
 }
+
+async function testMonday() {
+
+  itemsList.value = []
+  itemsList.value = [...await getItemsFromApp(curSprint)]
+  updateLevel('Story')
+  updateLevel('Epic')
+  updateLevel('Feature')
+  sprintDataStore.setsprintData(itemsList.value)
+}
+
 
 </script>
 

@@ -68,7 +68,7 @@ export function getCardColorClass(state: string) {
     }
     case "Pending":
     case "Not Started": {
-      ret_val = ret_val + "bg-blue-grey-lighten-3";
+      ret_val = ret_val + "bg-blue-grey-lighten-4";
       break;
     }
     case "Stuck":
@@ -93,15 +93,18 @@ export function getRowTableColorClass(status: string) {
   let ret_val;
 
   switch (status) {
-    case "Done":
-      ret_val = { class: "bg-green-accent-3" };
+    case "Pending":
+      ret_val = { class: "bg-blue-grey-lighten-4" };
       break;
     case "Work In Progress":
     case "Needs PO Review":
       ret_val = { class: "bg-yellow-lighten-1" };
-     break
+      break;
     case "Stuck":
       ret_val = { class: "bg-red-darken-1" };
+      break;
+    case "Done":
+      ret_val = { class: "bg-green-accent-3" };
       break;
     default:
       ret_val = { class: "bg-black" };
