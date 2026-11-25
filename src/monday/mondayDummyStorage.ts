@@ -29,7 +29,7 @@ export function getMondayDummySprintsConfig(): Sprint[] {
       startDate: createDateFromLocalText("8.11.2026"),
       orgName: "Sprint 53",
       boardid: "1647137427",
-      groupid: "group_mm88ws0p",
+      groupid: "group_mm88wsxx",
       workingDays: 10,
       type: sprintType.execution,
       nonWorkingDays: [
@@ -45,7 +45,7 @@ export function getMondayDummySprintsConfig(): Sprint[] {
       startDate: createDateFromLocalText("22.11.2026"),
       orgName: "Sprint 53",
       boardid: "1647137427",
-      groupid: "group_mm88ws0p",
+      groupid: "group_mm88wsyy",
       workingDays: 10,
       type: sprintType.execution,
       nonWorkingDays: [

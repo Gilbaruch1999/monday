@@ -1,8 +1,6 @@
 import { itemsApplication } from "@/custom/fields";
-import { fieldsMap } from "@/custom/snooze/fields-snooze";
+import { fieldsMap } from "@/custom/fields";
 import { isDoneState } from "@/custom/states";
-
-
 
 export const assignedToID = 1;
 export const statusID = 2;
@@ -12,7 +10,6 @@ export const goalCategoryID = 5;
 export const sizeEstimationID = 6;
 export const issueTypeID = 7;
 export const planningStatusID = 8;
-
 
 interface planningAppFields {
   id: string;
@@ -56,7 +53,7 @@ export class boardItem implements planningAppFields {
   parent: string = "";
   rootItemId: string = "";
   sortOrder: number = -1;
-  doneInCurrentSprint : boolean = true;
+  doneInCurrentSprint: boolean = true;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(item: any) {
     this.title = item.name;
@@ -64,7 +61,9 @@ export class boardItem implements planningAppFields {
     try {
       this.parent = item.parent_item.id;
       //console.log("Parent id " + this.parent)
-    } catch { /* empty */ }
+    } catch {
+      /* empty */
+    }
     this.storyPoints = 0;
     this.doneStoryPoints = 0;
     this.planningCheck = false;
@@ -75,7 +74,6 @@ export class boardItem implements planningAppFields {
     ).fill(false);
     this.updateFields(item.column_values);
   }
-
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   mondayUpdateFields(column_values: any) {
@@ -113,7 +111,8 @@ export class boardItem implements planningAppFields {
           this.type = column.text;
           break;
         default:
-        //console.log('undefined column ' + JSON.stringify(column.column))
+          //console.log("undefined column " + JSON.stringify(column.column.id));
+          //console.log("undefined internal id " + JSON.stringify(internalId));
       }
     });
 
@@ -123,13 +122,11 @@ export class boardItem implements planningAppFields {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updateFields(column_values: any) {
     // todo add other apps here
-    switch (itemsApplication)
-    {
-      case "Monday" :
-      this.mondayUpdateFields(column_values);
-      break;
+    switch (itemsApplication) {
+      case "Monday":
+        this.mondayUpdateFields(column_values);
+        break;
     }
-
   }
 
   calcPercentDone() {
@@ -223,7 +220,6 @@ export class boardItem implements planningAppFields {
     }
   }
 }
-
 
 /*
 export function initColumnMap() {

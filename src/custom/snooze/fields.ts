@@ -12,7 +12,7 @@ export const statusColId = "color_mm5fb7mm";
 
 export const fieldsMap: Map<string, number> = new Map();
 
-export function initFieldsMap() {
+export async function initFieldsMap() {
   fieldsMap.set("person", assignedToID);
   fieldsMap.set(statusColId, planningStatusID);
   fieldsMap.set("color_mm5fx8bd", issueTypeID);

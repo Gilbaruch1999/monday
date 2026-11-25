@@ -53,7 +53,7 @@ import type { sprintHistory } from '@/utils/historyData'
 import type { MondayClientSdk } from 'monday-sdk-js'
 
 import { inject, onMounted, ref, type Ref } from 'vue'
-import { initFieldsMap } from '@/custom/snooze/fields-snooze'
+import { initFieldsMap } from '@/custom/fields'
 import { isDoneState } from '@/custom/states'
 import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from '@/monday/mondayBoardItems'
 import { getMondayDummyBoardConfig } from '@/monday/mondayDummyConfig'
@@ -68,7 +68,7 @@ import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
 import { createUserList, userData } from '@/utils/users'
 import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
-import { getItemsFromApp } from '@/custom/getInfoFromApp'
+import { getAppContext, getItemsFromApp } from '@/custom/getInfoFromApp'
 
 const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData()
@@ -86,6 +86,7 @@ const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 onMounted(async () => {
   console.log('Starting app version v191')
+  // get application context
   const res = await mondayapi.get('context')
   // console.log("Res " + JSON.stringify(res))
   try {
@@ -101,15 +102,20 @@ onMounted(async () => {
     getFromDummy.value = true
   }
   await getContext()
-  // await writeTestDoc();
+
+  // get application configuration
   await getBoardConfig(bconfig.value.boardId)
+  // get user List
   await getUserList()
+  // get sprint information
+
+  // get item information
   await initData()
   console.log('Done toolbar on mounted ')
 })
 
 async function initData() {
-  initFieldsMap()
+  await initFieldsMap()
   await getHistoryData()
   curSprint = findCurrentSprint()
   if (curSprint.duration == -1) {
@@ -122,13 +128,20 @@ async function initData() {
     console.log('current sprint start date ' + curSprint.startDate.toLocaleString())
   }
   await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid)
+  updateLevel('Story')
+  updateLevel('Epic')
+  updateLevel('Feature')
+
   sprintDataStore.setsprintData(itemsList.value)
   toolbarTitle.value = sprintDataStore.getBoardCfg().displayName + ' ' + curSprint.name + ' progress status'
   sprintDataStore.setCursprintConfig(curSprint)
+  console.log("items !!!!!" + JSON.stringify(sprintDataStore.getsprintData()[0]))
 
   router.push({ path: '/burndown' })
 }
 
+
+// todo check if it works and remove
 async function getHistoryData() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let tmp: any
@@ -164,6 +177,7 @@ async function getHistoryData() {
   }
 }
 
+// todo move out to app file
 async function getBoardConfig(bid: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let sprintscfgMonday: any
@@ -235,6 +249,7 @@ async function getBoardConfig(bid: string) {
   sprintDataStore.setBoardCfg(bconfig.value)
 }
 
+// todo move out to app file
 async function getContext() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let context: any
@@ -285,6 +300,7 @@ function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
   return newSprint
 }
 
+// todo move out to app file
 async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let boarddata: any
@@ -359,14 +375,12 @@ async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: s
 
   // console.log("Items " + JSON.stringify(itemsList.value))
   console.log('Number of items ' + itemsList.value.length)
-  updateLevel('Task')
-  updateLevel('Story')
-  updateLevel('Epic')
-  updateLevel('Feature')
+
   // updateAllLevels()
   // checkStorySize()
 }
 
+// todo check and see if this still make sense
 function updateLevel(type: string) {
   const arr = itemsList.value.filter(x => x.type == type)
   for (const element of arr) {
@@ -420,11 +434,10 @@ function updateParents(index: number) {
       itemsList.value[pindex].setErrorIndication(PlanningErrorsIndex.subItemError)
     }
   }
-  // pindex = itemsList.value.findIndex(x => x.id == itemsList.value[pindex].parent)
 
-  // }
 }
 
+// todo move to util
 function isDateInSprint(startDate: Date, checkDate: Date, sprintLen: number): boolean {
   const diff = getDaysdiff(checkDate, startDate)
   return (diff >= 0) && (diff <= sprintLen) ? true : false
@@ -445,6 +458,7 @@ async function sprintChanged(item: Sprint) {
   toolbarTitle.value = sprintDataStore.getBoardCfg().displayName + ' ' + curSprint.name + ' progress status'
 }
 
+// todo move out to app data
 async function getUserList() {
   let userinfo
   if (getFromDummy.value) {
@@ -471,12 +485,15 @@ function userChanged(item: userData) {
 
 async function testMonday() {
 
-  itemsList.value = []
+  getAppContext()
+
+
+  /*itemsList.value = []
   itemsList.value = [...await getItemsFromApp(curSprint)]
   updateLevel('Story')
   updateLevel('Epic')
   updateLevel('Feature')
-  sprintDataStore.setsprintData(itemsList.value)
+  sprintDataStore.setsprintData(itemsList.value)*/
 }
 
 

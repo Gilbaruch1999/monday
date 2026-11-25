@@ -114,6 +114,8 @@ onMounted(async () => {
 
 
 function getItems() {
+
+
   taskList.value = sprintDataStore.getsprintData().filter(x => x.type == "task")
   storyList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Story") || (x.type == "Bug"))
   epicList.value = sprintDataStore.getsprintData().filter(x => (x.type == "Epic"))

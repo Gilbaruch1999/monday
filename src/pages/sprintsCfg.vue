@@ -41,7 +41,7 @@
     <div align="center">
       <v-btn v-if="manageSprints" :disabled="updateRequired == false" color="orange" class="mr-2 mt-4"
         @click="updateSprints()">Save </v-btn>
-      <v-btn class="mr-2 mt-4" color="orange">{{ managBtnHeader }} @click="manageSprintsClicked()"</v-btn>
+      <v-btn class="mr-2 mt-4" color="orange"  @click="manageSprints = true">{{ managBtnHeader }}</v-btn>
     </div>
   </v-container>
   <v-dialog v-model="dialog" width="50%">
@@ -189,7 +189,7 @@ function cancelUpdateBoardCfg() {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getRowProps(sprintitem: any) {
   let ret_val = {}
-  console.log("Sprint item group " + sprintitem.groupid)
+  //console.log("Sprint item group " + JSON.stringify(sprintitem.item.groupid))
 
   if (sprintitem.item.groupid == sprintDataStore.getCursprintConfig().groupid) {
     ret_val = { class: 'done_bg' }

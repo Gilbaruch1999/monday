@@ -1,15 +1,37 @@
-
 <template>
   <v-container class="ma-1" fluid>
     <v-row>
       <v-col v-for="(state, index) in states" :key="state">
         <v-card :class="getCardColorClass(state)" elevation="5" max-width="400px" min-height="20">
           <v-card-title class="ma-1">{{ state }}
-            <v-btn v-if="(index == 0)" :disabled="changeList.length === 0" @click="updateStates()">Update</v-btn>
+            <v-btn v-if="(index == 8)" disabled class="mr-2" >Filter
+                <v-dialog activator="parent" max-width="340">
+            <template #default="{ isActive }">
+              <v-card
+                prepend-icon="mdi-picture-in-picture-bottom-right"
+                text="Select which feature to display"
+                title="Select features"
+              >
+                <template #actions>
+                  <v-btn
+                    class="ml-auto"
+                    text="cancel"
+                    @click="isActive.value = false"
+                  ></v-btn>
+                  <v-btn
+                    class="ml-auto"
+                    text="update"
+                    @click="isActive.value = false"
+                  ></v-btn>
+                </template>
+              </v-card>
+            </template>
+          </v-dialog>
+            </v-btn>
+            <v-btn v-if="(index == 0)"  class="mr-2" :disabled="changeList.length === 0" @click="updateStates()">Update</v-btn>
           </v-card-title>
-
-          <VueDraggable  v-model="processedValue" group="kanban" :animation="300" :data-column-id="state" class="flex flex-col gap-2 min-h-[150px]"
-            @end="(event) => onDragEnd(event)">
+          <VueDraggable v-model="processedValue" group="kanban" :animation="300" :data-column-id="state"
+            class="flex flex-col gap-2 min-h-[150px]" @end="(event) => onDragEnd(event)">
             <v-card v-for="card in getItems(state)" :key="card.id" class="ma-1" elevation="2">
               <kanban-card :item="card" :parent-title="getParentTitle(card.parent)" />
             </v-card>
@@ -17,7 +39,9 @@
         </v-card>
       </v-col>
     </v-row>
+
   </v-container>
+
 </template>
 
 <script setup lang='ts'>
@@ -33,7 +57,7 @@ import { getCardColorClass, mapStates, states } from '@/custom/states';
 import { MondayClientSdk } from 'monday-sdk-js';
 import { updateValueQuery } from '@/custom/mondayQueries';
 import { boardConfig } from '@/utils/boardCfg';
-import { statusColId } from '@/custom/snooze/fields-snooze';
+import { statusColId } from '@/custom/fields';
 
 class changeItem {
   itemid: string = ""

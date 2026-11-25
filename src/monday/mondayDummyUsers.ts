@@ -3,7 +3,7 @@ export function getMondayDummyUsers() {
   const res = {
     "data": {
     "users": [
-      {
+       {
         "id": "63963748",
         "name": "Dan Bouzaglo",
         "email": "danbusiness1902@gmail.com",
