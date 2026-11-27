@@ -59,16 +59,16 @@ import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from
 import { getMondayDummyBoardConfig } from '@/monday/mondayDummyConfig'
 import { getMondayDummyHistory, getMondayDummySprintsConfig } from '@/monday/mondayDummyStorage'
 import { getMondayDummyUsers } from '@/monday/mondayDummyUsers'
-import { getAllUsersQuery, getBoardConfigQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from '@/custom/mondayQueries'
+import { getAllUsersQuery, getBoardGroupsQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from '@/custom/mondayQueries'
 import router from '@/router'
 import { useUsersData } from '@/stores/usersData'
-import { boardConfig } from '@/utils/boardCfg'
+import { appContext, boardConfig } from '@/utils/boardCfg'
 import { boardItem, PlanningErrorsIndex } from '@/utils/boarditem'
 import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
 import { createUserList, userData } from '@/utils/users'
 import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
-import { getAppContext, getItemsFromApp } from '@/custom/getInfoFromApp'
+import { getAppContext, getAppUserList, getItemsFromApp, getSprintConfiguration } from '@/custom/getInfoFromApp'
 
 const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData()
@@ -135,7 +135,7 @@ async function initData() {
   sprintDataStore.setsprintData(itemsList.value)
   toolbarTitle.value = sprintDataStore.getBoardCfg().displayName + ' ' + curSprint.name + ' progress status'
   sprintDataStore.setCursprintConfig(curSprint)
-  console.log("items !!!!!" + JSON.stringify(sprintDataStore.getsprintData()[0]))
+  //console.log("items !!!!!" + JSON.stringify(sprintDataStore.getsprintData()[0]))
 
   router.push({ path: '/burndown' })
 }
@@ -190,7 +190,7 @@ async function getBoardConfig(bid: string) {
     sprintList.push(...getMondayDummySprintsConfig())
     // console.log("Sprints list xxxx" + JSON.stringify(sprintList))
   } else {
-    const qstr = getBoardConfigQuery(bid)
+    const qstr = getBoardGroupsQuery(bid)
     const res = await mondayapi.api(qstr)
     // console.log("get board config from api" + JSON.stringify(res))
     sprintscfgMonday = res.data
@@ -485,7 +485,10 @@ function userChanged(item: userData) {
 
 async function testMonday() {
 
-  getAppContext()
+  const context : appContext =  await getAppContext()
+  await getAppUserList()
+  const sprints = await getSprintConfiguration(context)
+  console.log("Got sprints " + JSON.stringify(sprints))
 
 
   /*itemsList.value = []

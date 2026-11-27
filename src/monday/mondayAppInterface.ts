@@ -48,3 +48,12 @@ export type MondayContext =
   | BoardViewContext
   | ItemViewContext
   | DashboardWidgetContext;
+
+  export interface MondayUser
+  {
+   id : string
+   name : string
+   email : string
+   is_admin :boolean
+   photo_tiny : boolean
+  }

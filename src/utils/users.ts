@@ -6,6 +6,7 @@ export class userData {
   image_link : string = ""
 }
 
+// todo remove later
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createUserList(data: any): userData[] {
   const ret_val: userData[] = [];

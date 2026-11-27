@@ -1,9 +1,14 @@
 /* cspell:disable */
 import { boardItem } from "@/utils/boarditem";
-import { Sprint } from "@/utils/sprintInfo";
+import { convertJSONtoSprint, Sprint } from "@/utils/sprintInfo";
 
 import { SeamlessApiClient } from "@mondaydotcomorg/api";
-import { getBoardItemsByIdQuery, getItemsIdyGroupQuery } from "./mondayQueries";
+import {
+  getAllUsersQuery,
+  getBoardGroupsQuery,
+  getBoardItemsByIdQuery,
+  getItemsIdyGroupQuery,
+} from "./mondayQueries";
 import {
   getDummyIdsList,
   getMondayDummyBoardItems,
@@ -12,7 +17,11 @@ import {
 import mondaySdk from "monday-sdk-js";
 const mondayApiSdk = mondaySdk();
 import { sprintHistory } from "@/utils/historyData";
-import { BaseMondayContext } from "@/monday/mondayAppInterface";
+import { BoardViewContext } from "@/monday/mondayAppInterface";
+import { appContext } from "@/utils/boardCfg";
+import { userData } from "@/utils/users";
+import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
+import { getMondayDummySprintsConfig } from "@/monday/mondayDummyStorage";
 const apiClient = new SeamlessApiClient();
 
 export async function getItemsFromApp(curSprint: Sprint): Promise<boardItem[]> {
@@ -87,36 +96,134 @@ export async function getHistoryData(): Promise<sprintHistory[]> {
   return history;
 }
 
-export async function getAppContext(): Promise<BaseMondayContext> {
+export async function getAppContext(): Promise<appContext> {
   const res = await mondayApiSdk.get("context");
   let dataFromApi;
-  console.log(" Res  " + JSON.stringify(res));
+  const ret_val: appContext = new appContext();
+  // console.log(" Res  " + JSON.stringify(res));
 
-  if (typeof res.data === "undefined") {
+  if (isApiResponseValid(res)) {
+    dataFromApi = res.data as unknown as BoardViewContext;
+  } else {
     dataFromApi = getMondayDummyContext();
-  } else {
-      dataFromApi = res.data as unknown as BaseMondayContext;
   }
+
   console.log("App context " + JSON.stringify(dataFromApi));
-  return dataFromApi as BaseMondayContext;
+  ret_val.boardId = dataFromApi.boardId;
+  ret_val.currentUser.id = dataFromApi.user.id;
+  return ret_val;
+}
 
-  /*
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let context: any
-  if (getFromDummy.value) {
-    context = getMondayDummyContext()
-    bconfig.value.boardId = context['boardId']
+export async function getAppUserList(): Promise<userData[]> {
+  const query = getAllUsersQuery();
+  const res: unknown = await apiClient.request(query);
+  //console.log("Result from get user list XXXXXXXXXXXXXXX " + JSON.stringify(res));
+
+  let dataFromApi;
+  let ret_val: userData[];
+
+  if (isApiResponseValid(res)) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    dataFromApi = res.data;
   } else {
-    // console.log("Get from API async ")
-    const res = await mondayapi.get('context')
-    // console.log("Res " + JSON.stringify(res))
-    context = res.data
-    try {
-      bconfig.value.boardId = context['boardId']
-      console.log('Board id ' + bconfig.value.boardId)
-    } catch {  }
+    dataFromApi = getMondayDummyUsers();
   }
-  currentUser.value.id = context['user'].id
 
-  // console.log("board id " + boardId.value)*/
+  // eslint-disable-next-line prefer-const
+  ret_val = mondayCreateUserList(dataFromApi);
+  //console.log("User list !!!!!!!!!!!!!!!! " + JSON.stringify(ret_val));
+  return ret_val;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isApiResponseValid(res: any): boolean {
+  let ret_val = false;
+  if (typeof res === "object" && res !== null && "data" in res) ret_val = true;
+
+  return ret_val;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mondayCreateUserList(data: any): userData[] {
+  const ret_val: userData[] = [];
+  data.data.users.forEach(
+    (user: {
+      name: string;
+      email: string;
+      id: string;
+      is_admin: boolean;
+      photo_tiny: string;
+    }) => {
+      const newUser = new userData();
+      newUser.name = user.name;
+      newUser.email = user.email;
+      newUser.id = user.id;
+      newUser.is_admin = user.is_admin;
+      newUser.image_link = user.photo_tiny;
+
+      ret_val.push(newUser);
+    },
+  );
+
+  return ret_val;
+}
+
+/*
+read the sprint configuration from storage and app boards
+*/
+export async function getSprintConfiguration(context: appContext): Promise<Sprint[]> {
+  /*
+  1) Get from storage all sprints related to this board - create initial sprint list
+  2) Get from monday API all group ids (i.e sprints)
+  3) Add all groups which do not apear in the sprints from storage
+
+  */
+
+  let ret_val: Sprint[] = [];
+
+  const res = await mondayApiSdk.storage.instance.getItem("boardInfo");
+
+   console.log("storage result from api " + JSON.stringify(res))
+  if (isApiResponseValid(res)) {
+    console.log("Result from storage key " + JSON.stringify(res.data.value));
+    const arr = JSON.parse(res.data.value);
+    for (const element of arr) {
+      const sprint: Sprint = convertJSONtoSprint(element);
+      // console.log("Sprint " + sprint.name + " start date " + sprint.startDate.toLocaleDateString())
+      ret_val.push(sprint);
+    }
+  }
+  console.log("Sprint from storage key " + JSON.stringify(ret_val))
+
+  // read all groups in the board
+  const query = getBoardGroupsQuery(context.boardId.toString());
+  const apiRes: unknown = await apiClient.request(query);
+  if (isApiResponseValid(apiRes)) {
+     console.log("Sprints from application " + JSON.stringify(apiRes))
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    apiRes.data.data.boards.forEach((board) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      board.groups.forEach((group: { id: any; title: any; }) => {
+        const id = group.id;
+        const title = group.title;
+        const index = ret_val.findIndex((x) => x.boardid == id);
+        if (index == -1) {
+          const newSprint : Sprint = new Sprint()
+          newSprint.boardid = context.boardId.toString()
+          newSprint.groupid = id;
+          newSprint.orgName = title;
+          newSprint.name = title
+          ret_val.push(newSprint);
+        }
+      });
+    });
+  }
+  else
+  {
+    ret_val = getMondayDummySprintsConfig()
+  }
+
+  return ret_val;
 }
