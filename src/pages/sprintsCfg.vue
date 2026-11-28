@@ -2,12 +2,12 @@
 <template>
   <v-container fluid>
 
-    <v-card :title="'Edit board Configuration ' + boardCfg.displayName">
+    <v-card :title="'Edit board Configuration ' + appContextInfo.boardDisplayName">
       <v-form>
         <v-row>
-          <v-text-field v-model="boardCfg.boardId" class="font-weight-bold" disabled label='Board Id'> </v-text-field>
-          <v-text-field v-model="boardCfg.name" class="font-weight-bold" disabled label='Board Name'> </v-text-field>
-          <v-text-field v-model="boardCfg.displayName" class="font-weight-bold" label='Board Display Name'
+          <v-text-field v-model="appContextInfo.boardId" class="font-weight-bold" disabled label='Board Id'> </v-text-field>
+          <v-text-field v-model="appContextInfo.boardDisplayName" class="font-weight-bold" disabled label='Board Name'> </v-text-field>
+          <v-text-field v-model="appContextInfo.boardName" class="font-weight-bold" label='Board Display Name'
             @update:model-value="nameChangeCliked()"> </v-text-field>
         </v-row>
       </v-form>
@@ -98,7 +98,7 @@ import { useSprintData } from "../stores/sprintData";
 import { Sprint, sprintType } from "@/utils/sprintInfo";
 import { addDays } from "@/utils/utils";
 import { MondayClientSdk } from "monday-sdk-js";
-import { boardConfig } from "@/utils/boardCfg";
+import { appContext, boardConfig  } from "@/utils/boardCfg";
 
 
 const mondayapi = inject('monday') as MondayClientSdk
@@ -110,7 +110,8 @@ const manageSprints = ref(false)
 const managBtnHeader = ref("Edit")
 const dialog = ref(false)
 const updateRequired = ref(false)
-const boardCfg: Ref<boardConfig> = ref(new boardConfig())
+const appContextInfo : Ref<appContext> = ref(new appContext())
+const boardCfg : Ref<boardConfig> =  ref(new boardConfig())
 const boardChanged = ref(false)
 
 
@@ -133,7 +134,7 @@ const sprintHeaders = [
 
 
 onMounted(async () => {
-  readBoardConfig();
+  readAppContext();
   readSprintData();
 
 })
@@ -146,9 +147,12 @@ function readSprintData() {
 
 }
 
-function readBoardConfig() {
-  boardCfg.value.createBoardConfigFromStorage(sprintDataStore.getBoardCfg())
-  console.log("Board config " + JSON.stringify(boardCfg.value))
+function readAppContext() {
+  appContextInfo.value = sprintDataStore.getAppContext()
+  boardCfg.value.boardId = appContextInfo.value.boardId.toString()
+  boardCfg.value.displayName = appContextInfo.value.boardDisplayName
+  boardCfg.value.name = appContextInfo.value.boardName
+
 }
 
 function editSprint(item: Sprint) {
@@ -180,7 +184,7 @@ function cancelUpdateSprintItem() {
 
 
 function cancelUpdateBoardCfg() {
-  readBoardConfig();
+  readAppContext();
   boardChanged.value = false
 
 }
@@ -219,7 +223,8 @@ function UpdateSprintItem() {
 
 async function updateBoardConfig() {
 
-  sprintDataStore.setBoardCfg(boardCfg.value)
+  appContextInfo.value.boardDisplayName = boardCfg.value.displayName
+  sprintDataStore.setAppContext(appContextInfo.value)
   await mondayapi.storage.instance.setItem("boardConfig", JSON.stringify(boardCfg.value))
 }
 

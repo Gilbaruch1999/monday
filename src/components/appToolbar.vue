@@ -27,7 +27,7 @@
 
     <v-menu v-if="userStore.getOrgUser().is_admin" class="mt-6">
       <template #activator="{ props }">
-        <v-btn class="mt-6" color="white" v-bind="props" >
+        <v-btn class="mt-6" color="white" v-bind="props">
           {{ currentUser.name }}
         </v-btn>
       </template>
@@ -40,7 +40,7 @@
     </v-menu>
 
     <v-avatar class="mt-6" size="36px">
-      <v-img alt="Avatar" :src="currentUser.image_link" @click="testMonday()"/>
+      <v-img alt="Avatar" :src="currentUser.image_link" @click="testMonday()" />
 
     </v-avatar>
   </v-toolbar>
@@ -68,13 +68,14 @@ import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
 import { createUserList, userData } from '@/utils/users'
 import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
-import { getAppContext, getAppUserList, getItemsFromApp, getSprintConfiguration } from '@/custom/getInfoFromApp'
+import { getAppContext, getAppUserList, getBoardConfiguration, getItemsFromApp, getSprintConfiguration } from '@/custom/getInfoFromApp'
 
 const mondayapi = inject('monday') as MondayClientSdk
 const userStore = useUsersData()
 const getFromDummy = ref(false)
 const toolbarTitle = ref('')
 const bconfig: Ref<boardConfig> = ref(new boardConfig())
+
 let curSprint: Sprint = new Sprint()
 
 const groupid = ref('')
@@ -85,6 +86,45 @@ const currentUser: Ref<userData> = ref(new userData())
 const vBtnClass = 'mt-6 text-title-medium font-weight-bold'
 
 onMounted(async () => {
+
+  await initFieldsMap()
+  await getHistoryData()
+  const appContextInfo = await getAppContext()
+  usersList.value =  await getAppUserList()
+  const sprints = await getSprintConfiguration(appContextInfo)
+  sprintDataStore.setsprintList(sprints)
+  //console.log("Got sprints " + JSON.stringify(sprints))
+  bconfig.value = await getBoardConfiguration(appContextInfo)
+  appContextInfo.boardDisplayName = bconfig.value.displayName
+  appContextInfo.boardName = bconfig.value.name
+
+  curSprint = findCurrentSprint()
+  console.log("current sprint " + JSON.stringify(curSprint))
+  if (curSprint.duration == -1) {
+    console.log('No current sprint')
+    router.push({ path: '/sprintsCfg' })
+    return
+  }
+    console.log("App context " + JSON.stringify(appContextInfo))
+  sprintDataStore.setAppContext(appContextInfo)
+  itemsList.value = [...await getItemsFromApp(curSprint)]
+  updateLevel('Story')
+  updateLevel('Epic')
+  updateLevel('Feature')
+  sprintDataStore.setsprintData(itemsList.value)
+
+  console.log('current sprint ' + curSprint.name)
+  console.log('current sprint start date ' + curSprint.startDate.toLocaleString())
+  updateCurrentUser(appContextInfo)
+  sprintDataStore.setCursprintConfig(curSprint)
+  router.push({ path: '/burndown' })
+
+
+})
+
+
+
+async function onMountedOld() {
   console.log('Starting app version v191')
   // get application context
   const res = await mondayapi.get('context')
@@ -112,7 +152,7 @@ onMounted(async () => {
   // get item information
   await initData()
   console.log('Done toolbar on mounted ')
-})
+}
 
 async function initData() {
   await initFieldsMap()
@@ -133,7 +173,7 @@ async function initData() {
   updateLevel('Feature')
 
   sprintDataStore.setsprintData(itemsList.value)
-  toolbarTitle.value = sprintDataStore.getBoardCfg().displayName + ' ' + curSprint.name + ' progress status'
+  toolbarTitle.value = sprintDataStore.getAppContext().boardDisplayName + ' ' + curSprint.name + ' progress status'
   sprintDataStore.setCursprintConfig(curSprint)
   //console.log("items !!!!!" + JSON.stringify(sprintDataStore.getsprintData()[0]))
 
@@ -246,7 +286,7 @@ async function getBoardConfig(bid: string) {
   console.log('board configuration ' + JSON.stringify(bconfig.value))
 
   sprintDataStore.setsprintList(sprintList)
-  sprintDataStore.setBoardCfg(bconfig.value)
+  // sprintDataStore.setBoardCfg(bconfig.value)
 }
 
 // todo move out to app file
@@ -455,7 +495,7 @@ async function sprintChanged(item: Sprint) {
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }
-  toolbarTitle.value = sprintDataStore.getBoardCfg().displayName + ' ' + curSprint.name + ' progress status'
+  toolbarTitle.value = sprintDataStore.getAppContext().boardDisplayName + ' ' + curSprint.name + ' progress status'
 }
 
 // todo move out to app data
@@ -478,6 +518,19 @@ async function getUserList() {
   // console.log("Users " + JSON.stringify( usersList.value))
 }
 
+function updateCurrentUser(context : appContext )
+{
+ // console.log('update current user context ' + JSON.stringify(context) )
+ //console.log('update current user list ' + JSON.stringify(usersList.value) )
+  const index = usersList.value.findIndex(x => x.id == context.currentUser.id)
+  if (index != -1) {
+    currentUser.value = { ...usersList.value[index] }
+    userStore.setCurrentUser(usersList.value[index])
+    userStore.setOrgUser(usersList.value[index])
+  }
+}
+
+
 function userChanged(item: userData) {
   userStore.setCurrentUser(item)
   currentUser.value = item
@@ -485,18 +538,19 @@ function userChanged(item: userData) {
 
 async function testMonday() {
 
-  const context : appContext =  await getAppContext()
+  const appContextInfo = await getAppContext()
   await getAppUserList()
-  const sprints = await getSprintConfiguration(context)
+  const sprints = await getSprintConfiguration(appContextInfo)
   console.log("Got sprints " + JSON.stringify(sprints))
-
-
-  /*itemsList.value = []
+  bconfig.value = await getBoardConfiguration(appContextInfo)
+  appContextInfo.boardDisplayName = bconfig.value.displayName
+  appContextInfo.boardName = bconfig.value.name
+  sprintDataStore.setAppContext(appContextInfo)
   itemsList.value = [...await getItemsFromApp(curSprint)]
   updateLevel('Story')
   updateLevel('Epic')
   updateLevel('Feature')
-  sprintDataStore.setsprintData(itemsList.value)*/
+  sprintDataStore.setsprintData(itemsList.value)
 }
 
 

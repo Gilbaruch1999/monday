@@ -56,7 +56,7 @@ import { DraggableEvent, VueDraggable } from 'vue-draggable-plus'
 import { getCardColorClass, mapStates, states } from '@/custom/states';
 import { MondayClientSdk } from 'monday-sdk-js';
 import { updateValueQuery } from '@/custom/mondayQueries';
-import { boardConfig } from '@/utils/boardCfg';
+import { appContext, boardConfig } from '@/utils/boardCfg';
 import { statusColId } from '@/custom/fields';
 
 class changeItem {
@@ -77,7 +77,8 @@ let changeList: Ref<changeItem[]> = ref([]);
 let filterByName = ref(false)
 const sprintDataStore = useSprintData();
 const userStore = useUsersData();
-let boardcfg: boardConfig = new boardConfig()
+//let boardcfg: boardConfig = new boardConfig()
+let appContextInfo : appContext = new appContext()
 
 const processedValue = computed<boardItem[]>({
   get(state: any): boardItem[] {
@@ -141,7 +142,7 @@ function InitData() {
   if (filterByName.value) {
     itemsList.value = itemsList.value.filter(X => (X.assignedTo.includes(userStore.getCurrentUser().name)))
   }
-  boardcfg = sprintDataStore.getBoardCfg()
+  appContextInfo = sprintDataStore.getAppContext()
 
 
 }
@@ -166,7 +167,7 @@ async function updateStates() {
   for (let index = 0; index < changeList.value.length; index++) {
     var allowedStates: string[] = mapStates.get(changeList.value[index].toState) ?? [];
     if (allowedStates.length > 0) {
-      var qstr = updateValueQuery(boardcfg.boardId, changeList.value[index].itemid, statusColId, allowedStates[0]);
+      var qstr = updateValueQuery(appContextInfo.boardId.toString(), changeList.value[index].itemid, statusColId, allowedStates[0]);
       // console.log("Query is " + qstr)
       var res = await mondayapi.api(qstr);
       //console.log("Result of update " + JSON.stringify(res))

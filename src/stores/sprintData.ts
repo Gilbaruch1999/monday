@@ -1,4 +1,4 @@
-import { boardConfig } from "@/utils/boardCfg";
+import { appContext } from "@/utils/boardCfg";
 import { boardItem } from "@/utils/boarditem";
 import { sprintHistory } from "@/utils/historyData";
 import { Sprint } from "@/utils/sprintInfo";
@@ -21,7 +21,7 @@ export const useSprintData = defineStore("sprintData", () => {
   const sprintList: Ref<Sprint[]> = ref([]);
   const history: Ref<sprintHistory[]> = ref([]);
   const retroInfo : Ref<retroData> = ref(new retroData())
-  const boardData : Ref<boardConfig> = ref (new boardConfig())
+  const appContextInfo : Ref<appContext> = ref (new appContext())
 
 
   function getsprintData(): boardItem[] {
@@ -56,14 +56,14 @@ export const useSprintData = defineStore("sprintData", () => {
     history.value = _history;
   }
 
-  function getBoardCfg(): boardConfig {
+  function getAppContext(): appContext {
 
-    return boardData.value;
+    return appContextInfo.value;
   }
 
-  function setBoardCfg(data : boardConfig  )  {
+  function setAppContext(data : appContext  )  {
 
-   boardData.value = data
+   appContextInfo.value = data
   }
 
   function setRetroInfo( data : retroData)
@@ -89,8 +89,8 @@ export const useSprintData = defineStore("sprintData", () => {
     setsprintList,
     getHistory,
     setHistory,
-    getBoardCfg,
-    setBoardCfg,
+    getAppContext,
+    setAppContext,
     setRetroInfo,
     getRetroInfo
   };

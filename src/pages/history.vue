@@ -237,8 +237,8 @@ function initData() {
   historyList.value = sprintDataStore.getHistory()
   sprintRetroData.value = sprintDataStore.getRetroInfo()
   velocityLable.value = "Velocity"
-  velocityChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Velocity History"
-  predChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + "Predictability History"
+  velocityChartText.value = sprintDataStore.getAppContext().boardDisplayName + " Team " + "Velocity History"
+  predChartText.value = sprintDataStore.getAppContext().boardDisplayName  + " Team " + "Predictability History"
   predLable.value = "Predictability"
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   historyList.value.forEach((element: any) => {

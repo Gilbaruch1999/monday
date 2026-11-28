@@ -253,7 +253,7 @@ function initData() {
   itemsList.value = sprintDataStore.getsprintData().filter(x=> (x.type == "Feature") || ( (x.type == "Story")  && (x.numOfSubitems == 0) ))
   curSprint.value = sprintDataStore.getCursprintConfig()
   createBreakDownChart()
-  statusHeader.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.value.name;
+  statusHeader.value = sprintDataStore.getAppContext().boardDisplayName + " " + curSprint.value.name;
   //console.log("status header " + statusHeader.value)
   updateOptions();
 

@@ -296,8 +296,8 @@ function initData() {
   curSprint.value = sprintDataStore.getCursprintConfig()
   //console.log("burndown Current sprint " + JSON.stringify(curSprint.value))
   createGraph()
-  toolBarTitle.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.value.name + " burnDown chart"
-  lineChartText.value = sprintDataStore.getBoardCfg().displayName + " " + curSprint.value.name + " " + graphType.value + " chart"
+  toolBarTitle.value = sprintDataStore.getAppContext().boardDisplayName + " " + curSprint.value.name + " burnDown chart"
+  lineChartText.value = sprintDataStore.getAppContext().boardDisplayName + " " + curSprint.value.name + " " + graphType.value + " chart"
 }
 
 async function createGraph() {
@@ -498,7 +498,7 @@ function onDetaileGraphChanged() {
 
 function graphTypeChanged() {
 
-  lineChartText.value = sprintDataStore.getBoardCfg().displayName + " Team " + curSprint.value.name + " " + graphType.value + " chart"
+  lineChartText.value = sprintDataStore.getAppContext().boardDisplayName + " Team " + curSprint.value.name + " " + graphType.value + " chart"
 
 }
 

@@ -18,12 +18,16 @@ import mondaySdk from "monday-sdk-js";
 const mondayApiSdk = mondaySdk();
 import { sprintHistory } from "@/utils/historyData";
 import { BoardViewContext } from "@/monday/mondayAppInterface";
-import { appContext } from "@/utils/boardCfg";
+import { appContext, boardConfig } from "@/utils/boardCfg";
 import { userData } from "@/utils/users";
 import { getMondayDummyUsers } from "@/monday/mondayDummyUsers";
 import { getMondayDummySprintsConfig } from "@/monday/mondayDummyStorage";
 const apiClient = new SeamlessApiClient();
 
+/*
+read board items per sprint
+Read features , epic and stories
+*/
 export async function getItemsFromApp(curSprint: Sprint): Promise<boardItem[]> {
   const ret_val: boardItem[] = [];
   let boarddata;
@@ -32,27 +36,27 @@ export async function getItemsFromApp(curSprint: Sprint): Promise<boardItem[]> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const idsdata: any = await apiClient.request(qstr);
 
-  console.log("return from API " + JSON.stringify(idsdata));
+ // console.log("return from API get items from group " + JSON.stringify(idsdata));
   try {
     itemIds = idsdata.data.data.boards[0].items_page.items.map(
       (x: { id: string }) => x.id,
     );
-    console.log("ids " + JSON.stringify(itemIds));
+    //console.log("ids " + JSON.stringify(itemIds));
 
     qstr = getBoardItemsByIdQuery(itemIds);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const res: any = await apiClient.request(qstr);
-    console.log("get boards from api" + JSON.stringify(res));
+    //console.log("get boards from api" + JSON.stringify(res));
     boarddata = res.data.data;
   } catch {
-    console.log("No API using dummy data");
+    //console.log("No API using dummy data");
     boarddata = getMondayDummyBoardItems().data;
     itemIds = getDummyIdsList().data.boards[0].items_page.items.map(
       (x: { id: string }) => x.id,
     );
   }
-  console.log("Board data is " + JSON.stringify(boarddata));
-  //console.log("item ids " + JSON.stringify(itemIds));
+  //console.log("Board data is " + JSON.stringify(boarddata));
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   boarddata?.items.forEach((item: { subitems: any[] }) => {
     const featureItem: boardItem = new boardItem(item);
@@ -84,6 +88,10 @@ export async function getItemsFromApp(curSprint: Sprint): Promise<boardItem[]> {
   return ret_val;
 }
 
+/*
+read the history data velocity and predictability per sprint
+*/
+
 export async function getHistoryData(): Promise<sprintHistory[]> {
   let history: sprintHistory[];
   const res = await mondayApiSdk.storage.instance.getItem("historyInfo");
@@ -95,6 +103,10 @@ export async function getHistoryData(): Promise<sprintHistory[]> {
   // console.log("History from storage  " + JSON.stringify(history))
   return history;
 }
+
+/*
+read application context
+*/
 
 export async function getAppContext(): Promise<appContext> {
   const res = await mondayApiSdk.get("context");
@@ -108,17 +120,18 @@ export async function getAppContext(): Promise<appContext> {
     dataFromApi = getMondayDummyContext();
   }
 
-  console.log("App context " + JSON.stringify(dataFromApi));
+  //console.log("App context " + JSON.stringify(dataFromApi));
   ret_val.boardId = dataFromApi.boardId;
   ret_val.currentUser.id = dataFromApi.user.id;
   return ret_val;
 }
 
+/*
+read the list of all users
+*/
 export async function getAppUserList(): Promise<userData[]> {
   const query = getAllUsersQuery();
   const res: unknown = await apiClient.request(query);
-  //console.log("Result from get user list XXXXXXXXXXXXXXX " + JSON.stringify(res));
-
   let dataFromApi;
   let ret_val: userData[];
 
@@ -129,10 +142,9 @@ export async function getAppUserList(): Promise<userData[]> {
   } else {
     dataFromApi = getMondayDummyUsers();
   }
-
   // eslint-disable-next-line prefer-const
   ret_val = mondayCreateUserList(dataFromApi);
-  //console.log("User list !!!!!!!!!!!!!!!! " + JSON.stringify(ret_val));
+
   return ret_val;
 }
 
@@ -144,6 +156,9 @@ function isApiResponseValid(res: any): boolean {
   return ret_val;
 }
 
+/**********************************************************************************************
+create the list of users
+***********************************************************************************************/
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mondayCreateUserList(data: any): userData[] {
   const ret_val: userData[] = [];
@@ -169,10 +184,12 @@ function mondayCreateUserList(data: any): userData[] {
   return ret_val;
 }
 
-/*
-read the sprint configuration from storage and app boards
-*/
-export async function getSprintConfiguration(context: appContext): Promise<Sprint[]> {
+/**********************************************************************************************
+read the sprint configuration (i.e groups ) from storage and app boards
+***********************************************************************************************/
+export async function getSprintConfiguration(
+  context: appContext,
+): Promise<Sprint[]> {
   /*
   1) Get from storage all sprints related to this board - create initial sprint list
   2) Get from monday API all group ids (i.e sprints)
@@ -181,12 +198,10 @@ export async function getSprintConfiguration(context: appContext): Promise<Sprin
   */
 
   let ret_val: Sprint[] = [];
-
   const res = await mondayApiSdk.storage.instance.getItem("boardInfo");
-
-   console.log("storage result from api " + JSON.stringify(res))
+  //console.log("storage result from api " + JSON.stringify(res));
   if (isApiResponseValid(res)) {
-    console.log("Result from storage key " + JSON.stringify(res.data.value));
+    //console.log("Result from storage key " + JSON.stringify(res.data.value));
     const arr = JSON.parse(res.data.value);
     for (const element of arr) {
       const sprint: Sprint = convertJSONtoSprint(element);
@@ -194,36 +209,57 @@ export async function getSprintConfiguration(context: appContext): Promise<Sprin
       ret_val.push(sprint);
     }
   }
-  console.log("Sprint from storage key " + JSON.stringify(ret_val))
+  //console.log("Sprint from storage key " + JSON.stringify(ret_val));
 
   // read all groups in the board
   const query = getBoardGroupsQuery(context.boardId.toString());
   const apiRes: unknown = await apiClient.request(query);
   if (isApiResponseValid(apiRes)) {
-     console.log("Sprints from application " + JSON.stringify(apiRes))
+    //console.log("Sprints from application " + JSON.stringify(apiRes));
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     apiRes.data.data.boards.forEach((board) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      board.groups.forEach((group: { id: any; title: any; }) => {
+      board.groups.forEach((group: { id: any; title: any }) => {
         const id = group.id;
         const title = group.title;
-        const index = ret_val.findIndex((x) => x.boardid == id);
+        const index = ret_val.findIndex((x) => x.groupid == id);
         if (index == -1) {
-          const newSprint : Sprint = new Sprint()
-          newSprint.boardid = context.boardId.toString()
+
+          const newSprint: Sprint = new Sprint();
+          newSprint.boardid = context.boardId.toString();
           newSprint.groupid = id;
           newSprint.orgName = title;
-          newSprint.name = title
+          newSprint.name = title;
+          console.log("Found new sprint !!!!!! " + JSON.stringify(newSprint))
           ret_val.push(newSprint);
         }
       });
     });
+  } else {
+    ret_val = getMondayDummySprintsConfig();
+  }
+
+  return ret_val;
+}
+
+
+export async function getBoardConfiguration(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  context: appContext,
+): Promise<boardConfig> {
+  const ret_val: boardConfig = new boardConfig();
+
+  const res = await mondayApiSdk.storage.instance.getItem("boardConfig");
+  console.log( "storage result from get board config api " + JSON.stringify(res));
+  if (isApiResponseValid(res)) {
+    ret_val.createBoardConfigFromStorage(res.data.value);
   }
   else
   {
-    ret_val = getMondayDummySprintsConfig()
+    ret_val.displayName = "test 1"
   }
 
+  console.log("Board configuration " + JSON.stringify(ret_val))
   return ret_val;
 }

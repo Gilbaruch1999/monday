@@ -8,13 +8,13 @@
     </v-tooltip>
 
     <v-card-text v-if="item.parent.length > 1">Parent : {{ item.parent }}
-      <v-chip :color="getPointsColor(item.sizeEstimation)" size="x-small" variant="flat">{{ item.sizeEstimation
+      <v-chip class="mr-2" :color="getPointsColor(item.sizeEstimation)" size="x-small" variant="flat">{{ item.sizeEstimation
       }}</v-chip>
 
       <v-chip class="mr-2" color="green-darken-4" size="x-small" variant="flat">{{ item.assignedTo
       }}</v-chip>
 
-      <v-chip class="mr-1" color="green-darken-4" size="x-small" variant="flat">{{ item.status
+      <v-chip class="mr-2" color="green-darken-4" size="x-small" variant="flat">{{ item.status
       }}</v-chip>
 
       <v-chip color="green-darken-4" size="x-small" variant="flat">{{ item.goalCategory
