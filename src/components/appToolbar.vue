@@ -40,7 +40,7 @@
     </v-menu>
 
     <v-avatar class="mt-6" size="36px">
-      <v-img alt="Avatar" :src="currentUser.image_link" @click="testMonday()" />
+      <v-img alt="Avatar" :src="currentUser.image_link"  />
 
     </v-avatar>
   </v-toolbar>
@@ -55,17 +55,13 @@ import type { MondayClientSdk } from 'monday-sdk-js'
 import { inject, onMounted, ref, type Ref } from 'vue'
 import { initFieldsMap } from '@/custom/fields'
 import { isDoneState } from '@/custom/states'
-import { getDummyIdsList, getMondayDummyBoardItems, getMondayDummyContext } from '@/monday/mondayBoardItems'
-import { getMondayDummyBoardConfig } from '@/monday/mondayDummyConfig'
-import { getMondayDummyHistory, getMondayDummySprintsConfig } from '@/monday/mondayDummyStorage'
-import { getMondayDummyUsers } from '@/monday/mondayDummyUsers'
-import { getAllUsersQuery, getBoardGroupsQuery, getBoardItemsByIdQuery, getItemsIdyGroupQuery } from '@/custom/mondayQueries'
+import { getMondayDummyHistory  } from '@/monday/mondayDummyStorage'
 import router from '@/router'
 import { useUsersData } from '@/stores/usersData'
 import { appContext, boardConfig } from '@/utils/boardCfg'
 import { boardItem, PlanningErrorsIndex } from '@/utils/boarditem'
-import { convertJSONtoSprint, Sprint } from '@/utils/sprintInfo'
-import { createUserList, userData } from '@/utils/users'
+import { Sprint } from '@/utils/sprintInfo'
+import { userData } from '@/utils/users'
 import { getDaysdiff } from '@/utils/utils'
 import { useSprintData } from '../stores/sprintData'
 import { getAppContext, getAppUserList, getBoardConfiguration, getItemsFromApp, getSprintConfiguration } from '@/custom/getInfoFromApp'
@@ -78,7 +74,6 @@ const bconfig: Ref<boardConfig> = ref(new boardConfig())
 
 let curSprint: Sprint = new Sprint()
 
-const groupid = ref('')
 const itemsList: Ref<boardItem[]> = ref([])
 const sprintDataStore = useSprintData()
 const usersList: Ref<userData[]> = ref([])
@@ -105,13 +100,9 @@ onMounted(async () => {
     router.push({ path: '/sprintsCfg' })
     return
   }
-    console.log("App context " + JSON.stringify(appContextInfo))
+  //console.log("App context " + JSON.stringify(appContextInfo))
   sprintDataStore.setAppContext(appContextInfo)
-  itemsList.value = [...await getItemsFromApp(curSprint)]
-  updateLevel('Story')
-  updateLevel('Epic')
-  updateLevel('Feature')
-  sprintDataStore.setsprintData(itemsList.value)
+  await getAllSprintItems(curSprint)
 
   console.log('current sprint ' + curSprint.name)
   console.log('current sprint start date ' + curSprint.startDate.toLocaleString())
@@ -119,67 +110,18 @@ onMounted(async () => {
   sprintDataStore.setCursprintConfig(curSprint)
   router.push({ path: '/burndown' })
 
-
 })
 
 
-
-async function onMountedOld() {
-  console.log('Starting app version v191')
-  // get application context
-  const res = await mondayapi.get('context')
-  // console.log("Res " + JSON.stringify(res))
-  try {
-    // eslint-disable-next-line no-prototype-builtins
-    if (res.hasOwnProperty('data')) {
-      getFromDummy.value = false
-    } else {
-      console.log('No API')
-      getFromDummy.value = true
-    }
-  } catch {
-    console.log('use dummy data ')
-    getFromDummy.value = true
-  }
-  await getContext()
-
-  // get application configuration
-  await getBoardConfig(bconfig.value.boardId)
-  // get user List
-  await getUserList()
-  // get sprint information
-
-  // get item information
-  await initData()
-  console.log('Done toolbar on mounted ')
-}
-
-async function initData() {
-  await initFieldsMap()
-  await getHistoryData()
-  curSprint = findCurrentSprint()
-  if (curSprint.duration == -1) {
-    console.log('No current sprint')
-    router.push({ path: '/sprintsCfg' })
-    return
-  } else {
-    groupid.value = curSprint.groupid
-    console.log('current sprint ' + curSprint.name)
-    console.log('current sprint start date ' + curSprint.startDate.toLocaleString())
-  }
-  await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid)
+async function getAllSprintItems(SprintInfo : Sprint )
+{
+  itemsList.value = [...await getItemsFromApp(SprintInfo)]
   updateLevel('Story')
   updateLevel('Epic')
   updateLevel('Feature')
-
   sprintDataStore.setsprintData(itemsList.value)
-  toolbarTitle.value = sprintDataStore.getAppContext().boardDisplayName + ' ' + curSprint.name + ' progress status'
-  sprintDataStore.setCursprintConfig(curSprint)
-  //console.log("items !!!!!" + JSON.stringify(sprintDataStore.getsprintData()[0]))
 
-  router.push({ path: '/burndown' })
 }
-
 
 // todo check if it works and remove
 async function getHistoryData() {
@@ -217,100 +159,6 @@ async function getHistoryData() {
   }
 }
 
-// todo move out to app file
-async function getBoardConfig(bid: string) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let sprintscfgMonday: any
-  const sprintList: Sprint[] = []
-
-  console.log('Started get board config')
-
-  if (getFromDummy.value) {
-    sprintscfgMonday = getMondayDummyBoardConfig().data
-    sprintList.push(...getMondayDummySprintsConfig())
-    // console.log("Sprints list xxxx" + JSON.stringify(sprintList))
-  } else {
-    const qstr = getBoardGroupsQuery(bid)
-    const res = await mondayapi.api(qstr)
-    // console.log("get board config from api" + JSON.stringify(res))
-    sprintscfgMonday = res.data
-
-    const res1 = await mondayapi.storage.instance.getItem('boardInfo')
-    // console.log("res1 " + JSON.stringify(res1))
-    if ((res1.data.value === null)) {
-      console.log('Board sprints configuration is empty')
-      const tmp: never[] = []
-      await mondayapi.storage.instance.setItem('boardInfo', JSON.stringify(tmp))
-    } else {
-      // console.log("Result from storage key " + JSON.stringify(res1.data.value))
-      const arr = JSON.parse(res1.data.value)
-      for (const element of arr) {
-        // console.log("Sprint from storage key " + JSON.stringify(element))
-        const sprint: Sprint = convertJSONtoSprint(element)
-        // console.log("Sprint " + sprint.name + " start date " + sprint.startDate.toLocaleDateString())
-        sprintList.push(sprint)
-      }
-    }
-    // console.log("Sprints from storage " + JSON.stringify(sprintList))
-  }
-  // console.log("Sprints config from storage" + JSON.stringify(sprintscfgMonday))
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  sprintscfgMonday.boards.forEach((board: any) => {
-    bconfig.value.name = board.name
-    bconfig.value.displayName = board.name
-    // to do change this code
-    bconfig.value.displayName = 'Dev 1'
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    board.groups.forEach((group: any) => {
-      const sprintx = createSprintFromBoardConfig(group, bid)
-      const index = sprintList.findIndex(x => x.groupid == sprintx.groupid)
-      if (index == -1)
-        sprintList.unshift(sprintx)
-      else {
-        sprintList[index].orgName = group.title
-      }
-    })
-  })
-  // console.log("Bconfig is " + JSON.stringify(bconfig.value))
-  // read board configuration from storage if it exists
-  if (!getFromDummy.value) {
-    const res1 = await mondayapi.storage.instance.getItem('boardConfig')
-    if ((res1.data.value === null)) {
-      console.log('Board Configuration is empty')
-    } else {
-      console.log('Board config from storage ' + JSON.stringify((res1.data.value)))
-      bconfig.value.createBoardConfigFromStorage(JSON.parse(res1.data.value))
-    }
-  }
-
-  console.log('board configuration ' + JSON.stringify(bconfig.value))
-
-  sprintDataStore.setsprintList(sprintList)
-  // sprintDataStore.setBoardCfg(bconfig.value)
-}
-
-// todo move out to app file
-async function getContext() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let context: any
-  if (getFromDummy.value) {
-    context = getMondayDummyContext()
-    bconfig.value.boardId = context['boardId']
-  } else {
-    // console.log("Get from API async ")
-    const res = await mondayapi.get('context')
-    // console.log("Res " + JSON.stringify(res))
-    context = res.data
-    try {
-      bconfig.value.boardId = context['boardId']
-      console.log('Board id ' + bconfig.value.boardId)
-    } catch { /* empty */ }
-  }
-  currentUser.value.id = context['user'].id
-
-  // console.log("board id " + boardId.value)
-}
-
 function findCurrentSprint(): Sprint {
   let ret_val = new Sprint()
   const curDate = new Date()
@@ -323,101 +171,6 @@ function findCurrentSprint(): Sprint {
     }
   }
   return ret_val
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function createSprintFromBoardConfig(groupdata: any, bid: string): Sprint {
-  const newSprint = new Sprint()
-
-  newSprint.startDate = new Date()
-  newSprint.duration = 14
-  newSprint.orgName = groupdata.title
-  newSprint.name = groupdata.title
-  newSprint.nonWorkingDays = []
-  newSprint.boardid = bid
-  newSprint.groupid = groupdata.id
-
-  return newSprint
-}
-
-// todo move out to app file
-async function getBoardItems(sprintStart: Date, sprintLength: number, groupid: string) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let boarddata: any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let idsdata: any
-  const ids: string[] = []
-  itemsList.value = []
-  if (getFromDummy.value) {
-    boarddata = getMondayDummyBoardItems()
-    idsdata = getDummyIdsList()
-    boarddata = boarddata.data
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    idsdata.data.boards.forEach((board: { items_page: { items: { id: any }[] } }) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      board.items_page.items.forEach((item: { id: any }) => {
-        ids.push(item.id)
-      })
-    })
-    // console.log("got dummy items " + JSON.stringify(boarddata))
-    // boarddata = boarddata.boards[0].items_page
-  } else {
-    let qstr = getItemsIdyGroupQuery(groupid)
-    // console.log("Query " + qstr)
-    idsdata = await mondayapi.api(qstr)
-    // console.log("Return from get board items " + JSON.stringify(idsdata))
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    idsdata.data.boards.forEach((board: { items_page: { items: { id: any }[] } }) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      board.items_page.items.forEach((item: { id: any }) => {
-        ids.push(item.id)
-      })
-    })
-    qstr = getBoardItemsByIdQuery(ids)
-    const res = await mondayapi.api(qstr)
-    // console.log("get boards from api" + JSON.stringify(res))
-    boarddata = res.data
-  }
-  try {
-    if (boarddata.items.length === 0)
-      console.log('No items')
-  } catch {
-    boarddata = {}
-    console.log('Error from API ' + JSON.stringify(boarddata))
-    boarddata['items'] = []
-  }
-  itemsList.value = []
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  boarddata.items.forEach((item: { subitems: any[] }) => {
-    const featureItem: boardItem = new boardItem(item)
-    if (featureItem.type == 'Feature') {
-      const tmpidx = ids.findIndex(x => x == featureItem.id)
-      if (tmpidx != -1) {
-        // console.log("Setting sort order of item " + featureItem.title + " to " + tmpidx)
-        featureItem.sortOrder = tmpidx
-      }
-    }
-    itemsList.value.push(featureItem)
-    const rootid = featureItem.id
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    item.subitems.forEach((subItemElement: any) => {
-      const subitem: boardItem = new boardItem(subItemElement)
-      // console.log("Item type " + subitem.type)
-      if (subitem.type == 'Task' || subitem.type == 'Story') {
-        subitem.rootItemId = rootid
-        subitem.goalCategory = featureItem.goalCategory
-      }
-      itemsList.value.push(subitem)
-    }) // end 2Nd level loop
-  }) // end item loop
-
-  // console.log("Items " + JSON.stringify(itemsList.value))
-  console.log('Number of items ' + itemsList.value.length)
-
-  // updateAllLevels()
-  // checkStorySize()
 }
 
 // todo check and see if this still make sense
@@ -487,35 +240,14 @@ async function sprintChanged(item: Sprint) {
   console.log('Sprint changed to ' + JSON.stringify(item))
   // console.log("sprints " + JSON.stringify(sprintDataStore.getsprintList()))
   const index = sprintDataStore.getsprintList().findIndex(x => x.name == item.name)
-  console.log('index ' + index)
   if (index != -1) {
     curSprint = sprintDataStore.getsprintList()[index]
     toolbarTitle.value = curSprint.name + ' status'
-    await getBoardItems(curSprint.startDate, curSprint.duration, curSprint.groupid)
+    await getAllSprintItems(curSprint)
     sprintDataStore.setsprintData(itemsList.value)
     sprintDataStore.setCursprintConfig(curSprint)
   }
   toolbarTitle.value = sprintDataStore.getAppContext().boardDisplayName + ' ' + curSprint.name + ' progress status'
-}
-
-// todo move out to app data
-async function getUserList() {
-  let userinfo
-  if (getFromDummy.value) {
-    userinfo = getMondayDummyUsers()
-  } else {
-    const query = getAllUsersQuery()
-    userinfo = await mondayapi.api(query)
-  }
-  usersList.value = createUserList(userinfo)
-  userStore.setUsers(usersList.value)
-  const index = usersList.value.findIndex(x => x.id == currentUser.value.id)
-  if (index != -1) {
-    currentUser.value = { ...usersList.value[index] }
-    userStore.setCurrentUser(usersList.value[index])
-    userStore.setOrgUser(usersList.value[index])
-  }
-  // console.log("Users " + JSON.stringify( usersList.value))
 }
 
 function updateCurrentUser(context : appContext )
@@ -536,22 +268,6 @@ function userChanged(item: userData) {
   currentUser.value = item
 }
 
-async function testMonday() {
-
-  const appContextInfo = await getAppContext()
-  await getAppUserList()
-  const sprints = await getSprintConfiguration(appContextInfo)
-  console.log("Got sprints " + JSON.stringify(sprints))
-  bconfig.value = await getBoardConfiguration(appContextInfo)
-  appContextInfo.boardDisplayName = bconfig.value.displayName
-  appContextInfo.boardName = bconfig.value.name
-  sprintDataStore.setAppContext(appContextInfo)
-  itemsList.value = [...await getItemsFromApp(curSprint)]
-  updateLevel('Story')
-  updateLevel('Epic')
-  updateLevel('Feature')
-  sprintDataStore.setsprintData(itemsList.value)
-}
 
 
 </script>

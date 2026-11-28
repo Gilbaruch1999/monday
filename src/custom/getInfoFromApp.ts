@@ -251,7 +251,7 @@ export async function getBoardConfiguration(
   const ret_val: boardConfig = new boardConfig();
 
   const res = await mondayApiSdk.storage.instance.getItem("boardConfig");
-  console.log( "storage result from get board config api " + JSON.stringify(res));
+ // console.log( "storage result from get board config api " + JSON.stringify(res));
   if (isApiResponseValid(res)) {
     ret_val.createBoardConfigFromStorage(res.data.value);
   }
@@ -259,7 +259,6 @@ export async function getBoardConfiguration(
   {
     ret_val.displayName = "test 1"
   }
-
-  console.log("Board configuration " + JSON.stringify(ret_val))
+  //console.log("Board configuration " + JSON.stringify(ret_val))
   return ret_val;
 }
